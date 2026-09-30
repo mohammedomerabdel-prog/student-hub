@@ -81,6 +81,7 @@
             font-weight: 700;
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .nav-btn:hover { background: var(--accent-gold); border-color: var(--accent-gold); }
@@ -283,7 +284,6 @@
                 <a href="./index.html" class="nav-btn">الرئيسية</a>
                 <a href="./subjects.html" class="nav-btn">المواد</a>
                 <a href="./exams.html" class="nav-btn">بنك الأسئلة</a>
-                <!-- الرابط المحدث بالاسم الجديد fun.html -->
                 <a href="./fun.html" class="nav-btn">الاستطلاعات</a>
                 <a href="./gpa.html" class="nav-btn">حاسبة GPA</a>
                 <button class="nav-btn" onclick="toggleTheme()">🌙</button>
@@ -320,7 +320,7 @@
                 <a href="./exams.html" class="btn-card" style="background: var(--primary-blue);">دخول بنك الامتحانات 🎯</a>
             </div>
 
-            <!-- 3. كارت الاستطلاعات واختبارات الشخصية (محدث بالرابط الجديد fun.html) -->
+            <!-- 3. كارت الاستطلاعات واختبارات الشخصية -->
             <div class="card">
                 <div>
                     <div class="card-icon">🧠💬</div>
@@ -396,6 +396,7 @@
         </div>
     </footer>
 
+    <!-- SCRIPT TABS & AI -->
     <script>
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
@@ -457,6 +458,40 @@
                 msgBox.scrollTop = msgBox.scrollHeight;
             }, 400);
         }
+    </script>
+
+    <!-- كود تشغيل صوت النقرات الفوري عند الضغط على أي عنصر تفاعلي -->
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playClickSound() {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+
+            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.05);
+        }
+
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('button, a, .nav-btn, .btn-card, .ai-chat-btn, input[type="button"], input[type="submit"]');
+            if (target) {
+                playClickSound();
+            }
+        });
     </script>
 </body>
 </html>
