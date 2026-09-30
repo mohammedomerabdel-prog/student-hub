@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استطلاع المقدرات والعلاقات | دفعة 023</title>
+    <title>الاستطلاعات المتعددة والأقسام | دفعة 023</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,16 @@
 
     <style>
         :root {
-            --primary-dark: #0A192F;
+            --primary-dark: #0F172A;
             --primary-blue: #1E3A8A;
-            --accent-gold: #D97706;
-            --accent-gold-light: #FBBF24;
-            --bg-light: #F8FAFC;
+            --accent-gold: #F59E0B;
+            --accent-gold-light: #FCD34D;
+            --bg-light: #F1F5F9;
             --card-bg: #FFFFFF;
-            --text-main: #0F172A;
+            --text-main: #1E293B;
             --text-muted: #64748B;
+            --shadow-card: 0 10px 30px -5px rgba(30, 58, 138, 0.08);
+            --shadow-hover: 0 20px 40px -10px rgba(245, 158, 11, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,21 +39,21 @@
 
         .quiz-card {
             background: var(--card-bg);
-            width: min(650px, 95%);
-            border-radius: 20px;
-            padding: 30px 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid #E2E8F0;
+            width: min(680px, 95%);
+            border-radius: 24px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(226, 232, 240, 0.8);
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
-        .quiz-header h1 { font-size: 22px; color: var(--primary-dark); margin-bottom: 5px; }
-        .quiz-header p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+        .quiz-header h1 { font-size: 24px; font-weight: 900; color: var(--primary-dark); margin-bottom: 5px; }
+        .quiz-header p { font-size: 14px; color: var(--text-muted); margin-bottom: 25px; font-weight: 600; }
 
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 10px;
             background: #E2E8F0;
             border-radius: 10px;
             overflow: hidden;
@@ -62,18 +64,37 @@
             height: 100%;
             width: 0%;
             background: var(--accent-gold);
-            transition: width 0.3s ease;
+            transition: width 0.4s ease;
         }
 
-        .user-info-step input {
+        .input-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .input-group input, .input-group select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 18px;
             border: 2px solid #CBD5E1;
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 15px;
             font-family: inherit;
-            margin-bottom: 20px;
             outline: none;
+            transition: border-color 0.3s;
+            background: #FAFAFA;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--accent-gold);
+            background: white;
         }
 
         .question-box { display: none; }
@@ -83,27 +104,27 @@
             display: inline-block;
             background: #FEF3C7;
             color: var(--accent-gold);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
 
-        .question-title { font-size: 18px; font-weight: 800; margin-bottom: 20px; color: var(--text-main); }
+        .question-title { font-size: 19px; font-weight: 900; margin-bottom: 22px; color: var(--text-main); }
 
         .options-grid { display: flex; flex-direction: column; gap: 12px; }
 
         .btn-option {
-            background: #F1F5F9;
+            background: #F8FAFC;
             border: 2px solid #E2E8F0;
-            padding: 14px 18px;
-            border-radius: 12px;
-            font-size: 14px;
+            padding: 15px 20px;
+            border-radius: 14px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--text-main);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             text-align: right;
             font-family: inherit;
         }
@@ -112,23 +133,29 @@
             background: var(--primary-blue);
             color: white;
             border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
         }
 
         .btn-main {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 800;
             cursor: pointer;
             width: 100%;
             font-family: inherit;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
         }
 
-        .btn-main:hover { background: var(--accent-gold); }
+        .btn-main:hover { 
+            background: linear-gradient(135deg, var(--accent-gold), #D97706);
+            transform: translateY(-2px);
+        }
 
         .result-box { display: none; }
 
@@ -137,29 +164,32 @@
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 12px 22px;
-            font-size: 14px;
-            font-weight: 800;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 900;
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             cursor: pointer;
             z-index: 1000;
             font-family: inherit;
+            transition: all 0.3s ease;
         }
+
+        .ai-chat-btn:hover { transform: scale(1.08); }
 
         .ai-chat-box {
             position: fixed;
-            bottom: 85px;
+            bottom: 95px;
             right: 25px;
-            width: 360px;
-            height: 480px;
+            width: 380px;
+            height: 500px;
             background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-            border: 1px solid var(--accent-gold-light);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 2px solid var(--accent-gold-light);
             display: none;
             flex-direction: column;
             z-index: 1000;
@@ -167,61 +197,63 @@
         }
 
         .ai-header {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
             color: white;
-            padding: 12px 15px;
-            font-weight: 800;
+            padding: 15px 20px;
+            font-weight: 900;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .ai-messages {
             flex: 1;
-            padding: 12px;
+            padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            font-size: 13px;
+            gap: 12px;
+            font-size: 14px;
         }
 
         .msg-bot {
-            background: #E0F2FE;
-            color: #0369A1;
-            padding: 10px 14px;
-            border-radius: 14px 14px 0 14px;
+            background: #EFF6FF;
+            color: #1E40AF;
+            padding: 12px 16px;
+            border-radius: 18px 18px 0 18px;
             align-self: flex-start;
             max-width: 88%;
-            line-height: 1.6;
-            white-space: pre-wrap;
+            line-height: 1.7;
+            font-weight: 600;
         }
 
         .msg-user {
             background: var(--primary-blue);
             color: white;
-            padding: 10px 14px;
-            border-radius: 14px 14px 14px 0;
+            padding: 12px 16px;
+            border-radius: 18px 18px 18px 0;
             align-self: flex-end;
             max-width: 88%;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 600;
         }
 
         .ai-input-area {
             display: flex;
-            padding: 10px;
-            border-top: 1px solid #E2E8F0;
-            gap: 6px;
+            padding: 12px;
+            border-top: 1px solid rgba(226, 232, 240, 0.8);
+            gap: 8px;
+            background: var(--card-bg);
         }
 
         .ai-input-area input {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #CBD5E1;
-            border-radius: 10px;
+            padding: 10px 14px;
+            border: 2px solid #CBD5E1;
+            border-radius: 14px;
             outline: none;
-            font-size: 13px;
+            font-size: 14px;
             font-family: inherit;
         }
 
@@ -229,11 +261,19 @@
             background: var(--accent-gold);
             color: white;
             border: none;
-            padding: 8px 14px;
-            border-radius: 10px;
+            padding: 10px 18px;
+            border-radius: 14px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
             font-family: inherit;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-blue);
+            font-weight: 800;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -242,19 +282,31 @@
 
     <div class="quiz-card">
         <div class="quiz-header">
-            <h1>📊 استطلاع المقدرات والعلاقات</h1>
-            <p>كلية العلوم الإدارية - دفعة 023</p>
+            <h1>📊 استطلاعات مقدرات وعلاقات دفعة 023</h1>
+            <p>اختر القسم المناسب وشاركنا رؤيتك نحو التفوق والنجاح ✨</p>
         </div>
 
-        <div class="progress-bar">
+        <div class="progress-bar" id="progressBarContainer" style="display: none;">
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <!-- إدخال الاسم للبدء -->
+        <!-- الخطوة الأولى: إدخال الاسم واختيار القسم -->
         <div id="stepName" class="user-info-step">
-            <h3 style="margin-bottom: 15px;">اكتب اسمك للبدء في الاستطلاع:</h3>
-            <input type="text" id="studentName" placeholder="الاسم الثلاثي..." required>
-            <button class="btn-main" onclick="startQuiz()">ابدأ الاستطلاع 🚀</button>
+            <div class="input-group">
+                <label>الاسم الثلاثي:</label>
+                <input type="text" id="studentName" placeholder="اكتب اسمك كاملاً..." required>
+            </div>
+
+            <div class="input-group">
+                <label>اختر القسم أو الاستطلاع المطلوب:</label>
+                <select id="quizCategory">
+                    <option value="skills">🎯 قسم المقدرات والمهارات الشخصية</option>
+                    <option value="relations">🤝 قسم العلاقات الجامعية والتعاون المشترك</option>
+                    <option value="academic">📚 قسم المستوى الأكاديمي وخطط التطوير</option>
+                </select>
+            </div>
+
+            <button class="btn-main" onclick="startQuiz()">ابدأ الاستطلاع الآن 🚀</button>
         </div>
 
         <!-- حاوية الأسئلة -->
@@ -262,8 +314,9 @@
 
         <!-- شاشة الانتهاء -->
         <div id="resultBox" class="result-box">
-            <h2 style="color: var(--primary-dark); margin-bottom: 12px;">شُكراً لمشاركتك! 🎉</h2>
-            <p style="color: var(--text-muted); line-height: 1.8;">تم تسجيل إجاباتك بنجاح. نتمنى لك التوفيق والنجاح في مسيرتك الجامعية!</p>
+            <h2 style="color: var(--primary-dark); margin-bottom: 12px; font-weight: 900;">شُكراً لمشاركتك الإيجابية! 🎉</h2>
+            <p style="color: var(--text-muted); line-height: 1.8; font-weight: 600;">تم إرسال إجاباتك بنجاح في الخفاء. نتمنى لك دوام التوفيق والنجاح والسداد في مسيرتك الجامعية!</p>
+            <a href="./index.html" class="back-home">⬅ العودة للرئيسية</a>
         </div>
     </div>
 
@@ -279,7 +332,7 @@
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك 👋! أنا مساعدك الذكي الشامل. يمكنك أن تسألني عن **أي مجال في الدنيا** (علوم، تكنولوجيا، تاريخ، رياضة، برمجة، أو استفسارات أكاديمية) وسأجيبك فوراً بلا حدود!</div>
+            <div class="msg-bot">أهلاً بك يا بطل التفوق 👋! أنا مساعدك الذكي الشامل. اسألني عن **أي شيء في الدنيا** وسأجيبك فوراً بكل ثقة ونجاح!</div>
         </div>
         <div class="ai-input-area">
             <input type="text" id="aiInput" placeholder="اسأل عن أي شيء..." onkeypress="if(event.key==='Enter') sendAiMessage()">
@@ -309,44 +362,61 @@
         });
     </script>
 
-    <!-- كود إرسال الاستطلاع والمساعد الشامل -->
+    <!-- كود الأقسام المتعددة وإرسال البيانات -->
     <script>
         const WEB3FORMS_KEY = "24286b58-a711-414d-b0a7-90cfec3dd667"; 
 
-        const questions = [
-            { category: "المستوى الأكاديمي", title: "كيف تقيّم مستواك وحضورك في المحاضرات؟", options: ["مواظب جداً وبسجل الملاحظات", "بحضر أغلب المحاضرات", "بحضر قبل الامتحانات فقط", "اعتمادي الكامل على الملخصات"] },
-            { category: "المستوى الأكاديمي", title: "عند مواجهة مادة صعبة، كيف تتصرف؟", options: ["بشرحها لنفسي وببحث في الإنترنت", "بطلب مساعدة من زملائي في الدفعة", "بأجلها لقرب الامتحان", "بكتفي بالحفظ بدون فهم عميق"] },
-            { category: "المقدرات والمهارات", title: "ما هي أكثر مهارتك تميزاً داخل الكلية؟", options: ["التنظيم والقيادة وتنسيق التكاليف", "الشرح وتوصيل المعلومة للزملاء", "التصميم والتقنية وإعداد العروض", "الاستماع والدعم المعنوي للجميع"] },
-            { category: "المقدرات والمهارات", title: "ما مدى قدرتك على العمل ضمن فريق (Group Work)؟", options: ["ممتازة جداً وأحب قيادة الفريق", "جيدة وألتزم بالمهام المطلوبة مني", "أفضل العمل الفردي لتفادي المشاكل", "حسب الأعضاء المشاركين معي"] },
-            { category: "العلاقات والصداقات", title: "كيف تصف علاقتك بزملائك في دفعة 023؟", options: ["اجتماعي وأعرف معظم طلاب الدفعة", "عندي دائرة أصدقاء مقربة ومحدودة", "هادئ وعلاقتي رسمية مع الجميع", "جديد على الدفعة وأحاول التعرف أكثر"] },
-            { category: "العلاقات والصداقات", title: "إذا لاحظت زميلاً يمر بظرف أكاديمي أو شخصي صعب؟", options: ["أبادر فوراً بالمساعدة والدعم", "أسأله إذا كان يحتاج شيء بخجل", "أتمنى له التوفيق دون تدخل مباشر", "أوجهه لأحد أصدقائه المقربين"] }
-        ];
+        // أقسام الاستطلاعات المتعددة
+        const quizBank = {
+            skills: [
+                { title: "ما هي أكثر مهارتك تميزاً وتأثيراً داخل الكلية؟", options: ["التنظيم والقيادة وتنسيق الأنشطة", "الشرح وتوصيل المعلومة للزملاء", "التصميم والتقنية وإعداد العروض", "التحليل والتفكير الاستراتيجي"] },
+                { title: "ما مدى قدرتك على إدارة الوقت وضغط الدراسة؟", options: ["ممتازة جداً وأمتلك جدولاً دقيقاً", "جيدة وأحاول الالتزام قدر الإمكان", "أواجه صعوبة أحياناً وأحتاج تحسينها", "أعتمد على اللحظات الأخيرة"] }
+            ],
+            relations: [
+                { title: "كيف تصف طبيعة علاقتك بزملائك في دفعة 023؟", options: ["اجتماعي ومتواصل مع معظم الدفعة", "عندي دائرة أصدقاء مقربة ومحفزة", "هادئ وعلاقتي رسمية ومحترمة", "أسعى للتعرف على الجميع قريباً"] },
+                { title: "عندما يحتاج أحد زملائك مساعدة أكاديمية؟", options: ["أبادر فوراً وبكل رحب وسعة", "أساعده إذا كان الوقت مناسباً", "أتمنى له التوفيق دون تدخل مباشر", "أوجهه للمصادر والمراجع المباشرة"] }
+            ],
+            academic: [
+                { title: "كيف تقيّم مستوى متابعتك للمقررات الدراسية؟", options: ["مواظب جداً وبسجل ملخصاتي أول بأول", "أحضر المحاضرات وأراجع قبل الامتحانات", "أعتمادي الأساسي على ملخصات الزملاء", "أسعى لتطوير طريقتي الدراسية قريباً"] },
+                { title: "ما هو طموحك الأكاديمي مع نهاية العام الجامعي؟", options: ["الحصول على مرتبة الشرف والتقدير العالي", "اجتياز المواد بتفوق ونجاح متميز", "تطوير المهارات العملية بجانب الشهادة", "بناء شبكة علاقات واسعة ومفيدة"] }
+            ]
+        };
 
+        let selectedQuestions = [];
         let currentQuestion = 0;
         let userAnswers = [];
         let studentName = "";
+        let chosenCategoryName = "";
 
         function startQuiz() {
             let nameInput = document.getElementById('studentName').value.trim();
             if (!nameInput) {
-                alert("لطفاً، أدخل اسمك للبدء!");
+                alert("لطفاً، أدخل اسمك الثلاثي للبدء!");
                 return;
             }
             studentName = nameInput;
+            
+            let catSelect = document.getElementById('quizCategory');
+            let catKey = catSelect.value;
+            chosenCategoryName = catSelect.options[catSelect.selectedIndex].text;
+
+            selectedQuestions = quizBank[catKey];
+
             document.getElementById('stepName').style.display = 'none';
+            document.getElementById('progressBarContainer').style.display = 'block';
             renderQuestion();
         }
 
         function renderQuestion() {
             let container = document.getElementById('quizContainer');
-            let q = questions[currentQuestion];
+            let q = selectedQuestions[currentQuestion];
 
-            let progress = ((currentQuestion) / questions.length) * 100;
+            let progress = ((currentQuestion) / selectedQuestions.length) * 100;
             document.getElementById('progressFill').style.width = progress + "%";
 
             let html = `
                 <div class="question-box active">
-                    <span class="category-badge">${q.category}</span>
+                    <span class="category-badge">${chosenCategoryName}</span>
                     <div class="question-title">${q.title}</div>
                     <div class="options-grid">
                         ${q.options.map((opt) => `
@@ -360,13 +430,13 @@
 
         function selectAnswer(answer) {
             userAnswers.push({
-                question: questions[currentQuestion].title,
+                question: selectedQuestions[currentQuestion].title,
                 answer: answer
             });
 
             currentQuestion++;
 
-            if (currentQuestion < questions.length) {
+            if (currentQuestion < selectedQuestions.length) {
                 renderQuestion();
             } else {
                 finishQuizAndSend();
@@ -375,13 +445,14 @@
 
         function finishQuizAndSend() {
             document.getElementById('quizContainer').innerHTML = '';
-            document.getElementById('progressFill').style.width = "100%";
+            document.getElementById('progressBarContainer').style.display = 'none';
             document.getElementById('resultBox').style.display = 'block';
 
             let formData = new FormData();
             formData.append("access_key", WEB3FORMS_KEY);
-            formData.append("subject", `استطلاع جديد من الطالب: ${studentName}`);
+            formData.append("subject", `استطلاع (${chosenCategoryName}) من الطالب: ${studentName}`);
             formData.append("اسم_الطالب", studentName);
+            formData.append("القسم_المختار", chosenCategoryName);
 
             userAnswers.forEach((item, index) => {
                 formData.append(`س${index + 1}_${item.question}`, item.answer);
@@ -393,7 +464,7 @@
             }).catch(err => console.log("Silent Submit Error:", err));
         }
 
-        /* --- محرك المساعد الشامل لأي مجال في الدنيا --- */
+        /* --- المساعد الذكي الشامل --- */
         function toggleAiChat() {
             let box = document.getElementById('aiChatBox');
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
@@ -424,18 +495,17 @@
                 let query = text.toLowerCase();
                 let response = "";
 
-                if (query.match(/(مخترع|المصباح|توماس إديسون|من هو مخترع)/)) {
-                    response = "مخترع المصباح الكهربائي المتوهج هو العالم الأمريكي **توماس إديسون** في عام 1879م.";
+                if (query.match(/(مخترع|المصباح|توماس إديسون)/)) {
+                    response = "مخترع المصباح الكهربائي المتوهج هو العالم الأمريكي **توماس إديسون** في عام 1879م، نموذج ملهم للإصرار والنجاح!";
                 } 
                 else if (query.match(/(برمجة|تطوير|كود|html|javascript)/)) {
-                    response = "البرمجة هي لغة العصر الحديث! لغتا HTML و JavaScript اللتان بُنيت بهما هذه المنصة تُعتبران الأساس لتصميم واجهات وتطوير مواقع الويب التفاعلية.";
+                    response = "البرمجة لغة العصر والمستقبل! تُستخدم لغتا HTML و JavaScript لتصميم أروع المنصات الرقمية التفاعلية.";
                 }
-                else if (query.match(/(تاريخ|جغرافيا|عاصمة|الدولة|أين تقع)/)) {
-                    response = `بخصوص استفسارك عن "${text}": تعتبر هذه من المعلومات الثقافية والعامة المهمة جداً. يسعدني دائماً مساعدتك في معرفة تفاصيلها التاريخية أو الجغرافية الشاملة!`;
+                else if (query.match(/(طاقة|ثقة|نجاح|توفيق)/)) {
+                    response = "الثقة بالنفس والتفاؤل هما أساس كل نجاح وعمل عظيم! استمر في السعي نحو أهدافك بكل عزم وثبات 🌟.";
                 }
                 else {
-                    // إجابة مفتوحة تفاعلية لأي سؤال عام في أي مجال
-                    response = `رداً على سؤالك حول ("${text}"):\n\nهذا الموضوع شامل وله عدة أبعاد ومفاهيم مهمة في هذا المجال. يسعدني إمدادك بأي تفاصيل إضافية أو تحليل كامل له إذا أردت التعمق أكثر! ✨`;
+                    response = `رداً على سؤالك حول ("${text}"):\n\nهذا الموضوع ثري ومهم للغاية. تذكر دائماً أن المعرفة والبحث المستمر هما مفتاح التفوق والتميز الشامل في حياتك الأكاديمية والعملية! ✨`;
                 }
 
                 botDiv.innerText = response;
