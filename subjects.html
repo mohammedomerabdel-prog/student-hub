@@ -1,66 +1,188 @@
+<style>
+/* ================================
+   تنسيق قسم المواد الدراسية
+================================ */
+
+.subjects-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.subjects-section h2 {
+    color: #173b60;
+    margin-bottom: 25px;
+}
+
+/* شبكة المواد */
+.subjects-section .subjects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100%;
+}
+
+/* بطاقات المواد */
+.subjects-section .subject-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    min-height: 220px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    text-align: right;
+}
+
+.subjects-section .subject-card h3 {
+    color: #173b60;
+    margin-top: 0;
+    font-size: 23px;
+}
+
+.subjects-section .subject-card p {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* زر دخول المادة */
+.lecture-btn {
+    display: inline-block;
+    background: #07345a;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* ================================
+   محتوى كل مادة
+================================ */
+
+.subject-content {
+    margin-top: 40px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.subject-content h2 {
+    margin-top: 0;
+    color: #173b60;
+}
+
+.lecture-item {
+    background: #f7f9fc;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    line-height: 1.9;
+}
+
+.lecture-item h4 {
+    margin-top: 0;
+    color: #173b60;
+}
+
+/* الهاتف */
+@media (max-width: 700px) {
+
+    .subjects-section {
+        padding: 20px 12px;
+    }
+
+    .subjects-section .subjects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+    }
+
+    .subjects-section .subject-card {
+        padding: 18px 14px;
+        min-height: 200px;
+    }
+
+    .subjects-section .subject-card h3 {
+        font-size: 18px;
+    }
+
+    .subjects-section .subject-card p {
+        font-size: 14px;
+    }
+
+    .lecture-btn {
+        font-size: 14px;
+        padding: 9px 12px;
+    }
+}
+</style>
+
+
 <section class="subjects-section">
 
     <h2>📚 المواد الدراسية</h2>
 
     <div class="subjects-grid">
 
-        <!-- المادة 1 -->
+        <!-- 1 -->
         <div class="subject-card">
             <h3>📘 دراسات جامعية</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject1" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 2 -->
+        <!-- 2 -->
         <div class="subject-card">
             <h3>📗 المادة الثانية</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject2" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 3 -->
+        <!-- 3 -->
         <div class="subject-card">
             <h3>📙 المادة الثالثة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject3" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 4 -->
+        <!-- 4 -->
         <div class="subject-card">
             <h3>📕 المادة الرابعة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject4" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 5 -->
+        <!-- 5 -->
         <div class="subject-card">
             <h3>📒 المادة الخامسة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject5" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 6 -->
+        <!-- 6 -->
         <div class="subject-card">
             <h3>📔 المادة السادسة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject6" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 7 -->
+        <!-- 7 -->
         <div class="subject-card">
             <h3>📚 المادة السابعة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject7" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 8 -->
+        <!-- 8 -->
         <div class="subject-card">
             <h3>📓 المادة الثامنة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
             <a href="#subject8" class="lecture-btn">دخول للمادة</a>
         </div>
 
-        <!-- المادة 9 -->
+        <!-- 9 -->
         <div class="subject-card">
             <h3>📖 المادة التاسعة</h3>
             <p>المحاضرات والملخصات والملفات.</p>
@@ -70,74 +192,118 @@
     </div>
 
 
-    <!-- ========================= -->
-    <!-- محتوى المواد -->
-    <!-- ========================= -->
+    <!-- =========================
+         محتوى المادة 1
+    ========================== -->
 
     <div id="subject1" class="subject-content">
         <h2>📘 دراسات جامعية</h2>
 
-        <h3>📖 المحاضرات</h3>
-
         <div class="lecture-item">
-            <h4>المحاضرة الأولى</h4>
+            <h4>📖 المحاضرة الأولى</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
 
         <div class="lecture-item">
-            <h4>المحاضرة الثانية</h4>
+            <h4>📖 المحاضرة الثانية</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
     </div>
 
+
+    <!-- المادة 2 -->
 
     <div id="subject2" class="subject-content">
         <h2>📗 المادة الثانية</h2>
 
-        <h3>📖 المحاضرات</h3>
-
         <div class="lecture-item">
-            <h4>المحاضرة الأولى</h4>
+            <h4>📖 المحاضرة الأولى</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
     </div>
 
+
+    <!-- المادة 3 -->
 
     <div id="subject3" class="subject-content">
         <h2>📙 المادة الثالثة</h2>
 
-        <h3>📖 المحاضرات</h3>
-
         <div class="lecture-item">
-            <h4>المحاضرة الأولى</h4>
+            <h4>📖 المحاضرة الأولى</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
     </div>
 
+
+    <!-- المادة 4 -->
 
     <div id="subject4" class="subject-content">
         <h2>📕 المادة الرابعة</h2>
 
-        <h3>📖 المحاضرات</h3>
-
         <div class="lecture-item">
-            <h4>المحاضرة الأولى</h4>
+            <h4>📖 المحاضرة الأولى</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
     </div>
 
+
+    <!-- المادة 5 -->
 
     <div id="subject5" class="subject-content">
         <h2>📒 المادة الخامسة</h2>
 
-        <h3>📖 المحاضرات</h3>
-
         <div class="lecture-item">
-            <h4>المحاضرة الأولى</h4>
+            <h4>📖 المحاضرة الأولى</h4>
             <p>سيتم إضافة نص المحاضرة هنا.</p>
         </div>
     </div>
 
 
+    <!-- المادة 6 -->
+
     <div id="subject6" class="subject-content">
-        <h2>📔 المادة الساد
+        <h2>📔 المادة السادسة</h2>
+
+        <div class="lecture-item">
+            <h4>📖 المحاضرة الأولى</h4>
+            <p>سيتم إضافة نص المحاضرة هنا.</p>
+        </div>
+    </div>
+
+
+    <!-- المادة 7 -->
+
+    <div id="subject7" class="subject-content">
+        <h2>📚 المادة السابعة</h2>
+
+        <div class="lecture-item">
+            <h4>📖 المحاضرة الأولى</h4>
+            <p>سيتم إضافة نص المحاضرة هنا.</p>
+        </div>
+    </div>
+
+
+    <!-- المادة 8 -->
+
+    <div id="subject8" class="subject-content">
+        <h2>📓 المادة الثامنة</h2>
+
+        <div class="lecture-item">
+            <h4>📖 المحاضرة الأولى</h4>
+            <p>سيتم إضافة نص المحاضرة هنا.</p>
+        </div>
+    </div>
+
+
+    <!-- المادة 9 -->
+
+    <div id="subject9" class="subject-content">
+        <h2>📖 المادة التاسعة</h2>
+
+        <div class="lecture-item">
+            <h4>📖 المحاضرة الأولى</h4>
+            <p>سيتم إضافة نص المحاضرة هنا.</p>
+        </div>
+    </div>
+
+</section>
