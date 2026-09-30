@@ -1,173 +1,985 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+<title>Student Hub | دراسات مصرفية ومالية</title>
 
-        body {
-            background: #f4f7fb;
-            color: #222;
-        }
+<style>
 
-        header {
-            background: #123c69;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        header h1 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+:root{
+    --navy:#082b52;
+    --blue:#1261ad;
+    --light:#f5f8fc;
+    --text:#17375e;
+    --muted:#6b7b90;
+}
 
-        header p {
-            font-size: 16px;
-        }
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.7;
+}
 
-        nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        nav a {
-            text-decoration: none;
-            color: #123c69;
-            margin: 0 10px;
-            font-weight: bold;
-        }
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+/* ================= HEADER ================= */
 
-        .welcome {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
+header{
+    background:linear-gradient(135deg,#06264a,#1261ad);
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 4px 18px #0002;
+}
 
-        .welcome h2 {
-            color: #123c69;
-            margin-bottom: 10px;
-        }
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.brand{
+    font-size:22px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
+.brand small{
+    display:block;
+    font-size:11px;
+    font-weight:400;
+    opacity:.8;
+}
 
-        .card h3 {
-            color: #123c69;
-            margin-bottom: 10px;
-        }
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:white;
+    color:var(--blue);
+    display:grid;
+    place-items:center;
+    font-size:21px;
+}
 
-        .card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
+nav{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    flex-wrap:wrap;
+}
 
-        .btn {
-            display: inline-block;
-            background: #123c69;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-        }
+nav a{
+    font-size:14px;
+    font-weight:700;
+}
 
-        footer {
-            margin-top: 40px;
-            background: #123c69;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+nav a:hover{
+    opacity:.7;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:linear-gradient(
+        110deg,
+        #06264a 0%,
+        #0e4e8c 58%,
+        #2d78bd 100%
+    );
+    color:white;
+    overflow:hidden;
+}
+
+.hero-inner{
+    min-height:330px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.hero h1{
+    font-size:clamp(30px,5vw,48px);
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.92;
+    margin-bottom:10px;
+}
+
+.badge{
+    display:inline-block;
+    background:#ffffff1f;
+    border:1px solid #ffffff44;
+    padding:6px 13px;
+    border-radius:999px;
+    font-size:13px;
+    margin-bottom:15px;
+}
+
+.hero-art{
+    font-size:130px;
+    opacity:.18;
+}
+
+/* ================= NOTICE ================= */
+
+.notice{
+    margin:24px 0;
+    background:#eaf4ff;
+    border:1px solid #c9e2fb;
+    border-radius:16px;
+    padding:18px 22px;
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.notice-icon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#1970c8;
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    flex:none;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:30px 0 16px;
+}
+
+.section-title h2{
+    font-size:24px;
+}
+
+.section-title a{
+    color:var(--blue);
+    font-size:13px;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 5px 20px #0b31500d;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 28px #0b315018;
+}
+
+.icon{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-bottom:12px;
+    background:#e8f3ff;
+}
+
+.card h3{
+    margin-bottom:5px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:14px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--navy);
+    color:white;
+    border-radius:9px;
+    padding:8px 16px;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* ================= LISTS ================= */
+
+.grid2{
+    display:grid;
+    grid-template-columns:1.25fr .9fr;
+    gap:18px;
+    margin-top:18px;
+}
+
+.list{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    padding:8px 20px;
+}
+
+.item{
+    padding:17px 0;
+    border-bottom:1px solid #edf1f6;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.item:last-child{
+    border-bottom:0;
+}
+
+.item small{
+    color:var(--muted);
+}
+
+.tag{
+    font-size:11px;
+    padding:4px 9px;
+    border-radius:20px;
+    background:#eaf4ff;
+    color:#1768ad;
+    white-space:nowrap;
+    height:max-content;
+}
+
+/* ================= STATISTICS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:22px 0;
+}
+
+.stat{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    font-size:28px;
+    color:var(--blue);
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+    margin:30px 0;
+    background:linear-gradient(
+        110deg,
+        #061f3d,
+        #123f6d
+    );
+    color:white;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    font-size:21px;
+}
+
+.quote small{
+    font-size:14px;
+    opacity:.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#061f3d;
+    color:white;
+    margin-top:35px;
+    padding:28px 0;
+    text-align:center;
+}
+
+footer p{
+    opacity:.8;
+    font-size:13px;
+}
+
+.social{
+    margin-top:12px;
+    font-size:22px;
+    word-spacing:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    nav{
+        display:none;
+    }
+
+    .hero-inner{
+        min-height:290px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid2{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:520px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .notice{
+        align-items:flex-start;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .brand{
+        font-size:18px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
-    <h1>🎓 Student Hub</h1>
-    <p>منصة طلابية لخدمة دفعتنا</p>
-</header>
 
-<nav>
-    <a href="#">الرئيسية</a>
-    <a href="#subjects">المواد</a>
-    <a href="#announcements">الإعلانات</a>
-    <a href="#schedule">الجدول</a>
-    <a href="#exams">الامتحانات</a>
-</nav>
+<div class="container nav">
 
-<div class="container">
+<div class="brand">
 
-    <section class="welcome">
-        <h2>مرحباً بكم 👋</h2>
-        <p>
-            هذا الموقع مخصص لخدمة طلاب الدفعة،
-            وتوفير المحاضرات والملخصات والجداول والإعلانات المهمة.
-        </p>
-    </section>
+<div class="logo">
+🎓
+</div>
 
-    <section class="cards">
+<div>
 
-        <div class="card" id="subjects">
-            <h3>📚 المواد الدراسية</h3>
-            <p>المحاضرات والملخصات والمواد التعليمية.</p>
-            <a href="#" class="btn">دخول</a>
-        </div>
+Student Hub
 
-        <div class="card" id="announcements">
-            <h3>📢 الإعلانات</h3>
-            <p>آخر أخبار وإعلانات الدفعة.</p>
-            <a href="#" class="btn">مشاهدة</a>
-        </div>
-
-        <div class="card" id="schedule">
-            <h3>📅 جدول الدراسة</h3>
-            <p>جدول المحاضرات والامتحانات.</p>
-            <a href="#" class="btn">عرض الجدول</a>
-        </div>
-
-        <div class="card" id="exams">
-            <h3>📝 الامتحانات</h3>
-            <p>نماذج الامتحانات السابقة والمراجعات.</p>
-            <a href="#" class="btn">الدخول</a>
-        </div>
-
-    </section>
+<small>
+منصة طلابية لخدمتنا
+</small>
 
 </div>
 
+</div>
+
+
+<nav>
+
+<a href="#">
+الرئيسية
+</a>
+
+<a href="#subjects">
+المواد
+</a>
+
+<a href="#announcements">
+الإعلانات
+</a>
+
+<a href="#schedule">
+الجدول
+</a>
+
+<a href="#exams">
+الامتحانات
+</a>
+
+<a href="#about">
+عن الدفعة
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="container hero-inner">
+
+<div>
+
+<span class="badge">
+جامعة بحري • كلية الدراسات التجارية
+</span>
+
+<h1>
+مرحباً بكم في منصة دفعتنا
+</h1>
+
+<p>
+بكالوريوس دراسات مصرفية ومالية
+</p>
+
+<p>
+المستوى الثاني 🎓
+</p>
+
+<p>
+معًا نحو مستقبل أفضل 📚
+</p>
+
+</div>
+
+<div class="hero-art">
+📚
+</div>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- ================= NOTICE ================= -->
+
+<div class="notice">
+
+<div class="notice-icon">
+📢
+</div>
+
+<div>
+
+<strong>
+إعلان مهم
+</strong>
+
+<br>
+
+<span>
+هنا ستظهر أهم أخبار وإعلانات الدفعة.
+يمكنك تعديل هذا النص في أي وقت.
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<div class="section-title">
+
+<h2>
+الخدمات الطلابية
+</h2>
+
+</div>
+
+
+<section class="cards">
+
+
+<article class="card" id="subjects">
+
+<div class="icon">
+📚
+</div>
+
+<h3>
+المواد الدراسية
+</h3>
+
+<p>
+المحاضرات والملخصات والمواد التعليمية.
+</p>
+
+<a class="btn" href="#">
+دخول
+</a>
+
+</article>
+
+
+
+<article class="card" id="announcements">
+
+<div class="icon">
+📢
+</div>
+
+<h3>
+الإعلانات
+</h3>
+
+<p>
+آخر أخبار وإعلانات الدفعة.
+</p>
+
+<a class="btn" href="#">
+مشاهدة
+</a>
+
+</article>
+
+
+
+<article class="card" id="schedule">
+
+<div class="icon">
+📅
+</div>
+
+<h3>
+جدول الدراسة
+</h3>
+
+<p>
+جدول المحاضرات والامتحانات.
+</p>
+
+<a class="btn" href="#">
+عرض الجدول
+</a>
+
+</article>
+
+
+
+<article class="card" id="exams">
+
+<div class="icon">
+📝
+</div>
+
+<h3>
+الامتحانات السابقة
+</h3>
+
+<p>
+نماذج الامتحانات والمراجعات.
+</p>
+
+<a class="btn" href="#">
+الدخول
+</a>
+
+</article>
+
+
+
+<article class="card">
+
+<div class="icon">
+📁
+</div>
+
+<h3>
+الملفات
+</h3>
+
+<p>
+مكتبة ملفات وملخصات الدفعة.
+</p>
+
+<a class="btn" href="#">
+فتح المكتبة
+</a>
+
+</article>
+
+
+
+<article class="card" id="about">
+
+<div class="icon">
+👥
+</div>
+
+<h3>
+عن الدفعة
+</h3>
+
+<p>
+معلومات ووسائل تواصل طلاب الدفعة.
+</p>
+
+<a class="btn" href="#">
+المزيد
+</a>
+
+</article>
+
+
+</section>
+
+
+<!-- ================= ANNOUNCEMENTS + DATES ================= -->
+
+<div class="grid2">
+
+
+<section>
+
+<div class="section-title">
+
+<h2>
+أحدث الإعلانات
+</h2>
+
+<a href="#">
+عرض الكل ←
+</a>
+
+</div>
+
+
+<div class="list">
+
+
+<div class="item">
+
+<div>
+
+<b>
+إعلان مهم
+</b>
+
+<br>
+
+<small>
+أضف هنا أول إعلان حقيقي للدفعة.
+</small>
+
+</div>
+
+<span class="tag">
+مهم
+</span>
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+
+<b>
+إضافة محاضرات جديدة
+</b>
+
+<br>
+
+<small>
+سيتم رفع المحاضرات والملخصات هنا.
+</small>
+
+</div>
+
+<span class="tag">
+جديد
+</span>
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+
+<b>
+تحديث جدول المحاضرات
+</b>
+
+<br>
+
+<small>
+تابع هذه الصفحة لمعرفة آخر التحديثات.
+</small>
+
+</div>
+
+<span class="tag">
+تحديث
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<div class="section-title">
+
+<h2>
+مواعيد مهمة
+</h2>
+
+</div>
+
+
+<div class="list">
+
+
+<div class="item">
+
+<div>
+
+<b>
+موعد المحاضرة القادمة
+</b>
+
+<br>
+
+<small>
+أضف التاريخ والوقت هنا.
+</small>
+
+</div>
+
+<span>
+📅
+</span>
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+
+<b>
+موعد الامتحان
+</b>
+
+<br>
+
+<small>
+أضف المادة والقاعة هنا.
+</small>
+
+</div>
+
+<span>
+📝
+</span>
+
+</div>
+
+
+
+<div class="item">
+
+<div>
+
+<b>
+اجتماع الدفعة
+</b>
+
+<br>
+
+<small>
+أضف الموعد والمكان هنا.
+</small>
+
+</div>
+
+<span>
+👥
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+
+<div class="stat">
+
+<b>
+—
+</b>
+
+<span>
+طالب/طالبة
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+—
+</b>
+
+<span>
+مادة
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+—
+</b>
+
+<span>
+ملف
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+—
+</b>
+
+<span>
+نموذج امتحان
+</span>
+
+</div>
+
+
+</section>
+
+
+<!-- ================= QUOTE ================= -->
+
+<div class="quote">
+
+“النجاح لا يأتي بالصدفة..
+بل بالمثابرة والعمل المستمر.”
+
+<br>
+
+<small>
+دفعتنا • مستقبلنا
+</small>
+
+</div>
+
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-    <p>© 2026 Student Hub - منصة طلابية</p>
+
+<div class="container">
+
+<strong>
+🎓 Student Hub
+</strong>
+
+<p>
+منصة طلابية لخدمة طلاب دراسات مصرفية ومالية — جامعة بحري
+</p>
+
+<div class="social">
+💬 ✈️ 📘 ▶️
+</div>
+
+</div>
+
 </footer>
+
 
 </body>
 </html>
