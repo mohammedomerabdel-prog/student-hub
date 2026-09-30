@@ -25,7 +25,6 @@
             --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
         }
 
-        /* الوضع الليلي المحافظ على التصميم القديم */
         body.dark-mode {
             --bg-light: #0F172A;
             --card-bg: #1E293B;
@@ -157,83 +156,89 @@
             border-color: var(--accent-gold);
         }
 
-        /* PAGE HERO */
-        .page-hero {
+        /* HERO SECTION الأصلي */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
             color: white;
-            padding: 40px 0;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .page-hero h1 {
-            font-size: 34px;
-            font-weight: 900;
-        }
-
-        .page-hero p {
-            color: var(--accent-gold-light);
-            font-size: 16px;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        /* RECENT ADDITIONS */
-        .section-title {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .recent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            border-radius: 0 0 30px 30px;
             margin-bottom: 50px;
         }
 
-        .recent-card {
+        .hero h1 {
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--accent-gold-light);
+            max-width: 700px;
+            margin: auto;
+            font-weight: 600;
+        }
+
+        /* GRID CARDS الرئيسية الأصلية */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card {
             background: var(--card-bg);
             border: 1px solid rgba(226, 232, 240, 0.8);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
             box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .recent-icon {
-            font-size: 28px;
-            background: rgba(217, 119, 6, 0.1);
-            padding: 10px;
-            border-radius: 12px;
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold-light);
         }
 
-        .recent-info h4 {
-            font-size: 16px;
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
             font-weight: 800;
+            margin-bottom: 10px;
             color: var(--text-main);
         }
 
-        .recent-info p {
-            font-size: 13px;
+        .card p {
+            font-size: 14px;
             color: var(--text-muted);
-            margin-top: 2px;
+            margin-bottom: 25px;
         }
 
-        .recent-badge {
-            font-size: 11px;
+        .btn {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
             background: var(--accent-gold);
             color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 8px;
         }
 
         /* زر الواتساب العائم */
@@ -264,20 +269,14 @@
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 30px 0;
+            padding: 35px 0;
             text-align: center;
-            margin-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 14px;
         }
 
         @media(max-width: 600px) {
             nav { display: none; }
-            .page-hero h1 { font-size: 26px; }
+            .hero h1 { font-size: 28px; }
         }
     </style>
 </head>
@@ -287,7 +286,7 @@
     <!-- شريط الإعلانات العاجلة -->
     <div class="announcement-bar">
         <span>تنبيه هام</span>
-        تاريخ بدء الامتحانات النهائية والجدول الدراسي سيتم إعلانه قريباً هنا!
+        مرحباً بكم في منصة العلوم الإدارية الرسمية لدفعة 023!
     </div>
 
     <!-- HEADER -->
@@ -314,44 +313,43 @@
         </div>
     </header>
 
-    <!-- PAGE HERO HERO بالتصميم القديم الأصلي -->
-    <section class="page-hero">
+    <!-- HERO SECTION الأصلي -->
+    <section class="hero">
         <div class="container">
             <h1>أهلاً بكم في منصة العلوم الإدارية</h1>
             <p>مرجعك الشامل للمحاضرات الرسمية، الملخصات، وشيتات الامتحانات لدفعة 023</p>
         </div>
     </section>
 
-    <!-- RECENT ADDITIONS -->
+    <!-- MAIN CARDS الشبكة الرئيسية الأصلية -->
     <main class="container">
-        <h3 class="section-title">🆕 أحدث الإضافات على المنصة</h3>
-        <div class="recent-grid">
+        <div class="grid">
             
-            <div class="recent-card">
-                <div class="recent-icon">📄</div>
-                <div class="recent-info">
-                    <h4>ملخص المحاضرة الأولى - المادة الأولى</h4>
-                    <p>تم رفع ملخص شامل لأهم نقاط الفصل الأول.</p>
-                    <span class="recent-badge">جديد اليوم</span>
+            <div class="card">
+                <div>
+                    <div class="card-icon">📚</div>
+                    <h3>المواد الدراسية</h3>
+                    <p>تصفح جميع المواد الدراسية، المحاضرات، والملخصات المقررة لهذا الفصل.</p>
                 </div>
+                <a href="./subjects.html" class="btn">عرض المواد 📂</a>
             </div>
 
-            <div class="recent-card">
-                <div class="recent-icon">📝</div>
-                <div class="recent-info">
-                    <h4>شيت أسئلة ومراجعة - المادة الثانية</h4>
-                    <p>أسئلة ومراجعة شاملة لاختبار منتصف الفصل.</p>
-                    <span class="recent-badge">محدث</span>
+            <div class="card">
+                <div>
+                    <div class="card-icon">📝</div>
+                    <h3>بنك الامتحانات</h3>
+                    <p>امتحانات السنوات السابقة والحلول النموذجية للمراجعة قبل الاختبارات.</p>
                 </div>
+                <a href="./exams.html" class="btn">عرض الامتحانات 📖</a>
             </div>
 
-            <div class="recent-card">
-                <div class="recent-icon">📁</div>
-                <div class="recent-info">
-                    <h4>المكتبة السحابية الشاملة</h4>
-                    <p>تم تحديث مجلد Google Drive بكافة المراجع الجديدة.</p>
-                    <span class="recent-badge">Drive</span>
+            <div class="card">
+                <div>
+                    <div class="card-icon">☁️</div>
+                    <h3>المكتبة السحابية</h3>
+                    <p>الوصول المباشر إلى مجلد Google Drive الخاص بالدفعة لتحميل كافة المراجع.</p>
                 </div>
+                <a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97" target="_blank" class="btn">فتح Google Drive 🔗</a>
             </div>
 
         </div>
