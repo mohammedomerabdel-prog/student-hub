@@ -97,7 +97,7 @@
         /* GRID SYSTEM FOR CARDS */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 22px;
             margin-bottom: 50px;
         }
@@ -178,8 +178,8 @@
             position: fixed;
             bottom: 85px;
             right: 25px;
-            width: 340px;
-            height: 440px;
+            width: 350px;
+            height: 460px;
             background: var(--card-bg);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.25);
@@ -282,9 +282,9 @@
             <div class="nav-links">
                 <a href="./index.html" class="nav-btn">الرئيسية</a>
                 <a href="./subjects.html" class="nav-btn">المواد</a>
+                <a href="./exams.html" class="nav-btn">بنك الأسئلة</a>
+                <a href="./quizzes.html" class="nav-btn">الاستطلاعات</a>
                 <a href="./gpa.html" class="nav-btn">حاسبة GPA</a>
-                <a href="./exams.html" class="nav-btn">الامتحانات</a>
-                <a href="./library.html" class="nav-btn">المكتبة</a>
                 <button class="nav-btn" onclick="toggleTheme()">🌙</button>
             </div>
         </div>
@@ -294,7 +294,7 @@
 
         <div class="hero">
             <h2>مرحباً بكم في منصة الدفعة الرسمية</h2>
-            <p>جميع الأدوات والملخصات والاستطلاعات التفاعلية في مكان واحد</p>
+            <p>جميع الأدوات والملخصات والامتحانات والاستطلاعات التفاعلية في مكان واحد</p>
         </div>
 
         <div class="cards-grid">
@@ -309,7 +309,27 @@
                 <a href="./subjects.html" class="btn-card">عرض المواد 📚</a>
             </div>
 
-            <!-- 2. كارت حاسبة GPA -->
+            <!-- 2. كارت بنك الأسئلة والامتحانات (تمت إعادته بشكل مستقل) -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">📝</div>
+                    <h3>بنك الأسئلة والامتحانات</h3>
+                    <p>امتحانات الأعوام السابقة والنماذج التدريبية للمواد الدراسية.</p>
+                </div>
+                <a href="./exams.html" class="btn-card" style="background: var(--primary-blue);">دخول بنك الامتحانات 🎯</a>
+            </div>
+
+            <!-- 3. كارت الاستطلاعات واختبارات الشخصية -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🧠💬</div>
+                    <h3>الاستطلاعات واختبارات الشخصية</h3>
+                    <p>أسئلة تفاعلية واستبيانات عن الجامعة، الأصدقاء، الثقة، والحب.</p>
+                </div>
+                <a href="./quizzes.html" class="btn-card" style="background: var(--accent-gold);">دخول الاستطلاعات 🚀</a>
+            </div>
+
+            <!-- 4. كارت حاسبة GPA -->
             <div class="card">
                 <div>
                     <div class="card-icon">🧮</div>
@@ -317,26 +337,6 @@
                     <p>احسب معدلك التراكمي والفصلي بكل سهولة ودقة.</p>
                 </div>
                 <a href="./gpa.html" class="btn-card">حساب GPA 📊</a>
-            </div>
-
-            <!-- 3. كارت الاستطلاعات والاختبارات الشخصية (الخانة المعدلة) -->
-            <div class="card">
-                <div>
-                    <div class="card-icon">🧠💬</div>
-                    <h3>الاستطلاعات والاختبارات</h3>
-                    <p>أسئلة واختبارات شخصية عن الجامعة، الأصدقاء، الثقة، والحب بين طلاب الدفعة.</p>
-                </div>
-                <a href="./quizzes.html" class="btn-card" style="background: var(--accent-gold);">دخول بنك الأسئلة 📝</a>
-            </div>
-
-            <!-- 4. كارت جدول الدراسة -->
-            <div class="card">
-                <div>
-                    <div class="card-icon">📅</div>
-                    <h3>جدول الدراسة</h3>
-                    <p>جدول المحاضرات والمواعيد المهمة للدفعة.</p>
-                </div>
-                <a href="./schedule.html" class="btn-card">عرض الجدول 🗓️</a>
             </div>
 
             <!-- 5. كارت المكتبة السحابية -->
@@ -363,7 +363,7 @@
 
     </main>
 
-    <!-- زر مجتمع الواتساب العائم بالرابط المباشر -->
+    <!-- زر مجتمع الواتساب العائم -->
     <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="whatsapp-float">
         💬 مجتمع الواتساب
     </a>
@@ -373,17 +373,17 @@
         🤖 المساعد الذكي (Gemini)
     </button>
 
-    <!-- نافذة المساعد الذكي Gemini AI -->
+    <!-- نافذة المساعد الذكي المحدثة بالكامل -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 مساعد دفعة 023 الذكي</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك 👋 يمكنك أن تسألني عن المواد الدراسية، أو الاختبارات والأسئلة (الجامعة، الصحاب، الثقة، الحب)، أو كيف تنضم للمجتمع!</div>
+            <div class="msg-bot">أهلاً بك! أنا مساعدك الذكي الخاص بالدفعة. يمكنك أن تسألني عن الامتحانات، استطلاعات الشخصية، المواد، أو النصائح الدراسية! 👋</div>
         </div>
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسألني أي سؤال..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -396,18 +396,16 @@
     </footer>
 
     <script>
-        // التبديل للوضع الليلي
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
         }
 
-        // فتح وإغلاق المساعد الذكي
         function toggleAiChat() {
             let box = document.getElementById('aiChatBox');
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        // محرك المحادثة للذكاء الاصطناعي
+        // محرك ذكاء اصطناعي مرن يتفاعل بحساب الكلمات المفتاحية والسياق المفتوح
         function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
@@ -415,6 +413,7 @@
 
             let msgBox = document.getElementById('aiMessages');
             
+            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -423,36 +422,43 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
+            // محاكاة تفاعلية أذكى ومتنوعة
             setTimeout(() => {
                 let botDiv = document.createElement('div');
                 botDiv.className = 'msg-bot';
                 
-                let lower = text.toLowerCase();
-                let reply = "";
+                let query = text.toLowerCase();
+                let response = "";
 
-                if (lower.includes('واتس') || lower.includes('جروب') || lower.includes('مجتمع') || lower.includes('رابط')) {
-                    reply = "يمكنك الانضمام مباشرة لمجتمع الواتساب عبر زر (💬 مجتمع الواتساب) الأخضر الموجود بالأسفل! 💬";
-                } else if (lower.includes('حب') || lower.includes('ارتباط')) {
-                    reply = "موضوع الحب والارتباط في فترة الجامعة يحتاج توازناً كبيراً بين الدراسة والمستقبل. يمكنك الإجابة على أسئلة قسم الحب في صفحة الاختبارات! ❤️";
-                } else if (lower.includes('صحاب') || lower.includes('صديق') || lower.includes('صداقة')) {
-                    reply = "الصديق الحقيقي في الجامعة هو من يساندك وقت الامتحانات ويشجعك على النجاح 👥.";
-                } else if (lower.includes('ثقة') || lower.includes('شيت') || lower.includes('ملخص')) {
-                    reply = "مشاركة الملخصات والشيتات تبني روح التعاون والثقة المتبادلة بين طلاب الدفعة 🤝.";
-                } else if (lower.includes('مادة') || lower.includes('امتحان') || lower.includes('جدول') || lower.includes('مكتبة')) {
-                    reply = "يمكنك الوصول للمواد، المكتبة السحابية، وحاسبة GPA مباشرة من الكروت المتاحة في الصفحة الرئيسية 📚.";
-                } else {
-                    let randomReplies = [
-                        "سؤال ممتاز! منصتنا مصممة لخدمتك أكاديمياً وتفاعلياً مع زملائك بالدفعة 🚀.",
-                        "أنا معك دائماً! استكشف بنك الاختبارات والأسئلة الشخصية لتسجيل رأيك ✨.",
-                        "أهلاً بك! هل تحتاج مساعدة في الوصول للمواد أم تريد الانضمام لمجتمع الدفعة؟ 😊"
+                if (query.match(/(امتحان|امتحانات|بنك|اسئلة|أسئلة|سؤال|اختبارات أكاديمية)/)) {
+                    response = "يمكنك الوصول لجميع امتحانات الأعوام السابقة ونماذج الأسئلة للمواد من خلال كارت (بنك الأسئلة والامتحانات) في القائمة الرئيسية أو العلوية 🎯.";
+                } 
+                else if (query.match(/(استطلاع|استطلاعات|شخصية|حب|علاقات|صحاب|صداقة|ثقة)/)) {
+                    response = "قسم (الاستطلاعات واختبارات الشخصية) يحتوي على بنك كامل للأسئلة حول تجارب الجامعة، الأصدقاء، الثقة، والعلاقات! يمكنك الإجابة عنها الآن من صفحة الاستطلاعات 🚀.";
+                } 
+                else if (query.match(/(واتس|جروب|مجتمع|رابط|جروبات)/)) {
+                    response = "رابط مجتمع الواتساب الرسمي لدفعة 023 متاح في الزر الأخضر العائم أسفل الشاشة أو كارت المجتمع! 💬";
+                } 
+                else if (query.match(/(مادة|مواد|شيت|ملخص|مكتبة|دراجات|gpa)/)) {
+                    response = "لتصفح المواد الدراسية أو حساب معدلك التراكمي، استخدم كروت (المواد الدراسية) و (حاسبة GPA) بالصفحة الرئيسية 📊.";
+                } 
+                else if (query.match(/(سلام|مرحبا|اهلين|هلا|كيفك|شخبار)/)) {
+                    response = "أهلاً بك يا بطل! يسعدني وجودك. كيف يمكنني مساعدتك اليوم في أمور الدفعة أو الدراسة؟ 😊";
+                } 
+                else {
+                    // ردود ديناميكية متنوعة تمنع التكرار المباشر
+                    const dynamicResponses = [
+                        `بالنسبة لسؤالك حول "${text}"، يسعدني مساعدتك! يمكنك العثور على التفاصيل الكاملة داخل أقسام المنصة، أو يمكنك الانضمام لمجتمع الواتساب لمناقشتها مع زملائك بالدفعة ✨.`,
+                        `فكرة ممتازة! أوجّهك بمراجعة قسم الاستطلاعات أو المواد للحصول على معلومات دقيقة تخص سؤالك 💡.`,
+                        `أنا هنا لدعمك في كل ما يخص دفعة 023. هل تود الانتقال لـ (بنك الأسئلة) أم (الاستطلاعات الشخصية)؟`
                     ];
-                    reply = randomReplies[Math.floor(Math.random() * randomReplies.length)];
+                    response = dynamicResponses[Math.floor(Math.random() * dynamicResponses.length)];
                 }
 
-                botDiv.innerText = reply;
+                botDiv.innerText = response;
                 msgBox.appendChild(botDiv);
                 msgBox.scrollTop = msgBox.scrollHeight;
-            }, 500);
+            }, 400);
         }
     </script>
 </body>
