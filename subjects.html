@@ -1,274 +1,444 @@
-<!-- قسم المواد الدراسية بتنسيق حديث ومنظم -->
-<div class="subjects-grid">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-    <!-- المادة الأولى -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📘</span>
-            <div>
-                <h3>المادة الأولى</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المواد الدراسية | كلية العلوم الإدارية | دفعة 023</title>
+
+    <!-- خط Cairo الفخم والمحفز من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A192F;
+            --primary-blue: #1E3A8A;
+            --accent-gold: #D97706;
+            --accent-gold-light: #FBBF24;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .nav {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 3px;
+            border: 2px solid var(--accent-gold-light);
+        }
+
+        .brand small {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold-light);
+        }
+
+        /* PAGE TITLE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-hero h1 {
+            font-size: 34px;
+            font-weight: 900;
+        }
+
+        .page-hero p {
+            color: var(--accent-gold-light);
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        /* SUBJECTS GRID */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
+            margin-bottom: 50px;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold-light);
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .subject-icon {
+            font-size: 32px;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .subject-header h3 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .doc-name {
+            font-size: 13px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .subject-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .subject-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sub {
+            width: 100%;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: var(--primary-dark);
+            color: #ffffff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-sub:hover {
+            background: var(--accent-gold);
+            color: #ffffff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        @media(max-width: 600px) {
+            nav { display: none; }
+            .page-hero h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <a href="index.html">
+                    <img src="1000002660.jpg" alt="شعار جامعة بحري">
+                </a>
+                <div>
+                    منصة طلابية
+                    <small>كلية العلوم الإدارية • دفعة 023</small>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject1-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject1-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject1-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة الثانية -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📗</span>
-            <div>
-                <h3>المادة الثانية</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <nav>
+                <a href="index.html">الرئيسية</a>
+                <a href="subjects.html" style="color: var(--accent-gold-light);">المواد</a>
+                <a href="exams.html">الامتحانات</a>
+                <a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97" target="_blank">المكتبة</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>📚 قسم المواد الدراسية</h1>
+            <p>المحاضرات الرسمية، الملخصات الشاملة، وشيتات الأسئلة لكل مادة</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <div class="subjects-grid">
+
+            <!-- المادة الأولى (مربوطة بـ subject1.html) -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📘</span>
+                        <div>
+                            <h3>المادة الأولى</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject1.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject2-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject2-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject2-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة الثالثة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📙</span>
-            <div>
-                <h3>المادة الثالثة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة الثانية -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📗</span>
+                        <div>
+                            <h3>المادة الثانية</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject2.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject3-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject3-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject3-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة الرابعة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📕</span>
-            <div>
-                <h3>المادة الرابعة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة الثالثة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📙</span>
+                        <div>
+                            <h3>المادة الثالثة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject3.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject4-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject4-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject4-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة الخامسة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📒</span>
-            <div>
-                <h3>المادة الخامسة</h3>
-                <span class="doc-name">👨‍‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة الرابعة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📕</span>
+                        <div>
+                            <h3>المادة الرابعة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject4.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject5-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject5-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject5-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة السادسة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📔</span>
-            <div>
-                <h3>المادة السادسة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة الخامسة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📒</span>
+                        <div>
+                            <h3>المادة الخامسة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject5.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject6-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject6-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject6-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة السابعة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📚</span>
-            <div>
-                <h3>المادة السابعة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة السادسة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📔</span>
+                        <div>
+                            <h3>المادة السادسة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject6.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject7-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject7-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject7-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة الثامنة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📓</span>
-            <div>
-                <h3>المادة الثامنة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة السابعة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📚</span>
+                        <div>
+                            <h3>المادة السابعة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject7.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
-        </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject8-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject8-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject8-reviews" class="btn-sub reviews">🔍 المراجعات</a>
-        </div>
-    </div>
 
-    <!-- المادة التاسعة -->
-    <div class="subject-card">
-        <div class="subject-header">
-            <span class="subject-icon">📖</span>
-            <div>
-                <h3>المادة التاسعة</h3>
-                <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+            <!-- المادة الثامنة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📓</span>
+                        <div>
+                            <h3>المادة الثامنة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject8.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
             </div>
+
+            <!-- المادة التاسعة -->
+            <div class="subject-card">
+                <div>
+                    <div class="subject-header">
+                        <span class="subject-icon">📖</span>
+                        <div>
+                            <h3>المادة التاسعة</h3>
+                            <span class="doc-name">👨‍🏫 د. [اسم أستاذ المادة]</span>
+                        </div>
+                    </div>
+                    <p class="subject-desc">تصفح المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات الخاصة بهذه المادة.</p>
+                </div>
+                <div class="subject-actions">
+                    <a href="subject9.html" class="btn-sub">فتح صفحة المادة 📂</a>
+                </div>
+            </div>
+
         </div>
-        <p class="subject-desc">المحاضرات الرسمية، الملخصات الشاملة، والأسئلة والمراجعات.</p>
-        <div class="subject-actions">
-            <a href="#subject9-lectures" class="btn-sub lectures">📖 المحاضرات</a>
-            <a href="#subject9-summary" class="btn-sub summary">📝 الملخصات</a>
-            <a href="#subject9-reviews" class="btn-sub reviews">🔍 المراجعات</a>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>منصة طلاب كلية العلوم الإدارية • دفعة 023 • جميع الحقوق محفوظة</p>
         </div>
-    </div>
+    </footer>
 
-</div>
+</body>
 
-<!-- التنسيق المطور والتصاميم الخاصة بالكرت والروابط -->
-<style>
-.subjects-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 22px !important;
-    margin-top: 20px !important;
-}
-
-.subject-card {
-    background: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 18px !important;
-    padding: 22px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-}
-
-.subject-card:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12) !important;
-    border-color: #fbbf24 !important;
-}
-
-.subject-header {
-    display: flex !important;
-    align-items: center !important;
-    gap: 14px !important;
-    margin-bottom: 12px !important;
-}
-
-.subject-icon {
-    font-size: 32px !important;
-    background: #f8fafc !important;
-    padding: 10px !important;
-    border-radius: 14px !important;
-    border: 1px solid #e2e8f0 !important;
-}
-
-.subject-header h3 {
-    margin: 0 !important;
-    font-size: 19px !important;
-    font-weight: 800 !important;
-    color: #0a192f !important;
-}
-
-.doc-name {
-    font-size: 13px !important;
-    color: #d97706 !important;
-    font-weight: 700 !important;
-    display: block !important;
-    margin-top: 2px !important;
-}
-
-.subject-desc {
-    font-size: 13px !important;
-    color: #64748b !important;
-    margin-bottom: 18px !important;
-    line-height: 1.5 !important;
-}
-
-.subject-actions {
-    display: flex !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-}
-
-.btn-sub {
-    flex: 1 !important;
-    text-align: center !important;
-    padding: 8px 10px !important;
-    border-radius: 8px !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    transition: all 0.2s ease !important;
-    white-space: nowrap !important;
-}
-
-/* ألوان الأزرار التفاعلية */
-.btn-sub.lectures {
-    background: #0a192f !important;
-    color: #ffffff !important;
-}
-
-.btn-sub.lectures:hover {
-    background: #1e3a8a !important;
-}
-
-.btn-sub.summary {
-    background: #fef3c7 !important;
-    color: #92400e !important;
-}
-
-.btn-sub.summary:hover {
-    background: #fde68a !important;
-}
-
-.btn-sub.reviews {
-    background: #f1f5f9 !important;
-    color: #334155 !important;
-}
-
-.btn-sub.reviews:hover {
-    background: #e2e8f0 !important;
-}
-
-@media (max-width: 480px) {
-    .subject-actions {
-        flex-direction: column !important;
-    }
-}
-</style>
+</html>
