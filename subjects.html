@@ -1,66 +1,155 @@
+<style>
+/* ===== المواد الدراسية ===== */
+
+.subjects-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.subjects-section h2 {
+    text-align: right;
+    color: #173b60;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* شبكة المواد - عمودين */
+.subjects-section .subjects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+}
+
+/* بطاقة المادة */
+.subjects-section .subject-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 250px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: right;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* عنوان المادة */
+.subjects-section .subject-card h3 {
+    color: #173b60;
+    font-size: 25px;
+    margin: 0 0 20px;
+}
+
+/* وصف المادة */
+.subjects-section .subject-card p {
+    color: #7b8490;
+    font-size: 19px;
+    margin: 0 0 25px;
+}
+
+/* زر المحاضرات */
+.subjects-section .lecture-btn {
+    display: inline-block !important;
+    background: #07345a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* ===== الهاتف ===== */
+@media (max-width: 700px) {
+
+    .subjects-section {
+        padding: 30px 15px;
+    }
+
+    .subjects-section .subjects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+    }
+
+    .subjects-section .subject-card {
+        padding: 20px 15px;
+        min-height: 230px;
+    }
+
+    .subjects-section .subject-card h3 {
+        font-size: 19px;
+    }
+
+    .subjects-section .subject-card p {
+        font-size: 15px;
+    }
+
+    .subjects-section .lecture-btn {
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+}
+</style>
+
+
 <section class="subjects-section">
 
     <h2>المواد الدراسية</h2>
 
     <div class="subjects-grid">
 
-        <!-- المادة الأولى -->
         <div class="subject-card">
             <h3>📘 المادة الأولى</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة الثانية -->
         <div class="subject-card">
             <h3>📗 المادة الثانية</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة الثالثة -->
         <div class="subject-card">
             <h3>📙 المادة الثالثة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة الرابعة -->
         <div class="subject-card">
             <h3>📕 المادة الرابعة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة الخامسة -->
         <div class="subject-card">
             <h3>📒 المادة الخامسة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة السادسة -->
         <div class="subject-card">
             <h3>📔 المادة السادسة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة السابعة -->
         <div class="subject-card">
             <h3>📚 المادة السابعة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة الثامنة -->
         <div class="subject-card">
             <h3>📓 المادة الثامنة</h3>
             <p>اكتب اسم المادة هنا.</p>
             <a href="#" class="lecture-btn">المحاضرات</a>
         </div>
 
-        <!-- المادة التاسعة -->
         <div class="subject-card">
             <h3>📖 المادة التاسعة</h3>
             <p>اكتب اسم المادة هنا.</p>
