@@ -15,6 +15,7 @@
             --primary-dark: #0A192F;
             --primary-blue: #1E3A8A;
             --accent-gold: #D97706;
+            --accent-gold-light: #FBBF24;
             --bg-light: #F8FAFC;
             --card-bg: #FFFFFF;
             --text-main: #0F172A;
@@ -27,36 +28,27 @@
             font-family: 'Cairo', sans-serif;
             background: var(--bg-light);
             color: var(--text-main);
-            padding: 20px 10px;
+            padding: 20px 10px 100px 10px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
         .quiz-card {
             background: var(--card-bg);
-            width: min(600px, 95%);
+            width: min(650px, 95%);
             border-radius: 20px;
             padding: 30px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border: 1px solid #E2E8F0;
             text-align: center;
+            margin-top: 20px;
         }
 
-        .quiz-header h1 {
-            font-size: 22px;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-        }
+        .quiz-header h1 { font-size: 22px; color: var(--primary-dark); margin-bottom: 5px; }
+        .quiz-header p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
 
-        .quiz-header p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        /* شريط التقدم */
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -73,7 +65,6 @@
             transition: width 0.3s ease;
         }
 
-        /* إدخال الاسم */
         .user-info-step input {
             width: 100%;
             padding: 12px 15px;
@@ -85,18 +76,8 @@
             outline: none;
         }
 
-        .user-info-step input:focus {
-            border-color: var(--primary-blue);
-        }
-
-        /* حاوية الأسئلة */
-        .question-box {
-            display: none;
-        }
-
-        .question-box.active {
-            display: block;
-        }
+        .question-box { display: none; }
+        .question-box.active { display: block; }
 
         .category-badge {
             display: inline-block;
@@ -109,18 +90,9 @@
             margin-bottom: 12px;
         }
 
-        .question-title {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
+        .question-title { font-size: 18px; font-weight: 800; margin-bottom: 20px; color: var(--text-main); }
 
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .options-grid { display: flex; flex-direction: column; gap: 12px; }
 
         .btn-option {
             background: #F1F5F9;
@@ -156,36 +128,111 @@
             transition: 0.3s;
         }
 
-        .btn-main:hover {
-            background: var(--accent-gold);
-        }
+        .btn-main:hover { background: var(--accent-gold); }
 
-        /* صفحة النتيجة */
-        .result-box {
-            display: none;
-        }
+        .result-box { display: none; }
 
-        .whatsapp-btn {
-            background: #25D366;
+        /* AI CHATBOT STYLES */
+        .ai-chat-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #2563EB, #1E40AF);
             color: white;
             border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-size: 16px;
+            border-radius: 50px;
+            padding: 12px 22px;
+            font-size: 14px;
             font-weight: 800;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             cursor: pointer;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            z-index: 1000;
             font-family: inherit;
-            margin-top: 15px;
-            text-decoration: none;
         }
 
-        .whatsapp-btn:hover {
-            background: #1EBE5D;
+        .ai-chat-box {
+            position: fixed;
+            bottom: 85px;
+            right: 25px;
+            width: 360px;
+            height: 480px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border: 1px solid var(--accent-gold-light);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .ai-header {
+            background: var(--primary-dark);
+            color: white;
+            padding: 12px 15px;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .ai-messages {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .msg-bot {
+            background: #E0F2FE;
+            color: #0369A1;
+            padding: 10px 14px;
+            border-radius: 14px 14px 0 14px;
+            align-self: flex-start;
+            max-width: 88%;
+            line-height: 1.6;
+        }
+
+        .msg-user {
+            background: var(--primary-blue);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 14px 14px 14px 0;
+            align-self: flex-end;
+            max-width: 88%;
+            line-height: 1.6;
+        }
+
+        .ai-input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #E2E8F0;
+            gap: 6px;
+        }
+
+        .ai-input-area input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .ai-input-area button {
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: inherit;
         }
     </style>
 </head>
@@ -202,27 +249,44 @@
             <div class="progress-fill" id="progressFill"></div>
         </div>
 
-        <!-- الخطوة 0: إدخال اسم الطالب -->
+        <!-- إدخال الاسم للبدء -->
         <div id="stepName" class="user-info-step">
             <h3 style="margin-bottom: 15px;">اكتب اسمك للبدء في الاستطلاع:</h3>
             <input type="text" id="studentName" placeholder="الاسم الثلاثي..." required>
-            <button class="btn-main" onclick="startQuiz()">ابدأ الأسئلة 🚀</button>
+            <button class="btn-main" onclick="startQuiz()">ابدأ الاستطلاع 🚀</button>
         </div>
 
-        <!-- حاوية الأسئلة الديناميكية -->
+        <!-- حاوية الأسئلة -->
         <div id="quizContainer"></div>
 
-        <!-- الخطوة الأخيرة: النتيجة وإرسال الواتساب -->
+        <!-- شاشة الانتهاء وشكر الطالب -->
         <div id="resultBox" class="result-box">
-            <h2 style="color: var(--primary-dark); margin-bottom: 10px;">أحسنت! أكملت الاستطلاع 🥳</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">اضغط على الزر بالأسفل لإرسال إجاباتك مباشرة إلى أدمن الدفعة عبر الواتساب لتسجيل مشاركتك.</p>
-            <button class="whatsapp-btn" onclick="sendToWhatsApp()">
-                💬 إرسال الإجابات عبر الواتساب
-            </button>
+            <h2 style="color: var(--primary-dark); margin-bottom: 12px;">شُكراً لمشاركتك! 🎉</h2>
+            <p style="color: var(--text-muted); line-height: 1.8;">تم تسجيل إجاباتك بنجاح. نتمنى لك التوفيق والنجاح في مسيرتك الجامعية!</p>
         </div>
     </div>
 
-    <!-- كود الصوت للضغطات -->
+    <!-- زر المساعد الذكي -->
+    <button class="ai-chat-btn" onclick="toggleAiChat()">
+        🤖 المساعد الأكاديمي (Gemini AI)
+    </button>
+
+    <!-- نافذة المساعد الذكي -->
+    <div class="ai-chat-box" id="aiChatBox">
+        <div class="ai-header">
+            <span>🤖 المساعد الذكي - دفعة 023</span>
+            <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
+        </div>
+        <div class="ai-messages" id="aiMessages">
+            <div class="msg-bot">أهلاً بك 👋! أنا مساعدك الأكاديمي الذكي. يمكنني شرح أي مفهوم في العلوم الإدارية، المحاسبة، الاقتصاد، أو الإجابة عن أي سؤال تحتاجه دون الحاجة للخروج من الموقع!</div>
+        </div>
+        <div class="ai-input-area">
+            <input type="text" id="aiInput" placeholder="اكتب سؤالك الأكاديمي أو العام..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <button onclick="sendAiMessage()">إرسال</button>
+        </div>
+    </div>
+
+    <!-- كود الصوت التفاعلي -->
     <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playClickSound() {
@@ -240,25 +304,20 @@
             osc.stop(audioCtx.currentTime + 0.05);
         }
         document.addEventListener('click', function(e) {
-            if (e.target.closest('button, .btn-option')) playClickSound();
+            if (e.target.closest('button, .btn-option, a')) playClickSound();
         });
     </script>
 
-    <!-- كود إدارة الأسئلة والواتساب -->
+    <!-- كود إرسال الإجابات تلقائياً والمساعد الذكي -->
     <script>
-        // رقم الواتساب الخاص بك المربوط بالخدمة
-        const ADMIN_PHONE = "249995040725"; 
+        // مفتاح Web3Forms الخاص بك لإرسال الإجابات تلقائياً للبريد
+        const WEB3FORMS_KEY = "24286b58-a711-414d-b0a7-90cfec3dd667"; 
 
         const questions = [
-            // قسم المستوى الأكاديمي
             { category: "المستوى الأكاديمي", title: "كيف تقيّم مستواك وحضورك في المحاضرات؟", options: ["مواظب جداً وبسجل الملاحظات", "بحضر أغلب المحاضرات", "بحضر قبل الامتحانات فقط", "اعتمادي الكامل على الملخصات"] },
             { category: "المستوى الأكاديمي", title: "عند مواجهة مادة صعبة، كيف تتصرف؟", options: ["بشرحها لنفسي وببحث في الإنترنت", "بطلب مساعدة من زملائي في الدفعة", "بأجلها لقرب الامتحان", "بكتفي بالحفظ بدون فهم عميق"] },
-
-            // قسم المقدرات والمهارات
             { category: "المقدرات والمهارات", title: "ما هي أكثر مهارتك تميزاً داخل الكلية؟", options: ["التنظيم والقيادة وتنسيق التكاليف", "الشرح وتوصيل المعلومة للزملاء", "التصميم والتقنية وإعداد العروض", "الاستماع والدعم المعنوي للجميع"] },
             { category: "المقدرات والمهارات", title: "ما مدى قدرتك على العمل ضمن فريق (Group Work)؟", options: ["ممتازة جداً وأحب قيادة الفريق", "جيدة وألتزم بالمهام المطلوبة مني", "أفضل العمل الفردي لتفادي المشاكل", "حسب الأعضاء المشاركين معي"] },
-
-            // قسم العلاقات والتواصل
             { category: "العلاقات والصداقات", title: "كيف تصف علاقتك بزملائك في دفعة 023؟", options: ["اجتماعي وأعرف معظم طلاب الدفعة", "عندي دائرة أصدقاء مقربة ومحدودة", "هادئ وعلاقتي رسمية مع الجميع", "جديد على الدفعة وأحاول التعرف أكثر"] },
             { category: "العلاقات والصداقات", title: "إذا لاحظت زميلاً يمر بظرف أكاديمي أو شخصي صعب؟", options: ["أبادر فوراً بالمساعدة والدعم", "أسأله إذا كان يحتاج شيء بخجل", "أتمنى له التوفيق دون تدخل مباشر", "أوجهه لأحد أصدقائه المقربين"] }
         ];
@@ -270,7 +329,7 @@
         function startQuiz() {
             let nameInput = document.getElementById('studentName').value.trim();
             if (!nameInput) {
-                alert("لطفاً، أدخل اسمك أولاً لنبدأ!");
+                alert("لطفاً، أدخل اسمك للبدء!");
                 return;
             }
             studentName = nameInput;
@@ -310,30 +369,76 @@
             if (currentQuestion < questions.length) {
                 renderQuestion();
             } else {
-                showResult();
+                finishQuizAndSend();
             }
         }
 
-        function showResult() {
+        function finishQuizAndSend() {
             document.getElementById('quizContainer').innerHTML = '';
             document.getElementById('progressFill').style.width = "100%";
             document.getElementById('resultBox').style.display = 'block';
-        }
 
-        function sendToWhatsApp() {
-            let message = `*إجابات استطلاع المقدرات والعلاقات - دفعة 023* 📝\n\n`;
-            message += `👤 *اسم الطالب:* ${studentName}\n`;
-            message += `-----------------------------------\n\n`;
+            let formData = new FormData();
+            formData.append("access_key", WEB3FORMS_KEY);
+            formData.append("subject", `استطلاع جديد من الطالب: ${studentName}`);
+            formData.append("اسم_الطالب", studentName);
 
             userAnswers.forEach((item, index) => {
-                message += `*س${index + 1}: ${item.question}*\n`;
-                message += `👈 *الإجابة:* ${item.answer}\n\n`;
+                formData.append(`س${index + 1}_${item.question}`, item.answer);
             });
 
-            let encodedMessage = encodeURIComponent(message);
-            let whatsappUrl = `https://wa.me/${ADMIN_PHONE}?text=${encodedMessage}`;
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            }).catch(err => console.log("Silent Submit Error:", err));
+        }
 
-            window.open(whatsappUrl, '_blank');
+        /* --- محرك الذكاء الاصطناعي التفاعلي --- */
+        function toggleAiChat() {
+            let box = document.getElementById('aiChatBox');
+            box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendAiMessage() {
+            let input = document.getElementById('aiInput');
+            let text = input.value.trim();
+            if (!text) return;
+
+            let msgBox = document.getElementById('aiMessages');
+
+            let userDiv = document.createElement('div');
+            userDiv.className = 'msg-user';
+            userDiv.innerText = text;
+            msgBox.appendChild(userDiv);
+
+            input.value = '';
+            msgBox.scrollTop = msgBox.scrollHeight;
+
+            let botDiv = document.createElement('div');
+            botDiv.className = 'msg-bot';
+            botDiv.innerText = "جاري التفكير...";
+            msgBox.appendChild(botDiv);
+            msgBox.scrollTop = msgBox.scrollHeight;
+
+            setTimeout(() => {
+                let q = text.toLowerCase();
+                let reply = "";
+
+                if (q.includes("محاسبة") || q.includes("ميزانية") || q.includes("أصول") || q.includes("خصوم")) {
+                    reply = "المحاسبة الإدارية والمالية تعتمد على معادلة الميزانية الأساسية: (الأصول = الخصوم + حقوق الملكية). إذا كان لديك مسألة أو قيد محاسبي ترغب في تحليله، اكتبه لي وسأشرحه لك خطوة بخطوة!";
+                } else if (q.includes("إدارة") || q.includes("تخطيط") || q.includes("تنظيم") || q.includes("قيادة")) {
+                    reply = "وظائف الإدارة الأربعة الأساسية هي: التخطيط، التنظيم، التوجيه (القيادة)، والرقابة. هل تود شرح مفصل لأي وظيفة منها؟";
+                } else if (q.includes("اقتصاد") || q.includes("عرض") || q.includes("طلب") || q.includes("تضخم")) {
+                    reply = "قانون الطلب ينص على وجود علاقة عكسية بين السعر والكمية المطلوبة، بينما قانون العرض يعبر عن علاقة طردية. يسعدني تبسيط أي قانون أو رسم بياني اقتصاد تحتاجه!";
+                } else if (q.includes("امتحان") || q.includes("جدول") || q.includes("مادة") || q.includes("ملخص")) {
+                    reply = "يمكنك العثور على ملخصات المقررات وامتحانات الأعوام السابقة مباشرة في قسم (المواد) و(بنك الأسئلة) في القائمة الرئيسية للموقع 📚.";
+                } else {
+                    reply = `رداً على سؤالك حول "${text}": يمكنني مساعدتك في شرح التفاصيل الأكاديمية وصياغة الملخصات الشاملة لهذا الموضوع مباشرة. يمكنك الاستمرار في طرح استفساراتك وسأجيبك بدقة ✨!`;
+                }
+
+                botDiv.innerText = reply;
+                msgBox.scrollTop = msgBox.scrollHeight;
+            }, 600);
         }
     </script>
 </body>
