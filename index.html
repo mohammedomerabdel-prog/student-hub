@@ -283,7 +283,8 @@
                 <a href="./index.html" class="nav-btn">الرئيسية</a>
                 <a href="./subjects.html" class="nav-btn">المواد</a>
                 <a href="./exams.html" class="nav-btn">بنك الأسئلة</a>
-                <a href="./quizzes.html" class="nav-btn">الاستطلاعات</a>
+                <!-- الرابط المحدث بالاسم الجديد fun.html -->
+                <a href="./fun.html" class="nav-btn">الاستطلاعات</a>
                 <a href="./gpa.html" class="nav-btn">حاسبة GPA</a>
                 <button class="nav-btn" onclick="toggleTheme()">🌙</button>
             </div>
@@ -309,7 +310,7 @@
                 <a href="./subjects.html" class="btn-card">عرض المواد 📚</a>
             </div>
 
-            <!-- 2. كارت بنك الأسئلة والامتحانات (تمت إعادته بشكل مستقل) -->
+            <!-- 2. كارت بنك الأسئلة والامتحانات -->
             <div class="card">
                 <div>
                     <div class="card-icon">📝</div>
@@ -319,14 +320,14 @@
                 <a href="./exams.html" class="btn-card" style="background: var(--primary-blue);">دخول بنك الامتحانات 🎯</a>
             </div>
 
-            <!-- 3. كارت الاستطلاعات واختبارات الشخصية -->
+            <!-- 3. كارت الاستطلاعات واختبارات الشخصية (محدث بالرابط الجديد fun.html) -->
             <div class="card">
                 <div>
                     <div class="card-icon">🧠💬</div>
                     <h3>الاستطلاعات واختبارات الشخصية</h3>
                     <p>أسئلة تفاعلية واستبيانات عن الجامعة، الأصدقاء، الثقة، والحب.</p>
                 </div>
-                <a href="./quizzes.html" class="btn-card" style="background: var(--accent-gold);">دخول الاستطلاعات 🚀</a>
+                <a href="./fun.html" class="btn-card" style="background: var(--accent-gold);">دخول الاستطلاعات 🚀</a>
             </div>
 
             <!-- 4. كارت حاسبة GPA -->
@@ -373,7 +374,7 @@
         🤖 المساعد الذكي (Gemini)
     </button>
 
-    <!-- نافذة المساعد الذكي المحدثة بالكامل -->
+    <!-- نافذة المساعد الذكي Gemini AI -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 مساعد دفعة 023 الذكي</span>
@@ -405,7 +406,6 @@
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        // محرك ذكاء اصطناعي مرن يتفاعل بحساب الكلمات المفتاحية والسياق المفتوح
         function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
@@ -413,7 +413,6 @@
 
             let msgBox = document.getElementById('aiMessages');
             
-            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -422,7 +421,6 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            // محاكاة تفاعلية أذكى ومتنوعة
             setTimeout(() => {
                 let botDiv = document.createElement('div');
                 botDiv.className = 'msg-bot';
@@ -431,25 +429,24 @@
                 let response = "";
 
                 if (query.match(/(امتحان|امتحانات|بنك|اسئلة|أسئلة|سؤال|اختبارات أكاديمية)/)) {
-                    response = "يمكنك الوصول لجميع امتحانات الأعوام السابقة ونماذج الأسئلة للمواد من خلال كارت (بنك الأسئلة والامتحانات) في القائمة الرئيسية أو العلوية 🎯.";
+                    response = "يمكنك الوصول لجميع امتحانات الأعوام السابقة ونماذج الأسئلة للمواد من خلال كارت (بنك الأسئلة والامتحانات) في القائمة الرئيسية 🎯.";
                 } 
                 else if (query.match(/(استطلاع|استطلاعات|شخصية|حب|علاقات|صحاب|صداقة|ثقة)/)) {
-                    response = "قسم (الاستطلاعات واختبارات الشخصية) يحتوي على بنك كامل للأسئلة حول تجارب الجامعة، الأصدقاء، الثقة، والعلاقات! يمكنك الإجابة عنها الآن من صفحة الاستطلاعات 🚀.";
+                    response = "قسم (الاستطلاعات واختبارات الشخصية) يحتوي على بنك أسئلة حول تجارب الجامعة، الأصدقاء، الثقة، والعلاقات! يمكنك الإجابة عليها من صفحة الاستطلاعات 🚀.";
                 } 
                 else if (query.match(/(واتس|جروب|مجتمع|رابط|جروبات)/)) {
                     response = "رابط مجتمع الواتساب الرسمي لدفعة 023 متاح في الزر الأخضر العائم أسفل الشاشة أو كارت المجتمع! 💬";
                 } 
-                else if (query.match(/(مادة|مواد|شيت|ملخص|مكتبة|دراجات|gpa)/)) {
+                else if (query.match(/(مادة|مواد|شيت|ملخص|مكتبة|درجات|gpa)/)) {
                     response = "لتصفح المواد الدراسية أو حساب معدلك التراكمي، استخدم كروت (المواد الدراسية) و (حاسبة GPA) بالصفحة الرئيسية 📊.";
                 } 
                 else if (query.match(/(سلام|مرحبا|اهلين|هلا|كيفك|شخبار)/)) {
                     response = "أهلاً بك يا بطل! يسعدني وجودك. كيف يمكنني مساعدتك اليوم في أمور الدفعة أو الدراسة؟ 😊";
                 } 
                 else {
-                    // ردود ديناميكية متنوعة تمنع التكرار المباشر
                     const dynamicResponses = [
-                        `بالنسبة لسؤالك حول "${text}"، يسعدني مساعدتك! يمكنك العثور على التفاصيل الكاملة داخل أقسام المنصة، أو يمكنك الانضمام لمجتمع الواتساب لمناقشتها مع زملائك بالدفعة ✨.`,
-                        `فكرة ممتازة! أوجّهك بمراجعة قسم الاستطلاعات أو المواد للحصول على معلومات دقيقة تخص سؤالك 💡.`,
+                        `بالنسبة لسؤالك حول "${text}"، يسعدني مساعدتك! يمكنك العثور على التفاصيل الكاملة داخل أقسام المنصة، أو المناقشة مع زملائك في مجتمع الواتساب ✨.`,
+                        `فكرة ممتازة! ننصحك بمراجعة قسم الاستطلاعات أو المواد للحصول على معلومات دقيقة تخص سؤالك 💡.`,
                         `أنا هنا لدعمك في كل ما يخص دفعة 023. هل تود الانتقال لـ (بنك الأسئلة) أم (الاستطلاعات الشخصية)؟`
                     ];
                     response = dynamicResponses[Math.floor(Math.random() * dynamicResponses.length)];
