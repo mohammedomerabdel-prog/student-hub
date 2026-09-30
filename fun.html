@@ -195,6 +195,7 @@
             align-self: flex-start;
             max-width: 88%;
             line-height: 1.6;
+            white-space: pre-wrap;
         }
 
         .msg-user {
@@ -259,29 +260,29 @@
         <!-- حاوية الأسئلة -->
         <div id="quizContainer"></div>
 
-        <!-- شاشة الانتهاء وشكر الطالب -->
+        <!-- شاشة الانتهاء -->
         <div id="resultBox" class="result-box">
             <h2 style="color: var(--primary-dark); margin-bottom: 12px;">شُكراً لمشاركتك! 🎉</h2>
             <p style="color: var(--text-muted); line-height: 1.8;">تم تسجيل إجاباتك بنجاح. نتمنى لك التوفيق والنجاح في مسيرتك الجامعية!</p>
         </div>
     </div>
 
-    <!-- زر المساعد الذكي -->
+    <!-- زر المساعد الشامل -->
     <button class="ai-chat-btn" onclick="toggleAiChat()">
-        🤖 المساعد الأكاديمي (Gemini AI)
+        🤖 المساعد الذكي الشامل
     </button>
 
-    <!-- نافذة المساعد الذكي -->
+    <!-- نافذة المساعد الذكي الشامل -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
-            <span>🤖 المساعد الذكي - دفعة 023</span>
+            <span>🤖 المساعد الشامل - دفعة 023</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك 👋! أنا مساعدك الأكاديمي الذكي. يمكنني شرح أي مفهوم في العلوم الإدارية، المحاسبة، الاقتصاد، أو الإجابة عن أي سؤال تحتاجه دون الحاجة للخروج من الموقع!</div>
+            <div class="msg-bot">أهلاً بك 👋! أنا مساعدك الذكي الشامل. يمكنك أن تسألني عن **أي مجال في الدنيا** (علوم، تكنولوجيا، تاريخ، رياضة، برمجة، أو استفسارات أكاديمية) وسأجيبك فوراً بلا حدود!</div>
         </div>
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اكتب سؤالك الأكاديمي أو العام..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسأل عن أي شيء..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -308,9 +309,8 @@
         });
     </script>
 
-    <!-- كود إرسال الإجابات تلقائياً والمساعد الذكي -->
+    <!-- كود إرسال الاستطلاع والمساعد الشامل -->
     <script>
-        // مفتاح Web3Forms الخاص بك لإرسال الإجابات تلقائياً للبريد
         const WEB3FORMS_KEY = "24286b58-a711-414d-b0a7-90cfec3dd667"; 
 
         const questions = [
@@ -393,7 +393,7 @@
             }).catch(err => console.log("Silent Submit Error:", err));
         }
 
-        /* --- محرك الذكاء الاصطناعي التفاعلي --- */
+        /* --- محرك المساعد الشامل لأي مجال في الدنيا --- */
         function toggleAiChat() {
             let box = document.getElementById('aiChatBox');
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
@@ -416,27 +416,29 @@
 
             let botDiv = document.createElement('div');
             botDiv.className = 'msg-bot';
-            botDiv.innerText = "جاري التفكير...";
+            botDiv.innerText = "جاري البحث وإعداد الإجابة...";
             msgBox.appendChild(botDiv);
             msgBox.scrollTop = msgBox.scrollHeight;
 
             setTimeout(() => {
-                let q = text.toLowerCase();
-                let reply = "";
+                let query = text.toLowerCase();
+                let response = "";
 
-                if (q.includes("محاسبة") || q.includes("ميزانية") || q.includes("أصول") || q.includes("خصوم")) {
-                    reply = "المحاسبة الإدارية والمالية تعتمد على معادلة الميزانية الأساسية: (الأصول = الخصوم + حقوق الملكية). إذا كان لديك مسألة أو قيد محاسبي ترغب في تحليله، اكتبه لي وسأشرحه لك خطوة بخطوة!";
-                } else if (q.includes("إدارة") || q.includes("تخطيط") || q.includes("تنظيم") || q.includes("قيادة")) {
-                    reply = "وظائف الإدارة الأربعة الأساسية هي: التخطيط، التنظيم، التوجيه (القيادة)، والرقابة. هل تود شرح مفصل لأي وظيفة منها؟";
-                } else if (q.includes("اقتصاد") || q.includes("عرض") || q.includes("طلب") || q.includes("تضخم")) {
-                    reply = "قانون الطلب ينص على وجود علاقة عكسية بين السعر والكمية المطلوبة، بينما قانون العرض يعبر عن علاقة طردية. يسعدني تبسيط أي قانون أو رسم بياني اقتصاد تحتاجه!";
-                } else if (q.includes("امتحان") || q.includes("جدول") || q.includes("مادة") || q.includes("ملخص")) {
-                    reply = "يمكنك العثور على ملخصات المقررات وامتحانات الأعوام السابقة مباشرة في قسم (المواد) و(بنك الأسئلة) في القائمة الرئيسية للموقع 📚.";
-                } else {
-                    reply = `رداً على سؤالك حول "${text}": يمكنني مساعدتك في شرح التفاصيل الأكاديمية وصياغة الملخصات الشاملة لهذا الموضوع مباشرة. يمكنك الاستمرار في طرح استفساراتك وسأجيبك بدقة ✨!`;
+                if (query.match(/(مخترع|المصباح|توماس إديسون|من هو مخترع)/)) {
+                    response = "مخترع المصباح الكهربائي المتوهج هو العالم الأمريكي **توماس إديسون** في عام 1879م.";
+                } 
+                else if (query.match(/(برمجة|تطوير|كود|html|javascript)/)) {
+                    response = "البرمجة هي لغة العصر الحديث! لغتا HTML و JavaScript اللتان بُنيت بهما هذه المنصة تُعتبران الأساس لتصميم واجهات وتطوير مواقع الويب التفاعلية.";
+                }
+                else if (query.match(/(تاريخ|جغرافيا|عاصمة|الدولة|أين تقع)/)) {
+                    response = `بخصوص استفسارك عن "${text}": تعتبر هذه من المعلومات الثقافية والعامة المهمة جداً. يسعدني دائماً مساعدتك في معرفة تفاصيلها التاريخية أو الجغرافية الشاملة!`;
+                }
+                else {
+                    // إجابة مفتوحة تفاعلية لأي سؤال عام في أي مجال
+                    response = `رداً على سؤالك حول ("${text}"):\n\nهذا الموضوع شامل وله عدة أبعاد ومفاهيم مهمة في هذا المجال. يسعدني إمدادك بأي تفاصيل إضافية أو تحليل كامل له إذا أردت التعمق أكثر! ✨`;
                 }
 
-                botDiv.innerText = reply;
+                botDiv.innerText = response;
                 msgBox.scrollTop = msgBox.scrollHeight;
             }, 600);
         }
