@@ -13,23 +13,24 @@
 
     <style>
         :root {
-            --primary-dark: #0A192F;
+            --primary-dark: #0F172A;
             --primary-blue: #1E3A8A;
-            --accent-gold: #D97706;
-            --accent-gold-light: #FBBF24;
-            --bg-light: #F8FAFC;
+            --accent-gold: #F59E0B;
+            --accent-gold-light: #FCD34D;
+            --bg-light: #F1F5F9;
             --card-bg: #FFFFFF;
-            --text-main: #0F172A;
+            --text-main: #1E293B;
             --text-muted: #64748B;
-            --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-            --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+            --shadow-card: 0 10px 30px -5px rgba(30, 58, 138, 0.08);
+            --shadow-hover: 0 20px 40px -10px rgba(245, 158, 11, 0.2);
         }
 
         body.dark-mode {
-            --bg-light: #0F172A;
-            --card-bg: #1E293B;
+            --bg-light: #090D16;
+            --card-bg: #131C31;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
+            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,21 +39,22 @@
             font-family: 'Cairo', sans-serif;
             background: var(--bg-light);
             color: var(--text-main);
-            line-height: 1.7;
-            padding-bottom: 80px;
-            transition: background 0.3s, color 0.3s;
+            line-height: 1.8;
+            padding-bottom: 90px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         a { text-decoration: none; color: inherit; }
 
-        .container { width: min(1100px, 92%); margin: auto; }
+        .container { width: min(1140px, 92%); margin: auto; }
 
         /* HEADER */
         header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            background: linear-gradient(135deg, #0A192F 0%, #1E3A8A 100%);
             color: white;
-            padding: 25px 0;
-            border-bottom: 3px solid var(--accent-gold);
+            padding: 28px 0;
+            border-bottom: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         .header-content {
@@ -63,211 +65,271 @@
             gap: 15px;
         }
 
-        .logo-area h1 { font-size: 22px; font-weight: 800; }
-        .logo-area p { font-size: 13px; color: var(--accent-gold-light); }
+        .logo-area h1 { font-size: 24px; font-weight: 900; letter-spacing: 0.5px; }
+        .logo-area p { font-size: 13px; color: var(--accent-gold-light); font-weight: 600; }
 
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 25px;
             font-size: 13px;
             font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .nav-btn:hover { background: var(--accent-gold); border-color: var(--accent-gold); }
+        .nav-btn:hover { 
+            background: var(--accent-gold); 
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
 
         /* HERO SECTION */
         .hero {
             text-align: center;
-            margin: 35px 0;
+            margin: 45px 0 35px 0;
         }
 
-        .hero h2 { font-size: 28px; font-weight: 900; color: var(--text-main); margin-bottom: 8px; }
-        .hero p { color: var(--text-muted); font-size: 15px; }
+        .hero h2 { 
+            font-size: 32px; 
+            font-weight: 900; 
+            color: var(--text-main); 
+            margin-bottom: 10px; 
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        /* GRID SYSTEM FOR CARDS */
+        .hero p { color: var(--text-muted); font-size: 16px; font-weight: 600; }
+
+        /* CARDS GRID */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 50px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 18px;
-            padding: 25px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent-gold);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
             border-color: var(--accent-gold-light);
         }
 
-        .card-icon { font-size: 40px; margin-bottom: 12px; }
-        .card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-        .card p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+        .card:hover::before { opacity: 1; }
+
+        .card-icon { font-size: 42px; margin-bottom: 15px; display: inline-block; transition: transform 0.3s; }
+        .card:hover .card-icon { transform: scale(1.1); }
+
+        .card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; color: var(--text-main); }
+        .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 22px; line-height: 1.6; }
 
         .btn-card {
             display: block;
             text-align: center;
-            padding: 10px;
-            background: var(--primary-dark);
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
             color: white;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 13px;
-            transition: 0.3s;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
         }
 
-        .btn-card:hover { background: var(--accent-gold); }
+        .btn-card:hover { 
+            background: linear-gradient(135deg, var(--accent-gold), #D97706);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+            transform: translateY(-2px);
+        }
 
         /* WHATSAPP FLOAT BUTTON */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
             left: 25px;
-            background: #25d366;
+            background: linear-gradient(135deg, #10B981, #059669);
             color: white;
             border-radius: 50px;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 800;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 900;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            transition: all 0.3s ease;
         }
+
+        .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 15px 30px rgba(16, 185, 129, 0.6); }
 
         /* AI CHATBOT BUTTON & WINDOW */
         .ai-chat-btn {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: 800;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 900;
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             cursor: pointer;
             z-index: 1000;
             font-family: inherit;
+            transition: all 0.3s ease;
         }
+
+        .ai-chat-btn:hover { transform: scale(1.08); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6); }
 
         .ai-chat-box {
             position: fixed;
-            bottom: 85px;
+            bottom: 95px;
             right: 25px;
-            width: 360px;
-            height: 480px;
+            width: 380px;
+            height: 500px;
             background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-            border: 1px solid var(--accent-gold-light);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 2px solid var(--accent-gold-light);
             display: none;
             flex-direction: column;
             z-index: 1000;
             overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .ai-header {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));
             color: white;
-            padding: 12px 15px;
-            font-weight: 800;
+            padding: 15px 20px;
+            font-weight: 900;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .ai-messages {
             flex: 1;
-            padding: 12px;
+            padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            font-size: 13px;
+            gap: 12px;
+            font-size: 14px;
         }
 
         .msg-bot {
-            background: #E0F2FE;
-            color: #0369A1;
-            padding: 10px 14px;
-            border-radius: 14px 14px 0 14px;
+            background: #EFF6FF;
+            color: #1E40AF;
+            padding: 12px 16px;
+            border-radius: 18px 18px 0 18px;
             align-self: flex-start;
             max-width: 88%;
-            line-height: 1.6;
-            white-space: pre-wrap;
+            line-height: 1.7;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
         .msg-user {
             background: var(--primary-blue);
             color: white;
-            padding: 10px 14px;
-            border-radius: 14px 14px 14px 0;
+            padding: 12px 16px;
+            border-radius: 18px 18px 18px 0;
             align-self: flex-end;
             max-width: 88%;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .ai-input-area {
             display: flex;
-            padding: 10px;
-            border-top: 1px solid #E2E8F0;
-            gap: 6px;
+            padding: 12px;
+            border-top: 1px solid rgba(226, 232, 240, 0.8);
+            gap: 8px;
+            background: var(--card-bg);
         }
 
         .ai-input-area input {
             flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #CBD5E1;
-            border-radius: 10px;
+            padding: 10px 14px;
+            border: 2px solid #CBD5E1;
+            border-radius: 14px;
             outline: none;
-            font-size: 13px;
+            font-size: 14px;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
+
+        .ai-input-area input:focus { border-color: var(--accent-gold); }
 
         .ai-input-area button {
             background: var(--accent-gold);
             color: white;
             border: none;
-            padding: 8px 14px;
-            border-radius: 10px;
+            padding: 10px 18px;
+            border-radius: 14px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
             font-family: inherit;
+            transition: background 0.3s;
         }
+
+        .ai-input-area button:hover { background: #D97706; }
 
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 20px 0;
+            padding: 25px 0;
             text-align: center;
-            font-size: 13px;
-            margin-top: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 60px;
+            border-top: 4px solid var(--accent-gold);
         }
     </style>
 </head>
@@ -296,7 +358,7 @@
 
         <div class="hero">
             <h2>مرحباً بكم في منصة الدفعة الرسمية</h2>
-            <p>جميع الأدوات والملخصات والامتحانات والاستطلاعات التفاعلية في مكان واحد</p>
+            <p>انطلق نحو التفوق والنجاح: جميع أدواتك، ملخصاتك، وامتحاناتك التفاعلية في مكان واحد 🚀</p>
         </div>
 
         <div class="cards-grid">
@@ -306,7 +368,7 @@
                 <div>
                     <div class="card-icon">📚</div>
                     <h3>المواد الدراسية</h3>
-                    <p>استعراض المقررات والملخصات والشيتات لجميع المواد.</p>
+                    <p>استعراض المقررات والملخصات والشيتات لجميع المواد بتركيز واحترافية.</p>
                 </div>
                 <a href="./subjects.html" class="btn-card">عرض المواد 📚</a>
             </div>
@@ -316,9 +378,9 @@
                 <div>
                     <div class="card-icon">📝</div>
                     <h3>بنك الأسئلة والامتحانات</h3>
-                    <p>امتحانات الأعوام السابقة والنماذج التدريبية للمواد الدراسية.</p>
+                    <p>امتحانات الأعوام السابقة والنماذج التدريبية لضمان أعلى الدرجات.</p>
                 </div>
-                <a href="./exams.html" class="btn-card" style="background: var(--primary-blue);">دخول بنك الامتحانات 🎯</a>
+                <a href="./exams.html" class="btn-card">دخول بنك الامتحانات 🎯</a>
             </div>
 
             <!-- 3. كارت الاستطلاعات واختبارات الشخصية -->
@@ -326,9 +388,9 @@
                 <div>
                     <div class="card-icon">🧠💬</div>
                     <h3>الاستطلاعات واختبارات الشخصية</h3>
-                    <p>أسئلة تفاعلية واستبيانات عن المقدرات، المهارات، والعلاقات.</p>
+                    <p>أسئلة تفاعلية واستبيانات عن المقدرات، المهارات، والعلاقات لبناء الثقة.</p>
                 </div>
-                <a href="./fun.html" class="btn-card" style="background: var(--accent-gold);">دخول الاستطلاعات 🚀</a>
+                <a href="./fun.html" class="btn-card">دخول الاستطلاعات 🚀</a>
             </div>
 
             <!-- 4. كارت حاسبة GPA -->
@@ -336,7 +398,7 @@
                 <div>
                     <div class="card-icon">🧮</div>
                     <h3>حاسبة GPA</h3>
-                    <p>احسب معدلك التراكمي والفصلي بكل سهولة ودقة.</p>
+                    <p>احسب معدلك التراكمي والفصلي بكل سهولة ودقة لتخطط لمستقبلك بثبات.</p>
                 </div>
                 <a href="./gpa.html" class="btn-card">حساب GPA 📊</a>
             </div>
@@ -346,7 +408,7 @@
                 <div>
                     <div class="card-icon">📁</div>
                     <h3>المكتبة السحابية</h3>
-                    <p>ملفات ومراجع ومحاضرات الدفعة السحابية على Google Drive.</p>
+                    <p>ملفات ومراجع ومحاضرات الدفعة السحابية على Google Drive لتكون جاهزاً دائماً.</p>
                 </div>
                 <a href="./library.html" class="btn-card">فتح المكتبة 📂</a>
             </div>
@@ -356,9 +418,9 @@
                 <div>
                     <div class="card-icon">🤝</div>
                     <h3>مجتمع الدفعة</h3>
-                    <p>مساحة للتواصل والتعاون بين طلاب الدفعة عبر الواتساب.</p>
+                    <p>مساحة للتواصل والتعاون الفعال بين طلاب الدفعة لدعم مسيرة النجاح المشترك.</p>
                 </div>
-                <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="btn-card" style="background: #25d366;">دخول المجتمع 💬</a>
+                <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="btn-card" style="background: linear-gradient(135deg, #10B981, #059669);">دخول المجتمع 💬</a>
             </div>
 
         </div>
@@ -372,7 +434,7 @@
 
     <!-- زر المساعد الذكي AI -->
     <button class="ai-chat-btn" onclick="toggleAiChat()">
-        🤖 المساعد الشامل الذكي
+        🤖 المساعد الذكي الشامل
     </button>
 
     <!-- نافذة المساعد الذكي الشامل -->
@@ -382,10 +444,10 @@
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك يا بطل 👋! أنا مساعدك الذكي والشامل. اسألني عن **أي شيء في الدنيا** (تاريخ، علوم، مخترعين، محاسبة، إفصاح، برمجة، أو أي سؤال يخطر ببالك) وسأجيبك فوراً بلا حدود!</div>
+            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل. اسألني عن **أي شيء في الدنيا** (علوم، تقنية، تاريخ، رياضة، إجابات أكاديمية) وسأجيبك فوراً بكل ثقة ونجاح!</div>
         </div>
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اسألني عن أي شيء..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسأل عن أي شيء..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -393,7 +455,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>منصة طلاب كلية العلوم الإدارية • دفعة 023 • جميع الحقوق محفوظة</p>
+            <p>منصة طلاب كلية العلوم الإدارية • دفعة 023 • نحو مستقبل مشرق بالنجاح والتوفيق ✨</p>
         </div>
     </footer>
 
@@ -433,29 +495,29 @@
                 let query = text.toLowerCase();
                 let response = "";
 
-                // إجابات لأسئلة المخترعين والعلوم العامة
                 if (query.match(/(مخترع|المصباح|توماس إديسون|من هو مخترع)/)) {
-                    response = "مخترع المصباح الكهربائي المتوهج العملي هو العالم الأمريكي **توماس إديسون** (Thomas Edison) في عام 1879م، حيث ساهم هذا الاختراع في تغيير تاريخ البشرية وإضاءة العالم!";
+                    response = "مخترع المصباح الكهربائي المتوهج هو العالم الأمريكي **توماس إديسون** في عام 1879م، نموذج ملهم للإصرار والنجاح!";
                 } 
-                else if (query.match(/(عاصمة|الدولة|أكبر|أين تقع|تاريخ)/)) {
-                    response = `بخصوص سؤالك عن "${text}": تعتبر من المعلومات العامة المهمة والمشوقة. يسعدني دائماً تزويدك بالتفاصيل التاريخية والجغرافية عنها. هل تود معرفة تفاصيل أو محاور أخرى حول هذا الموضوع؟`;
+                else if (query.match(/(برمجة|تطوير|كود|html|javascript)/)) {
+                    response = "البرمجة هي لغة الإبداع والمستقبل! لغتا HTML و JavaScript اللتان بُنيت بهما هذه المنصة تعكسان روعة تطوير الأفكار وتحويلها لواقع رقمي مذهل.";
                 }
-                // إجابات المواد الأكاديمية
+                else if (query.match(/(طاقة|ثقة|نجاح|توفيق|محفز)/)) {
+                    response = "الثقة بالنفس هي أساس كل نجاح وعمل عظيم! استمر في السعي وكن على يقين أن جهدك اليوم هو ثمرة تفوقك الغد 🌟.";
+                }
                 else if (query.match(/(محاسبة|ميزانية|أصول|خصوم|مدين|دائن|قيد)/)) {
-                    response = "في العلوم المحاسبية، القاعدة الذهبية تسري دائماً: إجمالي الأصول يساوي مجموع الخصوم وحقوق الملكية (الأصول = الخصوم + حقوق الملكية). هل لديك مسألة محاسبية تريد حلها؟";
+                    response = "في العلوم المحاسبية، القاعدة الذهبية تسري دائماً: إجمالي الأصول يساوي مجموع الخصوم وحقوق الملكية (الأصول = الخصوم + حقوق الملكية). أنت قادر على إتقانها بكل تفوق!";
                 } 
                 else if (query.match(/(إدارة|تخطيط|تنظيم|قيادة|رقابة)/)) {
-                    response = "وظائف الإدارة الأساسية تتكون من: التخطيط المستقبلي، التنظيم الهيكلي، التوجيه والقيادة الفعالة، والرقابة لضمان جودة الأداء.";
+                    response = "وظائف الإدارة الأساسية تتكون من: التخطيط المستقبلي، التنظيم الهيكلي، التوجيه والقيادة الفعالة، والرقابة لضمان جودة الأداء والوصول للقمة.";
                 } 
                 else if (query.match(/(اقتصاد|عرض|طلب|تضخم|سوق)/)) {
-                    response = "في علم الاقتصاد، يتحدد سعر السلع وفقاً لتفاعل قوى العرض والطلب في السوق؛ فكلما زاد الطلب وتقلص المعروض ارتفعت الأسعار.";
+                    response = "في علم الاقتصاد، يتحدد سعر السلع وفقاً لتفاعل قوى العرض والطلب في السوق. المعرفة الاقتصادية تمنحك رؤية أوسع لإدارة المال والأعمال.";
                 } 
                 else if (query.match(/(امتحان|بنك|اسئلة|مادة|ملخص|gpa)/)) {
-                    response = "يمكنك الوصول لجميع امتحانات الدفعة، الملخصات، وحساب معدلك (GPA) مباشرة عبر أقسام المنصة الرئيسية 🎯.";
+                    response = "يمكنك الوصول لجميع امتحانات الدفعة، الملخصات، وحساب معدلك (GPA) مباشرة عبر أقسام المنصة الرئيسية لتحقيق أعلى الدرجات 🎯.";
                 } 
-                // إجابة مفتوحة وشاملة لأي سؤال آخر
                 else {
-                    response = `إجابةً على استفسارك ("${text}"):\n\nيُعد هذا الموضوع واسعاً وشيقاً للغاية. يعتمد فهمه على تحليل المعطيات المرتبطة به سواء كانت علمية، تاريخية، أو عملية. إذا كنت ترغب في التعمق أكثر في نقطة معينة منه، أخبرني بذلك فوراً لأشرحها لك بالتفصيل! ✨`;
+                    response = `رداً على سؤالك حول ("${text}"):\n\nهذا الموضوع ثري ومهم للغاية في بابه. تذكر دائماً أن الفضول العلمي والمعرفي هو مفتاح التفوق والتميز الشامل في حياتك الأكاديمية والعملية! ✨`;
                 }
 
                 botDiv.innerText = response;
