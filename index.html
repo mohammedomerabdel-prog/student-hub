@@ -24,6 +24,10 @@
     --muted:#6b7b90;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Tahoma,Arial,sans-serif;
     background:var(--light);
@@ -301,6 +305,43 @@ nav a:hover{
     height:max-content;
 }
 
+/* SCHEDULE */
+
+.schedule-box{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px #0b31500d;
+}
+
+.schedule-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.schedule-table th{
+    background:var(--navy);
+    color:white;
+    padding:13px 10px;
+    font-size:13px;
+}
+
+.schedule-table td{
+    padding:13px 10px;
+    text-align:center;
+    border-bottom:1px solid #edf1f6;
+    font-size:13px;
+}
+
+.schedule-table tr:last-child td{
+    border-bottom:0;
+}
+
+.schedule-table tr:hover td{
+    background:#f5f9fd;
+}
+
 /* STATS */
 
 .stats{
@@ -403,6 +444,14 @@ footer p{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .schedule-box{
+        overflow-x:auto;
+    }
+
+    .schedule-table{
+        min-width:650px;
+    }
+
 }
 
 @media(max-width:520px){
@@ -434,6 +483,7 @@ footer p{
 </head>
 
 <body>
+
 
 <!-- HEADER -->
 
@@ -471,19 +521,20 @@ footer p{
 المواد
 </a>
 
-<a href="#announcements">
+<a href="#latest-announcements">
 الإعلانات
 </a>
 
-<a href="#schedule">
+<a href="#schedule-section">
 الجدول
 </a>
 
-<a href="#exams">
+<a href="exams.html">
 الامتحانات
 </a>
 
-<a href="#files">
+<a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97"
+target="_blank">
 الملفات
 </a>
 
@@ -559,8 +610,7 @@ alt="شعار جامعة بحري"
 <br>
 
 <span>
-هنا ستظهر أهم إعلانات وأخبار
-طلاب كلية العلوم الإدارية — دفعة 023.
+تابع المنصة باستمرار لمعرفة آخر أخبار وإعلانات دفعة 023.
 </span>
 
 </div>
@@ -579,7 +629,7 @@ alt="شعار جامعة بحري"
 </div>
 
 
-<section class="cards" id="subjects">
+<section class="cards">
 
 
 <!-- المواد -->
@@ -607,7 +657,7 @@ alt="شعار جامعة بحري"
 
 <!-- الإعلانات -->
 
-<article class="card" id="announcements">
+<article class="card">
 
 <div class="icon">
 📢
@@ -630,7 +680,7 @@ alt="شعار جامعة بحري"
 
 <!-- الجدول -->
 
-<article class="card" id="schedule">
+<article class="card">
 
 <div class="icon">
 📅
@@ -641,10 +691,10 @@ alt="شعار جامعة بحري"
 </h3>
 
 <p>
-جدول المحاضرات والامتحانات الخاصة بالدفعة.
+جدول المحاضرات الأسبوعي الخاص بالدفعة.
 </p>
 
-<a class="btn" href="#important-dates">
+<a class="btn" href="#schedule-section">
 عرض الجدول
 </a>
 
@@ -653,7 +703,7 @@ alt="شعار جامعة بحري"
 
 <!-- الامتحانات -->
 
-<article class="card" id="exams">
+<article class="card">
 
 <div class="icon">
 📝
@@ -676,7 +726,7 @@ alt="شعار جامعة بحري"
 
 <!-- الملفات -->
 
-<article class="card" id="files">
+<article class="card">
 
 <div class="icon">
 📁
@@ -694,8 +744,7 @@ alt="شعار جامعة بحري"
 class="btn"
 href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97"
 target="_blank"
-rel="noopener"
->
+rel="noopener">
 فتح المكتبة
 </a>
 
@@ -718,10 +767,7 @@ rel="noopener"
 مساحة للتواصل والتعاون بين طلاب دفعة 023.
 </p>
 
-<a
-class="btn"
-href="#whatsapp"
->
+<a class="btn" href="#whatsapp">
 قريباً
 </a>
 
@@ -744,28 +790,26 @@ href="#whatsapp"
 أحدث إعلانات الدفعة
 </h2>
 
-<a href="#latest-announcements">
-عرض الكل ←
-</a>
-
 </div>
 
 
 <div class="list">
 
 
+<!-- الإعلان الأول -->
+
 <div class="item">
 
 <div>
 
 <b>
-إعلان جديد
+📢 إعلان المنصة
 </b>
 
 <br>
 
 <small>
-سيتم وضع أول إعلان للدفعة هنا.
+تم إطلاق منصة طلاب دفعة 023 لتجميع المواد والإعلانات والملفات في مكان واحد.
 </small>
 
 </div>
@@ -777,18 +821,20 @@ href="#whatsapp"
 </div>
 
 
+<!-- الإعلان الثاني -->
+
 <div class="item">
 
 <div>
 
 <b>
-إضافة محاضرات جديدة
+📚 إضافة المحاضرات
 </b>
 
 <br>
 
 <small>
-سيتم رفع المحاضرات والملخصات هنا.
+سيتم رفع المحاضرات والملخصات الجديدة بصورة مستمرة.
 </small>
 
 </div>
@@ -800,18 +846,20 @@ href="#whatsapp"
 </div>
 
 
+<!-- الإعلان الثالث -->
+
 <div class="item">
 
 <div>
 
 <b>
-تحديث جدول المحاضرات
+📅 تحديث جدول الدراسة
 </b>
 
 <br>
 
 <small>
-تابع المنصة لمعرفة آخر التحديثات.
+يمكن متابعة آخر تحديثات جدول المحاضرات من قسم الجدول.
 </small>
 
 </div>
@@ -844,18 +892,20 @@ href="#whatsapp"
 <div class="list">
 
 
+<!-- الموعد الأول -->
+
 <div class="item">
 
 <div>
 
 <b>
-المحاضرات
+📚 المحاضرات
 </b>
 
 <br>
 
 <small>
-أضف مواعيد المحاضرات هنا.
+سيتم إضافة مواعيد المحاضرات هنا عند اعتماد الجدول.
 </small>
 
 </div>
@@ -867,18 +917,20 @@ href="#whatsapp"
 </div>
 
 
+<!-- الموعد الثاني -->
+
 <div class="item">
 
 <div>
 
 <b>
-الامتحانات
+📝 الامتحانات
 </b>
 
 <br>
 
 <small>
-أضف جدول الامتحانات هنا.
+سيتم إضافة مواعيد الامتحانات هنا عند إعلانها.
 </small>
 
 </div>
@@ -890,18 +942,20 @@ href="#whatsapp"
 </div>
 
 
+<!-- الموعد الثالث -->
+
 <div class="item">
 
 <div>
 
 <b>
-اجتماع الدفعة
+👥 اجتماع الدفعة
 </b>
 
 <br>
 
 <small>
-أضف موعد الاجتماع هنا.
+سيتم إضافة موعد اجتماع الدفعة هنا.
 </small>
 
 </div>
@@ -919,6 +973,190 @@ href="#whatsapp"
 
 
 </div>
+
+
+<!-- SCHEDULE -->
+
+<section id="schedule-section">
+
+<div class="section-title">
+
+<h2>
+📅 جدول المحاضرات
+</h2>
+
+<a href="#schedule-section">
+العودة للجدول ↑
+</a>
+
+</div>
+
+
+<div class="schedule-box">
+
+<table class="schedule-table">
+
+<thead>
+
+<tr>
+
+<th>
+اليوم
+</th>
+
+<th>
+المادة
+</th>
+
+<th>
+الوقت
+</th>
+
+<th>
+المكان
+</th>
+
+<th>
+المحاضر
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+الأحد
+</td>
+
+<td>
+دراسات جامعية
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+الاثنين
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+الثلاثاء
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+الأربعاء
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+الخميس
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
 
 
 <!-- STATS -->
@@ -942,11 +1180,11 @@ href="#whatsapp"
 <div class="stat">
 
 <b>
-—
+397
 </b>
 
 <span>
-طالب
+طالب وطالبة
 </span>
 
 </div>
@@ -955,11 +1193,11 @@ href="#whatsapp"
 <div class="stat">
 
 <b>
-—
+9
 </b>
 
 <span>
-مادة
+مواد دراسية
 </span>
 
 </div>
@@ -1036,6 +1274,16 @@ alt="شعار جامعة بحري"
 
 </footer>
 
+
 </body>
 
-    </html>
+</html>
+
+[/writing]
+
+مهم: الكود أعلاه يعالج الصفحة الرئيسية، لكن عندنا خطوتان منفصلتان حتى يصبح الموقع كاملًا فعليًا:
+
+1. "subjects.html" → أعمله لك الآن بـ 9 مواد، ومنها المادة التي طلبت إضافتها: دراسات جامعية، وكل مادة يكون لها زر دخول وداخلها نقدر نرفع الصور والملفات.
+2. "exams.html" → نعمل صفحة الامتحانات السابقة حتى لا تظهر لك صفحة فارغة.
+
+وبعدها نقدر نعمل خطوة أهم: نجعل الإعلانات والمواعيد والمواد قابلة للتعديل من مكان واحد بدل تعديل الكود كل مرة.
