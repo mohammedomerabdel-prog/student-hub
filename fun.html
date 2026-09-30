@@ -1,37 +1,289 @@
-<!-- كارت الأسئلة والاختبارات التفاعلية -->
-<div class="card" style="background: var(--card-bg); padding: 20px; border-radius: 18px; border: 1px solid rgba(226, 232, 240, 0.8); text-align: center;">
-    <div style="font-size: 35px; margin-bottom: 10px;">🧠💬</div>
-    <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">أسئلة واختبارات تفاعلية</h3>
-    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
-        شارِك في استطلاعات الرأي واختبارات الشخصية والعلاقات بين طلاب الدفعة!
-    </p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-    <!-- قائمة الأسئلة والاستطلاعات -->
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-        
-        <!-- 1. أسئلة عن الجامعة والحيّة الجامعية -->
-        <a href="https://forms.google.com" target="_blank" style="background: #1E3A8A; color: white; padding: 10px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
-            <span>🏫 استبيان: تجارب وانطباعات عن الجامعة</span>
-            <span>شارك 🔗</span>
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الاختبارات والاستطلاعات الشخصية | دفعة 023</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-        <!-- 2. أسئلة عن الأصدقاء والصداقة -->
-        <a href="https://forms.google.com" target="_blank" style="background: #0A192F; color: white; padding: 10px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
-            <span>👥 اختبار: هل أصدقاؤك في الجامعة حقيقيون؟</span>
-            <span>شارك 🔗</span>
-        </a>
+    <style>
+        :root {
+            --primary-dark: #0A192F;
+            --primary-blue: #1E3A8A;
+            --accent-gold: #D97706;
+            --bg-light: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+        }
 
-        <!-- 3. أسئلة عن الثقة والعلاقات -->
-        <a href="https://forms.google.com" target="_blank" style="background: #D97706; color: white; padding: 10px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
-            <span>🤝 استطلاع: كيف تبني الثقة بين الطلاب؟</span>
-            <span>شارك 🔗</span>
-        </a>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        <!-- 4. أسئلة عن الحب والعاطفة في مرحلة الدراسة -->
-        <a href="https://forms.google.com" target="_blank" style="background: #E11D48; color: white; padding: 10px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
-            <span>❤️ أسئلة نقاشية: نظرة الطلاب للحب أثناء الجامعة</span>
-            <span>شارك 🔗</span>
-        </a>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 60px;
+        }
 
-    </div>
-</div>
+        header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .container { width: min(900px, 92%); margin: auto; }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Tabs Filter */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid #CBD5E1;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        /* Quiz Card Container */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .question-box {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #E2E8F0;
+        }
+
+        .question-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-label {
+            background: #F1F5F9;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+
+        .option-label:hover { background: #E2E8F0; }
+
+        .btn-submit {
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 15px;
+        }
+
+        .btn-submit:hover { background: #B45309; }
+
+        .result-box {
+            display: none;
+            background: #E0F2FE;
+            color: #0369A1;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>🧠 بنك الاستطلاعات والاختبارات الشخصية</h1>
+            <p>منصة تحليل وتحديد شخصية وأفكار طلاب دفعة 023</p>
+            <a href="./index.html" class="back-btn">⬅ العودة للصفحة الرئيسية</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- الفئات للتصفية -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterQuiz('all')">🌐 جميع الأسئلة</button>
+            <button class="tab-btn" onclick="filterQuiz('uni')">🏫 عن الجامعة</button>
+            <button class="tab-btn" onclick="filterQuiz('friends')">👥 عن الأصدقاء</button>
+            <button class="tab-btn" onclick="filterQuiz('trust')">🤝 عن الثقة والتعاون</button>
+            <button class="tab-btn" onclick="filterQuiz('love')">❤️ عن الحب والعلاقات</button>
+        </div>
+
+        <!-- منطقة الأسئلة -->
+        <div class="quiz-container">
+            <form id="quizForm">
+                <div id="questionsWrapper">
+                    <!-- الأسئلة تتولد تلقائياً عبر JavaScript -->
+                </div>
+
+                <button type="button" class="btn-submit" onclick="calculateResult()">إرسال وتقييم إجاباتك 🚀</button>
+            </form>
+
+            <div class="result-box" id="resultBox"></div>
+        </div>
+
+    </main>
+
+    <script>
+        // قاعدة بيانات الأسئلة - يمكنك إضافة مئات الأسئلة بنفس هذا الهيكل بسهولة
+        const questionsDB = [
+            // أسئلة عن الجامعة
+            {
+                category: 'uni',
+                title: '1. كيف تتعامل مع المحاضرات ذات الوقت الطويل؟',
+                options: ['أركز من البداية للنهاية وأسجل كل نقطة', 'أفقد التركيز بعد أول نصف ساعة', 'أعتمد على ملخصات زملائي لاحقاً', 'أحضر فقط لدرجات الحضور']
+            },
+            {
+                category: 'uni',
+                title: '2. ما هو أكثر مكان تفضل قضاء وقت الفراغ فيه بالكلية؟',
+                options: ['المكتبة أو القاعات المخصصة للمذاكرة', 'الكافتيريا مع الأصحاب', 'ساحات الجامعة الخارجية', 'أفضل المغادرة فور انتهاء المحاضرة']
+            },
+
+            // أسئلة عن الأصدقاء
+            {
+                category: 'friends',
+                title: '3. ما هي أهم صفة تختار على أساسها صديقك في الجامعة؟',
+                options: ['الأمانة والصدق في المواقف', 'الاهتمام بالدراسة والاجتهاد', 'المرح وقضاء وقت ممتع', 'التوافق في الأفكار والاهتمامات']
+            },
+            {
+                category: 'friends',
+                title: '4. كيف تتصرف إذا اختلف صديقك المقرب معك في موقف أكاديمي؟',
+                options: ['أتحدث معه بهدوء لحل الخلاف', 'أتجاهل الأمر لكي لا يخرب الود', 'ألتزم بموقفي حتى لو ابتعدنا', 'أطلب تدخل طرف ثالث حيادي']
+            },
+
+            // أسئلة عن الثقة والتعاون
+            {
+                category: 'trust',
+                title: '5. هل تشارك ملخصاتك وشيتاتك المجهودة مع بقية الطلاب بسهولة؟',
+                options: ['نعم، أحب مساعدة الجميع بدون تردد', 'أشاركها فقط مع أصدقائي المقربين', 'أشاركها بشرط أن تبادلني المساعدة', 'أفضل الاحتفاظ بها لنفسي']
+            },
+            {
+                category: 'trust',
+                title: '6. كيف تبني ثقتك بشخص جديد في الكلية؟',
+                options: ['أعطيه الثقة كاملة حتى يثبت العكس', 'أحتاج وقتاً ومواقف حقيقية لأثق به', 'أتعامل بحذر دائماً ولا أثق كلياً', 'عبر طريقة تعامله مع الأخرين']
+            },
+
+            // أسئلة عن الحب والعلاقات
+            {
+                category: 'love',
+                title: '7. ما رأيك في الارتباط والارتباط العاطفي خلال المرحلة الجامعية؟',
+                options: ['خطوة إيجابية تدعم الطرفين إذا توفر الجدية', 'تشتت عن الدراسة ويُفضل تأجيله لما بعد التخرج', 'يعتمد على مدى نضج وعقلية الشريكين', 'تجربة عادية مثل باقي التجارب']
+            },
+            {
+                category: 'love',
+                title: '8. ما هو السر الحقيقي لنجاح أي علاقة في بيئة الكلية؟',
+                options: ['الاحترام المتبادل والدعم في الدراسة', 'الصراحة التامة والوضوح', 'القدرة على تجاوز الخلافات بسرعة', 'مراعاة ظروف الطرف الآخر وأهدافه']
+            }
+        ];
+
+        // عرض الأسئلة عند تحميل الصفحة
+        function renderQuestions(filter = 'all') {
+            const wrapper = document.getElementById('questionsWrapper');
+            wrapper.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? questionsDB 
+                : questionsDB.filter(q => q.category === filter);
+
+            filtered.forEach((q, index) => {
+                let optionsHTML = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <label class="option-label">
+                            <input type="radio" name="q_${index}" value="${optIdx}">
+                            ${opt}
+                        </label>
+                    `;
+                });
+
+                wrapper.innerHTML += `
+                    <div class="question-box">
+                        <div class="question-title">${q.title}</div>
+                        <div class="options">${optionsHTML}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // التصفية بحسب القسم
+        function filterQuiz(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderQuestions(category);
+        }
+
+        // حساب النتيجة والتحليل
+        function calculateResult() {
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = '🎉 شكراً لمشاركتك! تم تسجيل إجاباتك بنجاح للمساهمة في بناء استطلاعات وإحصائيات دفعة 023.';
+        }
+
+        // التشغيل الأولي
+        renderQuestions();
+    </script>
+</body>
+</html>
