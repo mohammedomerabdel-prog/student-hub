@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة كلية العلوم الإدارية | دفعة 023</title>
-
+    <title>منصة طلابية | كلية العلوم الإدارية - دفعة 023</title>
+    
     <!-- خط Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
             --primary-blue: #1E3A8A;
             --accent-gold: #D97706;
             --accent-gold-light: #FBBF24;
-            --bg-light: #F1F5F9;
+            --bg-light: #F8FAFC;
             --card-bg: #FFFFFF;
             --text-main: #0F172A;
             --text-muted: #64748B;
@@ -32,223 +32,131 @@
             --text-muted: #94A3B8;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Cairo', sans-serif;
             background: var(--bg-light);
             color: var(--text-main);
             line-height: 1.7;
-            transition: background 0.3s ease, color 0.3s ease;
+            padding-bottom: 80px;
+            transition: background 0.3s, color 0.3s;
         }
 
         a { text-decoration: none; color: inherit; }
 
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
-        }
-
-        /* شريط إعلان علوي */
-        .announcement-bar {
-            background: #EFF6FF;
-            border: 1px solid #BFDBFE;
-            color: #1E40AF;
-            padding: 12px 20px;
-            border-radius: 12px;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .announcement-icon {
-            background: #3B82F6;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
+        .container { width: min(1100px, 92%); margin: auto; }
 
         /* HEADER */
         header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
             color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 25px 0;
             border-bottom: 3px solid var(--accent-gold);
         }
 
-        .nav {
-            min-height: 75px;
+        .header-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
-        .brand {
+        .logo-area h1 { font-size: 22px; font-weight: 800; }
+        .logo-area p { font-size: 13px; color: var(--accent-gold-light); }
+
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 18px;
-            font-weight: 800;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .brand img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            background: white;
-            border-radius: 50%;
-            padding: 2px;
-            border: 2px solid var(--accent-gold-light);
-        }
-
-        .brand small {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--accent-gold-light);
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            overflow-x: auto;
-        }
-
-        nav a {
-            font-size: 14px;
-            font-weight: 700;
-            white-space: nowrap;
-            padding: 6px 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover, nav a.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--accent-gold-light);
-        }
-
-        .theme-toggle-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.12);
             color: white;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
-            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
         }
 
-        /* SECTION TITLE */
-        .section-header {
+        .nav-btn:hover { background: var(--accent-gold); border-color: var(--accent-gold); }
+
+        /* HERO SECTION */
+        .hero {
             text-align: center;
-            margin: 30px 0 20px 0;
+            margin: 35px 0;
         }
 
-        .section-header h2 {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
+        .hero h2 { font-size: 28px; font-weight: 900; color: var(--text-main); margin-bottom: 8px; }
+        .hero p { color: var(--text-muted); font-size: 15px; }
 
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        /* GRID CARDS SERVICES */
-        .services-grid {
+        /* GRID SYSTEM FOR CARDS */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
             margin-bottom: 50px;
         }
 
-        .service-card {
+        .card {
             background: var(--card-bg);
             border-radius: 18px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
+            padding: 25px;
             border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
             border-color: var(--accent-gold-light);
         }
 
-        .service-icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-            background: #F8FAFC;
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            border-radius: 50%;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
-        }
+        .card-icon { font-size: 40px; margin-bottom: 12px; }
+        .card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+        .card p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
 
-        .service-card h3 {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .btn-action {
-            width: 100%;
+        .btn-card {
+            display: block;
+            text-align: center;
+            padding: 10px;
             background: var(--primary-dark);
             color: white;
-            padding: 10px 15px;
             border-radius: 10px;
             font-weight: 700;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover { background: var(--accent-gold); }
+
+        /* WHATSAPP FLOAT BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
             font-size: 14px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            display: inline-block;
+            font-weight: 800;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-action:hover {
-            background: var(--accent-gold);
-        }
-
-        .btn-green {
-            background: #059669;
-        }
-        .btn-green:hover {
-            background: #047857;
-        }
-
-        /* AI CHATBOT BOT FLOATING BUTTON & WINDOW */
+        /* AI CHATBOT BUTTON & WINDOW */
         .ai-chat-btn {
             position: fixed;
             bottom: 25px;
@@ -262,9 +170,6 @@
             font-weight: 800;
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             z-index: 1000;
             font-family: inherit;
         }
@@ -277,7 +182,7 @@
             height: 440px;
             background: var(--card-bg);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
             border: 1px solid var(--accent-gold-light);
             display: none;
             flex-direction: column;
@@ -298,7 +203,7 @@
 
         .ai-messages {
             flex: 1;
-            padding: 15px;
+            padding: 12px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -309,82 +214,57 @@
         .msg-bot {
             background: #E0F2FE;
             color: #0369A1;
-            padding: 8px 12px;
-            border-radius: 12px 12px 0 12px;
+            padding: 10px 14px;
+            border-radius: 14px 14px 0 14px;
             align-self: flex-start;
-            max-width: 85%;
+            max-width: 88%;
+            line-height: 1.6;
         }
 
         .msg-user {
             background: var(--primary-blue);
             color: white;
-            padding: 8px 12px;
-            border-radius: 12px 12px 12px 0;
+            padding: 10px 14px;
+            border-radius: 14px 14px 14px 0;
             align-self: flex-end;
-            max-width: 85%;
+            max-width: 88%;
+            line-height: 1.6;
         }
 
         .ai-input-area {
             display: flex;
             padding: 10px;
             border-top: 1px solid #E2E8F0;
-            gap: 5px;
+            gap: 6px;
         }
 
         .ai-input-area input {
             flex: 1;
             padding: 8px 12px;
             border: 1px solid #CBD5E1;
-            border-radius: 8px;
-            font-family: inherit;
+            border-radius: 10px;
             outline: none;
+            font-size: 13px;
+            font-family: inherit;
         }
 
         .ai-input-area button {
             background: var(--accent-gold);
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: 700;
-        }
-
-        /* MODAL (GPA & EXAMS) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 20px;
-            width: min(450px, 90%);
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px; left: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            color: var(--text-muted);
+            font-family: inherit;
         }
 
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 25px 0;
+            padding: 20px 0;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             margin-top: 40px;
         }
     </style>
@@ -394,164 +274,117 @@
 
     <!-- HEADER -->
     <header>
-        <div class="container nav">
-            <div class="brand">
-                <a href="./index.html">
-                    <img src="1000002660.jpg" alt="شعار الجامعة">
-                </a>
-                <div>
-                    منصة طلابية
-                    <small>كلية العلوم الإدارية • دفعة 023</small>
-                </div>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1>منصة طلابية</h1>
+                <p>كلية العلوم الإدارية • دفعة 023</p>
             </div>
-
-            <nav>
-                <a href="./index.html" class="active">الرئيسية</a>
-                <a href="./subjects.html">المواد</a>
-                <a href="#gpa" onclick="openGpaModal()">حاسبة GPA</a>
-                <a href="./exams.html">الامتحانات</a>
-                <a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97" target="_blank">المكتبة</a>
-                
-                <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الليلي</button>
-            </nav>
+            <div class="nav-links">
+                <a href="./index.html" class="nav-btn">الرئيسية</a>
+                <a href="./subjects.html" class="nav-btn">المواد</a>
+                <a href="./gpa.html" class="nav-btn">حاسبة GPA</a>
+                <a href="./exams.html" class="nav-btn">الامتحانات</a>
+                <a href="./library.html" class="nav-btn">المكتبة</a>
+                <button class="nav-btn" onclick="toggleTheme()">🌙</button>
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <!-- شريط الإعلان -->
-        <div class="announcement-bar">
-            <span class="announcement-icon">إعلان مهم 📢</span>
-            هنا ستظهر أهم إعلانات وأخبار طلاب كلية العلوم الإدارية – دفعة 023.
+    <main class="container">
+
+        <div class="hero">
+            <h2>مرحباً بكم في منصة الدفعة الرسمية</h2>
+            <p>جميع الأدوات والملخصات والاستطلاعات التفاعلية في مكان واحد</p>
         </div>
 
-        <div class="section-header">
-            <h2>الخدمات الطلابية</h2>
-            <p>مكان واحد للمواد والمحاضرات والملخصات والجدول والإعلانات وأدوات الدراسة.</p>
-        </div>
+        <div class="cards-grid">
 
-        <!-- شبكة الخدمات المفعلة بالكامل -->
-        <div class="services-grid">
-
-            <!-- 1. المواد الدراسية -->
-            <div class="service-card">
+            <!-- 1. كارت المواد الدراسية -->
+            <div class="card">
                 <div>
-                    <div class="service-icon">📚</div>
+                    <div class="card-icon">📚</div>
                     <h3>المواد الدراسية</h3>
-                    <p>المحاضرات والملخصات والمواد التعليمية الخاصة بالدفعة.</p>
+                    <p>استعراض المقررات والملخصات والشيتات لجميع المواد.</p>
                 </div>
-                <a href="./subjects.html" class="btn-action">فتح المواد 📂</a>
+                <a href="./subjects.html" class="btn-card">عرض المواد 📚</a>
             </div>
 
-            <!-- 2. بنك الامتحانات -->
-            <div class="service-card">
+            <!-- 2. كارت حاسبة GPA -->
+            <div class="card">
                 <div>
-                    <div class="service-icon">📝</div>
-                    <h3>بنك الامتحانات</h3>
-                    <p>الامتحانات السابقة والمراجعات والأسئلة لجميع المواد.</p>
+                    <div class="card-icon">🧮</div>
+                    <h3>حاسبة GPA</h3>
+                    <p>احسب معدلك التراكمي والفصلي بكل سهولة ودقة.</p>
                 </div>
-                <a href="./exams.html" class="btn-action">فتح الامتحانات 📖</a>
+                <a href="./gpa.html" class="btn-card">حساب GPA 📊</a>
             </div>
 
-            <!-- 3. جدول الدراسة -->
-            <div class="service-card">
+            <!-- 3. كارت الاستطلاعات والاختبارات الشخصية (الخانة المعدلة) -->
+            <div class="card">
                 <div>
-                    <div class="service-icon">📅</div>
+                    <div class="card-icon">🧠💬</div>
+                    <h3>الاستطلاعات والاختبارات</h3>
+                    <p>أسئلة واختبارات شخصية عن الجامعة، الأصدقاء، الثقة، والحب بين طلاب الدفعة.</p>
+                </div>
+                <a href="./quizzes.html" class="btn-card" style="background: var(--accent-gold);">دخول بنك الأسئلة 📝</a>
+            </div>
+
+            <!-- 4. كارت جدول الدراسة -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">📅</div>
                     <h3>جدول الدراسة</h3>
                     <p>جدول المحاضرات والمواعيد المهمة للدفعة.</p>
                 </div>
-                <button onclick="alert('📢 سيتم رفع الجدول الدراسي المحدث للفصل الحالي قريباً!')" class="btn-action">عرض الجدول 🗓️</button>
+                <a href="./schedule.html" class="btn-card">عرض الجدول 🗓️</a>
             </div>
 
-            <!-- 4. حاسبة GPA -->
-            <div class="service-card">
+            <!-- 5. كارت المكتبة السحابية -->
+            <div class="card">
                 <div>
-                    <div class="service-icon">🧮</div>
-                    <h3>حاسبة GPA</h3>
-                    <p>احسب معدلك التراكمي والفصلي بكل سهولة ودفة.</p>
-                </div>
-                <button onclick="openGpaModal()" class="btn-action">حساب GPA 📊</button>
-            </div>
-
-            <!-- 5. اختبارات إلكترونية -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon">🧠</div>
-                    <h3>اختبارات إلكترونية</h3>
-                    <p>اختبر معلوماتك واحصل على النتيجة فوراً للمراجعة.</p>
-                </div>
-                <button onclick="alert('📝 اختبارات أونلاين تجريبية قادمة قبل امتحانات منتصف الفصل!')" class="btn-action">ابدأ اختبار 🚀</button>
-            </div>
-
-            <!-- 6. الإعلانات -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon">📢</div>
-                    <h3>الإعلانات الرسمية</h3>
-                    <p>تابع جديد أخبار الكلية وتنبيهات الدفعة أولاً بأول.</p>
-                </div>
-                <button onclick="alert('🔔 لا توجد إعلانات عاجلة جديدة اليوم.')" class="btn-action">مشاهدة الإعلانات 🔔</button>
-            </div>
-
-            <!-- 7. المكتبة السحابية -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon">📁</div>
+                    <div class="card-icon">📁</div>
                     <h3>المكتبة السحابية</h3>
                     <p>ملفات ومراجع ومحاضرات الدفعة السحابية على Google Drive.</p>
                 </div>
-                <a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97" target="_blank" class="btn-action">فتح المكتبة 🔗</a>
+                <a href="./library.html" class="btn-card">فتح المكتبة 📂</a>
             </div>
 
-            <!-- 8. مجتمع الدفعة -->
-            <div class="service-card">
+            <!-- 6. كارت مجتمع الدفعة -->
+            <div class="card">
                 <div>
-                    <div class="service-icon">🤝</div>
+                    <div class="card-icon">🤝</div>
                     <h3>مجتمع الدفعة</h3>
                     <p>مساحة للتواصل والتعاون بين طلاب الدفعة عبر الواتساب.</p>
                 </div>
-                <a href="https://chat.whatsapp.com/" target="_blank" class="btn-action btn-green">دخول المجتمع 💬</a>
+                <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="btn-card" style="background: #25d366;">دخول المجتمع 💬</a>
             </div>
 
         </div>
-    </div>
+
+    </main>
+
+    <!-- زر مجتمع الواتساب العائم بالرابط المباشر -->
+    <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="whatsapp-float">
+        💬 مجتمع الواتساب
+    </a>
 
     <!-- زر المساعد الذكي AI -->
     <button class="ai-chat-btn" onclick="toggleAiChat()">
         🤖 المساعد الذكي (Gemini)
     </button>
 
-    <!-- نافذة المساعد الذكي -->
+    <!-- نافذة المساعد الذكي Gemini AI -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 مساعد دفعة 023 الذكي</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك يا بطل! 👋 أنا مساعدك الذكي لدفعة 023 علوم إدارية. كيف يمكنني مساعدتك اليوم؟ (المواد، GPA، الامتحانات)</div>
+            <div class="msg-bot">أهلاً بك 👋 يمكنك أن تسألني عن المواد الدراسية، أو الاختبارات والأسئلة (الجامعة، الصحاب، الثقة، الحب)، أو كيف تنضم للمجتمع!</div>
         </div>
         <div class="ai-input-area">
             <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
-        </div>
-    </div>
-
-    <!-- نافذة حاسبة GPA التفاعلية -->
-    <div class="modal" id="gpaModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeGpaModal()">&times;</span>
-            <h3 style="margin-bottom:15px; color:var(--primary-dark);">🧮 حاسبة المعدل GPA</h3>
-            <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px;">أدخل درجاتك (من 100) لحساب المعدل التقديري:</p>
-            
-            <div style="display:flex; flex-direction:column; gap:10px; text-align:right;">
-                <label style="font-size:12px; font-weight:700;">المادة الأولى (3 ساعات):</label>
-                <input type="number" id="m1" placeholder="مثال: 85" style="padding:8px; border-radius:8px; border:1px solid #ccc;">
-                
-                <label style="font-size:12px; font-weight:700;">المادة الثانية (3 ساعات):</label>
-                <input type="number" id="m2" placeholder="مثال: 75" style="padding:8px; border-radius:8px; border:1px solid #ccc;">
-            </div>
-
-            <button onclick="calculateGPA()" class="btn-action" style="margin-top:20px;">احسب الآن 📊</button>
-            <h4 id="gpaResult" style="margin-top:15px; color:var(--accent-gold);"></h4>
         </div>
     </div>
 
@@ -563,35 +396,18 @@
     </footer>
 
     <script>
-        // الوضع الليلي
+        // التبديل للوضع الليلي
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
-            const btn = document.querySelector('.theme-toggle-btn');
-            btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ الوضع المضيء' : '🌙 الوضع الليلي';
         }
 
-        // نافذة GPA
-        function openGpaModal() { document.getElementById('gpaModal').style.display = 'flex'; }
-        function closeGpaModal() { document.getElementById('gpaModal').style.display = 'none'; }
-        
-        function calculateGPA() {
-            let m1 = parseFloat(document.getElementById('m1').value) || 0;
-            let m2 = parseFloat(document.getElementById('m2').value) || 0;
-            if(!m1 || !m2) {
-                document.getElementById('gpaResult').innerText = "الرجاء إدخال الدرجات أولاً!";
-                return;
-            }
-            let avg = (m1 + m2) / 2;
-            let gpa = (avg / 20).toFixed(2); // تقديري من 4.00
-            document.getElementById('gpaResult').innerText = `معدلك التقديري هو: ${gpa} من 4.00 🎓`;
-        }
-
-        // المساعد الذكي AI
+        // فتح وإغلاق المساعد الذكي
         function toggleAiChat() {
             let box = document.getElementById('aiChatBox');
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        // محرك المحادثة للذكاء الاصطناعي
         function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
@@ -599,7 +415,6 @@
 
             let msgBox = document.getElementById('aiMessages');
             
-            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -608,25 +423,36 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            // رد المساعد الذكي
             setTimeout(() => {
                 let botDiv = document.createElement('div');
                 botDiv.className = 'msg-bot';
                 
                 let lower = text.toLowerCase();
-                if (lower.includes('مواد') || lower.includes('المواد')) {
-                    botDiv.innerText = "يمكنك الوصول لكافة المواد الـ 9 وملخصاتها من تبويب 'المواد' في أعلى الصفحة! 📚";
-                } else if (lower.includes('امتحان') || lower.includes('امتحانات')) {
-                    botDiv.innerText = "بنك الامتحانات يحتوي على نماذج امتحانات سابقة ومحانات منتصف الفصل، يمكنك فتحها من زر الامتحانات! 📝";
-                } else if (lower.includes('معدل') || lower.includes('gpa')) {
-                    botDiv.innerText = "اضغط على زر 'حساب GPA' في الصفحة لحساب معدلك التراكمي فوراً! 🧮";
+                let reply = "";
+
+                if (lower.includes('واتس') || lower.includes('جروب') || lower.includes('مجتمع') || lower.includes('رابط')) {
+                    reply = "يمكنك الانضمام مباشرة لمجتمع الواتساب عبر زر (💬 مجتمع الواتساب) الأخضر الموجود بالأسفل! 💬";
+                } else if (lower.includes('حب') || lower.includes('ارتباط')) {
+                    reply = "موضوع الحب والارتباط في فترة الجامعة يحتاج توازناً كبيراً بين الدراسة والمستقبل. يمكنك الإجابة على أسئلة قسم الحب في صفحة الاختبارات! ❤️";
+                } else if (lower.includes('صحاب') || lower.includes('صديق') || lower.includes('صداقة')) {
+                    reply = "الصديق الحقيقي في الجامعة هو من يساندك وقت الامتحانات ويشجعك على النجاح 👥.";
+                } else if (lower.includes('ثقة') || lower.includes('شيت') || lower.includes('ملخص')) {
+                    reply = "مشاركة الملخصات والشيتات تبني روح التعاون والثقة المتبادلة بين طلاب الدفعة 🤝.";
+                } else if (lower.includes('مادة') || lower.includes('امتحان') || lower.includes('جدول') || lower.includes('مكتبة')) {
+                    reply = "يمكنك الوصول للمواد، المكتبة السحابية، وحاسبة GPA مباشرة من الكروت المتاحة في الصفحة الرئيسية 📚.";
                 } else {
-                    botDiv.innerText = "أنا هنا دائماً لخدمتك ومساعدتك في كل ما يتعلق بدراستك في كلية العلوم الإدارية! 🚀";
+                    let randomReplies = [
+                        "سؤال ممتاز! منصتنا مصممة لخدمتك أكاديمياً وتفاعلياً مع زملائك بالدفعة 🚀.",
+                        "أنا معك دائماً! استكشف بنك الاختبارات والأسئلة الشخصية لتسجيل رأيك ✨.",
+                        "أهلاً بك! هل تحتاج مساعدة في الوصول للمواد أم تريد الانضمام لمجتمع الدفعة؟ 😊"
+                    ];
+                    reply = randomReplies[Math.floor(Math.random() * randomReplies.length)];
                 }
 
+                botDiv.innerText = reply;
                 msgBox.appendChild(botDiv);
                 msgBox.scrollTop = msgBox.scrollHeight;
-            }, 600);
+            }, 500);
         }
     </script>
 </body>
