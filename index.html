@@ -2,12 +2,17 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>منصة طلابية | كلية العلوم الإدارية | دفعة 023</title>
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
 
 *{
     box-sizing:border-box;
@@ -44,7 +49,10 @@ a{
     margin:auto;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     background:linear-gradient(135deg,#06264a,#1261ad);
@@ -103,7 +111,10 @@ nav a:hover{
     opacity:.7;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     background:
@@ -113,6 +124,7 @@ nav a:hover{
         #0e4e8c 58%,
         #2d78bd 100%
     );
+
     color:white;
 }
 
@@ -157,9 +169,13 @@ nav a:hover{
     background:white;
     border-radius:25px;
     padding:10px;
+    box-shadow:0 15px 40px #0004;
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
 
 .search-box{
     margin:25px 0;
@@ -205,13 +221,20 @@ nav a:hover{
     cursor:pointer;
 }
 
+.search-btn:hover{
+    background:var(--blue);
+}
+
 #searchResult{
     margin-top:10px;
     color:var(--muted);
     font-size:13px;
 }
 
-/* NOTICE */
+
+/* =========================
+   NOTICE
+========================= */
 
 .notice{
     margin:25px 0;
@@ -229,4 +252,1354 @@ nav a:hover{
     height:50px;
     border-radius:50%;
     background:#1970c8;
-    color
+    color:white;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    flex:none;
+}
+
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:30px 0 17px;
+}
+
+.section-title h2{
+    font-size:24px;
+}
+
+.section-title a{
+    color:var(--blue);
+    font-size:13px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    padding:23px;
+    text-align:right;
+    box-shadow:0 5px 20px #0b31500d;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px #0b31501a;
+}
+
+.icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+    margin-bottom:12px;
+    background:#e8f3ff;
+}
+
+.card h3{
+    margin-bottom:5px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--navy);
+    color:white;
+    border-radius:9px;
+    padding:9px 18px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.btn:hover{
+    background:var(--blue);
+}
+
+
+/* =========================
+   TWO COLUMNS
+========================= */
+
+.grid2{
+    display:grid;
+    grid-template-columns:1.25fr .9fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.list{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    padding:8px 22px;
+}
+
+.item{
+    padding:17px 0;
+    border-bottom:1px solid #edf1f6;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.item:last-child{
+    border-bottom:0;
+}
+
+.item small{
+    color:var(--muted);
+}
+
+.tag{
+    font-size:11px;
+    padding:4px 10px;
+    border-radius:20px;
+    background:#eaf4ff;
+    color:#1768ad;
+    white-space:nowrap;
+    height:max-content;
+}
+
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule-box{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:18px;
+    overflow:auto;
+    box-shadow:0 5px 20px #0b31500d;
+}
+
+.schedule-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+
+.schedule-table th{
+    background:var(--navy);
+    color:white;
+    padding:13px 10px;
+    font-size:13px;
+}
+
+.schedule-table td{
+    padding:13px 10px;
+    text-align:center;
+    border-bottom:1px solid #edf1f6;
+    font-size:13px;
+}
+
+.schedule-table tr:last-child td{
+    border-bottom:0;
+}
+
+.schedule-table tr:hover td{
+    background:#f5f9fd;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:25px 0;
+}
+
+.stat{
+    background:white;
+    border:1px solid #e6edf5;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    font-size:29px;
+    color:var(--blue);
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote{
+    margin:30px 0;
+    background:linear-gradient(110deg,#061f3d,#123f6d);
+    color:white;
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    font-size:21px;
+}
+
+.quote small{
+    font-size:14px;
+    opacity:.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#061f3d;
+    color:white;
+    margin-top:35px;
+    padding:30px 0;
+    text-align:center;
+}
+
+footer img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    background:white;
+    padding:4px;
+    border-radius:50%;
+    margin-bottom:8px;
+}
+
+footer p{
+    opacity:.8;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.social{
+    margin-top:15px;
+    font-size:22px;
+    word-spacing:12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    nav{
+        display:none;
+    }
+
+    .hero-inner{
+        min-height:330px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .hero-logo{
+        display:none;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid2{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:520px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .notice{
+        align-items:flex-start;
+    }
+
+    .brand{
+        font-size:17px;
+    }
+
+    .search-wrapper{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        padding:12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container nav">
+
+<div class="brand">
+
+<a href="index.html">
+
+<img
+src="logo.jpg"
+alt="شعار جامعة بحري">
+
+</a>
+
+<div>
+
+منصة طلابية
+
+<small>
+كلية العلوم الإدارية • دفعة 023
+</small>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="subjects.html">
+المواد
+</a>
+
+<a href="#latest-announcements">
+الإعلانات
+</a>
+
+<a href="#schedule-section">
+الجدول
+</a>
+
+<a href="exams.html">
+الامتحانات
+</a>
+
+<a
+href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97"
+target="_blank"
+rel="noopener">
+
+الملفات
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="container hero-inner">
+
+<div class="hero-text">
+
+<span class="badge">
+🎓 كلية العلوم الإدارية • دفعة 023
+</span>
+
+<h1>
+
+مرحباً بكم في
+<br>
+
+منصة طلاب دفعة 023
+
+</h1>
+
+<p>
+
+منصة طلابية تجمع طلاب
+كلية العلوم الإدارية في مكان واحد.
+
+</p>
+
+<p>
+
+📚 تعلم • 🤝 تعاون • 🚀 تطور
+
+</p>
+
+</div>
+
+
+<img
+src="logo.jpg"
+class="hero-logo"
+alt="شعار جامعة بحري">
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+<!-- SEARCH -->
+
+<section class="search-box">
+
+<label>
+🔎 البحث داخل الموقع
+</label>
+
+<div class="search-wrapper">
+
+<input
+type="search"
+id="siteSearch"
+placeholder="ابحث عن مادة، إعلان، امتحان، محاضرة..."
+>
+
+<button
+class="search-btn"
+onclick="searchSite()">
+
+بحث
+
+</button>
+
+</div>
+
+<div id="searchResult">
+
+اكتب كلمة للبحث داخل الموقع.
+
+</div>
+
+</section>
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+<div class="notice-icon">
+📢
+</div>
+
+<div>
+
+<strong>
+إعلان مهم
+</strong>
+
+<br>
+
+<span>
+تابع المنصة باستمرار لمعرفة آخر أخبار وإعلانات دفعة 023.
+</span>
+
+</div>
+
+</div>
+
+
+<!-- SERVICES -->
+
+<div class="section-title">
+
+<h2>
+الخدمات الطلابية
+</h2>
+
+</div>
+
+
+<section class="cards">
+
+
+<!-- SUBJECTS -->
+
+<article class="card">
+
+<div class="icon">
+📚
+</div>
+
+<h3>
+المواد الدراسية
+</h3>
+
+<p>
+تصفح المواد الدراسية التسع الخاصة بالدفعة.
+</p>
+
+<a
+class="btn"
+href="subjects.html">
+
+دخول
+
+</a>
+
+</article>
+
+
+<!-- ANNOUNCEMENTS -->
+
+<article class="card">
+
+<div class="icon">
+📢
+</div>
+
+<h3>
+إعلانات الدفعة
+</h3>
+
+<p>
+آخر أخبار وإعلانات طلاب كلية العلوم الإدارية.
+</p>
+
+<a
+class="btn"
+href="#latest-announcements">
+
+مشاهدة
+
+</a>
+
+</article>
+
+
+<!-- SCHEDULE -->
+
+<article class="card">
+
+<div class="icon">
+📅
+</div>
+
+<h3>
+جدول المحاضرات
+</h3>
+
+<p>
+جدول المحاضرات من السبت إلى الخميس.
+</p>
+
+<a
+class="btn"
+href="#schedule-section">
+
+عرض الجدول
+
+</a>
+
+</article>
+
+
+<!-- EXAMS -->
+
+<article class="card">
+
+<div class="icon">
+📝
+</div>
+
+<h3>
+الامتحانات السابقة
+</h3>
+
+<p>
+نماذج امتحانات ومراجعات تساعد الطلاب.
+</p>
+
+<a
+class="btn"
+href="exams.html">
+
+الدخول
+
+</a>
+
+</article>
+
+
+<!-- FILES -->
+
+<article class="card">
+
+<div class="icon">
+📁
+</div>
+
+<h3>
+الملفات والملخصات
+</h3>
+
+<p>
+مكتبة ملفات ومحاضرات وملخصات الدفعة.
+</p>
+
+<a
+class="btn"
+href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97"
+target="_blank"
+rel="noopener">
+
+فتح المكتبة
+
+</a>
+
+</article>
+
+
+<!-- WHATSAPP -->
+
+<article class="card">
+
+<div class="icon">
+👥
+</div>
+
+<h3>
+مجتمع الدفعة
+</h3>
+
+<p>
+انضم إلى مجتمع الدفعة للتواصل والتعاون.
+</p>
+
+<a
+class="btn"
+href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW"
+target="_blank"
+rel="noopener">
+
+دخول المجتمع
+
+</a>
+
+</article>
+
+
+</section>
+
+
+<!-- =========================
+     ANNOUNCEMENTS
+========================= -->
+
+<div class="grid2">
+
+
+<section id="latest-announcements">
+
+<div class="section-title">
+
+<h2>
+أحدث إعلانات الدفعة
+</h2>
+
+</div>
+
+
+<div class="list">
+
+
+<div class="item">
+
+<div>
+
+<b>
+📢 إطلاق منصة الدفعة
+</b>
+
+<br>
+
+<small>
+تم إطلاق منصة طلاب دفعة 023 لتجميع الخدمات والمواد والإعلانات.
+</small>
+
+</div>
+
+<span class="tag">
+جديد
+</span>
+
+</div>
+
+
+<div class="item">
+
+<div>
+
+<b>
+📚 إضافة المحاضرات
+</b>
+
+<br>
+
+<small>
+سيتم رفع المحاضرات والملخصات بصورة مستمرة.
+</small>
+
+</div>
+
+<span class="tag">
+ملفات
+</span>
+
+</div>
+
+
+<div class="item">
+
+<div>
+
+<b>
+📅 تحديث جدول المحاضرات
+</b>
+
+<br>
+
+<small>
+يمكن متابعة آخر تحديثات جدول المحاضرات من قسم الجدول.
+</small>
+
+</div>
+
+<span class="tag">
+تحديث
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     IMPORTANT DATES
+========================= -->
+
+<section id="important-dates">
+
+<div class="section-title">
+
+<h2>
+مواعيد مهمة
+</h2>
+
+</div>
+
+
+<div class="list">
+
+
+<div class="item">
+
+<div>
+
+<b>
+📚 المحاضرات
+</b>
+
+<br>
+
+<small>
+سيتم إضافة مواعيد المحاضرات عند اعتماد الجدول.
+</small>
+
+</div>
+
+<span>
+📚
+</span>
+
+</div>
+
+
+<div class="item">
+
+<div>
+
+<b>
+📝 الامتحانات
+</b>
+
+<br>
+
+<small>
+سيتم إضافة مواعيد الامتحانات عند إعلانها.
+</small>
+
+</div>
+
+<span>
+📝
+</span>
+
+</div>
+
+
+<div class="item">
+
+<div>
+
+<b>
+👥 اجتماع الدفعة
+</b>
+
+<br>
+
+<small>
+سيتم إضافة موعد اجتماع الدفعة هنا.
+</small>
+
+</div>
+
+<span>
+👥
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- =========================
+     SCHEDULE
+========================= -->
+
+<section id="schedule-section">
+
+<div class="section-title">
+
+<h2>
+📅 جدول المحاضرات
+</h2>
+
+</div>
+
+
+<div class="schedule-box">
+
+<table class="schedule-table">
+
+
+<thead>
+
+<tr>
+
+<th>
+اليوم
+</th>
+
+<th>
+المادة
+</th>
+
+<th>
+الوقت
+</th>
+
+<th>
+المكان
+</th>
+
+<th>
+المحاضر
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<!-- السبت -->
+
+<tr>
+
+<td>
+السبت
+</td>
+
+<td>
+دراسات جامعية
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<!-- الأحد -->
+
+<tr>
+
+<td>
+الأحد
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<!-- الاثنين -->
+
+<tr>
+
+<td>
+الاثنين
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<!-- الثلاثاء -->
+
+<tr>
+
+<td>
+الثلاثاء
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<!-- الأربعاء -->
+
+<tr>
+
+<td>
+الأربعاء
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+<!-- الخميس -->
+
+<tr>
+
+<td>
+الخميس
+</td>
+
+<td>
+سيتم التحديث
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+<td>
+—
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+
+<div class="stat">
+
+<b>
+023
+</b>
+
+<span>
+رقم الدفعة
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+397
+</b>
+
+<span>
+طالب وطالبة
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+9
+</b>
+
+<span>
+مواد دراسية
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+Drive
+</b>
+
+<span>
+مكتبة الملفات
+</span>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     QUOTE
+========================= -->
+
+<div class="quote">
+
+“دفعتنا واحدة،
+ونجاحنا مسؤولية مشتركة.”
+
+<br>
+
+<small>
+كلية العلوم الإدارية • دفعة 023
+</small>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+
+<a href="index.html">
+
+<img
+src="logo.jpg"
+alt="شعار جامعة بحري">
+
+</a>
+
+
+<h3>
+منصة طلابية لطلاب كلية العلوم الإدارية
+</h3>
+
+
+<p>
+دفعة 023 • جامعة بحري
+</p>
+
+
+<div class="social">
+
+💬
+✈️
+📘
+▶️
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+<!-- =========================
+     SEARCH SCRIPT
+========================= -->
+
+<script>
+
+function searchSite(){
+
+    const input =
+        document.getElementById("siteSearch");
+
+    const result =
+        document.getElementById("searchResult");
+
+    const query =
+        input.value.trim().toLowerCase();
+
+
+    if(query === ""){
+
+        result.textContent =
+        "اكتب كلمة للبحث داخل الموقع.";
+
+        return;
+
+    }
+
+
+    const elements =
+        document.querySelectorAll(
+        "h1,h2,h3,h4,p,small,b,td,span"
+        );
+
+
+    let found = false;
+
+
+    for(let element of elements){
+
+        if(
+            element.innerText
+            .toLowerCase()
+            .includes(query)
+        ){
+
+            found = true;
+
+
+            element.scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"center"
+
+            });
+
+
+            element.style.background =
+            "#fff3a3";
+
+
+            setTimeout(function(){
+
+                element.style.background = "";
+
+            },2500);
+
+
+            result.innerHTML =
+            "✅ تم العثور على: <strong>" +
+            input.value +
+            "</strong>";
+
+            break;
+
+        }
+
+    }
+
+
+    if(!found){
+
+        result.innerHTML =
+        "❌ لم يتم العثور على: <strong>" +
+        input.value +
+        "</strong>";
+
+    }
+
+}
+
+
+document
+.getElementById("siteSearch")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            searchSite();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
