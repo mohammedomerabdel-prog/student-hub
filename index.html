@@ -41,202 +41,6 @@ body{
 
 
 /* =====================================================
-   تنبيه الدخول
-===================================================== */
-
-#welcomeModal{
-
-    position:fixed;
-
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-
-    width:100%;
-    height:100vh;
-
-    background:rgba(5,25,42,.78);
-
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    z-index:999999;
-
-    opacity:1;
-
-    visibility:visible;
-
-    transition:
-        opacity .35s ease,
-        visibility .35s ease;
-
-}
-
-
-/* حالة إخفاء التنبيه */
-
-#welcomeModal.hidden{
-
-    opacity:0;
-
-    visibility:hidden;
-
-    pointer-events:none;
-
-}
-
-
-/* صندوق التنبيه */
-
-.welcome-box{
-
-    width:100%;
-
-    max-width:650px;
-
-    background:#ffffff;
-
-    border-radius:28px;
-
-    border-top:6px solid var(--gold);
-
-    padding:45px 35px 35px;
-
-    text-align:center;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
-
-    transform:scale(1);
-
-    transition:
-        transform .35s ease;
-
-}
-
-
-/* حركة الخروج */
-
-#welcomeModal.hidden .welcome-box{
-
-    transform:scale(.95);
-
-}
-
-
-/* الأيقونة */
-
-.construction-icon{
-
-    font-size:58px;
-
-    margin-bottom:12px;
-
-}
-
-
-/* عنوان التنبيه */
-
-.welcome-box h1{
-
-    color:var(--primary);
-
-    font-size:32px;
-
-    margin-bottom:8px;
-
-}
-
-
-/* النص */
-
-.welcome-box p{
-
-    color:#71808c;
-
-    font-size:17px;
-
-    line-height:1.9;
-
-}
-
-
-/* النص الأخير */
-
-.welcome-note{
-
-    margin-top:18px;
-
-    font-weight:bold;
-
-}
-
-
-/* زر الدخول */
-
-#enterButton{
-
-    width:100%;
-
-    margin-top:28px;
-
-    padding:16px 20px;
-
-    border:none;
-
-    border-radius:16px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #09263f,
-            #155377
-        );
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 20px rgba(9,38,63,.20);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-
-#enterButton:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 12px 25px rgba(9,38,63,.30);
-
-}
-
-
-#enterButton:active{
-
-    transform:scale(.98);
-
-}
-
-
-/* =====================================================
    الهيدر
 ===================================================== */
 
@@ -975,32 +779,6 @@ footer strong{
 
     }
 
-    .welcome-box{
-
-        padding:35px 22px 28px;
-
-        border-radius:24px;
-
-    }
-
-    .construction-icon{
-
-        font-size:50px;
-
-    }
-
-    .welcome-box h1{
-
-        font-size:25px;
-
-    }
-
-    .welcome-box p{
-
-        font-size:14px;
-
-    }
-
 }
 
 </style>
@@ -1008,51 +786,6 @@ footer strong{
 
 
 <body>
-
-
-<!-- =====================================================
-     نافذة الترحيب
-===================================================== -->
-
-<div id="welcomeModal">
-
-    <div class="welcome-box">
-
-        <div class="construction-icon">
-            🚧
-        </div>
-
-        <h1>
-            المنصة في طور البناء
-        </h1>
-
-        <p>
-            أهلاً بك في منصة دفعتنا.
-        </p>
-
-        <p>
-            نعمل على تطويرها لتكون مساحة تجمع
-            العلم، الملفات، الأسئلة، الأخبار،
-            والتواصل في مكان واحد.
-        </p>
-
-        <p class="welcome-note">
-            خطوة بخطوة... نصنع شيئًا نفتخر به.
-        </p>
-
-        <button
-            id="enterButton"
-            type="button">
-
-            حسنًا، أدخل إلى المنصة
-
-        </button>
-
-    </div>
-
-</div>
-
-
 
 <!-- =====================================================
      رأس الموقع
@@ -1554,4 +1287,158 @@ footer strong{
                 </tr>
 
                 <tr>
+                    <td>الأربعاء</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+                    <td>الخميس</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- مكتبة الملفات -->
+
+<section id="library">
+
+    <div class="library">
+
+        <h2>
+            📁 مكتبة الملفات والمراجع
+        </h2>
+
+        <p>
+            الملفات والمحاضرات والتلخيصات الخاصة بجميع المواد ستتوفر هنا قريباً.
+        </p>
+
+        <a class="library-btn" href="#">
+            تصفح الملفات
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- الروابط -->
+
+<section id="community">
+
+    <div class="section-title">
+
+        <h2>
+            🔗 روابط التواصل والاتصال
+        </h2>
+
+        <p>
+            ابق على تواصل دائم مع الدفعة
+        </p>
+
+    </div>
+
+
+    <div class="links-grid">
+
+        <div class="link-card whatsapp">
+
+            <div class="big-icon">
+                💬
+            </div>
+
+            <h3>
+                مجموعة الواتساب
+            </h3>
+
+            <p>
+                مجموعة الدفعة الرسمية للاستفسارات والأخبار.
+            </p>
+
+            <a class="btn" href="#">
+                انضم للمجموعة
+            </a>
+
+        </div>
+
+
+        <div class="link-card">
+
+            <div class="big-icon">
+                📢
+            </div>
+
+            <h3>
+                قناة الدفعة
+            </h3>
+
+            <p>
+                القناة الرسمية لنشر الملفات والتعاميم.
+            </p>
+
+            <a class="btn" href="#">
+                انضم للقناة
+            </a>
+
+        </div>
+
+
+        <div class="link-card">
+
+            <div class="big-icon">
+                💡
+            </div>
+
+            <h3>
+                اقتراحات وملاحظات
+            </h3>
+
+            <p>
+                شاركنا برأيك لتطوير المنصة وتحسينها.
+            </p>
+
+            <a class="btn" href="#">
+                أرسل اقتراحك
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     الفوتر
+===================================================== -->
+
+<footer>
+
+    <p>
+        جميع الحقوق محفوظة لـ <strong>منصة دفعة 023 - كلية العلوم الإدارية</strong>
+    </p>
+
+    <p style="margin-top: 5px;">
+        صُنِع بشغف لخدمة طلاب الدفعة 💙
+    </p>
+
+</footer>
+
+</body>
+   </html>
    
