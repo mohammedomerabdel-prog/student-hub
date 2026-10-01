@@ -2,20 +2,16 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>يلا | المنصة الطلابية - دفعة 023</title>
 
-
 <style>
 
-/* ==================================================
-   الإعدادات العامة
-================================================== */
+/* =========================
+   الإعدادات
+========================= */
 
 *{
     box-sizing:border-box;
@@ -28,55 +24,39 @@ html{
 }
 
 body{
-
-    font-family:
-    Arial,
-    Tahoma,
-    sans-serif;
-
+    font-family:Arial,Tahoma,sans-serif;
     background:#f4f7fa;
-
     color:#263746;
-
     line-height:1.7;
 }
 
-
 :root{
-
     --primary:#09263f;
-
     --primary2:#155377;
-
     --gold:#d9a62e;
-
-    --light:#f4f7fa;
-
-    --white:#ffffff;
-
-    --text:#263746;
-
+    --white:#fff;
     --muted:#71808c;
-
     --border:#e1e8ee;
-
 }
 
 
-/* ==================================================
-   شاشة التنبيه عند دخول الموقع
-================================================== */
+/* =====================================================
+   تنبيه الدخول
+===================================================== */
 
-.welcome-modal{
+#welcomeModal{
 
     position:fixed;
 
-    inset:0;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
 
     width:100%;
-    height:100%;
+    height:100vh;
 
-    background:rgba(7,29,48,.78);
+    background:rgba(5,25,42,.78);
 
     backdrop-filter:blur(5px);
     -webkit-backdrop-filter:blur(5px);
@@ -88,22 +68,22 @@ body{
 
     padding:20px;
 
-    z-index:99999;
+    z-index:999999;
 
     opacity:1;
 
     visibility:visible;
 
     transition:
-    opacity .35s ease,
-    visibility .35s ease;
+        opacity .35s ease,
+        visibility .35s ease;
 
 }
 
 
-/* عند الضغط على الزر */
+/* حالة إخفاء التنبيه */
 
-.welcome-modal.hide{
+#welcomeModal.hidden{
 
     opacity:0;
 
@@ -120,71 +100,69 @@ body{
 
     width:100%;
 
-    max-width:550px;
+    max-width:650px;
 
     background:#ffffff;
 
     border-radius:28px;
 
-    padding:45px 30px 35px;
+    border-top:6px solid var(--gold);
+
+    padding:45px 35px 35px;
 
     text-align:center;
 
-    border-top:6px solid var(--gold);
-
     box-shadow:
-    0 25px 70px rgba(0,0,0,.30);
+        0 25px 70px rgba(0,0,0,.35);
 
-    animation:
-    welcomeIn .45s ease;
+    transform:scale(1);
+
+    transition:
+        transform .35s ease;
 
 }
 
 
-/* أيقونة البناء */
+/* حركة الخروج */
+
+#welcomeModal.hidden .welcome-box{
+
+    transform:scale(.95);
+
+}
+
+
+/* الأيقونة */
 
 .construction-icon{
 
-    font-size:55px;
+    font-size:58px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
 
 /* عنوان التنبيه */
 
-.welcome-box h2{
+.welcome-box h1{
 
     color:var(--primary);
 
-    font-size:28px;
+    font-size:32px;
 
     margin-bottom:8px;
 
 }
 
 
-/* النص الأول */
-
-.welcome-title{
-
-    color:var(--muted);
-
-    font-size:18px;
-
-    margin-bottom:8px;
-
-}
-
-
-/* النص الرئيسي */
+/* النص */
 
 .welcome-box p{
 
-    color:var(--muted);
+    color:#71808c;
 
-    font-size:16px;
+    font-size:17px;
 
     line-height:1.9;
 
@@ -204,90 +182,76 @@ body{
 
 /* زر الدخول */
 
-.welcome-box button{
+#enterButton{
 
     width:100%;
 
+    margin-top:28px;
+
+    padding:16px 20px;
+
     border:none;
 
-    outline:none;
+    border-radius:16px;
 
     background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
+        linear-gradient(
+            135deg,
+            #09263f,
+            #155377
+        );
 
-    color:white;
+    color:#fff;
 
-    padding:15px 20px;
-
-    border-radius:15px;
-
-    font-size:17px;
+    font-size:18px;
 
     font-weight:bold;
 
     cursor:pointer;
 
-    margin-top:25px;
+    box-shadow:
+        0 8px 20px rgba(9,38,63,.20);
 
-    transition:.2s;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 
 }
 
 
-.welcome-box button:hover{
+#enterButton:hover{
 
     transform:translateY(-2px);
 
     box-shadow:
-    0 8px 20px rgba(9,38,63,.25);
+        0 12px 25px rgba(9,38,63,.30);
 
 }
 
 
-/* حركة ظهور التنبيه */
+#enterButton:active{
 
-@keyframes welcomeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:scale(.92);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:scale(1);
-
-    }
+    transform:scale(.98);
 
 }
 
 
-/* ==================================================
+/* =====================================================
    الهيدر
-================================================== */
+===================================================== */
 
 header{
 
     background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary2)
+        );
 
     color:white;
 
-    padding:
-    25px 18px 35px;
+    padding:28px 18px 35px;
 
     text-align:center;
 
@@ -296,22 +260,18 @@ header{
 
 .logo{
 
-    font-size:40px;
+    font-size:42px;
 
     font-weight:900;
-
-    color:white;
 
 }
 
 
 .subtitle{
 
-    margin-top:5px;
-
     color:#dce8f1;
 
-    font-size:15px;
+    margin-top:4px;
 
 }
 
@@ -320,14 +280,13 @@ header{
 
     display:inline-block;
 
-    margin-top:15px;
+    margin-top:14px;
 
     background:var(--gold);
 
     color:#172b3a;
 
-    padding:
-    6px 18px;
+    padding:6px 20px;
 
     border-radius:30px;
 
@@ -336,13 +295,13 @@ header{
 }
 
 
-/* ==================================================
+/* =====================================================
    القائمة
-================================================== */
+===================================================== */
 
 nav{
 
-    background:white;
+    background:#fff;
 
     position:sticky;
 
@@ -351,7 +310,7 @@ nav{
     z-index:100;
 
     box-shadow:
-    0 3px 15px rgba(0,0,0,.08);
+        0 3px 15px rgba(0,0,0,.08);
 
 }
 
@@ -379,8 +338,7 @@ nav{
 
     color:var(--primary);
 
-    padding:
-    9px 14px;
+    padding:9px 15px;
 
     border-radius:10px;
 
@@ -400,9 +358,9 @@ nav{
 }
 
 
-/* ==================================================
-   الحاوية
-================================================== */
+/* =====================================================
+   المحتوى
+===================================================== */
 
 .container{
 
@@ -410,8 +368,7 @@ nav{
 
     margin:auto;
 
-    padding:
-    25px 15px;
+    padding:25px 15px;
 
 }
 
@@ -445,33 +402,30 @@ section{
 
     color:var(--muted);
 
-    font-size:14px;
-
 }
 
 
-/* ==================================================
+/* =====================================================
    الرئيسية
-================================================== */
+===================================================== */
 
 .hero{
 
-    background:white;
+    background:#fff;
 
     border-radius:22px;
 
-    padding:
-    35px 25px;
+    padding:35px 25px;
 
     text-align:center;
 
     box-shadow:
-    0 8px 30px rgba(0,0,0,.06);
+        0 8px 30px rgba(0,0,0,.06);
 
 }
 
 
-.hero h1{
+.hero h2{
 
     color:var(--primary);
 
@@ -486,23 +440,23 @@ section{
 
     color:var(--muted);
 
-    max-width:700px;
+    max-width:750px;
 
     margin:auto;
 
 }
 
 
-/* ==================================================
+/* =====================================================
    الأزرار السريعة
-================================================== */
+===================================================== */
 
 .quick-actions{
 
     display:grid;
 
     grid-template-columns:
-    repeat(4,1fr);
+        repeat(4,1fr);
 
     gap:15px;
 
@@ -512,6 +466,8 @@ section{
 
 
 .quick-action{
+
+    display:block;
 
     text-decoration:none;
 
@@ -545,21 +501,19 @@ section{
 
     font-size:28px;
 
-    margin-bottom:5px;
-
 }
 
 
-/* ==================================================
+/* =====================================================
    الإحصائيات
-================================================== */
+===================================================== */
 
 .stats{
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3,1fr);
 
     gap:15px;
 
@@ -570,10 +524,9 @@ section{
 
 .stat{
 
-    background:white;
+    background:#fff;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:17px;
 
@@ -588,9 +541,9 @@ section{
 
     display:block;
 
-    color:var(--primary);
-
     font-size:28px;
+
+    color:var(--primary);
 
 }
 
@@ -602,16 +555,16 @@ section{
 }
 
 
-/* ==================================================
+/* =====================================================
    المواد
-================================================== */
+===================================================== */
 
 .subjects-grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3,1fr);
 
     gap:18px;
 
@@ -620,17 +573,16 @@ section{
 
 .subject-card{
 
-    background:white;
+    background:#fff;
+
+    border:1px solid var(--border);
 
     border-radius:18px;
-
-    border:
-    1px solid var(--border);
 
     padding:22px;
 
     box-shadow:
-    0 5px 18px rgba(0,0,0,.04);
+        0 5px 18px rgba(0,0,0,.04);
 
     transition:.2s;
 
@@ -641,9 +593,6 @@ section{
 
     transform:translateY(-4px);
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
 }
 
 
@@ -653,10 +602,6 @@ section{
 
     height:42px;
 
-    background:#edf3f7;
-
-    color:var(--primary);
-
     display:flex;
 
     align-items:center;
@@ -664,6 +609,10 @@ section{
     justify-content:center;
 
     border-radius:12px;
+
+    background:#edf3f7;
+
+    color:var(--primary);
 
     font-weight:bold;
 
@@ -685,7 +634,7 @@ section{
 
     color:var(--muted);
 
-    font-size:13px;
+    font-size:14px;
 
     margin-bottom:15px;
 
@@ -696,14 +645,13 @@ section{
 
     display:inline-block;
 
-    text-decoration:none;
-
     background:var(--primary);
 
-    color:white;
+    color:#fff;
 
-    padding:
-    9px 15px;
+    text-decoration:none;
+
+    padding:9px 15px;
 
     border-radius:10px;
 
@@ -714,16 +662,16 @@ section{
 }
 
 
-/* ==================================================
+/* =====================================================
    البطاقات
-================================================== */
+===================================================== */
 
 .cards{
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3,1fr);
 
     gap:18px;
 
@@ -732,14 +680,13 @@ section{
 
 .card{
 
-    background:white;
+    background:#fff;
+
+    border:1px solid var(--border);
 
     border-radius:18px;
 
     padding:22px;
-
-    border:
-    1px solid var(--border);
 
 }
 
@@ -748,8 +695,6 @@ section{
 
     font-size:30px;
 
-    margin-bottom:8px;
-
 }
 
 
@@ -757,7 +702,7 @@ section{
 
     color:var(--primary);
 
-    margin-bottom:8px;
+    margin:8px 0;
 
 }
 
@@ -771,20 +716,19 @@ section{
 }
 
 
-/* ==================================================
+/* =====================================================
    الجدول
-================================================== */
+===================================================== */
 
 .table-box{
 
     overflow-x:auto;
 
-    background:white;
+    background:#fff;
 
     border-radius:18px;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
 }
 
@@ -793,22 +737,20 @@ table{
 
     width:100%;
 
-    border-collapse:collapse;
-
     min-width:700px;
+
+    border-collapse:collapse;
 
 }
 
 
-th,
-td{
+th,td{
 
     padding:15px;
 
     text-align:center;
 
-    border-bottom:
-    1px solid var(--border);
+    border-bottom:1px solid var(--border);
 
 }
 
@@ -817,46 +759,31 @@ th{
 
     background:var(--primary);
 
-    color:white;
+    color:#fff;
 
 }
 
 
-td{
-
-    background:white;
-
-}
-
-
-/* ==================================================
-   مكتبة الملفات
-================================================== */
+/* =====================================================
+   المكتبة
+===================================================== */
 
 .library{
 
     background:
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary2)
+        );
 
     color:white;
 
     border-radius:22px;
 
-    padding:
-    35px 25px;
+    padding:35px 25px;
 
     text-align:center;
-
-}
-
-
-.library h2{
-
-    margin-bottom:10px;
 
 }
 
@@ -865,7 +792,9 @@ td{
 
     color:#d9e7ef;
 
-    margin-bottom:20px;
+    margin:10px auto 20px;
+
+    max-width:700px;
 
 }
 
@@ -880,8 +809,7 @@ td{
 
     color:#172b3a;
 
-    padding:
-    12px 25px;
+    padding:12px 25px;
 
     border-radius:12px;
 
@@ -890,16 +818,16 @@ td{
 }
 
 
-/* ==================================================
+/* =====================================================
    الروابط
-================================================== */
+===================================================== */
 
 .links-grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3,1fr);
 
     gap:18px;
 
@@ -908,10 +836,9 @@ td{
 
 .link-card{
 
-    background:white;
+    background:#fff;
 
-    border:
-    1px solid var(--border);
+    border:1px solid var(--border);
 
     border-radius:18px;
 
@@ -926,16 +853,12 @@ td{
 
     font-size:38px;
 
-    margin-bottom:8px;
-
 }
 
 
 .link-card h3{
 
     color:var(--primary);
-
-    margin-bottom:8px;
 
 }
 
@@ -944,9 +867,9 @@ td{
 
     color:var(--muted);
 
-    font-size:13px;
+    font-size:14px;
 
-    margin-bottom:15px;
+    margin:8px 0 15px;
 
 }
 
@@ -955,14 +878,12 @@ td{
 
     background:#f1f8f3;
 
-    border-color:#d8eadc;
-
 }
 
 
-/* ==================================================
+/* =====================================================
    الفوتر
-================================================== */
+===================================================== */
 
 footer{
 
@@ -973,8 +894,6 @@ footer{
     text-align:center;
 
     padding:30px 15px;
-
-    margin-top:30px;
 
 }
 
@@ -995,58 +914,50 @@ footer strong{
 }
 
 
-/* ==================================================
-   الأجهزة اللوحية
-================================================== */
+/* =====================================================
+   الهاتف
+===================================================== */
 
 @media(max-width:900px){
 
     .subjects-grid{
 
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
 
     }
-
 
     .cards,
     .links-grid{
 
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
 
     }
-
 
     .quick-actions{
 
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
 
     }
 
 }
 
 
-/* ==================================================
-   الهاتف
-================================================== */
-
 @media(max-width:600px){
 
     .logo{
 
-        font-size:32px;
+        font-size:34px;
 
     }
 
-
-    .hero h1{
+    .hero h2{
 
         font-size:25px;
 
     }
-
 
     .subjects-grid,
     .cards,
@@ -1057,53 +968,32 @@ footer strong{
 
     }
 
-
     .quick-actions{
 
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
 
     }
-
-
-    .quick-action{
-
-        font-size:13px;
-
-    }
-
-
-    .container{
-
-        padding:
-        20px 12px;
-
-    }
-
 
     .welcome-box{
 
-        padding:
-        35px 22px 28px;
+        padding:35px 22px 28px;
 
         border-radius:24px;
 
     }
 
-
     .construction-icon{
 
-        font-size:48px;
+        font-size:50px;
 
     }
 
+    .welcome-box h1{
 
-    .welcome-box h2{
-
-        font-size:24px;
+        font-size:25px;
 
     }
-
 
     .welcome-box p{
 
@@ -1111,48 +1001,34 @@ footer strong{
 
     }
 
-
-    .welcome-box button{
-
-        font-size:15px;
-
-    }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
-     تنبيه الدخول
-================================================== -->
+<!-- =====================================================
+     نافذة الترحيب
+===================================================== -->
 
-<div id="welcomeModal"
-     class="welcome-modal">
-
+<div id="welcomeModal">
 
     <div class="welcome-box">
-
 
         <div class="construction-icon">
             🚧
         </div>
 
-
-        <h2>
+        <h1>
             المنصة في طور البناء
-        </h2>
+        </h1>
 
-
-        <p class="welcome-title">
+        <p>
             أهلاً بك في منصة دفعتنا.
         </p>
-
 
         <p>
             نعمل على تطويرها لتكون مساحة تجمع
@@ -1160,20 +1036,17 @@ footer strong{
             والتواصل في مكان واحد.
         </p>
 
-
         <p class="welcome-note">
             خطوة بخطوة... نصنع شيئًا نفتخر به.
         </p>
 
-
         <button
-            type="button"
-            onclick="enterPlatform()">
+            id="enterButton"
+            type="button">
 
             حسنًا، أدخل إلى المنصة
 
         </button>
-
 
     </div>
 
@@ -1181,9 +1054,9 @@ footer strong{
 
 
 
-<!-- ==================================================
-     الهيدر
-================================================== -->
+<!-- =====================================================
+     رأس الموقع
+===================================================== -->
 
 <header>
 
@@ -1191,11 +1064,9 @@ footer strong{
         يلا
     </div>
 
-
     <div class="subtitle">
         المنصة الطلابية | كلية العلوم الإدارية
     </div>
-
 
     <div class="badge">
         دفعة 023
@@ -1205,49 +1076,41 @@ footer strong{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      القائمة
-================================================== -->
+===================================================== -->
 
 <nav>
 
     <div class="nav-container">
 
-
         <a href="#home">
             الرئيسية
         </a>
-
 
         <a href="#subjects">
             المواد
         </a>
 
-
         <a href="#announcements">
             الإعلانات
         </a>
-
 
         <a href="#schedule">
             الجدول
         </a>
 
-
         <a href="#exams">
             الامتحانات
         </a>
-
 
         <a href="#library">
             مكتبة الملفات
         </a>
 
-
         <a href="#community">
             مجتمع الدفعة
         </a>
-
 
     </div>
 
@@ -1255,28 +1118,22 @@ footer strong{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      المحتوى
-================================================== -->
+===================================================== -->
 
 <main class="container">
 
 
-
-<!-- ==================================================
-     الرئيسية
-================================================== -->
+<!-- الرئيسية -->
 
 <section id="home">
 
-
     <div class="hero">
 
-
-        <h1>
+        <h2>
             مرحباً بكم في منصة يلا 🎓
-        </h1>
-
+        </h2>
 
         <p>
             منصة طلابية تجمع المواد الدراسية
@@ -1286,121 +1143,59 @@ footer strong{
         </p>
 
 
-
         <div class="quick-actions">
 
-
-            <a
-                class="quick-action"
-                href="#subjects">
-
+            <a class="quick-action" href="#subjects">
                 <span>📚</span>
-
                 المواد الدراسية
-
             </a>
 
-
-
-            <a
-                class="quick-action"
-                href="#library">
-
+            <a class="quick-action" href="#library">
                 <span>📁</span>
-
                 مكتبة الملفات
-
             </a>
 
-
-
-            <a
-                class="quick-action"
-                href="#schedule">
-
+            <a class="quick-action" href="#schedule">
                 <span>📅</span>
-
                 جدول المحاضرات
-
             </a>
 
-
-
-            <a
-                class="quick-action"
-                href="#exams">
-
+            <a class="quick-action" href="#exams">
                 <span>📝</span>
-
                 الامتحانات السابقة
-
             </a>
-
 
         </div>
 
-
     </div>
-
 
 
     <div class="stats">
 
-
         <div class="stat">
-
-            <strong>
-                9
-            </strong>
-
-            <span>
-                مواد دراسية
-            </span>
-
+            <strong>9</strong>
+            <span>مواد دراسية</span>
         </div>
 
-
-
         <div class="stat">
-
-            <strong>
-                397
-            </strong>
-
-            <span>
-                طالب وطالبة
-            </span>
-
+            <strong>397</strong>
+            <span>طالب وطالبة</span>
         </div>
 
-
-
         <div class="stat">
-
-            <strong>
-                023
-            </strong>
-
-            <span>
-                رقم الدفعة
-            </span>
-
+            <strong>023</strong>
+            <span>رقم الدفعة</span>
         </div>
-
 
     </div>
-
 
 </section>
 
 
 
-<!-- ==================================================
-     المواد الدراسية
-================================================== -->
+<!-- المواد -->
 
 <section id="subjects">
-
 
     <div class="section-title">
 
@@ -1415,9 +1210,7 @@ footer strong{
     </div>
 
 
-
     <div class="subjects-grid">
-
 
 
         <div class="subject-card">
@@ -1434,16 +1227,11 @@ footer strong{
                 محاضرات وملخصات وملفات المادة.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح ملفات المادة
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1460,16 +1248,11 @@ footer strong{
                 محاضرات وملخصات وأسئلة.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1483,19 +1266,14 @@ footer strong{
             </h3>
 
             <p>
-                المحاضرات والمراجعات الخاصة بالمادة.
+                المحاضرات والمراجعات.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1512,16 +1290,11 @@ footer strong{
                 مذكرات وأسئلة السنوات السابقة.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1538,16 +1311,11 @@ footer strong{
                 ملفات المادة والمراجعات.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1564,16 +1332,11 @@ footer strong{
                 المحاضرات والملخصات.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1590,16 +1353,11 @@ footer strong{
                 مذكرات وأسئلة ومراجعات.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1616,16 +1374,11 @@ footer strong{
                 ملفات ومراجع المادة.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
-
 
 
         <div class="subject-card">
@@ -1642,12 +1395,8 @@ footer strong{
                 محاضرات وملخصات ومراجعات.
             </p>
 
-            <a
-                class="btn"
-                href="#library">
-
+            <a class="btn" href="#library">
                 فتح الملفات
-
             </a>
 
         </div>
@@ -1659,12 +1408,9 @@ footer strong{
 
 
 
-<!-- ==================================================
-     الإعلانات
-================================================== -->
+<!-- الإعلانات -->
 
 <section id="announcements">
-
 
     <div class="section-title">
 
@@ -1679,9 +1425,7 @@ footer strong{
     </div>
 
 
-
     <div class="cards">
-
 
         <div class="card">
 
@@ -1701,11 +1445,113 @@ footer strong{
         </div>
 
 
-
         <div class="card">
 
             <div class="icon">
                 📚
             </div>
 
-       
+            <h3>
+                تحديث المواد
+            </h3>
+
+            <p>
+                سيتم إضافة المحاضرات
+                والملخصات والملفات الجديدة.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🔔
+            </div>
+
+            <h3>
+                تنبيهات مهمة
+            </h3>
+
+            <p>
+                تابع المنصة لمعرفة آخر
+                التحديثات والمواعيد.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- الجدول -->
+
+<section id="schedule">
+
+    <div class="section-title">
+
+        <h2>
+            📅 جدول المحاضرات
+        </h2>
+
+        <p>
+            من السبت إلى الخميس
+        </p>
+
+    </div>
+
+
+    <div class="table-box">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>اليوم</th>
+
+                    <th>المحاضرة الأولى</th>
+
+                    <th>المحاضرة الثانية</th>
+
+                    <th>المحاضرة الثالثة</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>السبت</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+                    <td>الأحد</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+                    <td>الاثنين</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+                    <td>الثلاثاء</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>—</td>
+                </tr>
+
+                <tr>
+      
