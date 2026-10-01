@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>يلا | المنصة الطلابية - دفعة 023</title>
+<title>الريان | المنصة الطلابية - دفعة 023</title>
 
 <style>
 
@@ -252,7 +252,7 @@ section{
 
 
 /* =====================================================
-   الأزرار السريعة
+   الأزرار السريعة (3 أزرار بناءً على الطلب)
 ===================================================== */
 
 .quick-actions{
@@ -260,7 +260,7 @@ section{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(3,1fr);
 
     gap:15px;
 
@@ -467,7 +467,7 @@ section{
 
 
 /* =====================================================
-   البطاقات
+   البطاقات العامة (الإعلانات، النبذة، النتيجة، الاختبارات، الوسائل)
 ===================================================== */
 
 .cards{
@@ -742,7 +742,7 @@ footer strong{
     .quick-actions{
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(3,1fr);
 
     }
 
@@ -774,8 +774,7 @@ footer strong{
 
     .quick-actions{
 
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:1fr;
 
     }
 
@@ -794,7 +793,7 @@ footer strong{
 <header>
 
     <div class="logo">
-        يلا
+        الريان
     </div>
 
     <div class="subtitle">
@@ -825,16 +824,28 @@ footer strong{
             المواد
         </a>
 
+        <a href="#about">
+            عن الكلية
+        </a>
+
+        <a href="#results">
+            النتيجة
+        </a>
+
+        <a href="#exams-section">
+            الاختبارات
+        </a>
+
+        <a href="#tools">
+            الوسائل
+        </a>
+
         <a href="#announcements">
             الإعلانات
         </a>
 
         <a href="#schedule">
             الجدول
-        </a>
-
-        <a href="#exams">
-            الامتحانات
         </a>
 
         <a href="#library">
@@ -865,7 +876,7 @@ footer strong{
     <div class="hero">
 
         <h2>
-            مرحباً بكم في منصة يلا 🎓
+            مرحباً بكم في منصة الريان 🎓
         </h2>
 
         <p>
@@ -878,11 +889,6 @@ footer strong{
 
         <div class="quick-actions">
 
-            <a class="quick-action" href="#subjects">
-                <span>📚</span>
-                المواد الدراسية
-            </a>
-
             <a class="quick-action" href="#library">
                 <span>📁</span>
                 مكتبة الملفات
@@ -893,7 +899,7 @@ footer strong{
                 جدول المحاضرات
             </a>
 
-            <a class="quick-action" href="#exams">
+            <a class="quick-action" href="#exams-section">
                 <span>📝</span>
                 الامتحانات السابقة
             </a>
@@ -1141,6 +1147,118 @@ footer strong{
 
 
 
+<!-- نبذة عن الكلية -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            🏛️ نبذة عن الكلية
+        </h2>
+
+        <p>
+            كلية العلوم الإدارية
+        </p>
+
+    </div>
+
+    <div class="cards">
+        <div class="card" style="grid-column: span 3; text-align: center;">
+            <div class="icon">🎓</div>
+            <h3>كلية العلوم الإدارية</h3>
+            <p>تعتبر كلية العلوم الإدارية صرحاً أكاديمياً متميزاً يهدف إلى إعداد كوادر مؤهلة وقادرة على قيادة قطاعات الأعمال بحرية واحترافية عالية وفق أحدث المعايير العلمية.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- النتيجة -->
+
+<section id="results">
+
+    <div class="section-title">
+
+        <h2>
+            📊 النتيجة الأكاديمية
+        </h2>
+
+        <p>
+            نتائج الامتحانات الفصلية والنهائية
+        </p>
+
+    </div>
+
+    <div class="cards">
+        <div class="card" style="grid-column: span 3; text-align: center;">
+            <div class="icon">📈</div>
+            <h3>نتائج الطلاب</h3>
+            <p>سيتم إرفاق روابط وروائز النتائج الرسمية فور اعتمادها وإعلانها رسمياً من إدارة الكلية.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- الاختبارات -->
+
+<section id="exams-section">
+
+    <div class="section-title">
+
+        <h2>
+            📝 الاختبارات والامتحانات
+        </h2>
+
+        <p>
+            بنك الأسئلة والامتحانات السابقة
+        </p>
+
+    </div>
+
+    <div class="cards">
+        <div class="card" style="grid-column: span 3; text-align: center;">
+            <div class="icon">📝</div>
+            <h3>امتحانات السنوات السابقة</h3>
+            <p>توفير كافة النماذج والاختبارات السابقة لمساعدة الطلاب في الاستعداد الأمثل للامتحانات.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- الوسائل التعليمية -->
+
+<section id="tools">
+
+    <div class="section-title">
+
+        <h2>
+            💡 الوسائل التعليمية
+        </h2>
+
+        <p>
+            أدوات ومصادر التعاون الدراسي
+        </p>
+
+    </div>
+
+    <div class="cards">
+        <div class="card" style="grid-column: span 3; text-align: center;">
+            <div class="icon">🛠️</div>
+            <h3>مصادر التعلم المساعدة</h3>
+            <p>روابط ومراجع وبرامج تعليمية تسهم في تسهيل فهم المقرر وتحسين التحصيل الأكاديمي.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
 <!-- الإعلانات -->
 
 <section id="announcements">
@@ -1338,107 +1456,4 @@ footer strong{
 
 <section id="community">
 
-    <div class="section-title">
-
-        <h2>
-            🔗 روابط التواصل والاتصال
-        </h2>
-
-        <p>
-            ابق على تواصل دائم مع الدفعة
-        </p>
-
-    </div>
-
-
-    <div class="links-grid">
-
-        <div class="link-card whatsapp">
-
-            <div class="big-icon">
-                💬
-            </div>
-
-            <h3>
-                مجموعة الواتساب
-            </h3>
-
-            <p>
-                مجموعة الدفعة الرسمية للاستفسارات والأخبار.
-            </p>
-
-            <a class="btn" href="#">
-                انضم للمجموعة
-            </a>
-
-        </div>
-
-
-        <div class="link-card">
-
-            <div class="big-icon">
-                📢
-            </div>
-
-            <h3>
-                قناة الدفعة
-            </h3>
-
-            <p>
-                القناة الرسمية لنشر الملفات والتعاميم.
-            </p>
-
-            <a class="btn" href="#">
-                انضم للقناة
-            </a>
-
-        </div>
-
-
-        <div class="link-card">
-
-            <div class="big-icon">
-                💡
-            </div>
-
-            <h3>
-                اقتراحات وملاحظات
-            </h3>
-
-            <p>
-                شاركنا برأيك لتطوير المنصة وتحسينها.
-            </p>
-
-            <a class="btn" href="#">
-                أرسل اقتراحك
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- =====================================================
-     الفوتر
-===================================================== -->
-
-<footer>
-
-    <p>
-        جميع الحقوق محفوظة لـ <strong>منصة دفعة 023 - كلية العلوم الإدارية</strong>
-    </p>
-
-    <p style="margin-top: 5px;">
-        صُنِع بشغف لخدمة طلاب الدفعة 💙
-    </p>
-
-</footer>
-
-</body>
-   </html>
-   
+    <div clas
