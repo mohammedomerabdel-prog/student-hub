@@ -4,243 +4,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الريان | المنصة الطلابية - دفعة 023</title>
+<title>الريان | الوسائل التعليمية</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
-
 header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:28px 18px 35px;text-align:center;}
 .logo{font-size:42px;font-weight:900;}
 .subtitle{color:#dce8f1;margin-top:4px;}
-.badge{display:inline-block;margin-top:14px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
-
 nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
 .nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
-.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
-.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
-
+.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;}
+.nav-container a:hover{background:#edf3f7;}
 .container{max-width:1200px;margin:auto;padding:25px 15px;}
-section{margin-bottom:35px;}
 .section-title{text-align:center;margin-bottom:20px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
-
-.hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
-.hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
-.hero p{color:var(--muted);max-width:750px;margin:auto;}
-
-.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px;}
-.quick-action{display:block;text-decoration:none;background:var(--primary);color:white;padding:18px 10px;border-radius:15px;font-weight:bold;transition:.2s;}
-.quick-action:hover{transform:translateY(-3px);background:var(--primary2);}
-.quick-action span{display:block;font-size:28px;}
-
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px;}
-.stat{background:#fff;border:1px solid var(--border);border-radius:17px;padding:20px;text-align:center;}
-.stat strong{display:block;font-size:28px;color:var(--primary);}
-.stat span{color:var(--muted);}
-
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.2s;}
-.card:hover{transform:translateY(-4px);}
-.card .icon{font-size:35px;margin-bottom:10px;}
-.card h3{color:var(--primary);margin-bottom:8px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;}
+.card .icon{font-size:30px;margin-bottom:10px;}
+.card h3{color:var(--primary);margin:8px 0;}
 .card p{color:var(--muted);font-size:14px;margin-bottom:15px;}
-
-.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:bold;transition:.2s;}
-.btn:hover{background:var(--primary2);}
-
-.table-box{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--border);}
-table{width:100%;min-width:700px;border-collapse:collapse;}
-th,td{padding:15px;text-align:center;border-bottom:1px solid var(--border);}
-th{background:var(--primary);color:#fff;}
-
-.library{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;border-radius:22px;padding:35px 25px;text-align:center;}
-.library p{color:#d9e7ef;margin:10px auto 20px;max-width:700px;}
-.library-btn{display:inline-block;text-decoration:none;background:var(--gold);color:#172b3a;padding:12px 25px;border-radius:12px;font-weight:bold;}
-
-.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.link-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;text-align:center;}
-.link-card .big-icon{font-size:38px;margin-bottom:10px;}
-.link-card h3{color:var(--primary);margin-bottom:8px;}
-.link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
-.whatsapp{background:#f1f8f3;}
-
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:9px 15px;border-radius:10px;font-size:13px;font-weight:bold;}
 footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
-
-@media(max-width:900px){
-    .cards,.links-grid{grid-template-columns:repeat(2,1fr);}
-    .quick-actions{grid-template-columns:repeat(3,1fr);}
-}
-@media(max-width:600px){
-    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
-}
+@media(max-width:768px){.cards{grid-template-columns:1fr;}}
 </style>
 </head>
 
 <body>
 
-<!-- الهيدر -->
 <header>
     <div class="logo">الريان</div>
-    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
-    <div class="badge">دفعة 023</div>
+    <div class="subtitle">الوسائل والمصادر التعليمية</div>
 </header>
 
-<!-- شريط التنقل (مربوط بالصفحات والملفات الخاصة بك بدقة لمنع خطأ 404) -->
 <nav>
     <div class="nav-container">
-        <a href="index.html" class="active">الرئيسية</a>
+        <a href="index.html">الرئيسية</a>
         <a href="subjects.html">المواد</a>
         <a href="about.html">عن الكلية</a>
         <a href="results.html">النتيجة</a>
         <a href="exams.html">الاختبارات</a>
-        <a href="study-tools.html">الوسائل التعليمية</a>
-        <a href="#schedule">الجدول</a>
-        <a href="#community">التواصل</a>
+        <a href="study-tools.html" style="background:#edf3f7;">الوسائل التعليمية</a>
     </div>
 </nav>
 
 <main class="container">
-
-<!-- الرئيسية -->
-<section id="home">
-    <div class="hero">
-        <h2>مرحباً بكم في منصة الريان 🎓</h2>
-        <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
-        
-        <div class="quick-actions">
-            <a class="quick-action" href="subjects.html">
-                <span>📚</span>
-                المواد الدراسية
-            </a>
-            <a class="quick-action" href="exams.html">
-                <span>📝</span>
-                الاختبارات وبنك الأسئلة
-            </a>
-            <a class="quick-action" href="results.html">
-                <span>📊</span>
-                النتيجة الأكاديمية
-            </a>
-        </div>
-    </div>
-
-    <div class="stats">
-        <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
-        <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
-        <div class="stat"><strong>023</strong><span>رقم الدفعة</span></div>
-    </div>
-</section>
-
-<!-- الأقسام الرئيسية كبطاقات مرتبطة بملفاتك -->
-<section>
-    <div class="section-title">
-        <h2>⚡ أقسام المنصة السريعة</h2>
-        <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
-    </div>
-
-    <div class="cards">
-        <div class="card">
-            <div class="icon">🏛️</div>
-            <h3>عن الكلية</h3>
-            <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
-            <a class="btn" href="about.html">استعراض النبذة</a>
+    <section>
+        <div class="section-title">
+            <h2>💡 الوسائل والمصادر التعليمية</h2>
+            <p>أدوات ومصادر التعلم المساندة لطلاب دفعة 023</p>
         </div>
 
-        <div class="card">
-            <div class="icon">📈</div>
-            <h3>النتيجة الأكاديمية</h3>
-            <p>متابعة درجات الامتحانات الفصلية والنهائية فور إعلانها رسمياً.</p>
-            <a class="btn" href="results.html">عرض النتائج</a>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🛠️</div>
+                <h3>البرامج والتطبيقات</h3>
+                <p>قائمة بأهم البرامج الأكاديمية والخدمية التي يحتاجها الطالب خلال مسيرته.</p>
+                <a class="btn" href="#">استعراض البرامج</a>
+            </div>
+            <div class="card">
+                <div class="icon">🔗</div>
+                <h3>روابط ومراجع مفيدة</h3>
+                <p>مواقع تعليمية ومكتبات إلكترونية تساهم في تبسيط المقررات الدراسية.</p>
+                <a class="btn" href="#">فتح الروابط</a>
+            </div>
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>دليل الطالب الإرشادي</h3>
+                <p>إرشادات ونصائح أكاديمية وتنظيمية لتحقيق أفضل أداء دراسي.</p>
+                <a class="btn" href="#">تحميل الدليل</a>
+            </div>
         </div>
-
-        <div class="card">
-            <div class="icon">🛠️</div>
-            <h3>الوسائل التعليمية</h3>
-            <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
-            <a class="btn" href="study-tools.html">فتح الوسائل</a>
-        </div>
-    </div>
-</section>
-
-<!-- جدول المحاضرات -->
-<section id="schedule">
-    <div class="section-title">
-        <h2>📅 جدول المحاضرات الأسبوعي</h2>
-        <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
-    </div>
-
-    <div class="table-box">
-        <table>
-            <thead>
-                <tr>
-                    <th>اليوم</th>
-                    <th>المحاضرة الأولى</th>
-                    <th>المحاضرة الثانية</th>
-                    <th>المحاضرة الثالثة</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>السبت</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>الأحد</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>الاثنين</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>الثلاثاء</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>الأربعاء</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>الخميس</td><td>—</td><td>—</td><td>—</td></tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- مكتبة الملفات -->
-<section id="library">
-    <div class="library">
-        <h2>📁 مكتبة الملفات والمراجع</h2>
-        <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
-        <a class="library-btn" href="subjects.html">تصفح ملفات المواد</a>
-    </div>
-</section>
-
-<!-- الروابط والتواصل -->
-<section id="community">
-    <div class="section-title">
-        <h2>🔗 روابط التواصل والاتصال</h2>
-        <p>قنوات التواصل الرسمية الخاصة بالدفعة</p>
-    </div>
-
-    <div class="links-grid">
-        <div class="link-card whatsapp">
-            <div class="big-icon">💬</div>
-            <h3>مجموعة الواتساب</h3>
-            <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
-            <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
-        </div>
-
-        <div class="link-card">
-            <div class="big-icon">📞</div>
-            <h3>أرقام القيادة</h3>
-            <p>مسجل الدفعة: 249111744435<br>ليدر الدفعة: 249116314682</p>
-            <a class="btn" href="https://wa.me/249116314682" target="_blank">تواصل مع الليدر</a>
-        </div>
-
-        <div class="link-card">
-            <div class="big-icon">💡</div>
-            <h3>الاقتراحات والملاحظات</h3>
-            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
-            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
-        </div>
-    </div>
-</section>
-
+    </section>
 </main>
 
-<!-- الفوتر -->
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
-    <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
 </body>
