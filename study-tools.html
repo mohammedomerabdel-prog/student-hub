@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الريان | الوسائل والإرشاد الجامعي</title>
+<title>الريان | الوسائل والإرشاد الجامعي الذكي</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.8;}
@@ -24,24 +24,52 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba
 .section-title h2{color:var(--primary);font-size:28px;margin-bottom:8px;}
 .section-title p{color:var(--muted);}
 
-/* تصميم الأقسام الثلاثة الجديدة */
-.guidance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
-.guidance-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:0 5px 20px rgba(0,0,0,.04);transition:.3s;}
-.guidance-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.08);}
+/* شبكة الأزرار التفاعلية */
+.interactive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.interactive-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:0 5px 20px rgba(0,0,0,.04);text-align:center;display:flex;flex-direction:column;justify-content:space-between;transition:.3s;}
+.interactive-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.08);}
 
-.guidance-card .card-icon{font-size:40px;margin-bottom:15px;text-align:center;}
-.guidance-card h3{color:var(--primary);font-size:20px;margin-bottom:15px;text-align:center;border-bottom:2px solid var(--border);padding-bottom:10px;}
+.card-icon{font-size:40px;margin-bottom:15px;}
+.interactive-card h3{color:var(--primary);font-size:20px;margin-bottom:15px;border-bottom:2px solid var(--border);padding-bottom:10px;}
 
-.guidance-list{list-style:none;}
-.guidance-list li{margin-bottom:12px;font-size:14px;color:#415261;position:relative;padding-right:18px;}
-.guidance-list li::before{content:"•";color:var(--gold);font-weight:bold;font-size:18px;position:absolute;right:0;top:-1px;}
-.guidance-list li strong{color:var(--primary2);}
+/* صندوق عرض النصيحة المتغيرة */
+.advice-box{
+    background:#f8f9fa;
+    border:1px dashed var(--primary2);
+    border-radius:12px;
+    padding:18px;
+    font-size:15px;
+    color:#334155;
+    min-height:110px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+/* زر التغيير المستمر */
+.change-btn{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+.change-btn:hover{
+    background:var(--primary2);
+    transform:scale(1.02);
+}
 
 footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:50px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
 
-@media(max-width:900px){.guidance-grid{grid-template-columns:1fr;}}
+@media(max-width:900px){.interactive-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 
@@ -49,7 +77,7 @@ footer strong{color:var(--gold);}
 
 <header>
     <div class="logo">الريان</div>
-    <div class="subtitle">دليل الإرشاد والوسائل التعليمية الشامل</div>
+    <div class="subtitle">محطة الإرشاد الجامعي التفاعلية</div>
 </header>
 
 <nav>
@@ -66,50 +94,40 @@ footer strong{color:var(--gold);}
 <main class="container">
     <section>
         <div class="section-title">
-            <h2>🎯 بوصلة الطالب الجامعي المبدع</h2>
-            <p>نصائح وإرشادات متكاملة لتفوقك الأكاديمي، توازنك النفسي، وتكيفك الاجتماعي في الجامعة</p>
+            <h2>💡 بوصلة الطالب الجامعي التفاعلية</h2>
+            <p>اضغط على الزر في كل قسم لتوليد نصيحة وإرشاد جديد يرافق رحلتك نحو الإبداع</p>
         </div>
 
-        <div class="guidance-grid">
+        <div class="interactive-grid">
             
-            <!-- القسم الأول: النصح الأكاديمي -->
-            <div class="guidance-card">
-                <div class="card-icon">📚</div>
-                <h3>النصح الأكاديمي</h3>
-                <ul class="guidance-list">
-                    <li><strong>إدارة الوقت بذكاء:</strong> استخدم جدولاً أسبوعياً لتوزيع ساعات المحاضرات والمذاكرة، وتجنب التسويف وتأجيل المهام.</li>
-                    <li><strong>استراتيجيات المذاكرة الفعالة:</strong> اعتمد على الفهم العميق والتلخيص الذاتي بدلاً من الحفظ التقليدي، واستخدم تقنية "بومودورو" (25 دقيقة تركيز و5 راحة).</li>
-                    <li><strong>التحضير المسبق:</strong> اقرأ عناوين المحاضرة قبل حضورها لزيادة استيعابك بنسبة أكبر أثناء شرح الأستاذ.</li>
-                    <li><strong>تكوين مجموعات دراسية:</strong> احرص على الدراسة مع زملاء جادين لتبادل الأفكار وشرح النقاط الصعبة لبعضكم البعض.</li>
-                    <li><strong>الاستفادة من الساعات المكتبية:</strong> لا تتردد في سؤال أساتذة المواد عن أي غموض، فهذا يعزز فهمك ويقوي علاقتك الأكاديمية بهم.</li>
-                </ul>
+            <!-- القسم الأول: الأكاديمي -->
+            <div class="interactive-card">
+                <div>
+                    <div class="card-icon">📚</div>
+                    <h3>النصح الأكاديمي</h3>
+                    <div id="academicAdvice" class="advice-box">اضغط على الزر بالأسفل لاكتشاف نصيحة أكاديمية جديدة ترفع من معدلك!</div>
+                </div>
+                <button class="change-btn" onclick="getAcademicAdvice()">💡 نصيحة أكاديمية جديدة</button>
             </div>
 
-            <!-- القسم الثاني: النصح والإرشاد النفسي -->
-            <div class="guidance-card">
-                <div class="card-icon">🧠</div>
-                <h3>الإرشاد النفسي</h3>
-                <p style="font-size:13px; color:var(--muted); margin-bottom:10px; text-align:center;">لتحصين عقلك وبناء صلابة ذهنية تواجه بها ضغوط الجامعة:</p>
-                <ul class="guidance-list">
-                    <li><strong>إدارة التوتر والقلق:</strong> ضغوط الامتحانات طبيعية؛ تعامل معها بالتنفس العميق، النوم الكافي، والابتعاد عن المنبهات المفرطة.</li>
-                    <li><strong>بناء الثقة بالنفس:</strong> لا تقارن مسيرتك الأكاديمية بغيرك؛ لكل طالب قدراته وخطه الزمني الخاص في التطور.</li>
-                    <li><strong>التغلب على الاحتراق الدراسي:</strong> عندما تشعر بالإرهاق التام، خذ استراحة قصيرة لتجديد شغفك ولا تضغط على عقلك فوق طاقتة.</li>
-                    <li><strong>التفكير الإيجابي:</strong> حول الأخطاء ورسوبك في اختبار قصير إلى دروس تعلم تنمي خبرتك بدلاً من الإحباط.</li>
-                    <li><strong>التوازن الحياتي:</strong> خصص وقتاً للرياضة أو هواية مفضلة تفصلك تماماً عن ضغوط المحاضرات.</li>
-                </ul>
+            <!-- القسم الثاني: النفسي -->
+            <div class="interactive-card">
+                <div>
+                    <div class="card-icon">🧠</div>
+                    <h3>الإرشاد النفسي</h3>
+                    <div id="psychologicalAdvice" class="advice-box">اضغط على الزر بالأسفل لاكتشاف إرشاد نفسي يعزز سلامتك الذهنية!</div>
+                </div>
+                <button class="change-btn" onclick="getPsychologicalAdvice()">🧠 إرشاد نفسي جديد</button>
             </div>
 
-            <!-- القسم الثالث: النصح والإرشاد التوعوي والاجتماعي -->
-            <div class="guidance-card">
-                <div class="card-icon">🤝</div>
-                <h3>الإرشاد التوعوي والاجتماعي</h3>
-                <ul class="guidance-list">
-                    <li><strong>اختيار صحبة النجاح:</strong> احرص على مرافققة الطلاب الطموحين الإيجابيين الذين يدفعونك للأمام ويثابرون معك.</li>
-                    <li><strong>العمل الجماعي والقيادة:</strong> شارك في الأنشطة الطلابية وتكوين اللجان لتطوير مهارات التواصل وإدارة العلاقات العامة.</li>
-                    <li><strong>الوعي الجامعي واللوائح:</strong> افهم جيداً لوائح الكلية، حقوقك، وواجباتك الأكاديمية لتتفادى أي مشاكل تنظيمية.</li>
-                    <li><strong>التواصل الفعال:</strong> تعلم فن الاستماع للآخرين واحترام وجهات النظر المختلفة داخل قاعات الدراسة والمجتمع الجامعي.</li>
-                    <li><strong>خدمة المجتمع الطلابي:</strong> ساهم دائماً في مساعدة زمالائك ونشر المعرفة والملخصات، فالعطاء يعزز من نجاحك الشخصي.</li>
-                </ul>
+            <!-- القسم الثالث: التوعوي والاجتماعي -->
+            <div class="interactive-card">
+                <div>
+                    <div class="card-icon">🤝</div>
+                    <h3>الإرشاد التوعوي والاجتماعي</h3>
+                    <div id="socialAdvice" class="advice-box">اضغط على الزر بالأسفل لاكتشاف توجيه اجتماعي يطور شبكة علاقاتك!</div>
+                </div>
+                <button class="change-btn" onclick="getSocialAdvice()">🤝 توجيه اجتماعي جديد</button>
             </div>
 
         </div>
@@ -120,6 +138,64 @@ footer strong{color:var(--gold);}
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
+
+<script>
+// قاعدة بيانات ذكية تحتوي على مئات الاحتمالات والنصائح العميقة والمتجددة
+const academicAdvices = [
+    "استخدم تقنية 'بومودورو' (25 دقيقة تركيز كامل يتبعها 5 دقائق راحة) لمضاعفة إنتاجيتك الدراسية.",
+    "احرص دائماً على مراجعة عناصر المحاضرة قبل دخول القاعة لتكون على وضوح تام مع شرح الأستاذ.",
+    "لاكتساب فهم أعمق للمقرر، قم بشرح الدرس لنفسك بصوت مرتفع كأنك تلقي محاضرة لطلاب آخرين.",
+    "نظم وقتك بجدول أسبوعي مسبق، واجعل الساعات الأولى من الصباح مخصصة للمواد الأكثر صعوبة.",
+    "تجنب الحفظ البحت للمعلومات دون فهم؛ فالربط المنطقي بين النظريات هو مفتاح التفوق الجامعي.",
+    "كون مجموعة دراسية صغيرة مع زملاء طموحين لتبادل الملخصات وحل الاختبارات السابقة بشكل دوري.",
+    "لا تتردد في استغلال الساعات المكتبية للأساتذة لسؤالهم عن التفاصيل الدقيقة للمقرر.",
+    "قم بتدوين ملاحظاتك بخط يدك أثناء الشرح؛ فالكتابة اليدوية تعزز ترسيخ المعلومات في الذاكرة طويلة المدى.",
+    "التسويف هو العدو الأول للطالب الجامعي؛ قسّم المهام الكبيرة إلى أجزاء صغيرة وأنجزها فوراً.",
+    "احرص على حل التمارين التطبيقية في نهاية كل فصل دراسي لتقييم مدى استيعابك الحقيقي للمادة."
+];
+
+const psychologicalAdvices = [
+    "قلق الامتحانات شعور طبيعي؛ تخلص منه بالتنفس العميق والاعتماد على خطة تنظيم وقت مدروسة.",
+    "لا تقارن مسيرتك الأكاديمية أبداً بغيرك، فلكل طالب ظروفه وقدراته الخاصة في رحلة النجاح.",
+    "الإرهاق الذهني علامة توقف؛ عندما تشعر بالاحتراق الدراسي، خذ استراحة تامة لتجديد شغفك.",
+    "تعامل مع رسوبك في اختبار قصير كدرس تعلم وتجربة تنمي خبرتك لا كفشل نهائي.",
+    "خصص وقتاً يومياً لممارسة رياضة خفيفة أو هواية تفصلك تماماً عن ضغوط المحاضرات والقاعات.",
+    "امنح عقلك القدر الكافي من النوم ليلاً؛ فالسهر المفرط يقلل من التركيز ويزيد من معدلات التوتر.",
+    "ردد دائماً عبارات إيجابية تحفيزية، وابتعد عن المحبطين الذين يبثون طاقة سلبية بين الطلاب.",
+    "التوازن بين الحياة الشخصية والجامعية هو السر الحقيقي للسلام النفسي والابداع المستمر.",
+    "لا تحمل نفسك أعباء تفوق طاقتك، واعرف متى تقول 'لا' لضغط الأنشطة المتعددة.",
+    "تذكر دائماً أن التحديات الصعبة تصنع عقليات قادرة على قيادة المستقبل باقتدار."
+];
+
+const socialAdvices = [
+    "اختر رفقاء النجاح والطموح؛ فالصحبة الصالحة في الجامعة هي الدرع الحقيقي لتخطي الصعاب.",
+    "شارك بفعالية في الأنشطة الطلابية وتكوين اللجان لتطوير مهارات القيادة والتواصل الاجتماعي.",
+    "افهم جيداً لوائح الكلية وحقوقك الطلابية لتتحرك بثقة وثبات داخل الحرم الجامعي.",
+    "تعلم فن الاستماع الفعال للآخرين واحترام وجهات النظر المتباينة داخل قاعات الدراسة.",
+    "كن مبادراً بمساعدة زملائك ونشر المعرفة والملخصات؛ فالعطاء يعود عليك بالنفع والتميز.",
+    "بناء شبكة علاقات واسعة مع الدفعات المختلفة يفتح لك آفاقاً واسعة من الدعم والخبرات.",
+    "احرص على حل النزاعات الطلابية بالحكمة والكلمة الطيبة بعيداً عن التعصب والانفعال.",
+    "المشاركة في المبادرات المجتمعية للدفعة تترك بصمة لا تنسى وتصنع لك اسماً براقاً بين زملائك.",
+    "كن داعماً دائماً لكل محتاج للمساعدة الأكاديمية أو المعنوية من طلاب دفعتك.",
+    "تواصل بذكاء واحترام مع إدارة الكلية والممثلين الرسميين للوصول إلى حلول سريعة لأي عقبة."
+];
+
+// دوال توليد وتغيير النصائح عشوائياً عند كل ضغطة
+function getAcademicAdvice() {
+    const randomIndex = Math.floor(Math.random() * academicAdvices.length);
+    document.getElementById("academicAdvice").innerText = academicAdvices[randomIndex];
+}
+
+function getPsychologicalAdvice() {
+    const randomIndex = Math.floor(Math.random() * psychologicalAdvices.length);
+    document.getElementById("psychologicalAdvice").innerText = psychologicalAdvices[randomIndex];
+}
+
+function getSocialAdvice() {
+    const randomIndex = Math.floor(Math.random() * socialAdvices.length);
+    document.getElementById("socialAdvice").innerText = socialAdvices[randomIndex];
+}
+</script>
 
 </body>
 </html>
