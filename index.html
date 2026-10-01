@@ -17,15 +17,6 @@
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
 
-    body.dark-mode {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -45,27 +36,9 @@
       padding: 18px 20px;
       color: #ffffff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
       text-align: center;
-    }
-
-    .brand {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    .news-ticker {
-      background: #f39c12;
-      color: #ffffff;
-      padding: 10px 15px;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      line-height: 1.6;
     }
 
     .container {
@@ -77,443 +50,125 @@
       gap: 20px;
     }
 
-    .header-box {
+    .card {
       background: var(--card-bg);
       border-radius: 16px;
-      padding: 20px;
+      padding: 22px;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
     }
 
-    .search-input {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 14px;
-      outline: none;
-      margin-bottom: 15px;
-    }
-
-    .countdown-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .timer-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      text-align: center;
-    }
-
-    .time-card {
-      background: #0b1f3a;
-      color: #ffffff;
-      padding: 10px 5px;
-      border-radius: 8px;
-    }
-
-    .time-card .num {
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .time-card .label {
-      font-size: 10px;
-      opacity: 0.8;
-    }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 5px;
-    }
-
-    .buttons-grid {
+    .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 15px;
     }
 
+    /* أزرار الخدمات (تم توحيد شكل زر النتيجة مع البقية) */
     .menu-btn {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 12px;
-      text-decoration: none;
+      border-radius: 14px;
+      padding: 20px 15px;
       color: var(--text);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      font-size: 13px;
+      gap: 10px;
+      font-size: 14px;
       font-weight: 700;
-      box-shadow: var(--shadow);
       text-align: center;
-      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
     }
 
     .menu-btn:hover {
       border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     .menu-btn .icon {
-      font-size: 24px;
+      font-size: 26px;
     }
 
-    .menu-btn.highlight {
-      background: linear-gradient(135deg, #f39c12, #d68910);
-      color: #ffffff;
-      border: none;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .card-header {
+    /* تنسيق الجدول الدراسي والملاحظة الجديدة */
+    .section-title {
       font-size: 15px;
       font-weight: 700;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .table-responsive {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      text-align: right;
-    }
-
-    th, td {
-      padding: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background-color: var(--bg);
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .stats-summary {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      text-align: center;
       margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--primary);
     }
 
-    .stat-pill {
-      background: var(--bg);
-      padding: 10px 5px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-
-    .stat-pill .value {
-      font-size: 16px;
-      font-weight: 800;
-      color: #0b1f3a;
-    }
-
-    body.dark-mode .stat-pill .value {
-      color: var(--accent);
-    }
-
-    .stat-pill .lbl {
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .stats-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      font-size: 12px;
-    }
-
-    .detail-box {
-      padding: 10px;
-      border-radius: 8px;
-      line-height: 1.6;
-    }
-
-    .detail-box.pass { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
-    .detail-box.sup { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
-
-    .contacts-list {
-      list-style: none;
+    .update-notice {
+      background: rgba(243, 156, 18, 0.08);
+      border: 1px dashed var(--accent);
+      color: #b7791f;
+      padding: 25px 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.8;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 10px 12px;
-      background: var(--bg);
-      border-radius: 8px;
-      font-size: 13px;
+      gap: 8px;
     }
 
-    .contact-item a {
-      color: #25d366;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .ai-fab {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #ffffff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 13px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .ai-modal {
-      display: none;
-      position: fixed;
-      bottom: 75px;
-      left: 20px;
-      width: 300px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      padding: 15px;
-      z-index: 1000;
-    }
-
-    .ai-modal-header {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .close-ai {
-      cursor: pointer;
-      color: #ef4444;
+    .update-notice span.icon {
+      font-size: 28px;
     }
   </style>
 </head>
 <body>
 
   <header class="navbar">
-    <a href="index.html" class="brand">🎓 كلية العلوم الإدارية - المنصة الطلابية</a>
+    🏛️ كلية العلوم الإدارية - المنصة الطلابية
   </header>
-
-  <!-- شريط التنبيهات المحدث -->
-  <div class="news-ticker">
-    📢 تنبيه مهم: ينتهي التسجيل يوم 1 أكتوبر (تنبيه من الليدر: مافي زول يدفع هسه)، وسيتم إعلان جدول المحاضرات قريباً.
-  </div>
 
   <main class="container">
 
-    <div class="header-box">
-      <input type="text" class="search-input" placeholder="🔍 ابحث في الأقسام والخدمات..." onkeyup="filterButtons(this.value)">
-      
-      <div class="countdown-title">⏳ المتبقي على موعد امتحانات الفصل الدراسي الأول (9 يناير 2027)</div>
-      <div class="timer-grid">
-        <div class="time-card"><div class="num" id="d">00</div><div class="label">يوم</div></div>
-        <div class="time-card"><div class="num" id="h">00</div><div class="label">ساعة</div></div>
-        <div class="time-card"><div class="num" id="m">00</div><div class="label">دقيقة</div></div>
-        <div class="time-card"><div class="num" id="s">00</div><div class="label">ثانية</div></div>
-      </div>
-    </div>
-
-    <div class="section-title">📌 الخدمات والأقسام الرئيسية</div>
-    <div class="buttons-grid" id="mainGrid">
-      
-      <a href="subjects.html" class="menu-btn searchable" style="text-decoration: none;">
-        <span class="icon">📚</span>
-        <span>المواد الدراسية</span>
-      </a>
-
-      <a href="exams.html" class="menu-btn searchable" style="text-decoration: none;">
-        <span class="icon">📝</span>
-        <span>بنك الأسئلة</span>
-      </a>
-
-      <a href="results.html" class="menu-btn highlight searchable" style="text-decoration: none;">
-        <span class="icon">🏆</span>
-        <span>نتيجة المستوى الأول</span>
-      </a>
-
-      <a href="fun.html" class="menu-btn searchable" style="text-decoration: none;">
+    <!-- الأزرار الرئيسية العلوية -->
+    <div class="grid-2">
+      <a href="quiz.html" class="menu-btn">
         <span class="icon">🧠</span>
         <span>اختبار القدرات</span>
       </a>
 
-      <a href="about.html" class="menu-btn searchable" style="text-decoration: none;">
-        <span class="icon">🏛️</span>
-        <span>نبذة عن الجامعة</span>
+      <!-- زر نتيجة المستوى الأول بدون تظليل أصفر -->
+      <a href="result.html" class="menu-btn">
+        <span class="icon">🏆</span>
+        <span>نتيجة المستوى الأول</span>
       </a>
 
-      <!-- زر وسائل الدراسة مربوط الآن بملف study-tools.html -->
-      <a href="study-tools.html" class="menu-btn searchable" style="text-decoration: none;">
+      <a href="study.html" class="menu-btn">
         <span class="icon">💡</span>
         <span>وسائل الدراسة</span>
       </a>
 
+      <a href="about.html" class="menu-btn">
+        <span class="icon">🏛️</span>
+        <span>نبذة عن الجامعة</span>
+      </a>
     </div>
 
+    <!-- قسم الجدول الدراسي الأسبوعي -->
     <div class="card">
-      <div class="card-header">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th>اليوم</th>
-              <th>المادة</th>
-              <th>المكان (القاعة)</th>
-              <th>المحاضر</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>السبت</strong></td>
-              <td>محاسبة مالية (1)</td>
-              <td>قاعة 101</td>
-              <td>د. أحمد محمد</td>
-            </tr>
-            <tr>
-              <td><strong>الأحد</strong></td>
-              <td>مبادئ الإدارة</td>
-              <td>قاعة 102</td>
-              <td>د. سارة عثمان</td>
-            </tr>
-            <tr>
-              <td><strong>الإثنين</strong></td>
-              <td>إنجليزي أكاديمي</td>
-              <td>معمل اللغات</td>
-              <td>أ. فاطمه إبراهيم</td>
-            </tr>
-            <tr>
-              <td><strong>الثلاثاء</strong></td>
-              <td>رياضيات أعمال</td>
-              <td>قاعة 103</td>
-              <td>د. خالد عبد الله</td>
-            </tr>
-            <tr>
-              <td><strong>الأربعاء</strong></td>
-              <td>مبادئ التسويق</td>
-              <td>قاعة 101</td>
-              <td>د. محمد الأمين</td>
-            </tr>
-            <tr>
-              <td><strong>الخميس</strong></td>
-              <td>دراسات مصرفية</td>
-              <td>قاعة 104</td>
-              <td>د. عواطف حسن</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
+      <div class="section-title">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
       
-      <div class="stats-summary">
-        <div class="stat-pill"><div class="value">397</div><div class="lbl">إجمالي الطلاب</div></div>
-        <div class="stat-pill"><div class="value">163</div><div class="lbl">طلاب (ذكور)</div></div>
-        <div class="stat-pill"><div class="value">234</div><div class="lbl">طالبات (إناث)</div></div>
+      <div class="update-notice">
+        <span class="icon">⏳</span>
+        <span>سيتم التحديث فور اعتماد الجدول من الكلية</span>
       </div>
-
-      <div class="stats-details">
-        <div class="detail-box pass">
-          <strong>الناجحون صافي (303):</strong><br>
-          👦 طلاب: 126 | 👧 طالبات: 177
-        </div>
-        <div class="detail-box sup">
-          <strong>الملاحق (94):</strong><br>
-          👦 طلاب: 37 | 👧 طالبات: 57
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">📞 الاتصال والتواصل المباشر</div>
-      <ul class="contacts-list">
-        <li class="contact-item">
-          <span>مسجل الكلية</span>
-          <a href="https://wa.me/249111744435" target="_blank">💬 0111744435 (واتساب)</a>
-        </li>
-        <li class="contact-item">
-          <span>ليدر الدفعة</span>
-          <a href="https://wa.me/249116314682" target="_blank">💬 0116314682 (واتساب)</a>
-        </li>
-      </ul>
     </div>
 
   </main>
 
-  <button class="ai-fab" onclick="toggleAI()">🤖 المساعد الذكي</button>
-
-  <div class="ai-modal" id="aiModal">
-    <div class="ai-modal-header">
-      <span>🤖 مساعد كلية العلوم الإدارية</span>
-      <span class="close-ai" onclick="toggleAI()">✕</span>
-    </div>
-    <div style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
-      أهلاً بك يا عمر! أنا مساعدك الذكي جاهز للإجابة عن أي استفسار يخص المواد أو نتائج الدفعة.
-    </div>
-  </div>
-
-  <script>
-    function toggleAI() {
-      const modal = document.getElementById('aiModal');
-      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-    }
-
-    const targetDate = new Date("Jan 9, 2027 09:00:00").getTime();
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-      if(diff > 0) {
-        document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("s").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-      }
-    }, 1000);
-
-    function filterButtons(val) {
-      const btns = document.querySelectorAll('.searchable');
-      btns.forEach(btn => {
-        btn.style.display = btn.innerText.includes(val) ? 'flex' : 'none';
-      });
-    }
-  </script>
 </body>
 </html>
