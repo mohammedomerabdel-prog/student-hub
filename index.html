@@ -1,450 +1,1340 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>المنصة الطلابية - كلية العلوم الإدارية</title>
-  <style>
-    :root {
-      --primary: #0b1f3a;
-      --primary-light: #1a3a68;
-      --accent: #f39c12;
-      --bg: #f4f6f9;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --border: #edf2f7;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منصة الدفعة 023 | كلية العلوم الإدارية</title>
+
+<style>
+
+/* =====================================================
+   هوية الموقع
+===================================================== */
+
+:root{
+    --navy:#071d33;
+    --navy2:#0d3150;
+    --blue:#164c73;
+
+    --gold:#d69b28;
+    --gold-light:#f4d27c;
+
+    --red:#b92828;
+    --green:#16804a;
+
+    --sand:#f5efe3;
+
+    --bg:#eef2f5;
+    --white:#ffffff;
+
+    --text:#172536;
+    --muted:#687786;
+
+    --border:#e4e9ee;
+
+    --shadow:0 12px 35px rgba(7,29,51,.08);
+    --shadow-strong:0 18px 45px rgba(7,29,51,.14);
+}
+
+/* =====================================================
+   الأساس
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at top right,
+        rgba(214,155,40,.08),
+        transparent 30%),
+        linear-gradient(
+        180deg,
+        #f3f6f8 0%,
+        #eef2f5 100%
+        );
+
+    color:var(--text);
+    direction:rtl;
+    padding-bottom:60px;
+}
+
+/* =====================================================
+   زخرفة سودانية خفيفة
+===================================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+
+    background-image:
+        linear-gradient(45deg,#071d33 25%,transparent 25%),
+        linear-gradient(-45deg,#071d33 25%,transparent 25%);
+
+    background-size:36px 36px;
+    background-position:0 0,18px 18px;
+
+    z-index:-1;
+}
+
+/* =====================================================
+   الهيدر
+===================================================== */
+
+.navbar{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy2)
+        );
+
+    color:#fff;
+
+    padding:28px 20px 32px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 30px rgba(7,29,51,.25);
+
+    border-bottom:
+        4px solid var(--gold);
+}
+
+/* الشريط السوداني */
+
+.navbar::before{
+    content:"";
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:100%;
+    height:5px;
+
+    background:
+        linear-gradient(
+            to left,
+            var(--red) 0 33%,
+            #111 33% 66%,
+            var(--green) 66% 100%
+        );
+}
+
+.navbar::after{
+    content:"✦  ٠٢٣  ✦";
+
+    position:absolute;
+
+    bottom:8px;
+    left:20px;
+
+    font-size:12px;
+
+    color:rgba(255,255,255,.35);
+
+    letter-spacing:2px;
+}
+
+.navbar-title{
+    font-size:20px;
+    font-weight:900;
+
+    letter-spacing:.2px;
+
+    margin-bottom:7px;
+}
+
+.navbar-subtitle{
+    font-size:12px;
+    color:#cbd7e2;
+}
+
+/* =====================================================
+   الحاوية
+===================================================== */
+
+.container{
+    max-width:760px;
+
+    margin:22px auto;
+
+    padding:
+        0 15px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:18px;
+}
+
+/* =====================================================
+   البطاقات العامة
+===================================================== */
+
+.card{
+    position:relative;
+
+    background:
+        rgba(255,255,255,.96);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    border:
+        1px solid rgba(7,29,51,.06);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+}
+
+/* خط ذهبي جانبي */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:20px;
+    bottom:20px;
+
+    width:4px;
+
+    border-radius:10px 0 0 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--gold),
+            var(--gold-light)
+        );
+}
+
+/* =====================================================
+   البحث
+===================================================== */
+
+.search-card{
+    padding:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #f8fafb
+        );
+}
+
+.search-box{
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:15px;
+
+    border:
+        1px solid #dfe6ec;
+
+    background:#f5f7f9;
+
+    font-size:14px;
+
+    color:var(--text);
+
+    outline:none;
+
+    transition:.25s;
+}
+
+.search-box:focus{
+    background:#fff;
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 4px rgba(214,155,40,.10);
+}
+
+/* =====================================================
+   عنوان الأقسام
+===================================================== */
+
+.section-title{
+    font-size:16px;
+
+    font-weight:900;
+
+    margin-bottom:16px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    color:var(--navy);
+}
+
+.section-title::after{
+    content:"";
+
+    width:32px;
+    height:3px;
+
+    border-radius:10px;
+
+    background:var(--gold);
+}
+
+/* =====================================================
+   هوية الدفعة
+===================================================== */
+
+.identity-card{
+
+    padding:0;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            #0d3b5c
+        );
+
+    border:none;
+
+    box-shadow:var(--shadow-strong);
+}
+
+.identity-card::before{
+    display:none;
+}
+
+.identity-inner{
+    position:relative;
+
+    padding:30px 25px;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+.identity-inner::before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(255,255,255,.10);
+
+    top:-90px;
+    left:-70px;
+}
+
+.identity-inner::after{
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(214,155,40,.25);
+
+    bottom:-70px;
+    right:-40px;
+}
+
+.identity-icon{
+    font-size:34px;
+
+    margin-bottom:10px;
+}
+
+.identity-title{
+    font-size:23px;
+
+    font-weight:950;
+
+    margin-bottom:8px;
+}
+
+.identity-text{
+    color:#d5e0e9;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.identity-badge{
+    display:inline-block;
+
+    margin-top:16px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:
+        rgba(214,155,40,.14);
+
+    border:
+        1px solid rgba(214,155,40,.45);
+
+    color:var(--gold-light);
+
+    font-weight:800;
+
+    font-size:12px;
+}
+
+/* =====================================================
+   العداد
+===================================================== */
+
+.countdown-card{
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fafc
+        );
+}
+
+.countdown-description{
+    text-align:center;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+    margin-bottom:12px;
+}
+
+.countdown-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    text-align:center;
+}
+
+.time-box{
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fafc,
+            #edf2f6
+        );
+
+    padding:14px 6px;
+
+    border-radius:15px;
+
+    border:
+        1px solid #e2e8ee;
+
+    overflow:hidden;
+}
+
+.time-box::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:100%;
+    height:3px;
+
+    background:var(--gold);
+}
+
+.time-val{
+    font-size:22px;
+
+    font-weight:950;
+
+    color:var(--navy);
+}
+
+.time-lbl{
+    font-size:10px;
+
+    color:var(--muted);
+
+    margin-top:3px;
+}
+
+/* =====================================================
+   الأزرار الرئيسية
+===================================================== */
+
+.grid-2{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+}
+
+.menu-btn{
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafb
+        );
+
+    border:
+        1px solid #e5eaf0;
+
+    border-radius:20px;
+
+    padding:23px 15px;
+
+    color:var(--text);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-size:14px;
+
+    font-weight:850;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 8px 25px rgba(7,29,51,.06);
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
+
+    overflow:hidden;
+}
+
+.menu-btn::before{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    right:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red),
+            var(--gold),
+            var(--green)
+        );
+
+    transform:scaleX(0);
+
+    transition:.25s;
+}
+
+.menu-btn:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(214,155,40,.55);
+
+    box-shadow:
+        0 15px 30px rgba(7,29,51,.12);
+}
+
+.menu-btn:hover::before{
+    transform:scaleX(1);
+}
+
+.menu-btn .icon{
+    width:54px;
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:
+        #eef3f7;
+
+    font-size:28px;
+}
+
+/* =====================================================
+   الجدول
+===================================================== */
+
+.schedule-card{
+    padding-bottom:22px;
+}
+
+.update-notice{
+    position:relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f8f0df
+        );
+
+    border:
+        1px dashed
+        #d7ae50;
+
+    color:#9a7123;
+
+    padding:28px 15px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    line-height:1.8;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.update-notice .icon{
+    font-size:32px;
+}
+
+/* =====================================================
+   الإحصائيات
+===================================================== */
+
+.stats-card{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+}
+
+.stats-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    text-align:center;
+}
+
+.stat-box{
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4f7f9,
+            #eaf0f4
+        );
+
+    padding:17px 8px;
+
+    border-radius:16px;
+
+    border:
+        1px solid #e1e7ec;
+
+    overflow:hidden;
+}
+
+.stat-box::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    right:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--red),
+            var(--gold),
+            var(--green)
+        );
+}
+
+.stat-number{
+    font-size:22px;
+
+    font-weight:950;
+
+    color:var(--navy);
+
+    margin-top:5px;
+}
+
+.stat-label{
+    font-size:11px;
+
+    color:var(--muted);
+}
+
+/* =====================================================
+   المواد وبنك الأسئلة
+===================================================== */
+
+.resources-card{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fafb
+        );
+}
+
+.resources-intro{
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    margin:
+        -5px 10px 16px;
+}
+
+.links-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.sub-link{
+    position:relative;
+
+    background:
+        linear-gradient(
+            100deg,
+            #f8fafc,
+            #eef3f7
+        );
+
+    padding:17px 18px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border:
+        1px solid #e1e7ec;
+
+    transition:.25s;
+
+    overflow:hidden;
+}
+
+.sub-link::before{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:var(--gold);
+
+    transition:.25s;
+}
+
+.sub-link:hover{
+    transform:translateX(-3px);
+
+    background:#fff;
+
+    box-shadow:
+        0 8px 20px rgba(7,29,51,.08);
+}
+
+.sub-link:hover::before{
+    width:7px;
+}
+
+.arrow{
+    font-size:20px;
+
+    color:var(--gold);
+
+    font-weight:900;
+}
+
+/* =====================================================
+   التواصل
+===================================================== */
+
+.contact-card{
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f7fafb
+        );
+}
+
+.contact-item{
+    background:#fff;
+
+    border:
+        1px solid #e3e9ee;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    transition:.25s;
+}
+
+.contact-item:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(7,29,51,.08);
+}
+
+.contact-role{
+    font-weight:800;
+
+    font-size:13px;
+}
+
+.contact-number{
+    font-weight:900;
+
+    color:var(--green);
+
+    direction:ltr;
+
+    font-size:13px;
+}
+
+/* =====================================================
+   نافذة الموقع تحت الإنشاء
+===================================================== */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(7,29,51,.82);
+
+    backdrop-filter:
+        blur(7px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+
+    padding:20px;
+}
+
+.modal-card{
+    background:#fff;
+
+    max-width:410px;
+
+    width:100%;
+
+    padding:30px 25px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.3);
+
+    border-top:
+        5px solid var(--gold);
+
+    animation:
+        modalIn .45s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.96);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.modal-icon{
+    font-size:45px;
+
+    margin-bottom:12px;
+}
+
+.modal-title{
+    font-size:19px;
+
+    font-weight:950;
+
+    color:var(--navy);
+
+    margin-bottom:10px;
+}
+
+.modal-text{
+    font-size:14px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+.modal-btn{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
+
+    color:#fff;
+
+    border:none;
+
+    padding:13px 25px;
+
+    border-radius:14px;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    width:100%;
+
+    margin-top:18px;
+
+    transition:.25s;
+}
+
+.modal-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(7,29,51,.20);
+}
+
+/* =====================================================
+   تذييل
+===================================================== */
+
+.footer{
+    text-align:center;
+
+    padding:10px 15px 0;
+
+    color:#82909d;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+.footer strong{
+    color:var(--navy);
+}
+
+/* =====================================================
+   الهاتف
+===================================================== */
+
+@media(max-width:560px){
+
+    .container{
+        padding:0 12px;
+
+        gap:15px;
     }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      direction: rtl;
-      padding-bottom: 50px;
+    .navbar{
+        padding:
+            24px 15px 28px;
     }
 
-    .navbar {
-      background: linear-gradient(135deg, #0b1f3a, #1a3a68);
-      padding: 18px 20px;
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      font-size: 16px;
-      font-weight: 700;
+    .navbar-title{
+        font-size:17px;
     }
 
-    .container {
-      max-width: 650px;
-      margin: 20px auto;
-      padding: 0 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .identity-title{
+        font-size:20px;
     }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+    .identity-inner{
+        padding:27px 18px;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
+    .card{
+        padding:19px;
+
+        border-radius:19px;
     }
 
-    .menu-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px 15px;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-      transition: all 0.2s ease;
+    .grid-2{
+        gap:11px;
     }
 
-    .menu-btn:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
+    .menu-btn{
+        padding:
+            19px 10px;
+
+        border-radius:17px;
+
+        font-size:13px;
     }
 
-    .menu-btn .icon {
-      font-size: 26px;
+    .menu-btn .icon{
+        width:48px;
+        height:48px;
+
+        font-size:25px;
     }
 
-    .section-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--primary);
+    .countdown-grid{
+        gap:6px;
     }
 
-    .update-notice {
-      background: rgba(243, 156, 18, 0.08);
-      border: 1px dashed var(--accent);
-      color: #b7791f;
-      padding: 25px 15px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.8;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+    .time-box{
+        padding:
+            12px 4px;
     }
 
-    .update-notice span.icon {
-      font-size: 28px;
+    .time-val{
+        font-size:19px;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      text-align: center;
-      margin-top: 10px;
+    .stats-grid{
+        gap:7px;
     }
 
-    .stat-box {
-      background: var(--bg);
-      padding: 12px 8px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
+    .stat-number{
+        font-size:19px;
     }
 
-    .stat-number {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-top: 4px;
+    .sub-link{
+        padding:
+            15px 13px;
+
+        font-size:12px;
     }
 
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
+    .contact-item{
+        padding:13px;
+    }
+}
+
+@media(max-width:360px){
+
+    .grid-2{
+        grid-template-columns:1fr;
     }
 
-    .search-box {
-      width: 100%;
-      padding: 12px 15px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      margin-bottom: 5px;
+    .countdown-grid{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .search-box:focus {
-      border-color: var(--accent);
+    .stats-grid{
+        grid-template-columns:1fr;
     }
+}
 
-    .links-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .sub-link {
-      background: var(--bg);
-      padding: 12px 15px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid var(--border);
-      transition: background 0.2s;
-    }
-
-    .sub-link:hover {
-      background: var(--border);
-    }
-
-    /* العداد التنازلي وتنسيقاته */
-    .countdown-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .time-box {
-      background: var(--bg);
-      padding: 10px 5px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-
-    .time-val {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .time-lbl {
-      font-size: 10px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* نافذة الإشعار المنبثقة */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(11, 31, 58, 0.75);
-      backdrop-filter: blur(4px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 20px;
-    }
-
-    .modal-card {
-      background: var(--card-bg);
-      max-width: 400px;
-      width: 100%;
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      border: 1px solid var(--border);
-    }
-
-    .modal-btn {
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 15px;
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <!-- نافذة إشعار الموقع تحت الإنشاء -->
-  <div id="constructionModal" class="modal-overlay">
+
+<!-- =====================================================
+     نافذة الموقع تحت الإنشاء
+===================================================== -->
+
+<div id="constructionModal" class="modal-overlay">
+
     <div class="modal-card">
-      <div style="font-size: 45px; margin-bottom: 12px;">🚧</div>
-      <div style="font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">الموقع تحت الإنشاء</div>
-      <div style="font-size: 14px; color: var(--text-muted); line-height: 1.7;">
-        أهلاً بك يا زائرنا الكريم في المنصة الطلابية لكلية العلوم الإدارية. نود إعلامك بأن الموقع لا يزال قيد التطوير والتحديث المستمر. شكراً لتفهمك!
-      </div>
-      <button class="modal-btn" onclick="closeModal()">حسناً، فهمت</button>
+
+        <div class="modal-icon">🚧</div>
+
+        <div class="modal-title">
+            المنصة في طور البناء
+        </div>
+
+        <div class="modal-text">
+            أهلاً بك في منصة دفعتنا.
+            <br>
+            نعمل على تطويرها لتكون مساحة تجمع
+            العلم، الملفات، الأسئلة، الأخبار،
+            والتواصل في مكان واحد.
+            <br><br>
+            <strong>
+                خطوة بخطوة... نصنع شيئاً نفتخر به.
+            </strong>
+        </div>
+
+        <button
+            class="modal-btn"
+            onclick="closeModal()">
+
+            حسناً، أدخل إلى المنصة
+
+        </button>
+
     </div>
-  </div>
 
-  <header class="navbar">
-    🏛️ كلية العلوم الإدارية - المنصة الطلابية
-  </header>
+</div>
 
-  <main class="container" id="mainContainer">
 
-    <!-- شريط البحث الفعال على كامل الموقع -->
-    <div class="card" style="padding: 12px 15px;">
-      <input type="text" id="siteSearch" class="search-box" placeholder="🔍 ابحث عن مادة، تخصص، خدمة..." onkeyup="searchSite()">
+<!-- =====================================================
+     الهيدر
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="navbar-title">
+        🇸🇩 منصة الدفعة 023
     </div>
 
-    <!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
-    <div class="card searchable-item" data-keywords="العداد التنازلي للامتحانات موعد الامتحانات">
-      <div class="section-title">⏳ العداد التنازلي للامتحانات النهائية</div>
-      <div style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">متبقي على امتحانات 9 يناير 2027:</div>
-      <div class="countdown-grid">
+    <div class="navbar-subtitle">
+        كلية العلوم الإدارية • مساحة العلم والتحدي والصمود
+    </div>
+
+</header>
+
+
+<main class="container" id="mainContainer">
+
+
+<!-- =====================================================
+     هوية الدفعة
+===================================================== -->
+
+<section class="card identity-card searchable-item"
+data-keywords="دفعة 023 السودان كلية العلوم الإدارية منصة طلابية">
+
+    <div class="identity-inner">
+
+        <div class="identity-icon">
+            🎓
+        </div>
+
+        <div class="identity-title">
+            نحن دفعة 023
+        </div>
+
+        <div class="identity-text">
+
+            من هنا تبدأ الحكاية...
+            <br>
+
+            علمٌ يجمعنا،
+            وطموحٌ يقودنا،
+            وتحدياتٌ نصنع منها طريقاً للمستقبل.
+
+        </div>
+
+        <div class="identity-badge">
+            ✦ علم • تحدي • صمود • نجاح ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     البحث
+===================================================== -->
+
+<section class="card search-card">
+
+    <input
+        type="text"
+        id="siteSearch"
+        class="search-box"
+        placeholder="🔍 ابحث عن مادة، خدمة، ملف أو قسم..."
+        onkeyup="searchSite()">
+
+</section>
+
+
+<!-- =====================================================
+     العداد
+===================================================== -->
+
+<section
+class="card countdown-card searchable-item"
+data-keywords="العداد التنازلي الامتحانات النهائية امتحانات موعد">
+
+    <div class="section-title">
+        ⏳ العداد التنازلي للامتحانات النهائية
+    </div>
+
+    <div class="countdown-description">
+        متبقي على امتحانات 9 يناير 2027
+    </div>
+
+    <div class="countdown-grid">
+
         <div class="time-box">
-          <div class="time-val" id="days">00</div>
-          <div class="time-lbl">يوم</div>
+            <div class="time-val" id="days">00</div>
+            <div class="time-lbl">يوم</div>
         </div>
+
         <div class="time-box">
-          <div class="time-val" id="hours">00</div>
-          <div class="time-lbl">ساعة</div>
+            <div class="time-val" id="hours">00</div>
+            <div class="time-lbl">ساعة</div>
         </div>
+
         <div class="time-box">
-          <div class="time-val" id="minutes">00</div>
-          <div class="time-lbl">دقيقة</div>
+            <div class="time-val" id="minutes">00</div>
+            <div class="time-lbl">دقيقة</div>
         </div>
+
         <div class="time-box">
-          <div class="time-val" id="seconds">00</div>
-          <div class="time-lbl">ثانية</div>
+            <div class="time-val" id="seconds">00</div>
+            <div class="time-lbl">ثانية</div>
         </div>
-      </div>
+
     </div>
 
-    <!-- الأزرار الرئيسية -->
-    <div class="grid-2 searchable-item" data-keywords="اختبار القدرات نتيجة المستوى الأول وسائل الدراسة نبذة عن الجامعة">
-      <a href="quiz.html" class="menu-btn">
-        <span class="icon">🧠</span>
-        <span>اختبار القدرات</span>
-      </a>
+</section>
 
-      <!-- زر النتيجة بدون تظليل أصفر -->
-      <a href="result.html" class="menu-btn">
-        <span class="icon">🏆</span>
-        <span>نتيجة المستوى الأول</span>
-      </a>
 
-      <a href="study.html" class="menu-btn">
-        <span class="icon">💡</span>
-        <span>وسائل الدراسة</span>
-      </a>
+<!-- =====================================================
+     الأزرار الرئيسية
+===================================================== -->
 
-      <a href="about.html" class="menu-btn">
-        <span class="icon">🏛️</span>
-        <span>نبذة عن الجامعة</span>
-      </a>
-    </div>
-
-    <!-- جدول المحاضرات الأسبوعي -->
-    <div class="card searchable-item" data-keywords="الجدول الدراسي الأسبوعي المحاضرات">
-      <div class="section-title">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
-      <div class="update-notice">
-        <span class="icon">⏳</span>
-        <span>سيتم التحديث فور اعتماد الجدول من الكلية</span>
-      </div>
-    </div>
-
-    <!-- إحصائيات طلاب الدفعة -->
-    <div class="card searchable-item" data-keywords="إحصائيات طلاب الدفعة إجمالي الطلاب طلاب ذكور طالبات">
-      <div class="section-title">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-label">إجمالي الطلاب</div>
-          <div class="stat-number">397</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">طلاب (ذكور)</div>
-          <div class="stat-number">163</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">طالبات</div>
-          <div class="stat-number">234</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- المواد الدراسية وبنك الأسئلة -->
-    <div class="card searchable-item" data-keywords="المواد الدراسية والمقررات بنك الأسئلة والامتحانات السابقة">
-      <div class="section-title">📚 المواد الدراسية وبنك الأسئلة</div>
-      <div class="links-list">
-        <a href="materials.html" class="sub-link">
-          <span>📖 المواد الدراسية والمقررات</span>
-          <span>←</span>
-        </a>
-        <a href="questions.html" class="sub-link">
-          <span>📝 بنك الأسئلة والامتحانات السابقة</span>
-          <span>←</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- أرقام طوارئ الدفعة (روابط واتساب مباشرة) -->
-    <div class="card searchable-item" data-keywords="تواصل طوارئ الدفعة مسجل الدفعة ليدر الدفعة واتساب">
-      <div class="section-title">📞 تواصل طوارئ الدفعة</div>
-      <div class="links-list">
-        <!-- رقم مسجل الدفعة (استبدل الرقم برقم الواتساب الفعلي مع مفتاح الدولة مثلاً 249...) -->
-        <a href="https://wa.me/249912345678" target="_blank" class="sub-link" style="background: var(--card-bg);">
-          <span>👨‍💼 مسجل الدفعة</span>
-          <span style="font-weight: 700; color: #25d366; direction: ltr;">0912345678 💬</span>
-        </a>
-        <!-- رقم ليدر الدفعة -->
-        <a href="https://wa.me/249998765432" target="_blank" class="sub-link" style="background: var(--card-bg);">
-          <span>🎓 ليدر الدفعة</span>
-          <span style="font-weight: 700; color: #25d366; direction: ltr;">0998765432 💬</span>
-        </a>
-      </div>
-    </div>
-
-  </main>
-
-  <script>
-    // إغلاق إشعار الموقع تحت الإنشاء
-    function closeModal() {
-      document.getElementById('constructionModal').style.display = 'none';
-    }
-
-    // العداد التنازلي لموعد الامتحانات (9 يناير 2027)
-    const examDate = new Date("January 9, 2027 00:00:00").getTime();
-
-    const timer = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = examDate - now;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-    }, 1000);
-
-    // وظيفة البحث الشامل داخل الموقع
-    function searchSite() {
-      let input = document.getElementById('siteSearch').value.toLowerCase();
-      let items = document.querySelectorAll('.searchable-item');
-
-      items.forEach(item => {
-        let text = item.innerText.toLowerCase();
-        let keywords = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
-        
-        if (text.includes(input) || keywords.includes(input)) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    }
-  </script>
-
-</body>
-</html>
+<section
+class="grid-2 searchable-item"
+data-keywords="اختبار القدرات نتيجة المستوى
