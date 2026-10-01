@@ -23,6 +23,7 @@
             --text-muted: #64748B;
             --shadow-card: 0 10px 30px -5px rgba(30, 58, 138, 0.08);
             --shadow-hover: 0 20px 40px -10px rgba(245, 158, 11, 0.2);
+            --chip-bg: #E2E8F0;
         }
 
         body.dark-mode {
@@ -31,6 +32,7 @@
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
             --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+            --chip-bg: #1E293B;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,48 +50,67 @@
 
         .container { width: min(1140px, 92%); margin: auto; }
 
-        /* HEADER */
+        /* HEADER المبسط */
         header {
             background: linear-gradient(135deg, #0A192F 0%, #1E3A8A 100%);
             color: white;
-            padding: 28px 0;
+            padding: 20px 0;
             border-bottom: 4px solid var(--accent-gold);
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 900;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
-        .logo-area h1 { font-size: 24px; font-weight: 900; letter-spacing: 0.5px; }
-        .logo-area p { font-size: 13px; color: var(--accent-gold-light); font-weight: 600; }
+        .logo-area h1 { font-size: 22px; font-weight: 900; letter-spacing: 0.5px; }
+        .logo-area p { font-size: 12px; color: var(--accent-gold-light); font-weight: 600; }
 
-        .nav-links {
+        .header-actions {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
         }
 
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.1);
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            background: var(--accent-gold);
+            transform: rotate(15deg);
+        }
+
+        .head-community-btn {
+            background: rgba(255, 255, 255, 0.15);
             color: white;
             padding: 8px 16px;
-            border-radius: 25px;
+            border-radius: 20px;
             font-size: 13px;
             font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
-        .nav-btn:hover { 
-            background: var(--accent-gold); 
-            border-color: var(--accent-gold);
-            transform: translateY(-2px);
+        .head-community-btn:hover {
+            background: #10B981;
+            border-color: #10B981;
         }
 
         /* HERO SECTION */
@@ -177,6 +198,66 @@
             transform: translateY(-2px);
         }
 
+        /* SCHEDULE SECTION (#schedule-section) */
+        .schedule-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            box-shadow: var(--shadow-card);
+        }
+
+        .schedule-header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 12px;
+        }
+
+        .schedule-header h3 {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.dark-mode .schedule-header h3 { color: var(--accent-gold); }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .schedule-box {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 20px;
+            border-right: 4px solid var(--primary-blue);
+        }
+
+        .schedule-box.alert-box { border-right-color: var(--accent-gold); }
+
+        .schedule-box h4 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+        .schedule-box p { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+        .schedule-box .time-badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: rgba(30, 58, 138, 0.1);
+            color: var(--primary-blue);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        body.dark-mode .time-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-gold);
+        }
+
         /* WHATSAPP FLOAT BUTTON */
         .whatsapp-float {
             position: fixed;
@@ -224,7 +305,7 @@
             bottom: 95px;
             right: 25px;
             width: 380px;
-            height: 500px;
+            height: 520px;
             background: var(--card-bg);
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
@@ -272,6 +353,12 @@
             line-height: 1.7;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            white-space: pre-wrap;
+        }
+
+        body.dark-mode .msg-bot {
+            background: #1E293B;
+            color: #93C5FD;
         }
 
         .msg-user {
@@ -284,6 +371,35 @@
             line-height: 1.7;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* أزرار الاقتراحات السريعة للذكاء الاصطناعي */
+        .ai-chips {
+            display: flex;
+            gap: 6px;
+            padding: 8px 12px;
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-top: 1px solid rgba(226, 232, 240, 0.5);
+        }
+
+        .ai-chip {
+            background: var(--chip-bg);
+            color: var(--text-main);
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .ai-chip:hover {
+            background: var(--accent-gold);
+            color: white;
         }
 
         .ai-input-area {
@@ -303,6 +419,8 @@
             font-size: 14px;
             font-family: inherit;
             transition: border-color 0.3s;
+            background: var(--card-bg);
+            color: var(--text-main);
         }
 
         .ai-input-area input:focus { border-color: var(--accent-gold); }
@@ -336,20 +454,16 @@
 
 <body>
 
-    <!-- HEADER -->
+    <!-- HEADER (مبسط بدون تبويبات مكررة) -->
     <header>
         <div class="container header-content">
             <div class="logo-area">
                 <h1>منصة طلابية</h1>
                 <p>كلية العلوم الإدارية • دفعة 023</p>
             </div>
-            <div class="nav-links">
-                <a href="./index.html" class="nav-btn">الرئيسية</a>
-                <a href="./subjects.html" class="nav-btn">المواد</a>
-                <a href="./exams.html" class="nav-btn">بنك الأسئلة</a>
-                <a href="./fun.html" class="nav-btn">الاستطلاعات</a>
-                <a href="./gpa.html" class="nav-btn">حاسبة GPA</a>
-                <button class="nav-btn" onclick="toggleTheme()">🌙</button>
+            <div class="header-actions">
+                <a href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank" class="head-community-btn">💬 مجتمع الدفعة</a>
+                <button class="theme-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي">🌙</button>
             </div>
         </div>
     </header>
@@ -368,7 +482,7 @@
                 <div>
                     <div class="card-icon">📚</div>
                     <h3>المواد الدراسية</h3>
-                    <p>استعراض المقررات والملخصات والشيتات لجميع المواد بتركيز واحترافية.</p>
+                    <p>استعراض المقررات والملخصات والشيتات لجميع المواد بتركيز وااحترافية.</p>
                 </div>
                 <a href="./subjects.html" class="btn-card">عرض المواد 📚</a>
             </div>
@@ -425,6 +539,25 @@
 
         </div>
 
+        <!-- قسم الجدول والتنبيهات المضاف (#schedule-section) -->
+        <section id="schedule-section" class="schedule-section">
+            <div class="schedule-header">
+                <h3>📅 الجدول الأسبوعي والتنبيهات الأكاديمية</h3>
+            </div>
+            <div class="schedule-grid">
+                <div class="schedule-box">
+                    <h4>📖 المحاضرة القادمة</h4>
+                    <p>محاسبة مالية / إدارة وإحصاء إداري</p>
+                    <span class="time-badge">الأحد - 9:00 صباحاً • القاعة 4</span>
+                </div>
+                <div class="schedule-box alert-box">
+                    <h4>🔔 تنبيه هام للتسليمات</h4>
+                    <p>يرجى تسليم الشيتات والأنشطة الأكاديمية قبل نهاية الأسبوع الحالي.</p>
+                    <span class="time-badge" style="background: rgba(245, 158, 11, 0.15); color: #D97706;">تنبيه أكاديمي</span>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- زر مجتمع الواتساب العائم -->
@@ -437,17 +570,26 @@
         🤖 المساعد الذكي الشامل
     </button>
 
-    <!-- نافذة المساعد الذكي الشامل -->
+    <!-- نافذة المساعد الذكي الشامل المُطوّرة -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 المساعد الشامل - دفعة 023</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل. اسألني عن **أي شيء في الدنيا** (علوم، تقنية، تاريخ، رياضة، إجابات أكاديمية) وسأجيبك فوراً بكل ثقة ونجاح!</div>
+            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل لدفعة 023. اسألني عن مفاهيم مواد العلوم الإدارية، طريقة حساب الـ GPA، أو أي سؤال أكاديمي وتطويري!</div>
         </div>
+
+        <!-- اقتراحات سريعة بنقرة واحدة -->
+        <div class="ai-chips">
+            <button class="ai-chip" onclick="quickSend('كيف أحسب معدلي GPA؟')">🧮 حساب GPA</button>
+            <button class="ai-chip" onclick="quickSend('شرح معادلة الميزانية المحاسبية')">📚 الميزانية المحاسبية</button>
+            <button class="ai-chip" onclick="quickSend('أين أجد بنك الامتحانات؟')">🎯 بنك الأسئلة</button>
+            <button class="ai-chip" onclick="quickSend('ما هي وظائف الإدارة الرئيسية؟')">💡 وظائف الإدارة</button>
+        </div>
+
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اسأل عن أي شيء..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسأل المساعد الذكي..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -459,8 +601,11 @@
         </div>
     </footer>
 
-    <!-- SCRIPT TABS & UNLIMITED SMART AI -->
+    <!-- SCRIPT SMART AI & FUNCTIONS -->
     <script>
+        // ضع مفتاح Gemini API هنا إذا أردت تفعيل الذكاء الاصطناعي المباشر
+        const GEMINI_API_KEY = ""; 
+
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
         }
@@ -470,13 +615,19 @@
             box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function sendAiMessage() {
+        function quickSend(text) {
+            document.getElementById('aiInput').value = text;
+            sendAiMessage();
+        }
+
+        async function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
             if (!text) return;
 
             let msgBox = document.getElementById('aiMessages');
             
+            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -485,44 +636,66 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
+            // إضافة مؤقت انتظار للبوت
             let botDiv = document.createElement('div');
             botDiv.className = 'msg-bot';
-            botDiv.innerText = "جاري البحث وإعداد الإجابة الشاملة...";
+            botDiv.innerText = "جاري التفكير وإعداد الإجابة الأكاديمية... ⏳";
             msgBox.appendChild(botDiv);
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            setTimeout(() => {
-                let query = text.toLowerCase();
-                let response = "";
+            // استدعاء الذكاء الاصطناعي
+            let responseText = await fetchAiResponse(text);
+            botDiv.innerText = responseText;
+            msgBox.scrollTop = msgBox.scrollHeight;
+        }
 
-                if (query.match(/(مخترع|المصباح|توماس إديسون|من هو مخترع)/)) {
-                    response = "مخترع المصباح الكهربائي المتوهج هو العالم الأمريكي **توماس إديسون** في عام 1879م، نموذج ملهم للإصرار والنجاح!";
-                } 
-                else if (query.match(/(برمجة|تطوير|كود|html|javascript)/)) {
-                    response = "البرمجة هي لغة الإبداع والمستقبل! لغتا HTML و JavaScript اللتان بُنيت بهما هذه المنصة تعكسان روعة تطوير الأفكار وتحويلها لواقع رقمي مذهل.";
+        async function fetchAiResponse(userPrompt) {
+            // 1. إذا توفر مفتاح Gemini API يتم استخدام النموذج المباشر
+            if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== "") {
+                try {
+                    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{ text: `أنت المساعد الذكي لطلاب كلية العلوم الإدارية - دفعة 023. أسلوبك مشجع وأكاديمي ودقيق. أجب بوضوح باللغة العربية.\n\nسؤال الطالب: ${userPrompt}` }]
+                            }]
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.candidates && data.candidates[0].content.parts[0].text) {
+                        return data.candidates[0].content.parts[0].text;
+                    }
+                } catch (e) {
+                    console.log("Gemini API Offline, switching to local smart responses.");
                 }
-                else if (query.match(/(طاقة|ثقة|نجاح|توفيق|محفز)/)) {
-                    response = "الثقة بالنفس هي أساس كل نجاح وعمل عظيم! استمر في السعي وكن على يقين أن جهدك اليوم هو ثمرة تفوقك الغد 🌟.";
-                }
-                else if (query.match(/(محاسبة|ميزانية|أصول|خصوم|مدين|دائن|قيد)/)) {
-                    response = "في العلوم المحاسبية، القاعدة الذهبية تسري دائماً: إجمالي الأصول يساوي مجموع الخصوم وحقوق الملكية (الأصول = الخصوم + حقوق الملكية). أنت قادر على إتقانها بكل تفوق!";
-                } 
-                else if (query.match(/(إدارة|تخطيط|تنظيم|قيادة|رقابة)/)) {
-                    response = "وظائف الإدارة الأساسية تتكون من: التخطيط المستقبلي، التنظيم الهيكلي، التوجيه والقيادة الفعالة، والرقابة لضمان جودة الأداء والوصول للقمة.";
-                } 
-                else if (query.match(/(اقتصاد|عرض|طلب|تضخم|سوق)/)) {
-                    response = "في علم الاقتصاد، يتحدد سعر السلع وفقاً لتفاعل قوى العرض والطلب في السوق. المعرفة الاقتصادية تمنحك رؤية أوسع لإدارة المال والأعمال.";
-                } 
-                else if (query.match(/(امتحان|بنك|اسئلة|مادة|ملخص|gpa)/)) {
-                    response = "يمكنك الوصول لجميع امتحانات الدفعة، الملخصات، وحساب معدلك (GPA) مباشرة عبر أقسام المنصة الرئيسية لتحقيق أعلى الدرجات 🎯.";
-                } 
-                else {
-                    response = `رداً على سؤالك حول ("${text}"):\n\nهذا الموضوع ثري ومهم للغاية في بابه. تذكر دائماً أن الفضول العلمي والمعرفي هو مفتاح التفوق والتميز الشامل في حياتك الأكاديمية والعملية! ✨`;
-                }
+            }
 
-                botDiv.innerText = response;
-                msgBox.scrollTop = msgBox.scrollHeight;
-            }, 600);
+            // 2. المحرك المحلي الذكي الاحتياطي (Smart Fallback Engine)
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    let query = userPrompt.toLowerCase();
+                    
+                    if (query.match(/(ميزانية|محاسبة|أصول|خصوم|حقوق ملكية|مدين|دائن)/)) {
+                        resolve("في العلوم المحاسبية، القاعدة الأساسية الميزانية هي:\nالأصول = الخصوم + حقوق الملكية.\n\nيمكنك الانتقال لقسم 'المواد الدراسية' للحصول على شيتات وملاحظات المحاسبة المالية بالكامل! 📚");
+                    } 
+                    else if (query.match(/(إدارة|وظائف|تخطيط|تنظيم|قيادة|رقابة)/)) {
+                        resolve("وظائف الإدارة الأربعة الرئيسية هي:\n1. التخطيط 🎯\n2. التنظيم 🗂️\n3. التوجيه والقيادة 🤝\n4. الرقابة والتقييم 📊");
+                    } 
+                    else if (query.match(/(gpa|معدل|تراكمي|حساب)/)) {
+                        resolve("لحساب معدلك الفصلي والتراكمي بدقة وسهولة، يرجى الانتقال إلى 'حاسبة GPA' عبر البطاقة المخصصة في الصفحة الرئيسية! 🧮");
+                    } 
+                    else if (query.match(/(امتحان|امتحانات|بنك|اسئلة|اختبار)/)) {
+                        resolve("تجد جميع امتحانات الأعوام السابقة ونماذج الإجابات في 'بنك الأسئلة والامتحانات' 📝🎯.");
+                    } 
+                    else if (query.match(/(جدول|محاضرة|تنبيه|موعد)/)) {
+                        resolve("يمكنك الاطلاع على الجدول الأسبوعي والتنبيهات الأكاديمية مباشرة في قسم 'الجدول الأسبوعي' الموجود بالصفحة الرئيسية 📅.");
+                    } 
+                    else {
+                        resolve(`رداً على سؤالك حول ("${userPrompt}"):\n\nيسعدني مساعدتك! تذكر دائماً أن التخطيط المنظم والمتابعة اليومية هما طريقك المختصر نحو التميز والتفوق الأكاديمي ✨.`);
+                    }
+                }, 500);
+            });
         }
     </script>
 
@@ -553,7 +726,7 @@
         }
 
         document.addEventListener('click', function(e) {
-            const target = e.target.closest('button, a, .nav-btn, .btn-card, .ai-chat-btn, input[type="button"], input[type="submit"]');
+            const target = e.target.closest('button, a, .nav-btn, .btn-card, .ai-chat-btn, .ai-chip');
             if (target) {
                 playClickSound();
             }
