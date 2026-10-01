@@ -5,185 +5,597 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المنصة الطلابية - كلية العلوم الإدارية</title>
   <style>
+    :root {
+      --primary: #0b1f3a;
+      --primary-light: #1a3a68;
+      --accent: #f39c12;
+      --bg: #f4f6f9;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #edf2f7;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
 
     body {
-      background-color: #f4f6f9;
-      color: #1e293b;
+      background-color: var(--bg);
+      color: var(--text);
       direction: rtl;
+      padding-bottom: 40px;
     }
 
-    /* الهيدر العلوي */
+    /* 1. القائمة العلوية */
     .navbar {
       background: linear-gradient(135deg, #0b1f3a, #1a3a68);
-      padding: 20px 15px;
+      padding: 15px 20px;
       color: #ffffff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .nav-container {
-      max-width: 1000px;
+      max-width: 700px;
       margin: 0 auto;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      gap: 15px;
     }
 
     .brand {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #ffffff;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    /* أزرار التنقل */
-    .nav-links {
+    .nav-tools {
       display: flex;
-      justify-content: center;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
-      width: 100%;
     }
 
-    .nav-link {
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.15);
       color: #ffffff;
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      transition: all 0.2s ease;
-      display: inline-flex;
+      border: none;
+      cursor: pointer;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
-    .nav-link.active {
-      background-color: rgba(255, 255, 255, 0.2);
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
     }
 
-    .nav-link.highlight {
-      background-color: #f39c12;
+    /* شريط التنويهات والأخبار */
+    .news-ticker {
+      background: #f39c12;
       color: #ffffff;
+      padding: 8px 15px;
+      font-size: 13px;
       font-weight: 700;
-      box-shadow: 0 3px 8px rgba(243, 156, 18, 0.4);
-    }
-
-    .nav-link.highlight:hover {
-      background-color: #d68910;
-    }
-
-    /* الكارت الرئيسي */
-    .container {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-
-    .hero-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 35px 20px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      border: 1px solid #edf2f7;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
-    .hero-card h1 {
-      color: #0b1f3a;
-      font-size: 22px;
-      line-height: 1.5;
+    .container {
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 2. شريط البحث والعداد التنازلي */
+    .header-box {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
       margin-bottom: 15px;
+    }
+
+    .countdown-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      text-align: center;
+    }
+
+    .time-card {
+      background: #0b1f3a;
+      color: #ffffff;
+      padding: 10px 5px;
+      border-radius: 8px;
+    }
+
+    .time-card .num {
+      font-size: 18px;
       font-weight: 800;
     }
 
-    .hero-card p {
-      color: #64748b;
-      font-size: 14px;
-      line-height: 1.7;
-      margin-bottom: 25px;
+    .time-card .label {
+      font-size: 10px;
+      opacity: 0.8;
     }
 
-    /* أزرار الكارت */
-    .btn-group {
+    /* 3. شبكة الأزرار الرئيسية */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .menu-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-decoration: none;
+      color: var(--text);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .card-btn {
-      width: 100%;
-      max-width: 320px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
-      text-align: center;
-      transition: all 0.2s ease;
-      display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      text-align: center;
     }
 
-    .btn-orange {
-      background-color: #f39c12;
+    .menu-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .menu-btn .icon {
+      font-size: 22px;
+    }
+
+    .menu-btn.highlight {
+      background: linear-gradient(135deg, #f39c12, #d68910);
       color: #ffffff;
-      box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+      border: none;
     }
 
-    .btn-blue {
-      background-color: #0b1f3a;
+    /* 4. الكروت العامة */
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card-header {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* حاسبة GPA */
+    .gpa-calculator {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gpa-input {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .calc-btn {
+      background: #0b1f3a;
       color: #ffffff;
-      box-shadow: 0 4px 10px rgba(11, 31, 58, 0.2);
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
-    .card-btn:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
+    .gpa-result {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-top: 5px;
+    }
+
+    /* الإحصائيات */
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .stat-pill {
+      background: var(--bg);
+      padding: 12px 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-pill .value {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0b1f3a;
+    }
+
+    body.dark-mode .stat-pill .value {
+      color: var(--accent);
+    }
+
+    .stat-pill .lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .stats-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .detail-box {
+      padding: 10px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    .detail-box.pass { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .detail-box.sup { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+
+    body.dark-mode .detail-box.pass { background: #064e3b; color: #a7f3d0; border-color: #047857; }
+    body.dark-mode .detail-box.sup { background: #7c2d12; color: #ffedd5; border-color: #9a3412; }
+
+    /* الاتصالات */
+    .contacts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background: var(--bg);
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .contact-item a {
+      color: #25d366;
+      text-decoration: none;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* المساعد الذكي */
+    .ai-fab {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #ffffff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+    }
+
+    .ai-modal {
+      display: none;
+      position: fixed;
+      bottom: 75px;
+      left: 20px;
+      width: 320px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    .ai-modal-header {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ai-modal-body {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .close-ai {
+      cursor: pointer;
+      color: #ef4444;
     }
   </style>
 </head>
 <body>
 
-  <!-- الهيدر القائمة العلوي -->
+  <!-- القائمة العلوية -->
   <header class="navbar">
     <div class="nav-container">
       <a href="index.html" class="brand">🎓 كلية العلوم الإدارية</a>
       
-      <div class="nav-links">
-        <a href="index.html" class="nav-link active">🏠 الرئيسية</a>
-        <a href="exam.html" class="nav-link">📚 بنك الأسئلة</a>
-        <a href="results.html" class="nav-link highlight">🏆 النتيجة والتميز</a>
+      <div class="nav-tools">
+        <a href="index.html" class="nav-btn">🏠 الرئيسية</a>
+        <a href="community.html" class="nav-btn">💬 المجتمع</a>
+        <button class="nav-btn" onclick="toggleTheme()">🌙/☀️</button>
       </div>
     </div>
   </header>
 
-  <!-- محتوى الكارت الرئيسي -->
+  <!-- شريط التنويهات الإخبارية -->
+  <div class="news-ticker">
+    📢 تنبيه مهم: بداية التسجيل وإعلان الجدول الدراسي للامتحانات القادمة قريباً عبر المنصة الرسمية.
+  </div>
+
   <main class="container">
-    <div class="hero-card">
-      <h1>مرحباً بك في المنصة الطلابية<br>- كلية العلوم الإدارية</h1>
+
+    <!-- البحث والعداد -->
+    <div class="header-box">
+      <input type="text" class="search-input" placeholder="🔍 ابحث في الخدمات والمواد..." onkeyup="filterButtons(this.value)">
       
-      <p>يمكنك التصفح واستفادة من الخدمات الطلابية المتاحة عبر المنصة، بما في ذلك الاستعانة ببنك الأسئلة والامتحانات، واكتشاف نتائج وإحصائيات دفعتي 023 & 024 للمستوى الأول.</p>
-      
-      <div class="btn-group">
-        <a href="results.html" class="card-btn btn-orange">🏆 عرض النتيجة والأوائل</a>
-        <a href="exam.html" class="card-btn btn-blue">📚 الانتقال لبنك الأسئلة</a>
+      <div class="countdown-title">⏳ المتبقي على موعد الامتحانات القادمة</div>
+      <div class="timer-grid">
+        <div class="time-card"><div class="num" id="d">00</div><div class="label">يوم</div></div>
+        <div class="time-card"><div class="num" id="h">00</div><div class="label">ساعة</div></div>
+        <div class="time-card"><div class="num" id="m">00</div><div class="label">دقيقة</div></div>
+        <div class="time-card"><div class="num" id="s">00</div><div class="label">ثانية</div></div>
       </div>
     </div>
+
+    <!-- شبكة الأزرار الشاملة (8 أزرار) -->
+    <div class="section-title">📌 الخدمات والأقسام الرئيسية</div>
+    <div class="buttons-grid" id="mainGrid">
+      <a href="courses.html" class="menu-btn searchable">
+        <span class="icon">📚</span>
+        <span>المواد الدراسية</span>
+      </a>
+
+      <a href="exam.html" class="menu-btn searchable">
+        <span class="icon">📝</span>
+        <span>بنك الأسئلة</span>
+      </a>
+
+      <a href="results.html" class="menu-btn highlight searchable">
+        <span class="icon">🏆</span>
+        <span>نتيجة المستوى الأول</span>
+      </a>
+
+      <a href="library.html" class="menu-btn searchable">
+        <span class="icon">📂</span>
+        <span>مكتبة المذكرات PDF</span>
+      </a>
+
+      <a href="schedule.html" class="menu-btn searchable">
+        <span class="icon">📅</span>
+        <span>الجدول الدراسي</span>
+      </a>
+
+      <a href="aptitude.html" class="menu-btn searchable">
+        <span class="icon">🧠</span>
+        <span>اختبار القدرات</span>
+      </a>
+
+      <a href="about.html" class="menu-btn searchable">
+        <span class="icon">🏛️</span>
+        <span>نبذة عن الجامعة</span>
+      </a>
+
+      <a href="study-tips.html" class="menu-btn searchable">
+        <span class="icon">💡</span>
+        <span>وسائل الدراسة</span>
+      </a>
+    </div>
+
+    <!-- حاسبة المعدل التراكمي GPA -->
+    <div class="card">
+      <div class="card-header">🧮 حاسبة المعدل التراكمي (GPA) السريعة</div>
+      <div class="gpa-calculator">
+        <input type="number" id="m1" class="gpa-input" placeholder="درجة المادة الأولى (مثال: 85)">
+        <input type="number" id="m2" class="gpa-input" placeholder="درجة المادة الثانية (مثال: 90)">
+        <button class="calc-btn" onclick="calculateGPA()">احسب المعدل التقديري</button>
+        <div class="gpa-result" id="gpaOut">المعدل المتوقع: --</div>
+      </div>
+    </div>
+
+    <!-- الإحصائيات -->
+    <div class="card">
+      <div class="card-header">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
+      
+      <div class="stats-summary">
+        <div class="stat-pill">
+          <div class="value">397</div>
+          <div class="lbl">إجمالي الطلاب</div>
+        </div>
+        <div class="stat-pill">
+          <div class="value">163</div>
+          <div class="lbl">إجمالي الطلاب (ذكور)</div>
+        </div>
+        <div class="stat-pill">
+          <div class="value">234</div>
+          <div class="lbl">إجمالي الطالبات (إناث)</div>
+        </div>
+      </div>
+
+      <div class="stats-details">
+        <div class="detail-box pass">
+          <strong>الناجحون صافي (303):</strong><br>
+          👦 طلاب: 126 | 👧 طالبات: 177
+        </div>
+        <div class="detail-box sup">
+          <strong>الملاحق (94):</strong><br>
+          👦 طلاب: 37 | 👧 طالبات: 57
+        </div>
+      </div>
+    </div>
+
+    <!-- التواصل المباشر -->
+    <div class="card">
+      <div class="card-header">📞 الاتصال والتواصل المباشر</div>
+      <ul class="contacts-list">
+        <li class="contact-item">
+          <span>مسجل الكلية</span>
+          <a href="tel:0123456789">📞 اتصال مباشر</a>
+        </li>
+        <li class="contact-item">
+          <span>ليدر الدفعة</span>
+          <a href="https://wa.me/249000000000" target="_blank">💬 واتساب</a>
+        </li>
+      </ul>
+    </div>
+
   </main>
 
+  <!-- المساعد الذكي -->
+  <button class="ai-fab" onclick="toggleAI()">
+    <span>🤖 المساعد الذكي</span>
+  </button>
+
+  <div class="ai-modal" id="aiModal">
+    <div class="ai-modal-header">
+      <span>🤖 مساعد كلية العلوم الإدارية</span>
+      <span class="close-ai" onclick="toggleAI()">✕</span>
+    </div>
+    <div class="ai-modal-body">
+      مرحباً بك! أنا مساعدك الذكي الخاص بجمارك المواد والتخصصات. كيف يمكنني مساعدتك اليوم في المذاكرة أو حساب معدلاتك؟
+    </div>
+  </div>
+
+  <script>
+    // تغيير الوضع الليلي والصباحي
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // نافذة الذكاء الاصطناعي
+    function toggleAI() {
+      const modal = document.getElementById('aiModal');
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // العداد التنازلي للامتحانات
+    const targetDate = new Date("Dec 1, 2026 09:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if(diff > 0) {
+        document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("h").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("m").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("s").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+      }
+    }, 1000);
+
+    // فلترة الأزرار عبر البحث
+    function filterButtons(val) {
+      const btns = document.querySelectorAll('.searchable');
+      btns.forEach(btn => {
+        btn.style.display = btn.innerText.includes(val) ? 'flex' : 'none';
+      });
+    }
+
+    // حساب GPA التقديري
+    function calculateGPA() {
+      const m1 = parseFloat(document.getElementById('m1').value) || 0;
+      const m2 = parseFloat(document.getElementById('m2').value) || 0;
+      if(m1 === 0 && m2 === 0) {
+        document.getElementById('gpaOut').innerText = "يرجى إدخال الدرجات أولاً";
+        return;
+      }
+      const avg = (m1 + m2) / 2;
+      let gpa = (avg / 100) * 4.0;
+      document.getElementById('gpaOut').innerText = `المعدل المتوقع: ${gpa.toFixed(2)} من 4.00`;
+    }
+  </script>
 </body>
 </html>
