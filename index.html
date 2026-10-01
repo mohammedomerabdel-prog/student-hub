@@ -117,10 +117,10 @@
             border-color: #10B981;
         }
 
-        /* HERO SECTION */
+        /* HERO & SEARCH */
         .hero {
             text-align: center;
-            margin: 40px 0 30px 0;
+            margin: 40px 0 25px 0;
         }
 
         .hero h2 { 
@@ -133,9 +133,64 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p { color: var(--text-muted); font-size: 16px; font-weight: 600; }
+        .hero p { color: var(--text-muted); font-size: 16px; font-weight: 600; margin-bottom: 20px; }
 
-        /* BANNER - LIVE COUNTDOWN TIMER (WITH SECONDS) */
+        /* SEARCH BOX */
+        .search-box-container {
+            max-width: 580px;
+            margin: 0 auto 35px auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 22px;
+            border-radius: 30px;
+            border: 2px solid rgba(30, 58, 138, 0.2);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .search-results-dropdown {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            left: 0;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 800;
+            display: none;
+        }
+
+        .search-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-item:hover { background: rgba(245, 158, 11, 0.1); }
+        .search-item strong { color: var(--primary-blue); font-size: 14px; }
+        body.dark-mode .search-item strong { color: var(--accent-gold); }
+
+        /* BANNER - LIVE COUNTDOWN TIMER */
         .exam-banner {
             background: linear-gradient(135deg, #1E3A8A, #0F172A);
             color: white;
@@ -252,7 +307,7 @@
             width: fit-content;
         }
 
-        /* STANDALONE SCHEDULE TABLE (#schedule-section) */
+        /* SCHEDULE TABLE (#schedule-section) */
         .schedule-section-container {
             background: var(--card-bg);
             border-radius: 24px;
@@ -365,7 +420,33 @@
         body.dark-mode .tip-card h4 { color: var(--accent-gold); }
         .tip-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-        /* AI CHATBOT BUTTON & WINDOW */
+        /* BACK TO TOP BUTTON */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: var(--primary-blue);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 990;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* AI CHATBOT BUTTON & WINDOW (RESPONSIVE FIX) */
         .ai-chat-btn {
             position: fixed;
             bottom: 25px;
@@ -391,7 +472,9 @@
             bottom: 95px;
             right: 25px;
             width: 380px;
+            max-width: calc(100vw - 40px);
             height: 530px;
+            max-height: calc(100vh - 120px);
             background: var(--card-bg);
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
@@ -534,6 +617,16 @@
             margin-top: 60px;
             border-top: 4px solid var(--accent-gold);
         }
+
+        /* MEDIA QUERIES FOR MOBILE */
+        @media (max-width: 480px) {
+            .ai-chat-box {
+                right: 20px;
+                left: 20px;
+                width: auto;
+            }
+            .hero h2 { font-size: 24px; }
+        }
     </style>
 </head>
 
@@ -560,7 +653,13 @@
             <p>انطلق نحو التفوق والنجاح: جميع أدواتك، ملخصاتك، وامتحاناتك التفاعلية في مكان واحد 🚀</p>
         </div>
 
-        <!-- ⏳ عداد امتحانات الفصل الدراسي الأول (مضبوط لـ 9 يناير 2027 ومزوّد بالثواني) -->
+        <!-- 🔍 شريط البحث السريع في المحتوى -->
+        <div class="search-box-container">
+            <input type="text" id="mainSearchInput" class="search-input" placeholder="🔍 ابحث عن مادة، امتحان، حاسبة GPA، أو جدول..." onkeyup="filterSiteContent()">
+            <div id="searchResults" class="search-results-dropdown"></div>
+        </div>
+
+        <!-- ⏳ عداد امتحانات الفصل الدراسي الأول (9 يناير 2027) -->
         <div class="exam-banner">
             <div class="exam-info">
                 <h3>⏳ العد التنازلي لامتحانات الفصل الدراسي الأول (9 يناير 2027)</h3>
@@ -651,7 +750,7 @@
 
         </div>
 
-        <!-- 📅 قسم جدول المحاضرات الأسبوعي المفرغ (مكتوب فيه جاري التحديث) -->
+        <!-- 📅 قسم جدول المحاضرات الأسبوعي المفرغ (جاري التحديث) -->
         <section id="schedule-section" class="schedule-section-container">
             <h3 class="section-title">📅 جدول المحاضرات الأسبوعي الرسمي</h3>
             <p style="color: var(--text-muted); font-size: 14px;">جدول المحاضرات والقاعات والمواعيد المقررة لدفعة 023</p>
@@ -713,22 +812,24 @@
 
     </main>
 
+    <!-- ⬆️ زر الصعود للأعلى -->
+    <button class="back-to-top" id="backToTopBtn" onclick="scrollToTop()">⬆️</button>
+
     <!-- زر المساعد الذكي AI -->
     <button class="ai-chat-btn" onclick="toggleAiChat()">
         🤖 المساعد الذكي الشامل
     </button>
 
-    <!-- 🤖 نافذة المساعد الذكي الشامل المُطوّرة -->
+    <!-- 🤖 نافذة المساعد الذكي الشامل -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 المساعد الشامل - دفعة 023</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل المُطوّر لدفعة 023. اسألني عن مفاهيم المحاسبة والإدارة والاقتصاد، حساب الـ GPA، أو نصائح الاستعداد للامتحانات!</div>
+            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل لدفعة 023. اسألني عن مفاهيم المحاسبة والإدارة والاقتصاد، حساب الـ GPA، أو نصائح الاستعداد للامتحانات!</div>
         </div>
 
-        <!-- اقتراحات سريعة بنقرة واحدة -->
         <div class="ai-chips">
             <button class="ai-chip" onclick="quickSend('كيف أحسب معدلي GPA؟')">🧮 حساب GPA</button>
             <button class="ai-chip" onclick="quickSend('ما هي الميزانية العمومية في المحاسبة؟')">📚 الميزانية المحاسبية</button>
@@ -737,7 +838,7 @@
         </div>
 
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اسأل المساعد الذكي المُطوّر..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسأل المساعد الذكي..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -749,9 +850,8 @@
         </div>
     </footer>
 
-    <!-- SCRIPT FUNCTIONS (ADVANCED AI, LIVE COUNTDOWN WITH SECONDS, POMODORO) -->
+    <!-- JS SCRIPTS -->
     <script>
-        // مفتاح Gemini API (اختياري - في حال توفره يتم الربط بالذكاء الاصطناعي المباشر)
         const GEMINI_API_KEY = ""; 
 
         function toggleTheme() {
@@ -768,7 +868,61 @@
             sendAiMessage();
         }
 
-        /* 🤖 تطوير محرك الذكاء الاصطناعي */
+        /* 🔍 محرك البحث السريع */
+        const siteData = [
+            { title: "المواد الدراسية والملخصات", url: "./subjects.html", tag: "مادة / ملخصات" },
+            { title: "بنك الأسئلة والامتحانات", url: "./exams.html", tag: "امتحانات" },
+            { title: "حاسبة المعدل التراكمي GPA", url: "./gpa.html", tag: "حاسبة" },
+            { title: "المكتبة السحابية Google Drive", url: "./library.html", tag: "ملفات" },
+            { title: "جدول المحاضرات الأسبوعي", url: "#schedule-section", tag: "جدول" },
+            { title: "مجتمع الواتساب للدفعة", url: "https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW", tag: "مجتمع" }
+        ];
+
+        function filterSiteContent() {
+            const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+            const resultsBox = document.getElementById('searchResults');
+            
+            if (!query) {
+                resultsBox.style.display = 'none';
+                return;
+            }
+
+            const filtered = siteData.filter(item => item.title.toLowerCase().includes(query) || item.tag.toLowerCase().includes(query));
+            
+            if (filtered.length === 0) {
+                resultsBox.innerHTML = '<div class="search-item"><span>لا توجد نتائج مطابقة</span></div>';
+            } else {
+                resultsBox.innerHTML = filtered.map(item => `
+                    <div class="search-item" onclick="window.location.href='${item.url}'">
+                        <strong>${item.title}</strong>
+                        <span style="font-size: 11px; background: rgba(30,58,138,0.1); padding: 2px 8px; border-radius: 10px;">${item.tag}</span>
+                    </div>
+                `).join('');
+            }
+            resultsBox.style.display = 'block';
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-box-container')) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+
+        /* ⬆️ زر الصعود للأعلى */
+        window.onscroll = function() {
+            let btn = document.getElementById('backToTopBtn');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* 🤖 المساعد الذكي */
         async function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
@@ -776,7 +930,6 @@
 
             let msgBox = document.getElementById('aiMessages');
             
-            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -785,21 +938,18 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            // إضافة رسالة انتظار تفاعلية
             let botDiv = document.createElement('div');
             botDiv.className = 'msg-bot';
             botDiv.innerText = "جاري تحليل السؤال وإعداد الإجابة الأكاديمية... ⏳";
             msgBox.appendChild(botDiv);
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            // استدعاء المساعد المطور
             let responseText = await fetchAdvancedAiResponse(text);
             botDiv.innerText = responseText;
             msgBox.scrollTop = msgBox.scrollHeight;
         }
 
         async function fetchAdvancedAiResponse(userPrompt) {
-            // 1. المحاولة عبر Gemini API
             if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== "") {
                 try {
                     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
@@ -816,41 +966,27 @@
                         return data.candidates[0].content.parts[0].text;
                     }
                 } catch (e) {
-                    console.log("Gemini API غير متوفر، الانتقال للمحرك المحلي المطور.");
+                    console.log("Gemini API Offline");
                 }
             }
 
-            // 2. المحرك الذكي المحلي المطور (Advanced Local AI Engine)
             return new Promise((resolve) => {
                 setTimeout(() => {
                     let query = userPrompt.toLowerCase();
-                    
-                    if (query.match(/(ميزانية|محاسبة|أصول|خصوم|حقوق ملكية|مدين|دائن)/)) {
-                        resolve("📘 **في العلوم المحاسبية:**\n\nتعتمد الميزانية العمومية على المعادلة المحاسبية الأساسية:\n✨ **الأصول = الخصوم + حقوق الملكية**\n\n- **الأصول:** كل ما تملكه المؤسسة من موارد.\n- **الخصوم:** الالتزامات المستحقة للغير.\n- **حقوق الملكية:** صافي استثمارات المالكين.\n\nيمكنك مراجعة ملخصات المحاسبة في قسم 'المواد الدراسية' عبر الصفحة الرئيسية!");
-                    } 
-                    else if (query.match(/(إدارة|وظائف|تخطيط|تنظيم|قيادة|رقابة)/)) {
-                        resolve("💼 **وظائف الإدارة الأربعة الأساسية:**\n\n1. **التخطيط (Planning):** تحديد الأهداف والاستراتيجيات.\n2. **التنظيم (Organizing):** توزيع المهام والموارد.\n3. **التوجيه والقيادة (Leading):** تحفيز الفريق وإدارته.\n4. **الرقابة (Controlling):** تقييم الأداء والتأكد من تحقيقه للأهداف.");
-                    }
-                    else if (query.match(/(gpa|معدل|تراكمي|حساب)/)) {
-                        resolve("🧮 **حساب المعدل التراكمي GPA:**\n\nالمعدل يتكون من مجموع (نقاط كل مادة × عدد ساعاتها) مقسوماً على إجمالي عدد الساعات المسجلة.\n\n💡 نوفر لك **حاسبة GPA تفاعلية** جاهزة في الصفحة الرئيسية لحساب المعدل التراكمي والفصلي بضغطة زر!");
-                    } 
-                    else if (query.match(/(امتحان|امتحانات|بنك|اسئلة|اختبار|يناير)/)) {
-                        resolve("📝 **تنبيه الامتحانات:**\n\nتبدأ امتحانات الفصل الدراسي الأول بإذن الله يوم **9 يناير 2027**.\nيمكنك الاستعانة بنماذج الامتحانات والأسئلة السابقة من قسم **'بنك الأسئلة والامتحانات'** لتجهيز نفسك بأفضل طريقة!");
-                    } 
-                    else if (query.match(/(جدول|محاضرة|زمن|قاعة|محاضر)/)) {
-                        resolve("📅 **جدول المحاضرات:**\n\nجدول المحاضرات الرسمية حالياً في حالة **(جاري التحديث...)** وسيكون متاحاً بالكامل في قسم الجدول بالصفحة الرئيسية فور اعتماده من الكلية!");
-                    }
-                    else if (query.match(/(وقت|تنظيم|مذاكرة|تركيز|طريقة)/)) {
-                        resolve("⏳ **استراتيجية تنظيم الوقت للمذاكرة:**\n\n1. استخدم أداة **Pomodoro** الموجودة بالمنصة (25 دقيقة مذاكرة مركزة + 5 دقائق استراحة).\n2. طبّق تقنية **الاسترجاع النشط** بتسميع النقاط الأساسية بنفسك.\n3. ابدأ بالمواد الأكثر تعقيداً في بداية يومك عندما يكون ذهنك في أعلى مستويات النشاط.");
-                    }
-                    else {
-                        resolve(`💡 **رداً على استفسارك بشأن ("${userPrompt}"):**\n\nيسعدني مساعدتك دائماً! يمكنك التوجه لأقسام المنصة المختلفة لاستعراض المراجع أو الامتحانات أو استغلال أداة مؤقت المذاكرة لتحقيق أقصى قدر من التفوق والنجاح ✨.`);
+                    if (query.match(/(ميزانية|محاسبة|أصول|خصوم)/)) {
+                        resolve("📘 **في العلوم المحاسبية:**\n\nتعتمد الميزانية العمومية على المعادلة المحاسبية الأساسية:\n✨ **الأصول = الخصوم + حقوق الملكية**");
+                    } else if (query.match(/(gpa|معدل|تراكمي)/)) {
+                        resolve("🧮 **حساب المعدل التراكمي GPA:**\n\nتتوفر حاسبة GPA تفاعلية جاهزة في الصفحة الرئيسية لحساب المعدل الفصلي والتراكمي بضغطة زر!");
+                    } else if (query.match(/(امتحان|يناير)/)) {
+                        resolve("📝 **تنبيه الامتحانات:**\n\nتبدأ امتحانات الفصل الدراسي الأول بإذن الله يوم **9 يناير 2027**.");
+                    } else {
+                        resolve(`💡 **رداً على استفسارك بشأن ("${userPrompt}"):**\n\nيسعدني مساعدتك دائماً! يمكنك التوجه لأقسام المنصة واستغلال الأدوات المتاحة للتفوق والنجاح ✨.`);
                     }
                 }, 500);
             });
         }
 
-        /* ⏳ عداد تنازلي حقيقي بالثواني للامتحانات (9 يناير 2027) */
+        /* ⏳ العداد التنازلي */
         function updateExamCountdown() {
             const examDate = new Date('2027-01-09T00:00:00').getTime();
             const now = new Date().getTime();
@@ -874,11 +1010,10 @@
             document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
             document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
         }
-
         setInterval(updateExamCountdown, 1000);
         updateExamCountdown();
 
-        /* ⏱️ POMODORO TIMER LOGIC */
+        /* ⏱️ مؤقت البومودورو */
         let pomoTime = 25 * 60;
         let pomoInterval = null;
         let isPomoRunning = false;
@@ -886,8 +1021,7 @@
         function updatePomoDisplay() {
             let minutes = Math.floor(pomoTime / 60);
             let seconds = pomoTime % 60;
-            document.getElementById('pomoDisplay').innerText = 
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('pomoDisplay').innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
         function togglePomodoro() {
@@ -924,37 +1058,27 @@
         }
     </script>
 
-    <!-- كود تشغيل صوت النقرات التفاعلي -->
+    <!-- أصوات التفاعل -->
     <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
         function playClickSound() {
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-            
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
-
-            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
-
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 0.05);
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
         }
 
         document.addEventListener('click', function(e) {
-            const target = e.target.closest('button, a, .btn-card, .ai-chat-btn, .ai-chip, .pomo-btn');
-            if (target) {
-                playClickSound();
-            }
+            const target = e.target.closest('button, a, .btn-card, .ai-chat-btn, .ai-chip, .pomo-btn, .back-to-top');
+            if (target) playClickSound();
         });
     </script>
 </body>
