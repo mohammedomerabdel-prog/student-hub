@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>نبذة عن الجامعة - كلية العلوم الإدارية</title>
+  <title>نبذة عن الكلية - كلية العلوم الإدارية</title>
   <style>
     :root {
       --primary: #0b1f3a;
@@ -115,60 +115,124 @@
       color: var(--text);
     }
 
-    ul {
-      margin-right: 20px;
-      margin-bottom: 12px;
-      font-size: 14px;
+    /* شبكة الأقسام والتخصصات بأزرار تفاعلية */
+    .departments-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 15px;
     }
 
-    li {
-      margin-bottom: 6px;
+    .dept-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px 12px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      cursor: pointer;
+    }
+
+    .dept-btn:hover {
+      border-color: var(--accent);
+      background: var(--card-bg);
+      transform: translateY(-2px);
+    }
+
+    .dept-btn .icon {
+      font-size: 22px;
+    }
+
+    .info-box {
+      background: rgba(243, 156, 18, 0.1);
+      border-right: 4px solid var(--accent);
+      padding: 12px 15px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 15px;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
 
   <header class="navbar">
-    <a href="index.html" class="brand">🎓 كلية العلوم الإدارية</a>
+    <a href="index.html" class="brand">🏛️ نبذة عن الكلية</a>
     <a href="index.html" class="back-btn">⬅ العودة للمنصة</a>
   </header>
 
   <main class="container">
 
+    <!-- نبذة عامة عن الكلية وجامعة بحري -->
     <div class="card">
-      <div class="card-header">🏛️ نبذة عن جامعة بحري</div>
+      <div class="card-header">📌 كلية العلوم الإدارية - جامعة بحري</div>
       <p>
-        تُعد <strong>جامعة بحري</strong> إحدى الجامعات السودانية المتميزة والرائدة التي تأسست لتلبي احتياجات المجتمع وتساهم في مسيرة التنمية المعرفية والعلمية والبحثية في البلاد، حيث تضم كليات متنوعة تغطي مختلف القطاعات الأكاديمية والتطبيقية.
+        تعتبر <strong>كلية العلوم الإدارية</strong> في <strong>جامعة بحري</strong> من الصواحع الأكاديمية البارزة التي ترفد سوق العمل السوداني والإقليمي بكفاءات مؤهلة ومتخصصة في مجالات الإدارة، المحاسبة، والعلوم المالية والمصرفية.
       </p>
       <p>
-        تسعى الجامعة لتقديم برامج أكاديمية متطورة تواكب معايير الجودة العالمية، وتعمل على تهيئة بيئة محفزة للبحث العلمي والإبداع الطلابي بما يخدم سوق العمل المحلي والإقليمي.
+        تسعى الكلية دائماً لتوفير بيئة تعليمية متكاملة تجمع بين التأصيل العلمي الأكاديمي والتطبيق الميداني العملي، مواكبةً لأحدث التطورات الحديثة في إدارة الأعمال والقطاع المالي والمصرفي.
       </p>
     </div>
 
+    <!-- الأقسام والتخصصات العلمية في الكلية -->
     <div class="card">
-      <div class="card-header">📊 كلية العلوم الإدارية</div>
-      <p>
-        تعتبر <strong>كلية العلوم الإدارية</strong> صرحاً أكاديمياً حيوياً يهدف إلى إعداد كوادر مؤهلة وقادرة على إدارة المؤسسات والشركات بكفاءة عالية وفق أحدث النظريات الإدارية والمحاسبية والمصرفية.
-      </p>
-      <p><strong>تضم الكلية عدة تخصصات رئيسية في مرحلة البكالوريوس، من أبرزها:</strong></p>
-      <ul>
-        <li>إدارة الأعمال</li>
-        <li>المحاسبة والتمويل</li>
-        <li>الدراسات المصرفية والمالية</li>
-        <li>التسويق</li>
-        <li>الموارد البشرية</li>
-        <li>السكرتارية التنفيذية والإدارة المكتبية</li>
-      </ul>
-    </div>
+      <div class="card-header">🎓 الأقسام والتخصصات الأكاديمية</div>
+      <p>تضم الكلية نخبة من التخصصات الحيوية التي تتيح للطالب مجالات واسعة ومتنوعة للمستقبل المهني:</p>
+      
+      <div class="departments-grid">
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم إدارة الأعمال')">
+          <span class="icon">📈</span>
+          <span>إدارة الأعمال</span>
+        </div>
 
-    <div class="card">
-      <div class="card-header">🎯 رسالة وأهداف الكلية</div>
-      <p>
-        <strong>الرسالة:</strong> تقديم تعليم إداري متميز، وبناء شراكات مجتمعية فعالة، وإجراء بحوث تسهم في حل المشكلات الإدارية والمالية للمؤسسات.
-      </p>
-      <p>
-        <strong>الأهداف:</strong> رفد سوق العمل بخريجين يمتلكون مهارات قيادية، تحليلية، وتقنية عالية تواكب التطور المتسارع في قطاع الأعمال والمال.
-      </p>
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم المحاسبة والتمويل')">
+          <span class="icon">💰</span>
+          <span>المحاسبة والتمويل</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم المحاسبة والتكاليف')">
+          <span class="icon">📊</span>
+          <span>المحاسبة والتكاليف</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم المحاسبة الإدارية')">
+          <span class="icon">📋</span>
+          <span>المحاسبة الإدارية</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم الموارد البشرية')">
+          <span class="icon">👥</span>
+          <span>الموارد البشرية</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم الدراسات المصرفية')">
+          <span class="icon">🏦</span>
+          <span>الدراسات المصرفية</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم الإدارة العامة')">
+          <span class="icon">🏛️</span>
+          <span>الإدارة العامة</span>
+        </div>
+
+        <div class="dept-btn" onclick="alert('قريباً: تفاصيل قسم السكرتارية التنفيذية')">
+          <span class="icon">💻</span>
+          <span>السكرتارية التنفيذية</span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        💡 <strong>ملاحظة:</strong> يمكنك لاحقاً ربط كل زر بصفحة مخصصة أو قسم مفصل لكل تخصص يشمل طبيعة القسم في السودان والوظائف المحتملة لكل خريج.
+      </div>
     </div>
 
   </main>
