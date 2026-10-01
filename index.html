@@ -64,7 +64,6 @@
       gap: 15px;
     }
 
-    /* أزرار الخدمات (تم توحيد شكل زر النتيجة مع البقية) */
     .menu-btn {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -93,7 +92,6 @@
       font-size: 26px;
     }
 
-    /* تنسيق الجدول الدراسي والملاحظة الجديدة */
     .section-title {
       font-size: 15px;
       font-weight: 700;
@@ -105,6 +103,7 @@
       color: var(--primary);
     }
 
+    /* تنسيق الجدول الجديد */
     .update-notice {
       background: rgba(243, 156, 18, 0.08);
       border: 1px dashed var(--accent);
@@ -124,6 +123,75 @@
     .update-notice span.icon {
       font-size: 28px;
     }
+
+    /* إحصائيات والروابط الإضافية */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .stat-box {
+      background: var(--bg);
+      padding: 12px 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .stat-number {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      margin-bottom: 12px;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+    }
+
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sub-link {
+      background: var(--bg);
+      padding: 12px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    .sub-link:hover {
+      background: var(--border);
+    }
   </style>
 </head>
 <body>
@@ -134,14 +202,19 @@
 
   <main class="container">
 
-    <!-- الأزرار الرئيسية العلوية -->
+    <!-- مؤشر البحث داخل الموقع -->
+    <div class="card" style="padding: 15px;">
+      <input type="text" class="search-box" placeholder="🔍 ابحث عن مادة، تخصص، أو خدمة...">
+    </div>
+
+    <!-- الأزرار الرئيسية -->
     <div class="grid-2">
       <a href="quiz.html" class="menu-btn">
         <span class="icon">🧠</span>
         <span>اختبار القدرات</span>
       </a>
 
-      <!-- زر نتيجة المستوى الأول بدون تظليل أصفر -->
+      <!-- زر النتيجة بدون تظليل أصفر -->
       <a href="result.html" class="menu-btn">
         <span class="icon">🏆</span>
         <span>نتيجة المستوى الأول</span>
@@ -158,13 +231,68 @@
       </a>
     </div>
 
-    <!-- قسم الجدول الدراسي الأسبوعي -->
+    <!-- جدول المحاضرات (محدث بالعبارة المطلوبة) -->
     <div class="card">
       <div class="section-title">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
       
       <div class="update-notice">
         <span class="icon">⏳</span>
         <span>سيتم التحديث فور اعتماد الجدول من الكلية</span>
+      </div>
+    </div>
+
+    <!-- العداد التنازلي -->
+    <div class="card" style="text-align: center;">
+      <div class="section-title">⏳ العداد التنازلي للامتحانات</div>
+      <div style="font-size: 15px; font-weight: 700; color: var(--accent);">متبقي على الامتحانات النهائية: يتم التحديد لاحقاً</div>
+    </div>
+
+    <!-- إحصائيات طلاب الدفعة -->
+    <div class="card">
+      <div class="section-title">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">إجمالي الطلاب</div>
+          <div class="stat-number">397</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">طلاب (ذكور)</div>
+          <div class="stat-number">163</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">طالبات</div>
+          <div class="stat-number">234</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- المواد الدراسية وبنك الأسئلة والأقسام -->
+    <div class="card">
+      <div class="section-title">📚 المواد الدراسية وبنك الأسئلة</div>
+      <div class="links-list">
+        <a href="materials.html" class="sub-link">
+          <span>📖 المواد الدراسية والمقررات</span>
+          <span>←</span>
+        </a>
+        <a href="questions.html" class="sub-link">
+          <span>📝 بنك الأسئلة والامتحانات السابقة</span>
+          <span>←</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- أرقام مسجل الدفعة وليدر الدفعة -->
+    <div class="card">
+      <div class="section-title">📞 تواصل طوارئ الدفعة</div>
+      <div class="links-list">
+        <div class="sub-link" style="background: var(--card-bg);">
+          <span>👨‍💼 مسجل الدفعة</span>
+          <span style="font-weight: 700; color: var(--primary);">0912345678</span>
+        </div>
+        <div class="sub-link" style="background: var(--card-bg);">
+          <span>🎓 ليدر الدفعة</span>
+          <span style="font-weight: 700; color: var(--primary);">0998765432</span>
+        </div>
       </div>
     </div>
 
