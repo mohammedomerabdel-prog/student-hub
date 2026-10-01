@@ -40,7 +40,6 @@
       padding-bottom: 50px;
     }
 
-    /* الهيدر العلوي (بدون أزرار قديمة) */
     .navbar {
       background: linear-gradient(135deg, #0b1f3a, #1a3a68);
       padding: 18px 20px;
@@ -59,7 +58,6 @@
       text-decoration: none;
     }
 
-    /* شريط التنويهات */
     .news-ticker {
       background: #f39c12;
       color: #ffffff;
@@ -78,7 +76,6 @@
       gap: 20px;
     }
 
-    /* البحث والعداد */
     .header-box {
       background: var(--card-bg);
       border-radius: 16px;
@@ -131,7 +128,6 @@
       opacity: 0.8;
     }
 
-    /* الأقسام والأزرار */
     .section-title {
       font-size: 16px;
       font-weight: 700;
@@ -178,23 +174,59 @@
       border: none;
     }
 
-    /* محتوى الأقسام التفاعلية (لمنع مشكلة 404) */
-    .content-box {
+    /* صناديق المحتوى التفاعلي لتجنب 404 */
+    .content-modal {
       display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 450px;
       background: var(--card-bg);
-      border-radius: 12px;
-      padding: 15px;
-      margin-top: 10px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       border: 1px solid var(--border);
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .content-modal-header {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #0b1f3a;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .close-modal {
+      cursor: pointer;
+      color: #ef4444;
+      font-size: 18px;
+    }
+
+    .content-modal-body {
       font-size: 13px;
+      color: var(--text);
       line-height: 1.6;
     }
 
-    .content-box.active {
-      display: block;
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1500;
     }
 
-    /* الكروت العامة */
+    /* الكروت العامة والجدول الأسبوعي الخارجي */
     .card {
       background: var(--card-bg);
       border-radius: 16px;
@@ -211,7 +243,28 @@
       border-bottom: 2px solid var(--border);
     }
 
-    /* الإحصائيات */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: var(--bg);
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
     .stats-summary {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -258,7 +311,6 @@
     .detail-box.pass { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
     .detail-box.sup { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
 
-    /* الاتصالات */
     .contacts-list {
       list-style: none;
       display: flex;
@@ -282,7 +334,6 @@
       font-weight: 700;
     }
 
-    /* زر الذكاء الاصطناعي والشات العائم */
     .ai-fab {
       position: fixed;
       bottom: 20px;
@@ -329,7 +380,6 @@
 </head>
 <body>
 
-  <!-- الهيدر النظيف بدون أزرار قديمة -->
   <header class="navbar">
     <a href="index.html" class="brand">🎓 كلية العلوم الإدارية - المنصة الطلابية</a>
   </header>
@@ -340,11 +390,11 @@
 
   <main class="container">
 
-    <!-- البحث والعداد -->
+    <!-- البحث والعداد (9 يناير 2027) -->
     <div class="header-box">
       <input type="text" class="search-input" placeholder="🔍 ابحث في الأقسام والخدمات..." onkeyup="filterButtons(this.value)">
       
-      <div class="countdown-title">⏳ المتبقي على موعد الامتحانات القادمة</div>
+      <div class="countdown-title">⏳ المتبقي على موعد امتحانات الفصل الدراسي الأول (9 يناير 2027)</div>
       <div class="timer-grid">
         <div class="time-card"><div class="num" id="d">00</div><div class="label">يوم</div></div>
         <div class="time-card"><div class="num" id="h">00</div><div class="label">ساعة</div></div>
@@ -353,16 +403,16 @@
       </div>
     </div>
 
-    <!-- الأقسام والخدمات (تعمل بدون 404 وتفتح محتواها مباشرة) -->
+    <!-- الأقسام الرئيسية (تفتح نافذة فورية بدون 404) -->
     <div class="section-title">📌 الخدمات والأقسام الرئيسية</div>
     <div class="buttons-grid" id="mainGrid">
       
-      <div class="menu-btn searchable" onclick="toggleSection('coursesBox')">
+      <div class="menu-btn searchable" onclick="openModal('coursesBox')">
         <span class="icon">📚</span>
         <span>المواد الدراسية</span>
       </div>
 
-      <div class="menu-btn searchable" onclick="toggleSection('examBox')">
+      <div class="menu-btn searchable" onclick="openModal('examBox')">
         <span class="icon">📝</span>
         <span>بنك الأسئلة</span>
       </div>
@@ -372,41 +422,105 @@
         <span>نتيجة المستوى الأول</span>
       </a>
 
-      <div class="menu-btn searchable" onclick="toggleSection('libraryBox')">
-        <span class="icon">📂</span>
-        <span>مكتبة المذكرات PDF</span>
-      </div>
-
-      <div class="menu-btn searchable" onclick="toggleSection('aptitudeBox')">
+      <div class="menu-btn searchable" onclick="openModal('aptitudeBox')">
         <span class="icon">🧠</span>
         <span>اختبار القدرات</span>
       </div>
 
-      <div class="menu-btn searchable" onclick="toggleSection('aboutBox')">
+      <div class="menu-btn searchable" onclick="openModal('aboutBox')">
         <span class="icon">🏛️</span>
         <span>نبذة عن الجامعة</span>
       </div>
 
-      <div class="menu-btn searchable" onclick="toggleSection('tipsBox')">
+      <div class="menu-btn searchable" onclick="openModal('tipsBox')">
         <span class="icon">💡</span>
         <span>وسائل الدراسة</span>
       </div>
 
-      <div class="menu-btn searchable" onclick="toggleSection('scheduleBox')">
-        <span class="icon">📅</span>
-        <span>الجدول الدراسي</span>
-      </div>
-
     </div>
 
-    <!-- مربعات المحتوى التفصيلي لتجنب 404 -->
-    <div id="coursesBox" class="content-box">📚 <b>المواد الدراسية:</b> تضم مواد المستوى الأول في التخصصات المختلفة (إدارة، محاسبة، تمويل، مصرفية، تسويق، موارد بشرية، سكرتارية).</div>
-    <div id="examBox" class="content-box">📝 <b>بنك الأسئلة:</b> اختبارات تجريبية وأسئلة سابقة لمساعدة الطلاب في التحضير للامتحانات.</div>
-    <div id="libraryBox" class="content-box">📂 <b>مكتبة المذكرات:</b> ملفات PDF والشيتات الدراسية الخاصة بالمقررات.</div>
-    <div id="aptitudeBox" class="content-box">🧠 <b>اختبار القدرات:</b> تدريبات وتقیيمات قياس القدرات الذهنية والمهارية.</div>
-    <div id="aboutBox" class="content-box">🏛️ <b>نبذة عن الجامعة:</b> جامعة بحري - كلية العلوم الإدارية، صرح علمي متميز لإعداد كوادر قيادية مؤهلة.</div>
-    <div id="tipsBox" class="content-box">💡 <b>أفضل وسائل الدراسة:</b> تنظيم الوقت، المذاكرة الجماعية، حل الامتحانات السابقة، والتركيز على الفهم.</div>
-    <div id="scheduleBox" class="content-box">📅 <b>الجدول الدراسي:</b> مواعيد المحاضرات وقاعات الدراسة للأسبوع الحالي.</div>
+    <!-- نوافذ المحتوى المنبثقة -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+    <div id="coursesBox" class="content-modal">
+      <div class="content-modal-header"><span>📚 المواد الدراسية</span><span class="close-modal" onclick="closeModal()">✕</span></div>
+      <div class="content-modal-body">تضم مواد المستوى الأول في التخصصات المختلفة (إدارة الأعمال، المحاسبة والتمويل، الدراسات المصرفية والمالية، التسويق، الموارد البشرية، السكرتارية التنفيذية).</div>
+    </div>
+
+    <div id="examBox" class="content-modal">
+      <div class="content-modal-header"><span>📝 بنك الأسئلة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
+      <div class="content-modal-body">اختبارات تجريبية وأسئلة سابقة لمساعدة الطلاب في التحضير الكامل للامتحانات القادمة.</div>
+    </div>
+
+    <div id="aptitudeBox" class="content-modal">
+      <div class="content-modal-header"><span>🧠 اختبار القدرات</span><span class="close-modal" onclick="closeModal()">✕</span></div>
+      <div class="content-modal-body">تدريبات وتقييمات قياس القدرات الذهنية والمهارية لتطوير الأداء الأكاديمي.</div>
+    </div>
+
+    <div id="aboutBox" class="content-modal">
+      <div class="content-modal-header"><span>🏛️ نبذة عن الجامعة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
+      <div class="content-modal-body">جامعة بحري - كلية العلوم الإدارية. (سيتم إدراج النبذات والتعريفات المفصلة من القسم الإعلامي للجامعة هنا قريباً).</div>
+    </div>
+
+    <div id="tipsBox" class="content-modal">
+      <div class="content-modal-header"><span>💡 أفضل وسائل الدراسة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
+      <div class="content-modal-body">تنظيم الوقت، المذاكرة الجماعية الفعالة، حل الامتحانات السابقة، والتركيز على الفهم التحليلي للمقررات.</div>
+    </div>
+
+    <!-- الجدول الدراسي الخارجي (من السبت إلى الخميس) -->
+    <div class="card">
+      <div class="card-header">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>اليوم</th>
+              <th>المادة</th>
+              <th>المكان (القاعة)</th>
+              <th>المحاضر</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>السبت</strong></td>
+              <td>محاسبة مالية (1)</td>
+              <td>قاعة 101</td>
+              <td>د. أحمد محمد</td>
+            </tr>
+            <tr>
+              <td><strong>الأحد</strong></td>
+              <td>مبادئ الإدارة</td>
+              <td>قاعة 102</td>
+              <td>د. سارة عثمان</td>
+            </tr>
+            <tr>
+              <td><strong>الإثنين</strong></td>
+              <td>إنجليزي أكاديمي</td>
+              <td>معمل اللغات</td>
+              <td>أ. فاطمه إبراهيم</td>
+            </tr>
+            <tr>
+              <td><strong>الثلاثاء</strong></td>
+              <td>رياضيات أعمال</td>
+              <td>قاعة 103</td>
+              <td>د. خالد عبد الله</td>
+            </tr>
+            <tr>
+              <td><strong>الأربعاء</strong></td>
+              <td>مبادئ التسويق</td>
+              <td>قاعة 101</td>
+              <td>د. محمد الأمين</td>
+            </tr>
+            <tr>
+              <td><strong>الخميس</strong></td>
+              <td>دراسات مصرفية</td>
+              <td>قاعة 104</td>
+              <td>د. عواطف حسن</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <!-- إحصائيات الدفعة -->
     <div class="card">
@@ -430,24 +544,23 @@
       </div>
     </div>
 
-    <!-- قسم الاتصالات والأرقام الصحيحة -->
+    <!-- التواصل المباشر (واتساب للمسجل وليدر الدفعة) -->
     <div class="card">
       <div class="card-header">📞 الاتصال والتواصل المباشر</div>
       <ul class="contacts-list">
         <li class="contact-item">
           <span>مسجل الكلية</span>
-          <a href="tel:+249111744435">📞 0111744435</a>
+          <a href="https://wa.me/249111744435" target="_blank">💬 0111744435 (واتساب)</a>
         </li>
         <li class="contact-item">
           <span>ليدر الدفعة</span>
-          <a href="https://wa.me/249116314682" target="_blank">💬 0116314682</a>
+          <a href="https://wa.me/249116314682" target="_blank">💬 0116314682 (واتساب)</a>
         </li>
       </ul>
     </div>
 
   </main>
 
-  <!-- زر ومربع الذكاء الاصطناعي (يعمل تماماً) -->
   <button class="ai-fab" onclick="toggleAI()">🤖 المساعد الذكي</button>
 
   <div class="ai-modal" id="aiModal">
@@ -461,20 +574,23 @@
   </div>
 
   <script>
-    // تفعيل وإلغاء المساعد الذكي
     function toggleAI() {
       const modal = document.getElementById('aiModal');
       modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
     }
 
-    // فتح وإغلاق محتوى الأقسام تفاعلياً لمنع 404
-    function toggleSection(id) {
-      const box = document.getElementById(id);
-      box.classList.toggle('active');
+    function openModal(id) {
+      document.getElementById('modalOverlay').style.display = 'block';
+      document.getElementById(id).style.display = 'block';
     }
 
-    // العداد التنازلي
-    const targetDate = new Date("Dec 1, 2026 09:00:00").getTime();
+    function closeModal() {
+      document.getElementById('modalOverlay').style.display = 'none';
+      document.querySelectorAll('.content-modal').forEach(m => m.style.display = 'none');
+    }
+
+    // العداد التنازلي لتاريخ 9 يناير 2027
+    const targetDate = new Date("Jan 9, 2027 09:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const diff = targetDate - now;
@@ -486,7 +602,6 @@
       }
     }, 1000);
 
-    // البحث السريع
     function filterButtons(val) {
       const btns = document.querySelectorAll('.searchable');
       btns.forEach(btn => {
