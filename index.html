@@ -135,12 +135,12 @@
 
         .hero p { color: var(--text-muted); font-size: 16px; font-weight: 600; }
 
-        /* BANNER - COUNTDOWN TIMER */
+        /* BANNER - LIVE COUNTDOWN TIMER (WITH SECONDS) */
         .exam-banner {
             background: linear-gradient(135deg, #1E3A8A, #0F172A);
             color: white;
             border-radius: 20px;
-            padding: 20px;
+            padding: 20px 25px;
             margin-bottom: 35px;
             display: flex;
             justify-content: space-between;
@@ -156,19 +156,19 @@
 
         .countdown-boxes {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .count-box {
             background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 12px;
             text-align: center;
             min-width: 65px;
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .count-num { font-size: 20px; font-weight: 900; color: var(--accent-gold); display: block; line-height: 1.2; }
+        .count-num { font-size: 22px; font-weight: 900; color: var(--accent-gold); display: block; line-height: 1.2; font-family: monospace; }
         .count-label { font-size: 11px; color: #94A3B8; font-weight: 600; }
 
         /* CARDS GRID */
@@ -291,28 +291,6 @@
             font-weight: 600;
         }
 
-        .schedule-table tbody tr:nth-child(even) {
-            background: var(--table-row-alt);
-        }
-
-        .schedule-table tbody tr:hover {
-            background: rgba(245, 158, 11, 0.08);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .badge-live { background: #DCFCE7; color: #166534; }
-        .badge-online { background: #E0F2FE; color: #075985; }
-
-        body.dark-mode .badge-live { background: #064E3B; color: #A7F3D0; }
-        body.dark-mode .badge-online { background: #0C4A6E; color: #BAE6FD; }
-
         /* POMODORO TIMER SECTION */
         .pomodoro-container {
             background: var(--card-bg);
@@ -413,7 +391,7 @@
             bottom: 95px;
             right: 25px;
             width: 380px;
-            height: 520px;
+            height: 530px;
             background: var(--card-bg);
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
@@ -457,11 +435,11 @@
             padding: 12px 16px;
             border-radius: 18px 18px 0 18px;
             align-self: flex-start;
-            max-width: 88%;
+            max-width: 90%;
             line-height: 1.7;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            white-space: pre-wrap;
+            white-space: pre-line;
         }
 
         body.dark-mode .msg-bot {
@@ -582,24 +560,28 @@
             <p>انطلق نحو التفوق والنجاح: جميع أدواتك، ملخصاتك، وامتحاناتك التفاعلية في مكان واحد 🚀</p>
         </div>
 
-        <!-- ⏳ شريط العد التنازلي للامتحانات -->
+        <!-- ⏳ عداد امتحانات الفصل الدراسي الأول (مضبوط لـ 9 يناير 2027 ومزوّد بالثواني) -->
         <div class="exam-banner">
             <div class="exam-info">
-                <h3>⏳ العد التنازلي لامتحانات نهاية الفصل</h3>
+                <h3>⏳ العد التنازلي لامتحانات الفصل الدراسي الأول (9 يناير 2027)</h3>
                 <p>استغل وقتك بذكاء ونظم جدول استذكارك للحصول على أرفع الدرجات ✨</p>
             </div>
             <div class="countdown-boxes">
                 <div class="count-box">
-                    <span class="count-num" id="cd-days">45</span>
+                    <span class="count-num" id="cd-days">00</span>
                     <span class="count-label">يوم</span>
                 </div>
                 <div class="count-box">
-                    <span class="count-num" id="cd-hours">12</span>
+                    <span class="count-num" id="cd-hours">00</span>
                     <span class="count-label">ساعة</span>
                 </div>
                 <div class="count-box">
-                    <span class="count-num" id="cd-mins">30</span>
+                    <span class="count-num" id="cd-mins">00</span>
                     <span class="count-label">دقيقة</span>
+                </div>
+                <div class="count-box">
+                    <span class="count-num" id="cd-secs">00</span>
+                    <span class="count-label">ثانية</span>
                 </div>
             </div>
         </div>
@@ -669,9 +651,9 @@
 
         </div>
 
-        <!-- 📅 قسم جدول المحاضرات الأسبوعي المستقل (#schedule-section) -->
+        <!-- 📅 قسم جدول المحاضرات الأسبوعي المفرغ (مكتوب فيه جاري التحديث) -->
         <section id="schedule-section" class="schedule-section-container">
-            <h3 class="section-title">📅 جدول المحاضرات الأسبوعي الرسمية</h3>
+            <h3 class="section-title">📅 جدول المحاضرات الأسبوعي الرسمي</h3>
             <p style="color: var(--text-muted); font-size: 14px;">جدول المحاضرات والقاعات والمواعيد المقررة لدفعة 023</p>
             
             <div class="schedule-table-wrapper">
@@ -683,56 +665,23 @@
                             <th>المادة المقررة</th>
                             <th>المحاضر</th>
                             <th>القاعة</th>
-                            <th>نوع المحاضرة</th>
+                            <th>حالة المحاضرة</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>الأحد</td>
-                            <td>09:00 ص - 11:00 ص</td>
-                            <td>محاسبة مالية (1)</td>
-                            <td>د. محمد عثمان</td>
-                            <td>قاعة 4</td>
-                            <td><span class="badge badge-live">حضوري</span></td>
-                        </tr>
-                        <tr>
-                            <td>الإثنين</td>
-                            <td>11:00 ص - 01:00 م</td>
-                            <td>مبادئ إدارة الأعمال</td>
-                            <td>د. أحمد عبد الله</td>
-                            <td>قاعة 2</td>
-                            <td><span class="badge badge-live">حضوري</span></td>
-                        </tr>
-                        <tr>
-                            <td>الثلاثاء</td>
-                            <td>10:00 ص - 12:00 م</td>
-                            <td>الرياضيات المالية والإحصاء</td>
-                            <td>د. سارة عمر</td>
-                            <td>مدرج أ</td>
-                            <td><span class="badge badge-online">أونلاين</span></td>
-                        </tr>
-                        <tr>
-                            <td>الأربعاء</td>
-                            <td>09:00 ص - 11:00 ص</td>
-                            <td>مبادئ الاقتصاد الجزئي</td>
-                            <td>د. خالد مصطفى</td>
-                            <td>قاعة 5</td>
-                            <td><span class="badge badge-live">حضوري</span></td>
-                        </tr>
-                        <tr>
-                            <td>الخميس</td>
-                            <td>11:00 ص - 01:00 م</td>
-                            <td>اللغة الإنجليزية الأكاديمية</td>
-                            <td>أ. ريم الطيب</td>
-                            <td>مختبر الحاسوب</td>
-                            <td><span class="badge badge-live">حضوري</span></td>
+                            <td colspan="6" style="text-align: center; padding: 45px 20px; color: var(--text-muted);">
+                                <div style="font-size: 32px; margin-bottom: 10px;">⏳</div>
+                                <strong style="font-size: 18px; color: var(--text-main); display: block; margin-bottom: 6px;">جاري التحديث...</strong>
+                                <span style="font-size: 13px;">سيتم إدراج الجدول الدراسي الرسمي فور اعتماده وتحديده من قِبل إدارة الكلية.</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- ⏱️ أداة مؤقت التركيز (Pomodoro Timer) لتحسين جودة الاستذكار -->
+        <!-- ⏱️ أداة مؤقت التركيز (Pomodoro Timer) -->
         <section class="pomodoro-container">
             <h3 class="section-title" style="margin: 0 auto 10px auto;">⏱️ مؤقت التركيز والإنتاجية (Pomodoro)</h3>
             <p style="color: var(--text-muted); font-size: 14px;">استخدم نظام 25 دقيقة مذاكرة مركزة يليها 5 دقائق استراحة لتنشيط العقل وزيادة الاستيعاب.</p>
@@ -750,7 +699,7 @@
         <div class="study-tips-grid">
             <div class="tip-card">
                 <h4>🧠 الاسترجاع النشط (Active Recall)</h4>
-                <p>بعد قراءة الفقر، أغلق الكتاب وحاول كتابة أو تسميع ما فهمته من ذاكرتك مباشرة؛ هذه أفضل طريقة لتثبيت المعلومات طويلة المدى.</p>
+                <p>بعد قراءة الفقرة، أغلق الكتاب وحاول كتابة أو تسميع ما فهمته من ذاكرتك مباشرة؛ هذه أفضل طريقة لتثبيت المعلومات طويلة المدى.</p>
             </div>
             <div class="tip-card">
                 <h4>📅 التكرار المتباعد (Spaced Repetition)</h4>
@@ -769,26 +718,26 @@
         🤖 المساعد الذكي الشامل
     </button>
 
-    <!-- نافذة المساعد الذكي الشامل -->
+    <!-- 🤖 نافذة المساعد الذكي الشامل المُطوّرة -->
     <div class="ai-chat-box" id="aiChatBox">
         <div class="ai-header">
             <span>🤖 المساعد الشامل - دفعة 023</span>
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل لدفعة 023. اسألني عن مفاهيم مواد العلوم الإدارية، طريقة حساب الـ GPA، أو أي سؤال أكاديمي وتطويري!</div>
+            <div class="msg-bot">أهلاً بك يا بطل المجد والدراسة 👋! أنا مساعدك الذكي الشامل المُطوّر لدفعة 023. اسألني عن مفاهيم المحاسبة والإدارة والاقتصاد، حساب الـ GPA، أو نصائح الاستعداد للامتحانات!</div>
         </div>
 
         <!-- اقتراحات سريعة بنقرة واحدة -->
         <div class="ai-chips">
             <button class="ai-chip" onclick="quickSend('كيف أحسب معدلي GPA؟')">🧮 حساب GPA</button>
-            <button class="ai-chip" onclick="quickSend('شرح معادلة الميزانية المحاسبية')">📚 الميزانية المحاسبية</button>
-            <button class="ai-chip" onclick="quickSend('أين أجد بنك الامتحانات؟')">🎯 بنك الأسئلة</button>
-            <button class="ai-chip" onclick="quickSend('ما هي وظائف الإدارة الرئيسية؟')">💡 وظائف الإدارة</button>
+            <button class="ai-chip" onclick="quickSend('ما هي الميزانية العمومية في المحاسبة؟')">📚 الميزانية المحاسبية</button>
+            <button class="ai-chip" onclick="quickSend('كيف أنظم وقت المذاكرة للامتحانات؟')">📅 تنظيم الوقت</button>
+            <button class="ai-chip" onclick="quickSend('أين أجد بنك الأسئلة والمستندات؟')">🎯 بنك الأسئلة</button>
         </div>
 
         <div class="ai-input-area">
-            <input type="text" id="aiInput" placeholder="اسأل المساعد الذكي..." onkeypress="if(event.key==='Enter') sendAiMessage()">
+            <input type="text" id="aiInput" placeholder="اسأل المساعد الذكي المُطوّر..." onkeypress="if(event.key==='Enter') sendAiMessage()">
             <button onclick="sendAiMessage()">إرسال</button>
         </div>
     </div>
@@ -800,8 +749,9 @@
         </div>
     </footer>
 
-    <!-- SCRIPT FUNCTIONS (AI, POMODORO, COUNTDOWN) -->
+    <!-- SCRIPT FUNCTIONS (ADVANCED AI, LIVE COUNTDOWN WITH SECONDS, POMODORO) -->
     <script>
+        // مفتاح Gemini API (اختياري - في حال توفره يتم الربط بالذكاء الاصطناعي المباشر)
         const GEMINI_API_KEY = ""; 
 
         function toggleTheme() {
@@ -818,6 +768,7 @@
             sendAiMessage();
         }
 
+        /* 🤖 تطوير محرك الذكاء الاصطناعي */
         async function sendAiMessage() {
             let input = document.getElementById('aiInput');
             let text = input.value.trim();
@@ -825,6 +776,7 @@
 
             let msgBox = document.getElementById('aiMessages');
             
+            // إضافة رسالة المستخدم
             let userDiv = document.createElement('div');
             userDiv.className = 'msg-user';
             userDiv.innerText = text;
@@ -833,18 +785,21 @@
             input.value = '';
             msgBox.scrollTop = msgBox.scrollHeight;
 
+            // إضافة رسالة انتظار تفاعلية
             let botDiv = document.createElement('div');
             botDiv.className = 'msg-bot';
-            botDiv.innerText = "جاري التفكير وإعداد الإجابة الأكاديمية... ⏳";
+            botDiv.innerText = "جاري تحليل السؤال وإعداد الإجابة الأكاديمية... ⏳";
             msgBox.appendChild(botDiv);
             msgBox.scrollTop = msgBox.scrollHeight;
 
-            let responseText = await fetchAiResponse(text);
+            // استدعاء المساعد المطور
+            let responseText = await fetchAdvancedAiResponse(text);
             botDiv.innerText = responseText;
             msgBox.scrollTop = msgBox.scrollHeight;
         }
 
-        async function fetchAiResponse(userPrompt) {
+        async function fetchAdvancedAiResponse(userPrompt) {
+            // 1. المحاولة عبر Gemini API
             if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== "") {
                 try {
                     const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
@@ -852,7 +807,7 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             contents: [{
-                                parts: [{ text: `أنت المساعد الذكي لطلاب كلية العلوم الإدارية - دفعة 023. أسلوبك مشجع وأكاديمي ودقيق. أجب بوضوح باللغة العربية.\n\nسؤال الطالب: ${userPrompt}` }]
+                                parts: [{ text: `أنت المساعد الأكاديمي الذكي المطور لطلاب كلية العلوم الإدارية - دفعة 023. أسلوبك مشجع، أكاديمي، ومنظم بفقرات واضحة.\n\nسؤال الطالب: ${userPrompt}` }]
                             }]
                         })
                     });
@@ -861,27 +816,69 @@
                         return data.candidates[0].content.parts[0].text;
                     }
                 } catch (e) {
-                    console.log("Gemini API Offline, switching to local engine.");
+                    console.log("Gemini API غير متوفر، الانتقال للمحرك المحلي المطور.");
                 }
             }
 
+            // 2. المحرك الذكي المحلي المطور (Advanced Local AI Engine)
             return new Promise((resolve) => {
                 setTimeout(() => {
                     let query = userPrompt.toLowerCase();
-                    if (query.match(/(ميزانية|محاسبة|أصول|خصوم|حقوق ملكية)/)) {
-                        resolve("في العلوم المحاسبية، القاعدة الأساسية هي:\nالأصول = الخصوم + حقوق الملكية.\n\nيمكنك الانتقال لقسم 'المواد الدراسية' لمراجعة شيتات المحاسبة! 📚");
-                    } else if (query.match(/(gpa|معدل|تراكمي)/)) {
-                        resolve("لحساب معدلك الفصلي والتراكمي بدقة وسهولة، استخدم 'حاسبة GPA' الموجودة في الصفحة الرئيسية! 🧮");
-                    } else if (query.match(/(جدول|محاضرة|زمان|قاعة)/)) {
-                        resolve("يمكنك الاطلاع على الجدول الأسبوعي الرسمي والقاعات مباشرة من قسم 'جدول المحاضرات الأسبوعي' في الصفحة! 📅");
-                    } else {
-                        resolve(`رداً على سؤالك حول ("${userPrompt}"):\n\nيسعدني مساعدتك دائماً! التخطيط المنظم والمتابعة اليومية هما طريقك المختصر نحو التميز والتفوق الأكاديمي ✨.`);
+                    
+                    if (query.match(/(ميزانية|محاسبة|أصول|خصوم|حقوق ملكية|مدين|دائن)/)) {
+                        resolve("📘 **في العلوم المحاسبية:**\n\nتعتمد الميزانية العمومية على المعادلة المحاسبية الأساسية:\n✨ **الأصول = الخصوم + حقوق الملكية**\n\n- **الأصول:** كل ما تملكه المؤسسة من موارد.\n- **الخصوم:** الالتزامات المستحقة للغير.\n- **حقوق الملكية:** صافي استثمارات المالكين.\n\nيمكنك مراجعة ملخصات المحاسبة في قسم 'المواد الدراسية' عبر الصفحة الرئيسية!");
+                    } 
+                    else if (query.match(/(إدارة|وظائف|تخطيط|تنظيم|قيادة|رقابة)/)) {
+                        resolve("💼 **وظائف الإدارة الأربعة الأساسية:**\n\n1. **التخطيط (Planning):** تحديد الأهداف والاستراتيجيات.\n2. **التنظيم (Organizing):** توزيع المهام والموارد.\n3. **التوجيه والقيادة (Leading):** تحفيز الفريق وإدارته.\n4. **الرقابة (Controlling):** تقييم الأداء والتأكد من تحقيقه للأهداف.");
+                    }
+                    else if (query.match(/(gpa|معدل|تراكمي|حساب)/)) {
+                        resolve("🧮 **حساب المعدل التراكمي GPA:**\n\nالمعدل يتكون من مجموع (نقاط كل مادة × عدد ساعاتها) مقسوماً على إجمالي عدد الساعات المسجلة.\n\n💡 نوفر لك **حاسبة GPA تفاعلية** جاهزة في الصفحة الرئيسية لحساب المعدل التراكمي والفصلي بضغطة زر!");
+                    } 
+                    else if (query.match(/(امتحان|امتحانات|بنك|اسئلة|اختبار|يناير)/)) {
+                        resolve("📝 **تنبيه الامتحانات:**\n\nتبدأ امتحانات الفصل الدراسي الأول بإذن الله يوم **9 يناير 2027**.\nيمكنك الاستعانة بنماذج الامتحانات والأسئلة السابقة من قسم **'بنك الأسئلة والامتحانات'** لتجهيز نفسك بأفضل طريقة!");
+                    } 
+                    else if (query.match(/(جدول|محاضرة|زمن|قاعة|محاضر)/)) {
+                        resolve("📅 **جدول المحاضرات:**\n\nجدول المحاضرات الرسمية حالياً في حالة **(جاري التحديث...)** وسيكون متاحاً بالكامل في قسم الجدول بالصفحة الرئيسية فور اعتماده من الكلية!");
+                    }
+                    else if (query.match(/(وقت|تنظيم|مذاكرة|تركيز|طريقة)/)) {
+                        resolve("⏳ **استراتيجية تنظيم الوقت للمذاكرة:**\n\n1. استخدم أداة **Pomodoro** الموجودة بالمنصة (25 دقيقة مذاكرة مركزة + 5 دقائق استراحة).\n2. طبّق تقنية **الاسترجاع النشط** بتسميع النقاط الأساسية بنفسك.\n3. ابدأ بالمواد الأكثر تعقيداً في بداية يومك عندما يكون ذهنك في أعلى مستويات النشاط.");
+                    }
+                    else {
+                        resolve(`💡 **رداً على استفسارك بشأن ("${userPrompt}"):**\n\nيسعدني مساعدتك دائماً! يمكنك التوجه لأقسام المنصة المختلفة لاستعراض المراجع أو الامتحانات أو استغلال أداة مؤقت المذاكرة لتحقيق أقصى قدر من التفوق والنجاح ✨.`);
                     }
                 }, 500);
             });
         }
 
-        /* POMODORO TIMER LOGIC */
+        /* ⏳ عداد تنازلي حقيقي بالثواني للامتحانات (9 يناير 2027) */
+        function updateExamCountdown() {
+            const examDate = new Date('2027-01-09T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            if (distance < 0) {
+                document.getElementById('cd-days').innerText = "00";
+                document.getElementById('cd-hours').innerText = "00";
+                document.getElementById('cd-mins').innerText = "00";
+                document.getElementById('cd-secs').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateExamCountdown, 1000);
+        updateExamCountdown();
+
+        /* ⏱️ POMODORO TIMER LOGIC */
         let pomoTime = 25 * 60;
         let pomoInterval = null;
         let isPomoRunning = false;
