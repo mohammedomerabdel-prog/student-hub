@@ -16,6 +16,38 @@ header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:w
 .subtitle{color:#dce8f1;margin-top:4px;}
 .badge{display:inline-block;margin-top:14px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
 
+/* شريط التنبيه قيد الإنشاء مع زر الإخفاء */
+.construction-banner{
+    background:linear-gradient(135deg, #d9a62e, #b8860b);
+    color:#172b3a;
+    text-align:center;
+    padding:14px 20px;
+    font-weight:bold;
+    font-size:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.banner-btn{
+    background:#09263f;
+    color:#fff;
+    border:none;
+    padding:6px 15px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.banner-btn:hover{
+    background:#155377;
+}
+
 nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
 .nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
 .nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
@@ -30,6 +62,45 @@ section{margin-bottom:35px;}
 .hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
 .hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
 .hero p{color:var(--muted);max-width:750px;margin:auto;}
+
+/* صندوق العداد التنازلي */
+.countdown-box{
+    background:linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(9,38,63,0.15);
+}
+.countdown-box h3{
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+.countdown-timers{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.time-card{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 18px;
+    border-radius: 12px;
+    min-width: 80px;
+}
+.time-card span{
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--gold);
+}
+.time-card label{
+    font-size: 13px;
+    color: #dce8f1;
+}
 
 .quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px;}
 .quick-action{display:block;text-decoration:none;background:var(--primary);color:white;padding:18px 10px;border-radius:15px;font-weight:bold;transition:.2s;}
@@ -90,7 +161,13 @@ footer strong{color:var(--gold);}
     <div class="badge">دفعة 023</div>
 </header>
 
-<!-- شريط التنقل (مربوط بالصفحات والملفات الخاصة بك بدقة لمنع خطأ 404) -->
+<!-- تنبيه قيد الإنشاء مع زر الإخفاء -->
+<div id="constructionBanner" class="construction-banner">
+    <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
+    <button class="banner-btn" onclick="closeBanner()">حسناً، الدخول للموقع</button>
+</div>
+
+<!-- شريط التنقل -->
 <nav>
     <div class="nav-container">
         <a href="index.html" class="active">الرئيسية</a>
@@ -105,6 +182,19 @@ footer strong{color:var(--gold);}
 </nav>
 
 <main class="container">
+
+<!-- العداد التنازلي للامتحانات -->
+<section style="margin-top: 25px;">
+    <div class="countdown-box">
+        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
+        <div class="countdown-timers">
+            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
+            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
+            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
+            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
+        </div>
+    </div>
+</section>
 
 <!-- الرئيسية -->
 <section id="home">
@@ -135,7 +225,7 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- الأقسام الرئيسية كبطاقات مرتبطة بملفاتك -->
+<!-- الأقسام الرئيسية -->
 <section>
     <div class="section-title">
         <h2>⚡ أقسام المنصة السريعة</h2>
@@ -242,6 +332,40 @@ footer strong{color:var(--gold);}
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
+
+<!-- سكربت إخفاء التنبيه والعداد التنازلي -->
+<script>
+// إخفاء إشعار قيد الإنشاء
+function closeBanner() {
+    var banner = document.getElementById('constructionBanner');
+    banner.style.display = 'none';
+}
+
+// العداد التنازلي للامتحانات (9 يناير 2027)
+const examDate = new Date("January 9, 2027 00:00:00").getTime();
+
+const timerInterval = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = examDate - now;
+
+    if (distance < 0) {
+        clearInterval(timerInterval);
+        document.querySelector(".countdown-box h3").innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
+        document.querySelector(".countdown-timers").style.display = "none";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+}, 1000);
+</script>
 
 </body>
 </html>
