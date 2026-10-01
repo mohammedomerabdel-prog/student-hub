@@ -5,233 +5,185 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المنصة الطلابية - كلية العلوم الإدارية</title>
   <style>
-    :root {
-      --primary: #1e3c72;
-      --primary-dark: #122548;
-      --accent: #f39c12;
-      --bg: #f4f7f6;
-      --card-bg: #ffffff;
-      --text: #2c3e50;
-      --text-muted: #6c757d;
-      --border: #e9ecef;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      --radius: 12px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
-    body.dark-mode {
-      --bg: #121212;
-      --card-bg: #1e1e1e;
-      --text: #e0e0e0;
-      --text-muted: #a0a0a0;
-      --border: #333333;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    body {
+      background-color: #f4f6f9;
+      color: #1e293b;
+      direction: rtl;
     }
 
-    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background 0.3s, color 0.3s; }
-    body { background-color: var(--bg); color: var(--text); margin: 0; padding: 0; direction: rtl; }
+    /* الهيدر العلوي */
+    .navbar {
+      background: linear-gradient(135deg, #0b1f3a, #1a3a68);
+      padding: 20px 15px;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
 
-    /* Navbar */
-    .navbar { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
-    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-    .brand { color: #fff; font-size: 19px; font-weight: 700; text-decoration: none; }
-    .nav-links { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .nav-link { color: rgba(255, 255, 255, 0.9); text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 14px; }
-    .nav-link:hover, .nav-link.active { background: rgba(255, 255, 255, 0.2); color: #fff; }
-    .nav-link.highlight { background-color: var(--accent); color: #fff; box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4); }
-    .theme-toggle { background: rgba(255,255,255,0.2); border: none; color: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-    .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    /* Search Bar */
-    .search-box { margin-bottom: 25px; }
-    .search-input { width: 100%; padding: 14px 20px; border-radius: 30px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 15px; box-shadow: var(--shadow); outline: none; }
+    /* أزرار التنقل */
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
 
-    /* Hero Card */
-    .hero-card { background: var(--card-bg); border-radius: var(--radius); padding: 30px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 30px; }
-    .hero-card h1 { color: var(--primary); margin-top: 0; }
-    .btn-group { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-    .btn { padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; cursor: pointer; border: none; font-size: 14px; }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-accent { background: var(--accent); color: #fff; }
+    .nav-link {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-    /* Countdown Section */
-    .countdown-card { background: linear-gradient(135deg, #2c3e50, #3498db); color: #fff; border-radius: var(--radius); padding: 25px; text-align: center; margin-bottom: 30px; box-shadow: var(--shadow); }
-    .timer-grid { display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap; }
-    .time-unit { background: rgba(255,255,255,0.15); padding: 12px; border-radius: 8px; min-width: 75px; }
-    .time-unit span { display: block; font-size: 22px; font-weight: bold; }
+    .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-    /* Main Grid Layout */
-    .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 30px; }
-    .card { background: var(--card-bg); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); border: 1px solid var(--border); }
-    .card h3 { margin-top: 0; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+    .nav-link.highlight {
+      background-color: #f39c12;
+      color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(243, 156, 18, 0.4);
+    }
 
-    /* Tools Styling */
-    .tool-form input, .tool-form select { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); }
-    .contacts-list { list-style: none; padding: 0; margin: 0; }
-    .contacts-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+    .nav-link.highlight:hover {
+      background-color: #d68910;
+    }
 
-    /* Floating Buttons */
-    .floating-btn { position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: #fff; border: none; font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
-    .back-top { left: auto; right: 20px; background: var(--primary); display: none; }
+    /* الكارت الرئيسي */
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 35px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid #edf2f7;
+    }
+
+    .hero-card h1 {
+      color: #0b1f3a;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+
+    .hero-card p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    /* أزرار الكارت */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .card-btn {
+      width: 100%;
+      max-width: 320px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-orange {
+      background-color: #f39c12;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+    }
+
+    .btn-blue {
+      background-color: #0b1f3a;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(11, 31, 58, 0.2);
+    }
+
+    .card-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
 
-  <!-- شريط التنقل العلوي -->
-  <nav class="navbar">
+  <!-- الهيدر القائمة العلوي -->
+  <header class="navbar">
     <div class="nav-container">
       <a href="index.html" class="brand">🎓 كلية العلوم الإدارية</a>
+      
       <div class="nav-links">
         <a href="index.html" class="nav-link active">🏠 الرئيسية</a>
         <a href="exam.html" class="nav-link">📚 بنك الأسئلة</a>
         <a href="results.html" class="nav-link highlight">🏆 النتيجة والتميز</a>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙 الوضع الليلى</button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <div class="container">
-
-    <!-- شريط البحث الذكي -->
-    <div class="search-box">
-      <input type="text" class="search-input" placeholder="🔍 ابحث عن مادة، أداة، أو معلومة..." onkeyup="filterContent(this.value)">
-    </div>
-
-    <!-- البطاقة الترحيبية -->
-    <div class="hero-card searchable">
-      <h1>مرحباً بكم في المنصة الطلابية الموحدة</h1>
-      <p>جامعة بحري - كلية العلوم الإدارية (دفعتي 023 & 024)</p>
+  <!-- محتوى الكارت الرئيسي -->
+  <main class="container">
+    <div class="hero-card">
+      <h1>مرحباً بك في المنصة الطلابية<br>- كلية العلوم الإدارية</h1>
+      
+      <p>يمكنك التصفح واستفادة من الخدمات الطلابية المتاحة عبر المنصة، بما في ذلك الاستعانة ببنك الأسئلة والامتحانات، واكتشاف نتائج وإحصائيات دفعتي 023 & 024 للمستوى الأول.</p>
+      
       <div class="btn-group">
-        <a href="results.html" class="btn btn-accent">🏆 النتيجة والأوائل</a>
-        <a href="exam.html" class="btn btn-primary">📚 بنك الأسئلة والامتحانات</a>
+        <a href="results.html" class="card-btn btn-orange">🏆 عرض النتيجة والأوائل</a>
+        <a href="exam.html" class="card-btn btn-blue">📚 الانتقال لبنك الأسئلة</a>
       </div>
     </div>
+  </main>
 
-    <!-- العداد التنازلي للامتحانات -->
-    <div class="countdown-card searchable">
-      <h2>⏳ العداد التنازلي للامتحانات القادمة</h2>
-      <div class="timer-grid">
-        <div class="time-unit"><span id="days">00</span>يوم</div>
-        <div class="time-unit"><span id="hours">00</span>ساعة</div>
-        <div class="time-unit"><span id="minutes">00</span>دقيقة</div>
-        <div class="time-unit"><span id="seconds">00</span>ثانية</div>
-      </div>
-    </div>
-
-    <!-- الأدوات والخدمات -->
-    <div class="grid-layout">
-
-      <!-- حاسبة المعدل التراكمي -->
-      <div class="card searchable">
-        <h3>🧮 حاسبة المعدل التراكمي (GPA)</h3>
-        <div class="tool-form">
-          <input type="number" id="current-gpa" placeholder="المعدل التراكمي الحالي">
-          <input type="number" id="completed-hours" placeholder="الساعات المكتملة">
-          <button class="btn btn-primary" style="width: 100%;" onclick="calculateGPA()">حساب</button>
-          <p id="gpa-result" style="text-align: center; font-weight: bold; margin-top: 10px;"></p>
-        </div>
-      </div>
-
-      <!-- مؤقت المذاكرة (Pomodoro) -->
-      <div class="card searchable">
-        <h3>⏱️ مؤقت المذاكرة (Pomodoro)</h3>
-        <div style="text-align: center;">
-          <h1 id="pomodoro-timer" style="font-size: 40px; margin: 10px 0;">25:00</h1>
-          <button class="btn btn-primary" onclick="startPomodoro()">start</button>
-          <button class="btn btn-accent" onclick="resetPomodoro()">reset</button>
-        </div>
-      </div>
-
-      <!-- الأرقام المهمة -->
-      <div class="card searchable">
-        <h3>📞 دليل الأرقام المهمة</h3>
-        <ul class="contacts-list">
-          <li><span>مسجل الكلية:</span> <strong>0123456789</strong></li>
-          <li><span>ليدر الدفعة:</span> <strong>0987654321</strong></li>
-          <li><span>مكتب الامتحانات:</span> <strong>0111222333</strong></li>
-        </ul>
-      </div>
-
-      <!-- جدول المحاضرات -->
-      <div class="card searchable">
-        <h3>📅 جدول المحاضرات الأسبوعي</h3>
-        <p style="color: var(--text-muted); text-align: center; margin-top: 20px;">سيتم تحديث جدول المحاضرات قريباً للموسم الدراسي الجديد.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- أزرار طافية -->
-  <button class="floating-btn back-top" id="backTopBtn" onclick="scrollToTop()">↑</button>
-
-  <script>
-    // الوضع الليلي
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    // الصعود للأعلى
-    window.onscroll = function() {
-      const btn = document.getElementById("backTopBtn");
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        btn.style.display = "flex";
-      } else {
-        btn.style.display = "none";
-      }
-    };
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-
-    // العداد التنازلي
-    const examDate = new Date("Dec 1, 2026 09:00:00").getTime();
-    setInterval(function() {
-      const now = new Date().getTime();
-      const distance = examDate - now;
-      if (distance > 0) {
-        document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-      }
-    }, 1000);
-
-    // مؤقت بومودورو
-    let pTime = 1500, pInterval;
-    function startPomodoro() {
-      clearInterval(pInterval);
-      pInterval = setInterval(() => {
-        if (pTime > 0) {
-          pTime--;
-          let m = Math.floor(pTime / 60), s = pTime % 60;
-          document.getElementById("pomodoro-timer").innerText = `${m<10?'0':''}${m}:${s<10?'0':''}${s}`;
-        }
-      }, 1000);
-    }
-    function resetPomodoro() {
-      clearInterval(pInterval);
-      pTime = 1500;
-      document.getElementById("pomodoro-timer").innerText = "25:00";
-    }
-
-    // حاسبة المعدل
-    function calculateGPA() {
-      let gpa = parseFloat(document.getElementById("current-gpa").value);
-      if(!isNaN(gpa)) {
-        document.getElementById("gpa-result").innerText = `معدلك التراكمي هو: ${gpa.toFixed(2)}`;
-      }
-    }
-
-    // البحث السريع
-    function filterContent(query) {
-      let items = document.querySelectorAll('.searchable');
-      items.forEach(item => {
-        if (item.innerText.includes(query)) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    }
-  </script>
 </body>
 </html>
