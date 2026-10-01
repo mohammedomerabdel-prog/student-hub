@@ -103,7 +103,6 @@
       color: var(--primary);
     }
 
-    /* تنسيق الجدول الجديد */
     .update-notice {
       background: rgba(243, 156, 18, 0.08);
       border: 1px dashed var(--accent);
@@ -124,7 +123,6 @@
       font-size: 28px;
     }
 
-    /* إحصائيات والروابط الإضافية */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -161,7 +159,7 @@
       font-size: 14px;
       color: var(--text);
       outline: none;
-      margin-bottom: 12px;
+      margin-bottom: 5px;
     }
 
     .search-box:focus {
@@ -192,23 +190,127 @@
     .sub-link:hover {
       background: var(--border);
     }
+
+    /* العداد التنازلي وتنسيقاته */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .time-box {
+      background: var(--bg);
+      padding: 10px 5px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .time-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .time-lbl {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* نافذة الإشعار المنبثقة */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 31, 58, 0.75);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: var(--card-bg);
+      max-width: 400px;
+      width: 100%;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+    }
+
+    .modal-btn {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- نافذة إشعار الموقع تحت الإنشاء -->
+  <div id="constructionModal" class="modal-overlay">
+    <div class="modal-card">
+      <div style="font-size: 45px; margin-bottom: 12px;">🚧</div>
+      <div style="font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px;">الموقع تحت الإنشاء</div>
+      <div style="font-size: 14px; color: var(--text-muted); line-height: 1.7;">
+        أهلاً بك يا زائرنا الكريم في المنصة الطلابية لكلية العلوم الإدارية. نود إعلامك بأن الموقع لا يزال قيد التطوير والتحديث المستمر. شكراً لتفهمك!
+      </div>
+      <button class="modal-btn" onclick="closeModal()">حسناً، فهمت</button>
+    </div>
+  </div>
 
   <header class="navbar">
     🏛️ كلية العلوم الإدارية - المنصة الطلابية
   </header>
 
-  <main class="container">
+  <main class="container" id="mainContainer">
 
-    <!-- مؤشر البحث داخل الموقع -->
-    <div class="card" style="padding: 15px;">
-      <input type="text" class="search-box" placeholder="🔍 ابحث عن مادة، تخصص، أو خدمة...">
+    <!-- شريط البحث الفعال على كامل الموقع -->
+    <div class="card" style="padding: 12px 15px;">
+      <input type="text" id="siteSearch" class="search-box" placeholder="🔍 ابحث عن مادة، تخصص، خدمة..." onkeyup="searchSite()">
+    </div>
+
+    <!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
+    <div class="card searchable-item" data-keywords="العداد التنازلي للامتحانات موعد الامتحانات">
+      <div class="section-title">⏳ العداد التنازلي للامتحانات النهائية</div>
+      <div style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">متبقي على امتحانات 9 يناير 2027:</div>
+      <div class="countdown-grid">
+        <div class="time-box">
+          <div class="time-val" id="days">00</div>
+          <div class="time-lbl">يوم</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="hours">00</div>
+          <div class="time-lbl">ساعة</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="minutes">00</div>
+          <div class="time-lbl">دقيقة</div>
+        </div>
+        <div class="time-box">
+          <div class="time-val" id="seconds">00</div>
+          <div class="time-lbl">ثانية</div>
+        </div>
+      </div>
     </div>
 
     <!-- الأزرار الرئيسية -->
-    <div class="grid-2">
+    <div class="grid-2 searchable-item" data-keywords="اختبار القدرات نتيجة المستوى الأول وسائل الدراسة نبذة عن الجامعة">
       <a href="quiz.html" class="menu-btn">
         <span class="icon">🧠</span>
         <span>اختبار القدرات</span>
@@ -231,24 +333,17 @@
       </a>
     </div>
 
-    <!-- جدول المحاضرات (محدث بالعبارة المطلوبة) -->
-    <div class="card">
+    <!-- جدول المحاضرات الأسبوعي -->
+    <div class="card searchable-item" data-keywords="الجدول الدراسي الأسبوعي المحاضرات">
       <div class="section-title">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
-      
       <div class="update-notice">
         <span class="icon">⏳</span>
         <span>سيتم التحديث فور اعتماد الجدول من الكلية</span>
       </div>
     </div>
 
-    <!-- العداد التنازلي -->
-    <div class="card" style="text-align: center;">
-      <div class="section-title">⏳ العداد التنازلي للامتحانات</div>
-      <div style="font-size: 15px; font-weight: 700; color: var(--accent);">متبقي على الامتحانات النهائية: يتم التحديد لاحقاً</div>
-    </div>
-
     <!-- إحصائيات طلاب الدفعة -->
-    <div class="card">
+    <div class="card searchable-item" data-keywords="إحصائيات طلاب الدفعة إجمالي الطلاب طلاب ذكور طالبات">
       <div class="section-title">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
       <div class="stats-grid">
         <div class="stat-box">
@@ -266,8 +361,8 @@
       </div>
     </div>
 
-    <!-- المواد الدراسية وبنك الأسئلة والأقسام -->
-    <div class="card">
+    <!-- المواد الدراسية وبنك الأسئلة -->
+    <div class="card searchable-item" data-keywords="المواد الدراسية والمقررات بنك الأسئلة والامتحانات السابقة">
       <div class="section-title">📚 المواد الدراسية وبنك الأسئلة</div>
       <div class="links-list">
         <a href="materials.html" class="sub-link">
@@ -281,22 +376,75 @@
       </div>
     </div>
 
-    <!-- أرقام مسجل الدفعة وليدر الدفعة -->
-    <div class="card">
+    <!-- أرقام طوارئ الدفعة (روابط واتساب مباشرة) -->
+    <div class="card searchable-item" data-keywords="تواصل طوارئ الدفعة مسجل الدفعة ليدر الدفعة واتساب">
       <div class="section-title">📞 تواصل طوارئ الدفعة</div>
       <div class="links-list">
-        <div class="sub-link" style="background: var(--card-bg);">
+        <!-- رقم مسجل الدفعة (استبدل الرقم برقم الواتساب الفعلي مع مفتاح الدولة مثلاً 249...) -->
+        <a href="https://wa.me/249912345678" target="_blank" class="sub-link" style="background: var(--card-bg);">
           <span>👨‍💼 مسجل الدفعة</span>
-          <span style="font-weight: 700; color: var(--primary);">0912345678</span>
-        </div>
-        <div class="sub-link" style="background: var(--card-bg);">
+          <span style="font-weight: 700; color: #25d366; direction: ltr;">0912345678 💬</span>
+        </a>
+        <!-- رقم ليدر الدفعة -->
+        <a href="https://wa.me/249998765432" target="_blank" class="sub-link" style="background: var(--card-bg);">
           <span>🎓 ليدر الدفعة</span>
-          <span style="font-weight: 700; color: var(--primary);">0998765432</span>
-        </div>
+          <span style="font-weight: 700; color: #25d366; direction: ltr;">0998765432 💬</span>
+        </a>
       </div>
     </div>
 
   </main>
+
+  <script>
+    // إغلاق إشعار الموقع تحت الإنشاء
+    function closeModal() {
+      document.getElementById('constructionModal').style.display = 'none';
+    }
+
+    // العداد التنازلي لموعد الامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = examDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }, 1000);
+
+    // وظيفة البحث الشامل داخل الموقع
+    function searchSite() {
+      let input = document.getElementById('siteSearch').value.toLowerCase();
+      let items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        let text = item.innerText.toLowerCase();
+        let keywords = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
+        
+        if (text.includes(input) || keywords.includes(input)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
