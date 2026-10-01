@@ -2,57 +2,25 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>منصة الدفعة 023 | كلية العلوم الإدارية</title>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>يلا | المنصة الطلابية - دفعة 023</title>
+
 
 <style>
 
-/* =====================================================
-   هوية الموقع
-===================================================== */
-
-:root{
-    --navy:#071d33;
-    --navy2:#0d3150;
-    --blue:#164c73;
-
-    --gold:#d69b28;
-    --gold-light:#f4d27c;
-
-    --red:#b92828;
-    --green:#16804a;
-
-    --sand:#f5efe3;
-
-    --bg:#eef2f5;
-    --white:#ffffff;
-
-    --text:#172536;
-    --muted:#687786;
-
-    --border:#e4e9ee;
-
-    --shadow:0 12px 35px rgba(7,29,51,.08);
-    --shadow-strong:0 18px 45px rgba(7,29,51,.14);
-}
-
-/* =====================================================
-   الأساس
-===================================================== */
+/* ==================================================
+   الإعدادات العامة
+================================================== */
 
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:
-        system-ui,
-        -apple-system,
-        "Segoe UI",
-        Tahoma,
-        Arial,
-        sans-serif;
 }
 
 html{
@@ -60,1281 +28,1684 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(circle at top right,
-        rgba(214,155,40,.08),
-        transparent 30%),
-        linear-gradient(
-        180deg,
-        #f3f6f8 0%,
-        #eef2f5 100%
-        );
 
-    color:var(--text);
-    direction:rtl;
-    padding-bottom:60px;
+    font-family:
+    Arial,
+    Tahoma,
+    sans-serif;
+
+    background:#f4f7fa;
+
+    color:#263746;
+
+    line-height:1.7;
 }
 
-/* =====================================================
-   زخرفة سودانية خفيفة
-===================================================== */
 
-body::before{
-    content:"";
+:root{
+
+    --primary:#09263f;
+
+    --primary2:#155377;
+
+    --gold:#d9a62e;
+
+    --light:#f4f7fa;
+
+    --white:#ffffff;
+
+    --text:#263746;
+
+    --muted:#71808c;
+
+    --border:#e1e8ee;
+
+}
+
+
+/* ==================================================
+   شاشة التنبيه عند دخول الموقع
+================================================== */
+
+.welcome-modal{
+
     position:fixed;
+
     inset:0;
-    pointer-events:none;
-    opacity:.035;
 
-    background-image:
-        linear-gradient(45deg,#071d33 25%,transparent 25%),
-        linear-gradient(-45deg,#071d33 25%,transparent 25%);
+    width:100%;
+    height:100%;
 
-    background-size:36px 36px;
-    background-position:0 0,18px 18px;
+    background:rgba(7,29,48,.78);
 
-    z-index:-1;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:99999;
+
+    opacity:1;
+
+    visibility:visible;
+
+    transition:
+    opacity .35s ease,
+    visibility .35s ease;
+
 }
 
-/* =====================================================
-   الهيدر
-===================================================== */
 
-.navbar{
-    position:relative;
-    overflow:hidden;
+/* عند الضغط على الزر */
+
+.welcome-modal.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+/* صندوق التنبيه */
+
+.welcome-box{
+
+    width:100%;
+
+    max-width:550px;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+    padding:45px 30px 35px;
+
+    text-align:center;
+
+    border-top:6px solid var(--gold);
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.30);
+
+    animation:
+    welcomeIn .45s ease;
+
+}
+
+
+/* أيقونة البناء */
+
+.construction-icon{
+
+    font-size:55px;
+
+    margin-bottom:10px;
+
+}
+
+
+/* عنوان التنبيه */
+
+.welcome-box h2{
+
+    color:var(--primary);
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+
+/* النص الأول */
+
+.welcome-title{
+
+    color:var(--muted);
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+
+/* النص الرئيسي */
+
+.welcome-box p{
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+/* النص الأخير */
+
+.welcome-note{
+
+    margin-top:18px;
+
+    font-weight:bold;
+
+}
+
+
+/* زر الدخول */
+
+.welcome-box button{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            var(--navy2)
-        );
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
 
-    color:#fff;
+    color:white;
 
-    padding:28px 20px 32px;
+    padding:15px 20px;
+
+    border-radius:15px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin-top:25px;
+
+    transition:.2s;
+
+}
+
+
+.welcome-box button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 8px 20px rgba(9,38,63,.25);
+
+}
+
+
+/* حركة ظهور التنبيه */
+
+@keyframes welcomeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   الهيدر
+================================================== */
+
+header{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
+
+    color:white;
+
+    padding:
+    25px 18px 35px;
+
+    text-align:center;
+
+}
+
+
+.logo{
+
+    font-size:40px;
+
+    font-weight:900;
+
+    color:white;
+
+}
+
+
+.subtitle{
+
+    margin-top:5px;
+
+    color:#dce8f1;
+
+    font-size:15px;
+
+}
+
+
+.badge{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    background:var(--gold);
+
+    color:#172b3a;
+
+    padding:
+    6px 18px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+
+
+/* ==================================================
+   القائمة
+================================================== */
+
+nav{
+
+    background:white;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:
+    0 3px 15px rgba(0,0,0,.08);
+
+}
+
+
+.nav-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    gap:8px;
+
+    padding:10px;
+
+    overflow-x:auto;
+
+}
+
+
+.nav-container a{
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    padding:
+    9px 14px;
+
+    border-radius:10px;
+
+    white-space:nowrap;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+}
+
+
+.nav-container a:hover{
+
+    background:#edf3f7;
+
+}
+
+
+/* ==================================================
+   الحاوية
+================================================== */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    25px 15px;
+
+}
+
+
+section{
+
+    margin-bottom:35px;
+
+}
+
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.section-title h2{
+
+    color:var(--primary);
+
+    font-size:25px;
+
+}
+
+
+.section-title p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* ==================================================
+   الرئيسية
+================================================== */
+
+.hero{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:
+    35px 25px;
 
     text-align:center;
 
     box-shadow:
-        0 8px 30px rgba(7,29,51,.25);
+    0 8px 30px rgba(0,0,0,.06);
 
-    border-bottom:
-        4px solid var(--gold);
 }
 
-/* الشريط السوداني */
 
-.navbar::before{
-    content:"";
-    position:absolute;
+.hero h1{
 
-    top:0;
-    right:0;
+    color:var(--primary);
 
-    width:100%;
-    height:5px;
+    font-size:30px;
 
-    background:
-        linear-gradient(
-            to left,
-            var(--red) 0 33%,
-            #111 33% 66%,
-            var(--green) 66% 100%
-        );
+    margin-bottom:10px;
+
 }
 
-.navbar::after{
-    content:"✦  ٠٢٣  ✦";
 
-    position:absolute;
+.hero p{
 
-    bottom:8px;
-    left:20px;
+    color:var(--muted);
 
-    font-size:12px;
+    max-width:700px;
 
-    color:rgba(255,255,255,.35);
+    margin:auto;
 
-    letter-spacing:2px;
 }
 
-.navbar-title{
-    font-size:20px;
-    font-weight:900;
 
-    letter-spacing:.2px;
+/* ==================================================
+   الأزرار السريعة
+================================================== */
 
-    margin-bottom:7px;
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
 }
 
-.navbar-subtitle{
-    font-size:12px;
-    color:#cbd7e2;
+
+.quick-action{
+
+    text-decoration:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:18px 10px;
+
+    border-radius:15px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
 }
 
-/* =====================================================
-   الحاوية
-===================================================== */
 
-.container{
-    max-width:760px;
+.quick-action:hover{
 
-    margin:22px auto;
+    transform:translateY(-3px);
 
-    padding:
-        0 15px;
+    background:var(--primary2);
 
-    display:flex;
-    flex-direction:column;
+}
+
+
+.quick-action span{
+
+    display:block;
+
+    font-size:28px;
+
+    margin-bottom:5px;
+
+}
+
+
+/* ==================================================
+   الإحصائيات
+================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+
+.stat{
+
+    background:white;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+
+.stat strong{
+
+    display:block;
+
+    color:var(--primary);
+
+    font-size:28px;
+
+}
+
+
+.stat span{
+
+    color:var(--muted);
+
+}
+
+
+/* ==================================================
+   المواد
+================================================== */
+
+.subjects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
 
     gap:18px;
+
 }
 
-/* =====================================================
-   البطاقات العامة
-===================================================== */
+
+.subject-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    border:
+    1px solid var(--border);
+
+    padding:22px;
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.04);
+
+    transition:.2s;
+
+}
+
+
+.subject-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+.subject-number{
+
+    width:42px;
+
+    height:42px;
+
+    background:#edf3f7;
+
+    color:var(--primary);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+.subject-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:5px;
+
+}
+
+
+.subject-card p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+
+.btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:
+    9px 15px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+/* ==================================================
+   البطاقات
+================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+
+}
+
 
 .card{
-    position:relative;
 
-    background:
-        rgba(255,255,255,.96);
+    background:white;
 
-    border-radius:22px;
+    border-radius:18px;
 
     padding:22px;
 
     border:
-        1px solid rgba(7,29,51,.06);
+    1px solid var(--border);
 
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
 }
 
-/* خط ذهبي جانبي */
 
-.card::before{
-    content:"";
+.card .icon{
 
-    position:absolute;
-
-    right:0;
-    top:20px;
-    bottom:20px;
-
-    width:4px;
-
-    border-radius:10px 0 0 10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--gold),
-            var(--gold-light)
-        );
-}
-
-/* =====================================================
-   البحث
-===================================================== */
-
-.search-card{
-    padding:12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff,
-            #f8fafb
-        );
-}
-
-.search-box{
-    width:100%;
-
-    padding:15px 18px;
-
-    border-radius:15px;
-
-    border:
-        1px solid #dfe6ec;
-
-    background:#f5f7f9;
-
-    font-size:14px;
-
-    color:var(--text);
-
-    outline:none;
-
-    transition:.25s;
-}
-
-.search-box:focus{
-    background:#fff;
-
-    border-color:var(--gold);
-
-    box-shadow:
-        0 0 0 4px rgba(214,155,40,.10);
-}
-
-/* =====================================================
-   عنوان الأقسام
-===================================================== */
-
-.section-title{
-    font-size:16px;
-
-    font-weight:900;
-
-    margin-bottom:16px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-
-    color:var(--navy);
-}
-
-.section-title::after{
-    content:"";
-
-    width:32px;
-    height:3px;
-
-    border-radius:10px;
-
-    background:var(--gold);
-}
-
-/* =====================================================
-   هوية الدفعة
-===================================================== */
-
-.identity-card{
-
-    padding:0;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            #0d3b5c
-        );
-
-    border:none;
-
-    box-shadow:var(--shadow-strong);
-}
-
-.identity-card::before{
-    display:none;
-}
-
-.identity-inner{
-    position:relative;
-
-    padding:30px 25px;
-
-    text-align:center;
-
-    overflow:hidden;
-}
-
-.identity-inner::before{
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(255,255,255,.10);
-
-    top:-90px;
-    left:-70px;
-}
-
-.identity-inner::after{
-    content:"";
-
-    position:absolute;
-
-    width:130px;
-    height:130px;
-
-    border-radius:50%;
-
-    border:
-        1px solid rgba(214,155,40,.25);
-
-    bottom:-70px;
-    right:-40px;
-}
-
-.identity-icon{
-    font-size:34px;
-
-    margin-bottom:10px;
-}
-
-.identity-title{
-    font-size:23px;
-
-    font-weight:950;
+    font-size:30px;
 
     margin-bottom:8px;
+
 }
 
-.identity-text{
-    color:#d5e0e9;
 
-    font-size:13px;
+.card h3{
 
-    line-height:1.9;
+    color:var(--primary);
+
+    margin-bottom:8px;
+
 }
 
-.identity-badge{
-    display:inline-block;
 
-    margin-top:16px;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:
-        rgba(214,155,40,.14);
-
-    border:
-        1px solid rgba(214,155,40,.45);
-
-    color:var(--gold-light);
-
-    font-weight:800;
-
-    font-size:12px;
-}
-
-/* =====================================================
-   العداد
-===================================================== */
-
-.countdown-card{
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #f8fafc
-        );
-}
-
-.countdown-description{
-    text-align:center;
-
-    font-size:13px;
+.card p{
 
     color:var(--muted);
-
-    margin-bottom:12px;
-}
-
-.countdown-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:9px;
-
-    text-align:center;
-}
-
-.time-box{
-    position:relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f8fafc,
-            #edf2f6
-        );
-
-    padding:14px 6px;
-
-    border-radius:15px;
-
-    border:
-        1px solid #e2e8ee;
-
-    overflow:hidden;
-}
-
-.time-box::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    right:0;
-
-    width:100%;
-    height:3px;
-
-    background:var(--gold);
-}
-
-.time-val{
-    font-size:22px;
-
-    font-weight:950;
-
-    color:var(--navy);
-}
-
-.time-lbl{
-    font-size:10px;
-
-    color:var(--muted);
-
-    margin-top:3px;
-}
-
-/* =====================================================
-   الأزرار الرئيسية
-===================================================== */
-
-.grid-2{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:15px;
-}
-
-.menu-btn{
-    position:relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f8fafb
-        );
-
-    border:
-        1px solid #e5eaf0;
-
-    border-radius:20px;
-
-    padding:23px 15px;
-
-    color:var(--text);
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
 
     font-size:14px;
 
-    font-weight:850;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    box-shadow:
-        0 8px 25px rgba(7,29,51,.06);
-
-    transition:
-        transform .25s,
-        box-shadow .25s,
-        border-color .25s;
-
-    overflow:hidden;
 }
 
-.menu-btn::before{
-    content:"";
 
-    position:absolute;
-
-    bottom:0;
-    right:0;
-
-    width:100%;
-    height:3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--red),
-            var(--gold),
-            var(--green)
-        );
-
-    transform:scaleX(0);
-
-    transition:.25s;
-}
-
-.menu-btn:hover{
-    transform:translateY(-4px);
-
-    border-color:
-        rgba(214,155,40,.55);
-
-    box-shadow:
-        0 15px 30px rgba(7,29,51,.12);
-}
-
-.menu-btn:hover::before{
-    transform:scaleX(1);
-}
-
-.menu-btn .icon{
-    width:54px;
-    height:54px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:16px;
-
-    background:
-        #eef3f7;
-
-    font-size:28px;
-}
-
-/* =====================================================
+/* ==================================================
    الجدول
-===================================================== */
+================================================== */
 
-.schedule-card{
-    padding-bottom:22px;
-}
+.table-box{
 
-.update-notice{
-    position:relative;
+    overflow-x:auto;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fffaf0,
-            #f8f0df
-        );
+    background:white;
+
+    border-radius:18px;
 
     border:
-        1px dashed
-        #d7ae50;
+    1px solid var(--border);
 
-    color:#9a7123;
-
-    padding:28px 15px;
-
-    border-radius:16px;
-
-    text-align:center;
-
-    font-size:14px;
-
-    font-weight:800;
-
-    line-height:1.8;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:8px;
 }
 
-.update-notice .icon{
-    font-size:32px;
-}
 
-/* =====================================================
-   الإحصائيات
-===================================================== */
-
-.stats-card{
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f8fafc
-        );
-}
-
-.stats-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:10px;
-
-    text-align:center;
-}
-
-.stat-box{
-    position:relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f4f7f9,
-            #eaf0f4
-        );
-
-    padding:17px 8px;
-
-    border-radius:16px;
-
-    border:
-        1px solid #e1e7ec;
-
-    overflow:hidden;
-}
-
-.stat-box::after{
-    content:"";
-
-    position:absolute;
-
-    bottom:0;
-    right:0;
+table{
 
     width:100%;
-    height:3px;
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--red),
-            var(--gold),
-            var(--green)
-        );
+    border-collapse:collapse;
+
+    min-width:700px;
+
 }
 
-.stat-number{
-    font-size:22px;
 
-    font-weight:950;
-
-    color:var(--navy);
-
-    margin-top:5px;
-}
-
-.stat-label{
-    font-size:11px;
-
-    color:var(--muted);
-}
-
-/* =====================================================
-   المواد وبنك الأسئلة
-===================================================== */
-
-.resources-card{
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f7fafb
-        );
-}
-
-.resources-intro{
-    text-align:center;
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.8;
-
-    margin:
-        -5px 10px 16px;
-}
-
-.links-list{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-}
-
-.sub-link{
-    position:relative;
-
-    background:
-        linear-gradient(
-            100deg,
-            #f8fafc,
-            #eef3f7
-        );
-
-    padding:17px 18px;
-
-    border-radius:15px;
-
-    text-decoration:none;
-
-    color:var(--text);
-
-    font-weight:800;
-
-    font-size:13px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    border:
-        1px solid #e1e7ec;
-
-    transition:.25s;
-
-    overflow:hidden;
-}
-
-.sub-link::before{
-    content:"";
-
-    position:absolute;
-
-    right:0;
-    top:0;
-
-    width:4px;
-    height:100%;
-
-    background:var(--gold);
-
-    transition:.25s;
-}
-
-.sub-link:hover{
-    transform:translateX(-3px);
-
-    background:#fff;
-
-    box-shadow:
-        0 8px 20px rgba(7,29,51,.08);
-}
-
-.sub-link:hover::before{
-    width:7px;
-}
-
-.arrow{
-    font-size:20px;
-
-    color:var(--gold);
-
-    font-weight:900;
-}
-
-/* =====================================================
-   التواصل
-===================================================== */
-
-.contact-card{
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f7fafb
-        );
-}
-
-.contact-item{
-    background:#fff;
-
-    border:
-        1px solid #e3e9ee;
+th,
+td{
 
     padding:15px;
 
-    border-radius:15px;
+    text-align:center;
 
-    display:flex;
+    border-bottom:
+    1px solid var(--border);
 
-    justify-content:space-between;
+}
 
-    align-items:center;
 
-    gap:10px;
+th{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+td{
+
+    background:white;
+
+}
+
+
+/* ==================================================
+   مكتبة الملفات
+================================================== */
+
+.library{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:
+    35px 25px;
+
+    text-align:center;
+
+}
+
+
+.library h2{
+
+    margin-bottom:10px;
+
+}
+
+
+.library p{
+
+    color:#d9e7ef;
+
+    margin-bottom:20px;
+
+}
+
+
+.library-btn{
+
+    display:inline-block;
 
     text-decoration:none;
 
-    color:var(--text);
+    background:var(--gold);
 
-    transition:.25s;
+    color:#172b3a;
+
+    padding:
+    12px 25px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
 }
 
-.contact-item:hover{
-    transform:translateY(-2px);
 
-    box-shadow:
-        0 8px 20px rgba(7,29,51,.08);
+/* ==================================================
+   الروابط
+================================================== */
+
+.links-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+
 }
 
-.contact-role{
-    font-weight:800;
 
-    font-size:13px;
-}
+.link-card{
 
-.contact-number{
-    font-weight:900;
+    background:white;
 
-    color:var(--green);
+    border:
+    1px solid var(--border);
 
-    direction:ltr;
+    border-radius:18px;
 
-    font-size:13px;
-}
-
-/* =====================================================
-   نافذة الموقع تحت الإنشاء
-===================================================== */
-
-.modal-overlay{
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(7,29,51,.82);
-
-    backdrop-filter:
-        blur(7px);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:1000;
-
-    padding:20px;
-}
-
-.modal-card{
-    background:#fff;
-
-    max-width:410px;
-
-    width:100%;
-
-    padding:30px 25px;
-
-    border-radius:25px;
+    padding:25px;
 
     text-align:center;
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.3);
-
-    border-top:
-        5px solid var(--gold);
-
-    animation:
-        modalIn .45s ease;
 }
 
-@keyframes modalIn{
-    from{
-        opacity:0;
-        transform:translateY(20px) scale(.96);
-    }
 
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+.link-card .big-icon{
+
+    font-size:38px;
+
+    margin-bottom:8px;
+
 }
 
-.modal-icon{
-    font-size:45px;
 
-    margin-bottom:12px;
+.link-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
 }
 
-.modal-title{
-    font-size:19px;
 
-    font-weight:950;
-
-    color:var(--navy);
-
-    margin-bottom:10px;
-}
-
-.modal-text{
-    font-size:14px;
+.link-card p{
 
     color:var(--muted);
 
-    line-height:1.8;
+    font-size:13px;
+
+    margin-bottom:15px;
+
 }
 
-.modal-btn{
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            var(--blue)
-        );
 
-    color:#fff;
+.whatsapp{
 
-    border:none;
+    background:#f1f8f3;
 
-    padding:13px 25px;
+    border-color:#d8eadc;
 
-    border-radius:14px;
+}
+
+
+/* ==================================================
+   الفوتر
+================================================== */
+
+footer{
+
+    background:var(--primary);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 15px;
+
+    margin-top:30px;
+
+}
+
+
+footer p{
+
+    color:#d2dee7;
 
     font-size:14px;
 
-    font-weight:900;
-
-    cursor:pointer;
-
-    width:100%;
-
-    margin-top:18px;
-
-    transition:.25s;
 }
 
-.modal-btn:hover{
-    transform:translateY(-2px);
 
-    box-shadow:
-        0 8px 20px rgba(7,29,51,.20);
+footer strong{
+
+    color:var(--gold);
+
 }
 
-/* =====================================================
-   تذييل
-===================================================== */
 
-.footer{
-    text-align:center;
+/* ==================================================
+   الأجهزة اللوحية
+================================================== */
 
-    padding:10px 15px 0;
+@media(max-width:900px){
 
-    color:#82909d;
+    .subjects-grid{
 
-    font-size:11px;
+        grid-template-columns:
+        repeat(2,1fr);
 
-    line-height:1.8;
+    }
+
+
+    .cards,
+    .links-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+
+    .quick-actions{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
 }
 
-.footer strong{
-    color:var(--navy);
-}
 
-/* =====================================================
+/* ==================================================
    الهاتف
-===================================================== */
+================================================== */
 
-@media(max-width:560px){
+@media(max-width:600px){
 
-    .container{
-        padding:0 12px;
+    .logo{
 
-        gap:15px;
+        font-size:32px;
+
     }
 
-    .navbar{
-        padding:
-            24px 15px 28px;
-    }
 
-    .navbar-title{
-        font-size:17px;
-    }
-
-    .identity-title{
-        font-size:20px;
-    }
-
-    .identity-inner{
-        padding:27px 18px;
-    }
-
-    .card{
-        padding:19px;
-
-        border-radius:19px;
-    }
-
-    .grid-2{
-        gap:11px;
-    }
-
-    .menu-btn{
-        padding:
-            19px 10px;
-
-        border-radius:17px;
-
-        font-size:13px;
-    }
-
-    .menu-btn .icon{
-        width:48px;
-        height:48px;
+    .hero h1{
 
         font-size:25px;
+
     }
 
-    .countdown-grid{
-        gap:6px;
-    }
 
-    .time-box{
-        padding:
-            12px 4px;
-    }
+    .subjects-grid,
+    .cards,
+    .links-grid,
+    .stats{
 
-    .time-val{
-        font-size:19px;
-    }
-
-    .stats-grid{
-        gap:7px;
-    }
-
-    .stat-number{
-        font-size:19px;
-    }
-
-    .sub-link{
-        padding:
-            15px 13px;
-
-        font-size:12px;
-    }
-
-    .contact-item{
-        padding:13px;
-    }
-}
-
-@media(max-width:360px){
-
-    .grid-2{
         grid-template-columns:1fr;
+
     }
 
-    .countdown-grid{
+
+    .quick-actions{
+
         grid-template-columns:
-            repeat(2,1fr);
+        repeat(2,1fr);
+
     }
 
-    .stats-grid{
-        grid-template-columns:1fr;
+
+    .quick-action{
+
+        font-size:13px;
+
     }
+
+
+    .container{
+
+        padding:
+        20px 12px;
+
+    }
+
+
+    .welcome-box{
+
+        padding:
+        35px 22px 28px;
+
+        border-radius:24px;
+
+    }
+
+
+    .construction-icon{
+
+        font-size:48px;
+
+    }
+
+
+    .welcome-box h2{
+
+        font-size:24px;
+
+    }
+
+
+    .welcome-box p{
+
+        font-size:14px;
+
+    }
+
+
+    .welcome-box button{
+
+        font-size:15px;
+
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
-<!-- =====================================================
-     نافذة الموقع تحت الإنشاء
-===================================================== -->
+<!-- ==================================================
+     تنبيه الدخول
+================================================== -->
 
-<div id="constructionModal" class="modal-overlay">
+<div id="welcomeModal"
+     class="welcome-modal">
 
-    <div class="modal-card">
 
-        <div class="modal-icon">🚧</div>
+    <div class="welcome-box">
 
-        <div class="modal-title">
-            المنصة في طور البناء
+
+        <div class="construction-icon">
+            🚧
         </div>
 
-        <div class="modal-text">
+
+        <h2>
+            المنصة في طور البناء
+        </h2>
+
+
+        <p class="welcome-title">
             أهلاً بك في منصة دفعتنا.
-            <br>
+        </p>
+
+
+        <p>
             نعمل على تطويرها لتكون مساحة تجمع
             العلم، الملفات، الأسئلة، الأخبار،
             والتواصل في مكان واحد.
-            <br><br>
-            <strong>
-                خطوة بخطوة... نصنع شيئاً نفتخر به.
-            </strong>
-        </div>
+        </p>
+
+
+        <p class="welcome-note">
+            خطوة بخطوة... نصنع شيئًا نفتخر به.
+        </p>
+
 
         <button
-            class="modal-btn"
-            onclick="closeModal()">
+            type="button"
+            onclick="enterPlatform()">
 
-            حسناً، أدخل إلى المنصة
+            حسنًا، أدخل إلى المنصة
 
         </button>
+
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+
+<!-- ==================================================
      الهيدر
-===================================================== -->
+================================================== -->
 
-<header class="navbar">
+<header>
 
-    <div class="navbar-title">
-        🇸🇩 منصة الدفعة 023
+    <div class="logo">
+        يلا
     </div>
 
-    <div class="navbar-subtitle">
-        كلية العلوم الإدارية • مساحة العلم والتحدي والصمود
+
+    <div class="subtitle">
+        المنصة الطلابية | كلية العلوم الإدارية
+    </div>
+
+
+    <div class="badge">
+        دفعة 023
     </div>
 
 </header>
 
 
-<main class="container" id="mainContainer">
+
+<!-- ==================================================
+     القائمة
+================================================== -->
+
+<nav>
+
+    <div class="nav-container">
 
 
-<!-- =====================================================
-     هوية الدفعة
-===================================================== -->
+        <a href="#home">
+            الرئيسية
+        </a>
 
-<section class="card identity-card searchable-item"
-data-keywords="دفعة 023 السودان كلية العلوم الإدارية منصة طلابية">
 
-    <div class="identity-inner">
+        <a href="#subjects">
+            المواد
+        </a>
 
-        <div class="identity-icon">
-            🎓
-        </div>
 
-        <div class="identity-title">
-            نحن دفعة 023
-        </div>
+        <a href="#announcements">
+            الإعلانات
+        </a>
 
-        <div class="identity-text">
 
-            من هنا تبدأ الحكاية...
-            <br>
+        <a href="#schedule">
+            الجدول
+        </a>
 
-            علمٌ يجمعنا،
-            وطموحٌ يقودنا،
-            وتحدياتٌ نصنع منها طريقاً للمستقبل.
 
-        </div>
+        <a href="#exams">
+            الامتحانات
+        </a>
 
-        <div class="identity-badge">
-            ✦ علم • تحدي • صمود • نجاح ✦
-        </div>
+
+        <a href="#library">
+            مكتبة الملفات
+        </a>
+
+
+        <a href="#community">
+            مجتمع الدفعة
+        </a>
+
 
     </div>
 
+</nav>
+
+
+
+<!-- ==================================================
+     المحتوى
+================================================== -->
+
+<main class="container">
+
+
+
+<!-- ==================================================
+     الرئيسية
+================================================== -->
+
+<section id="home">
+
+
+    <div class="hero">
+
+
+        <h1>
+            مرحباً بكم في منصة يلا 🎓
+        </h1>
+
+
+        <p>
+            منصة طلابية تجمع المواد الدراسية
+            والملفات والملخصات والإعلانات
+            والجداول والامتحانات والتواصل
+            في مكان واحد.
+        </p>
+
+
+
+        <div class="quick-actions">
+
+
+            <a
+                class="quick-action"
+                href="#subjects">
+
+                <span>📚</span>
+
+                المواد الدراسية
+
+            </a>
+
+
+
+            <a
+                class="quick-action"
+                href="#library">
+
+                <span>📁</span>
+
+                مكتبة الملفات
+
+            </a>
+
+
+
+            <a
+                class="quick-action"
+                href="#schedule">
+
+                <span>📅</span>
+
+                جدول المحاضرات
+
+            </a>
+
+
+
+            <a
+                class="quick-action"
+                href="#exams">
+
+                <span>📝</span>
+
+                الامتحانات السابقة
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <strong>
+                9
+            </strong>
+
+            <span>
+                مواد دراسية
+            </span>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <strong>
+                397
+            </strong>
+
+            <span>
+                طالب وطالبة
+            </span>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <strong>
+                023
+            </strong>
+
+            <span>
+                رقم الدفعة
+            </span>
+
+        </div>
+
+
+    </div>
+
+
 </section>
 
 
-<!-- =====================================================
-     البحث
-===================================================== -->
 
-<section class="card search-card">
+<!-- ==================================================
+     المواد الدراسية
+================================================== -->
 
-    <input
-        type="text"
-        id="siteSearch"
-        class="search-box"
-        placeholder="🔍 ابحث عن مادة، خدمة، ملف أو قسم..."
-        onkeyup="searchSite()">
+<section id="subjects">
 
-</section>
-
-
-<!-- =====================================================
-     العداد
-===================================================== -->
-
-<section
-class="card countdown-card searchable-item"
-data-keywords="العداد التنازلي الامتحانات النهائية امتحانات موعد">
 
     <div class="section-title">
-        ⏳ العداد التنازلي للامتحانات النهائية
+
+        <h2>
+            📚 المواد الدراسية
+        </h2>
+
+        <p>
+            جميع مواد الدفعة في مكان واحد
+        </p>
+
     </div>
 
-    <div class="countdown-description">
-        متبقي على امتحانات 9 يناير 2027
-    </div>
 
-    <div class="countdown-grid">
 
-        <div class="time-box">
-            <div class="time-val" id="days">00</div>
-            <div class="time-lbl">يوم</div>
+    <div class="subjects-grid">
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                01
+            </div>
+
+            <h3>
+                دراسات جامعية
+            </h3>
+
+            <p>
+                محاضرات وملخصات وملفات المادة.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح ملفات المادة
+
+            </a>
+
         </div>
 
-        <div class="time-box">
-            <div class="time-val" id="hours">00</div>
-            <div class="time-lbl">ساعة</div>
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                02
+            </div>
+
+            <h3>
+                المادة الثانية
+            </h3>
+
+            <p>
+                محاضرات وملخصات وأسئلة.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
         </div>
 
-        <div class="time-box">
-            <div class="time-val" id="minutes">00</div>
-            <div class="time-lbl">دقيقة</div>
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                03
+            </div>
+
+            <h3>
+                المادة الثالثة
+            </h3>
+
+            <p>
+                المحاضرات والمراجعات الخاصة بالمادة.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
         </div>
 
-        <div class="time-box">
-            <div class="time-val" id="seconds">00</div>
-            <div class="time-lbl">ثانية</div>
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                04
+            </div>
+
+            <h3>
+                المادة الرابعة
+            </h3>
+
+            <p>
+                مذكرات وأسئلة السنوات السابقة.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
         </div>
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                05
+            </div>
+
+            <h3>
+                المادة الخامسة
+            </h3>
+
+            <p>
+                ملفات المادة والمراجعات.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
+        </div>
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                06
+            </div>
+
+            <h3>
+                المادة السادسة
+            </h3>
+
+            <p>
+                المحاضرات والملخصات.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
+        </div>
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                07
+            </div>
+
+            <h3>
+                المادة السابعة
+            </h3>
+
+            <p>
+                مذكرات وأسئلة ومراجعات.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
+        </div>
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                08
+            </div>
+
+            <h3>
+                المادة الثامنة
+            </h3>
+
+            <p>
+                ملفات ومراجع المادة.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
+        </div>
+
+
+
+        <div class="subject-card">
+
+            <div class="subject-number">
+                09
+            </div>
+
+            <h3>
+                المادة التاسعة
+            </h3>
+
+            <p>
+                محاضرات وملخصات ومراجعات.
+            </p>
+
+            <a
+                class="btn"
+                href="#library">
+
+                فتح الملفات
+
+            </a>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     الأزرار الرئيسية
-===================================================== -->
 
-<section
-class="grid-2 searchable-item"
-data-keywords="اختبار القدرات نتيجة المستوى
+<!-- ==================================================
+     الإعلانات
+================================================== -->
+
+<section id="announcements">
+
+
+    <div class="section-title">
+
+        <h2>
+            📢 أحدث إعلانات الدفعة
+        </h2>
+
+        <p>
+            آخر المستجدات والتنبيهات
+        </p>
+
+    </div>
+
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="icon">
+                📢
+            </div>
+
+            <h3>
+                إعلانات الدفعة
+            </h3>
+
+            <p>
+                سيتم نشر الإعلانات المهمة
+                الخاصة بالدفعة هنا.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                📚
+            </div>
+
+       
