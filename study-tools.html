@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وسائل الدراسة - كلية العلوم الإدارية</title>
+  <style>
+    :root {
+      --primary: #0b1f3a;
+      --primary-light: #1a3a68;
+      --accent: #f39c12;
+      --bg: #f4f6f9;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #edf2f7;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    body.dark-mode {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      padding-bottom: 50px;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, #0b1f3a, #1a3a68);
+      padding: 18px 20px;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .back-btn {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    .card-header {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      color: #0b1f3a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    body.dark-mode .card-header {
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    ul {
+      margin-right: 20px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .tip-box {
+      background: rgba(243, 156, 18, 0.1);
+      border-right: 4px solid var(--accent);
+      padding: 12px 15px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="brand">💡 وسائل ودعم الدراسة</a>
+    <a href="index.html" class="back-btn">⬅ العودة للمنصة</a>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <div class="card-header">📊 استراتيجيات مذاكرة المواد المحاسبية والمالية</div>
+      <p>المواد التي تعتمد على الأرقام والتحليل (مثل المحاسبة المالية والرياضيات) لا تعتمد على الحفظ التقليدي، بل تتطلب:</p>
+      <ul>
+        <li><strong>الحل العملي المستمر:</strong> عدم اكتفاء العين بالقراءة؛ بل يجب استخدام القلم والورقة وحل التمارين بنفسك لتثبيت القوانين.</li>
+        <li><strong>فهم المعالجة المحاسبية:</strong> التركيز على "لماذا" تم تسجيل هذا القيد (مدين وجانب دائن) بدلاً من حفظ القيود بصم.</li>
+        <li><strong>مراجعة الأخطاء:</strong> تخصيص كشكول صغير للتمارين التي أخطأت فيها وإعادة حلها لاحقاً.</li>
+      </ul>
+      <div class="tip-box">
+        💡 <strong>نصيحة ذهبية:</strong> ابدأ دائماً بالمواد الصعبة أو التي تحتاج تركيزاً عالياً في أوقات الصباح الأولى أو بعد قسط كافٍ من الراحة.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🧠 تقنية بومودورو (Pomodoro) لإدارة الوقت</div>
+      <p>
+        تعتبر هذه التقنية من أفضل الوسائل العالمية الواقعية للتغلب على المماطلة وزيادة التركيز أثناء المذاكرة الطويلة:
+      </p>
+      <ul>
+        <li>اعمل بتركيز تام وبدون أي تشتيت (وضع الطيران للجوال) لمدة <strong>25 دقيقة</strong>.</li>
+        <li>خذ استراحة قصيرة ومريحة لمدة <strong>5 دقائق</strong> (شرب ماء، حركة خفيفة).</li>
+        <li>بعد إكمال 4 دورات (جلسات)، خذ استراحة أطول تتراوح بين <strong>15 إلى 30 دقيقة</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🗺️ الخرائط الذهنية وتلخيص المقررات النظرية</div>
+      <p>المواد الإدارية والنظرية تحتوي على كمية كبيرة من المفاهيم والنظريات، ولتسهيل حفظها واسترجاعها:</p>
+      <ul>
+        <li><strong>ربط الأفكار:</strong> استخدم الرسوم التخطيطية والأسهم لربط العناصر الرئيسية بالفروع التابعة لها.</li>
+        <li><strong>الألوان والمفاتيح:</strong> استخدام أقلام التحديد (Highlighters) لتلوين الكلمات المفتاحية والتعريفات المهمة فقط.</li>
+        <li><strong>التلخيص الذاتي:</strong> بعد الانتهاء من قراءة المحاضرة، حاول تلخيصها في صفحة واحدة بأسلوبك الخاص.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🎯 الاستعداد للامتحانات والامتحانات التجريبية</div>
+      <p>
+        التحضير للامتحانات يبدأ قبل فترة كافية من خلال الاعتماد على <strong>بنك الأسئلة</strong> والامتحانات السابقة:
+      </p>
+      <ul>
+        <li>حل أسئلة الأعوام السابقة في ظروف مشابهة للامتحان الحقيقي (تحديد وقت زمني بدون مساعدة).</li>
+        <li>التركيز على المواضيع التي تتكرر بانتظام في اختبارات الأساتذة.</li>
+        <li>تكوين مجموعات مذاكرة صغيرة مع الزملاء لمناقشة النقاط الصعبة وتبادل الشرح.</li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
