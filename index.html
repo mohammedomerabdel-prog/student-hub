@@ -174,58 +174,6 @@
       border: none;
     }
 
-    /* صناديق المحتوى التفاعلي لتجنب 404 */
-    .content-modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 450px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border: 1px solid var(--border);
-      padding: 20px;
-      z-index: 2000;
-    }
-
-    .content-modal-header {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #0b1f3a;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 8px;
-    }
-
-    .close-modal {
-      cursor: pointer;
-      color: #ef4444;
-      font-size: 18px;
-    }
-
-    .content-modal-body {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1500;
-    }
-
     /* الكروت العامة والجدول الأسبوعي الخارجي */
     .card {
       background: var(--card-bg);
@@ -403,68 +351,40 @@
       </div>
     </div>
 
-    <!-- الأقسام الرئيسية (تفتح نافذة فورية بدون 404) -->
+    <!-- الأقسام الرئيسية -->
     <div class="section-title">📌 الخدمات والأقسام الرئيسية</div>
     <div class="buttons-grid" id="mainGrid">
       
-      <div class="menu-btn searchable" onclick="openModal('coursesBox')">
+      <a href="subjects.html" class="menu-btn searchable" style="text-decoration: none;">
         <span class="icon">📚</span>
         <span>المواد الدراسية</span>
-      </div>
+      </a>
 
-      <div class="menu-btn searchable" onclick="openModal('examBox')">
+      <a href="exams.html" class="menu-btn searchable" style="text-decoration: none;">
         <span class="icon">📝</span>
         <span>بنك الأسئلة</span>
-      </div>
+      </a>
 
-      <a href="results.html" class="menu-btn highlight searchable">
+      <a href="results.html" class="menu-btn highlight searchable" style="text-decoration: none;">
         <span class="icon">🏆</span>
         <span>نتيجة المستوى الأول</span>
       </a>
 
-      <div class="menu-btn searchable" onclick="openModal('aptitudeBox')">
+      <a href="fun.html" class="menu-btn searchable" style="text-decoration: none;">
         <span class="icon">🧠</span>
         <span>اختبار القدرات</span>
-      </div>
+      </a>
 
-      <div class="menu-btn searchable" onclick="openModal('aboutBox')">
+      <a href="about.html" class="menu-btn searchable" style="text-decoration: none;">
         <span class="icon">🏛️</span>
         <span>نبذة عن الجامعة</span>
-      </div>
+      </a>
 
-      <div class="menu-btn searchable" onclick="openModal('tipsBox')">
+      <a href="#" class="menu-btn searchable" style="text-decoration: none;" onclick="alert('قريباً سيتم إطلاق قسم وسائل الدراسة'); return false;">
         <span class="icon">💡</span>
         <span>وسائل الدراسة</span>
-      </div>
+      </a>
 
-    </div>
-
-    <!-- نوافذ المحتوى المنبثقة -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
-
-    <div id="coursesBox" class="content-modal">
-      <div class="content-modal-header"><span>📚 المواد الدراسية</span><span class="close-modal" onclick="closeModal()">✕</span></div>
-      <div class="content-modal-body">تضم مواد المستوى الأول في التخصصات المختلفة (إدارة الأعمال، المحاسبة والتمويل، الدراسات المصرفية والمالية، التسويق، الموارد البشرية، السكرتارية التنفيذية).</div>
-    </div>
-
-    <div id="examBox" class="content-modal">
-      <div class="content-modal-header"><span>📝 بنك الأسئلة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
-      <div class="content-modal-body">اختبارات تجريبية وأسئلة سابقة لمساعدة الطلاب في التحضير الكامل للامتحانات القادمة.</div>
-    </div>
-
-    <div id="aptitudeBox" class="content-modal">
-      <div class="content-modal-header"><span>🧠 اختبار القدرات</span><span class="close-modal" onclick="closeModal()">✕</span></div>
-      <div class="content-modal-body">تدريبات وتقييمات قياس القدرات الذهنية والمهارية لتطوير الأداء الأكاديمي.</div>
-    </div>
-
-    <div id="aboutBox" class="content-modal">
-      <div class="content-modal-header"><span>🏛️ نبذة عن الجامعة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
-      <div class="content-modal-body">جامعة بحري - كلية العلوم الإدارية. (سيتم إدراج النبذات والتعريفات المفصلة من القسم الإعلامي للجامعة هنا قريباً).</div>
-    </div>
-
-    <div id="tipsBox" class="content-modal">
-      <div class="content-modal-header"><span>💡 أفضل وسائل الدراسة</span><span class="close-modal" onclick="closeModal()">✕</span></div>
-      <div class="content-modal-body">تنظيم الوقت، المذاكرة الجماعية الفعالة، حل الامتحانات السابقة، والتركيز على الفهم التحليلي للمقررات.</div>
     </div>
 
     <!-- الجدول الدراسي الخارجي (من السبت إلى الخميس) -->
@@ -577,16 +497,6 @@
     function toggleAI() {
       const modal = document.getElementById('aiModal');
       modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function openModal(id) {
-      document.getElementById('modalOverlay').style.display = 'block';
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('modalOverlay').style.display = 'none';
-      document.querySelectorAll('.content-modal').forEach(m => m.style.display = 'none');
     }
 
     // العداد التنازلي لتاريخ 9 يناير 2027
