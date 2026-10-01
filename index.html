@@ -61,10 +61,11 @@
     .news-ticker {
       background: #f39c12;
       color: #ffffff;
-      padding: 8px 15px;
+      padding: 10px 15px;
       font-size: 13px;
       font-weight: 700;
       text-align: center;
+      line-height: 1.6;
     }
 
     .container {
@@ -174,7 +175,6 @@
       border: none;
     }
 
-    /* الكروت العامة والجدول الأسبوعي الخارجي */
     .card {
       background: var(--card-bg);
       border-radius: 16px;
@@ -332,13 +332,13 @@
     <a href="index.html" class="brand">🎓 كلية العلوم الإدارية - المنصة الطلابية</a>
   </header>
 
+  <!-- شريط التنبيهات المحدث -->
   <div class="news-ticker">
-    📢 تنبيه مهم: بداية التسجيل وإعلان الجدول الدراسي للامتحانات القادمة قريباً.
+    📢 تنبيه مهم: ينتهي التسجيل يوم 1 أكتوبر (تنبيه من الليدر: مافي زول يدفع هسه)، وسيتم إعلان جدول المحاضرات قريباً.
   </div>
 
   <main class="container">
 
-    <!-- البحث والعداد (9 يناير 2027) -->
     <div class="header-box">
       <input type="text" class="search-input" placeholder="🔍 ابحث في الأقسام والخدمات..." onkeyup="filterButtons(this.value)">
       
@@ -351,7 +351,6 @@
       </div>
     </div>
 
-    <!-- الأقسام الرئيسية -->
     <div class="section-title">📌 الخدمات والأقسام الرئيسية</div>
     <div class="buttons-grid" id="mainGrid">
       
@@ -380,14 +379,14 @@
         <span>نبذة عن الجامعة</span>
       </a>
 
-      <a href="#" class="menu-btn searchable" style="text-decoration: none;" onclick="alert('قريباً سيتم إطلاق قسم وسائل الدراسة'); return false;">
+      <!-- زر وسائل الدراسة مربوط الآن بملف study-tools.html -->
+      <a href="study-tools.html" class="menu-btn searchable" style="text-decoration: none;">
         <span class="icon">💡</span>
         <span>وسائل الدراسة</span>
       </a>
 
     </div>
 
-    <!-- الجدول الدراسي الخارجي (من السبت إلى الخميس) -->
     <div class="card">
       <div class="card-header">📅 الجدول الدراسي الأسبوعي (السبت - الخميس)</div>
       <div class="table-responsive">
@@ -442,7 +441,6 @@
       </div>
     </div>
 
-    <!-- إحصائيات الدفعة -->
     <div class="card">
       <div class="card-header">📊 إحصائيات طلاب الدفعة (023 & 024)</div>
       
@@ -464,7 +462,6 @@
       </div>
     </div>
 
-    <!-- التواصل المباشر (واتساب للمسجل وليدر الدفعة) -->
     <div class="card">
       <div class="card-header">📞 الاتصال والتواصل المباشر</div>
       <ul class="contacts-list">
@@ -499,7 +496,6 @@
       modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
     }
 
-    // العداد التنازلي لتاريخ 9 يناير 2027
     const targetDate = new Date("Jan 9, 2027 09:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
