@@ -4,32 +4,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الريان | الوسائل التعليمية</title>
+<title>الريان | الوسائل والإرشاد الجامعي</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
+body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.8;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
+
 header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:28px 18px 35px;text-align:center;}
 .logo{font-size:42px;font-weight:900;}
 .subtitle{color:#dce8f1;margin-top:4px;}
+
 nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
 .nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
-.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;}
-.nav-container a:hover{background:#edf3f7;}
-.container{max-width:1200px;margin:auto;padding:25px 15px;}
-.section-title{text-align:center;margin-bottom:20px;}
-.section-title h2{color:var(--primary);font-size:25px;}
+.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
+.nav-container a:hover{background:#edf3f7;color:var(--primary2);}
+
+.container{max-width:1200px;margin:auto;padding:30px 15px;}
+.section-title{text-align:center;margin-bottom:30px;}
+.section-title h2{color:var(--primary);font-size:28px;margin-bottom:8px;}
 .section-title p{color:var(--muted);}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;}
-.card .icon{font-size:30px;margin-bottom:10px;}
-.card h3{color:var(--primary);margin:8px 0;}
-.card p{color:var(--muted);font-size:14px;margin-bottom:15px;}
-.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:9px 15px;border-radius:10px;font-size:13px;font-weight:bold;}
-footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
+
+/* تصميم الأقسام الثلاثة الجديدة */
+.guidance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;}
+.guidance-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:0 5px 20px rgba(0,0,0,.04);transition:.3s;}
+.guidance-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.08);}
+
+.guidance-card .card-icon{font-size:40px;margin-bottom:15px;text-align:center;}
+.guidance-card h3{color:var(--primary);font-size:20px;margin-bottom:15px;text-align:center;border-bottom:2px solid var(--border);padding-bottom:10px;}
+
+.guidance-list{list-style:none;}
+.guidance-list li{margin-bottom:12px;font-size:14px;color:#415261;position:relative;padding-right:18px;}
+.guidance-list li::before{content:"•";color:var(--gold);font-weight:bold;font-size:18px;position:absolute;right:0;top:-1px;}
+.guidance-list li strong{color:var(--primary2);}
+
+footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:50px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
-@media(max-width:768px){.cards{grid-template-columns:1fr;}}
+
+@media(max-width:900px){.guidance-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 
@@ -37,7 +49,7 @@ footer strong{color:var(--gold);}
 
 <header>
     <div class="logo">الريان</div>
-    <div class="subtitle">الوسائل والمصادر التعليمية</div>
+    <div class="subtitle">دليل الإرشاد والوسائل التعليمية الشامل</div>
 </header>
 
 <nav>
@@ -47,42 +59,66 @@ footer strong{color:var(--gold);}
         <a href="about.html">عن الكلية</a>
         <a href="results.html">النتيجة</a>
         <a href="exams.html">الاختبارات</a>
-        <a href="study-tools.html" style="background:#edf3f7;">الوسائل التعليمية</a>
+        <a href="study-tools.html" style="background:#edf3f7;color:var(--primary2);">الوسائل التعليمية</a>
     </div>
 </nav>
 
 <main class="container">
     <section>
         <div class="section-title">
-            <h2>💡 الوسائل والمصادر التعليمية</h2>
-            <p>أدوات ومصادر التعلم المساندة لطلاب دفعة 023</p>
+            <h2>🎯 بوصلة الطالب الجامعي المبدع</h2>
+            <p>نصائح وإرشادات متكاملة لتفوقك الأكاديمي، توازنك النفسي، وتكيفك الاجتماعي في الجامعة</p>
         </div>
 
-        <div class="cards">
-            <div class="card">
-                <div class="icon">🛠️</div>
-                <h3>البرامج والتطبيقات</h3>
-                <p>قائمة بأهم البرامج الأكاديمية والخدمية التي يحتاجها الطالب خلال مسيرته.</p>
-                <a class="btn" href="#">استعراض البرامج</a>
+        <div class="guidance-grid">
+            
+            <!-- القسم الأول: النصح الأكاديمي -->
+            <div class="guidance-card">
+                <div class="card-icon">📚</div>
+                <h3>النصح الأكاديمي</h3>
+                <ul class="guidance-list">
+                    <li><strong>إدارة الوقت بذكاء:</strong> استخدم جدولاً أسبوعياً لتوزيع ساعات المحاضرات والمذاكرة، وتجنب التسويف وتأجيل المهام.</li>
+                    <li><strong>استراتيجيات المذاكرة الفعالة:</strong> اعتمد على الفهم العميق والتلخيص الذاتي بدلاً من الحفظ التقليدي، واستخدم تقنية "بومودورو" (25 دقيقة تركيز و5 راحة).</li>
+                    <li><strong>التحضير المسبق:</strong> اقرأ عناوين المحاضرة قبل حضورها لزيادة استيعابك بنسبة أكبر أثناء شرح الأستاذ.</li>
+                    <li><strong>تكوين مجموعات دراسية:</strong> احرص على الدراسة مع زملاء جادين لتبادل الأفكار وشرح النقاط الصعبة لبعضكم البعض.</li>
+                    <li><strong>الاستفادة من الساعات المكتبية:</strong> لا تتردد في سؤال أساتذة المواد عن أي غموض، فهذا يعزز فهمك ويقوي علاقتك الأكاديمية بهم.</li>
+                </ul>
             </div>
-            <div class="card">
-                <div class="icon">🔗</div>
-                <h3>روابط ومراجع مفيدة</h3>
-                <p>مواقع تعليمية ومكتبات إلكترونية تساهم في تبسيط المقررات الدراسية.</p>
-                <a class="btn" href="#">فتح الروابط</a>
+
+            <!-- القسم الثاني: النصح والإرشاد النفسي -->
+            <div class="guidance-card">
+                <div class="card-icon">🧠</div>
+                <h3>الإرشاد النفسي</h3>
+                <p style="font-size:13px; color:var(--muted); margin-bottom:10px; text-align:center;">لتحصين عقلك وبناء صلابة ذهنية تواجه بها ضغوط الجامعة:</p>
+                <ul class="guidance-list">
+                    <li><strong>إدارة التوتر والقلق:</strong> ضغوط الامتحانات طبيعية؛ تعامل معها بالتنفس العميق، النوم الكافي، والابتعاد عن المنبهات المفرطة.</li>
+                    <li><strong>بناء الثقة بالنفس:</strong> لا تقارن مسيرتك الأكاديمية بغيرك؛ لكل طالب قدراته وخطه الزمني الخاص في التطور.</li>
+                    <li><strong>التغلب على الاحتراق الدراسي:</strong> عندما تشعر بالإرهاق التام، خذ استراحة قصيرة لتجديد شغفك ولا تضغط على عقلك فوق طاقتة.</li>
+                    <li><strong>التفكير الإيجابي:</strong> حول الأخطاء ورسوبك في اختبار قصير إلى دروس تعلم تنمي خبرتك بدلاً من الإحباط.</li>
+                    <li><strong>التوازن الحياتي:</strong> خصص وقتاً للرياضة أو هواية مفضلة تفصلك تماماً عن ضغوط المحاضرات.</li>
+                </ul>
             </div>
-            <div class="card">
-                <div class="icon">💡</div>
-                <h3>دليل الطالب الإرشادي</h3>
-                <p>إرشادات ونصائح أكاديمية وتنظيمية لتحقيق أفضل أداء دراسي.</p>
-                <a class="btn" href="#">تحميل الدليل</a>
+
+            <!-- القسم الثالث: النصح والإرشاد التوعوي والاجتماعي -->
+            <div class="guidance-card">
+                <div class="card-icon">🤝</div>
+                <h3>الإرشاد التوعوي والاجتماعي</h3>
+                <ul class="guidance-list">
+                    <li><strong>اختيار صحبة النجاح:</strong> احرص على مرافققة الطلاب الطموحين الإيجابيين الذين يدفعونك للأمام ويثابرون معك.</li>
+                    <li><strong>العمل الجماعي والقيادة:</strong> شارك في الأنشطة الطلابية وتكوين اللجان لتطوير مهارات التواصل وإدارة العلاقات العامة.</li>
+                    <li><strong>الوعي الجامعي واللوائح:</strong> افهم جيداً لوائح الكلية، حقوقك، وواجباتك الأكاديمية لتتفادى أي مشاكل تنظيمية.</li>
+                    <li><strong>التواصل الفعال:</strong> تعلم فن الاستماع للآخرين واحترام وجهات النظر المختلفة داخل قاعات الدراسة والمجتمع الجامعي.</li>
+                    <li><strong>خدمة المجتمع الطلابي:</strong> ساهم دائماً في مساعدة زمالائك ونشر المعرفة والملخصات، فالعطاء يعزز من نجاحك الشخصي.</li>
+                </ul>
             </div>
+
         </div>
     </section>
 </main>
 
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
 </body>
