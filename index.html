@@ -4,1456 +4,244 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>الريان | المنصة الطلابية - دفعة 023</title>
-
 <style>
-
-/* =========================
-   الإعدادات
-========================= */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Tahoma,sans-serif;
-    background:#f4f7fa;
-    color:#263746;
-    line-height:1.7;
-}
-
-:root{
-    --primary:#09263f;
-    --primary2:#155377;
-    --gold:#d9a62e;
-    --white:#fff;
-    --muted:#71808c;
-    --border:#e1e8ee;
-}
-
-
-/* =====================================================
-   الهيدر
-===================================================== */
-
-header{
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--primary2)
-        );
-
-    color:white;
-
-    padding:28px 18px 35px;
-
-    text-align:center;
-
-}
-
-
-.logo{
-
-    font-size:42px;
-
-    font-weight:900;
-
-}
-
-
-.subtitle{
-
-    color:#dce8f1;
-
-    margin-top:4px;
-
-}
-
-
-.badge{
-
-    display:inline-block;
-
-    margin-top:14px;
-
-    background:var(--gold);
-
-    color:#172b3a;
-
-    padding:6px 20px;
-
-    border-radius:30px;
-
-    font-weight:bold;
-
-}
-
-
-/* =====================================================
-   القائمة
-===================================================== */
-
-nav{
-
-    background:#fff;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:100;
-
-    box-shadow:
-        0 3px 15px rgba(0,0,0,.08);
-
-}
-
-
-.nav-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    display:flex;
-
-    gap:8px;
-
-    padding:10px;
-
-    overflow-x:auto;
-
-}
-
-
-.nav-container a{
-
-    text-decoration:none;
-
-    color:var(--primary);
-
-    padding:9px 15px;
-
-    border-radius:10px;
-
-    white-space:nowrap;
-
-    font-weight:bold;
-
-    font-size:14px;
-
-}
-
-
-.nav-container a:hover{
-
-    background:#edf3f7;
-
-}
-
-
-/* =====================================================
-   المحتوى
-===================================================== */
-
-.container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:25px 15px;
-
-}
-
-
-section{
-
-    margin-bottom:35px;
-
-}
-
-
-.section-title{
-
-    text-align:center;
-
-    margin-bottom:20px;
-
-}
-
-
-.section-title h2{
-
-    color:var(--primary);
-
-    font-size:25px;
-
-}
-
-
-.section-title p{
-
-    color:var(--muted);
-
-}
-
-
-/* =====================================================
-   الرئيسية
-===================================================== */
-
-.hero{
-
-    background:#fff;
-
-    border-radius:22px;
-
-    padding:35px 25px;
-
-    text-align:center;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.06);
-
-}
-
-
-.hero h2{
-
-    color:var(--primary);
-
-    font-size:30px;
-
-    margin-bottom:10px;
-
-}
-
-
-.hero p{
-
-    color:var(--muted);
-
-    max-width:750px;
-
-    margin:auto;
-
-}
-
-
-/* =====================================================
-   الأزرار السريعة (3 أزرار بناءً على الطلب)
-===================================================== */
-
-.quick-actions{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-    margin-top:25px;
-
-}
-
-
-.quick-action{
-
-    display:block;
-
-    text-decoration:none;
-
-    background:var(--primary);
-
-    color:white;
-
-    padding:18px 10px;
-
-    border-radius:15px;
-
-    font-weight:bold;
-
-    transition:.2s;
-
-}
-
-
-.quick-action:hover{
-
-    transform:translateY(-3px);
-
-    background:var(--primary2);
-
-}
-
-
-.quick-action span{
-
-    display:block;
-
-    font-size:28px;
-
-}
-
-
-/* =====================================================
-   الإحصائيات
-===================================================== */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-    margin-top:20px;
-
-}
-
-
-.stat{
-
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:17px;
-
-    padding:20px;
-
-    text-align:center;
-
-}
-
-
-.stat strong{
-
-    display:block;
-
-    font-size:28px;
-
-    color:var(--primary);
-
-}
-
-
-.stat span{
-
-    color:var(--muted);
-
-}
-
-
-/* =====================================================
-   المواد
-===================================================== */
-
-.subjects-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-}
-
-
-.subject-card{
-
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:22px;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.04);
-
-    transition:.2s;
-
-}
-
-
-.subject-card:hover{
-
-    transform:translateY(-4px);
-
-}
-
-
-.subject-number{
-
-    width:42px;
-
-    height:42px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:12px;
-
-    background:#edf3f7;
-
-    color:var(--primary);
-
-    font-weight:bold;
-
-    margin-bottom:12px;
-
-}
-
-
-.subject-card h3{
-
-    color:var(--primary);
-
-    margin-bottom:5px;
-
-}
-
-
-.subject-card p{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin-bottom:15px;
-
-}
-
-
-.btn{
-
-    display:inline-block;
-
-    background:var(--primary);
-
-    color:#fff;
-
-    text-decoration:none;
-
-    padding:9px 15px;
-
-    border-radius:10px;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-}
-
-
-/* =====================================================
-   البطاقات العامة (الإعلانات، النبذة، النتيجة، الاختبارات، الوسائل)
-===================================================== */
-
-.cards{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-}
-
-
-.card{
-
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:22px;
-
-}
-
-
-.card .icon{
-
-    font-size:30px;
-
-}
-
-
-.card h3{
-
-    color:var(--primary);
-
-    margin:8px 0;
-
-}
-
-
-.card p{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-}
-
-
-/* =====================================================
-   الجدول
-===================================================== */
-
-.table-box{
-
-    overflow-x:auto;
-
-    background:#fff;
-
-    border-radius:18px;
-
-    border:1px solid var(--border);
-
-}
-
-
-table{
-
-    width:100%;
-
-    min-width:700px;
-
-    border-collapse:collapse;
-
-}
-
-
-th,td{
-
-    padding:15px;
-
-    text-align:center;
-
-    border-bottom:1px solid var(--border);
-
-}
-
-
-th{
-
-    background:var(--primary);
-
-    color:#fff;
-
-}
-
-
-/* =====================================================
-   المكتبة
-===================================================== */
-
-.library{
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--primary2)
-        );
-
-    color:white;
-
-    border-radius:22px;
-
-    padding:35px 25px;
-
-    text-align:center;
-
-}
-
-
-.library p{
-
-    color:#d9e7ef;
-
-    margin:10px auto 20px;
-
-    max-width:700px;
-
-}
-
-
-.library-btn{
-
-    display:inline-block;
-
-    text-decoration:none;
-
-    background:var(--gold);
-
-    color:#172b3a;
-
-    padding:12px 25px;
-
-    border-radius:12px;
-
-    font-weight:bold;
-
-}
-
-
-/* =====================================================
-   الروابط
-===================================================== */
-
-.links-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-}
-
-
-.link-card{
-
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:25px;
-
-    text-align:center;
-
-}
-
-
-.link-card .big-icon{
-
-    font-size:38px;
-
-}
-
-
-.link-card h3{
-
-    color:var(--primary);
-
-}
-
-
-.link-card p{
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    margin:8px 0 15px;
-
-}
-
-
-.whatsapp{
-
-    background:#f1f8f3;
-
-}
-
-
-/* =====================================================
-   الفوتر
-===================================================== */
-
-footer{
-
-    background:var(--primary);
-
-    color:white;
-
-    text-align:center;
-
-    padding:30px 15px;
-
-}
-
-
-footer p{
-
-    color:#d2dee7;
-
-    font-size:14px;
-
-}
-
-
-footer strong{
-
-    color:var(--gold);
-
-}
-
-
-/* =====================================================
-   الهاتف
-===================================================== */
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
+:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
+
+header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:28px 18px 35px;text-align:center;}
+.logo{font-size:42px;font-weight:900;}
+.subtitle{color:#dce8f1;margin-top:4px;}
+.badge{display:inline-block;margin-top:14px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
+
+nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
+.nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
+.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
+.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
+
+.container{max-width:1200px;margin:auto;padding:25px 15px;}
+section{margin-bottom:35px;}
+.section-title{text-align:center;margin-bottom:20px;}
+.section-title h2{color:var(--primary);font-size:25px;}
+.section-title p{color:var(--muted);}
+
+.hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
+.hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
+.hero p{color:var(--muted);max-width:750px;margin:auto;}
+
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px;}
+.quick-action{display:block;text-decoration:none;background:var(--primary);color:white;padding:18px 10px;border-radius:15px;font-weight:bold;transition:.2s;}
+.quick-action:hover{transform:translateY(-3px);background:var(--primary2);}
+.quick-action span{display:block;font-size:28px;}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px;}
+.stat{background:#fff;border:1px solid var(--border);border-radius:17px;padding:20px;text-align:center;}
+.stat strong{display:block;font-size:28px;color:var(--primary);}
+.stat span{color:var(--muted);}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.2s;}
+.card:hover{transform:translateY(-4px);}
+.card .icon{font-size:35px;margin-bottom:10px;}
+.card h3{color:var(--primary);margin-bottom:8px;}
+.card p{color:var(--muted);font-size:14px;margin-bottom:15px;}
+
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:bold;transition:.2s;}
+.btn:hover{background:var(--primary2);}
+
+.table-box{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--border);}
+table{width:100%;min-width:700px;border-collapse:collapse;}
+th,td{padding:15px;text-align:center;border-bottom:1px solid var(--border);}
+th{background:var(--primary);color:#fff;}
+
+.library{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;border-radius:22px;padding:35px 25px;text-align:center;}
+.library p{color:#d9e7ef;margin:10px auto 20px;max-width:700px;}
+.library-btn{display:inline-block;text-decoration:none;background:var(--gold);color:#172b3a;padding:12px 25px;border-radius:12px;font-weight:bold;}
+
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.link-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;text-align:center;}
+.link-card .big-icon{font-size:38px;margin-bottom:10px;}
+.link-card h3{color:var(--primary);margin-bottom:8px;}
+.link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
+.whatsapp{background:#f1f8f3;}
+
+footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
+footer p{color:#d2dee7;font-size:14px;}
+footer strong{color:var(--gold);}
 
 @media(max-width:900px){
-
-    .subjects-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-    .cards,
-    .links-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-    .quick-actions{
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-    }
-
+    .cards,.links-grid{grid-template-columns:repeat(2,1fr);}
+    .quick-actions{grid-template-columns:repeat(3,1fr);}
 }
-
-
 @media(max-width:600px){
-
-    .logo{
-
-        font-size:34px;
-
-    }
-
-    .hero h2{
-
-        font-size:25px;
-
-    }
-
-    .subjects-grid,
-    .cards,
-    .links-grid,
-    .stats{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .quick-actions{
-
-        grid-template-columns:1fr;
-
-    }
-
+    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
 }
-
 </style>
 </head>
 
-
 <body>
 
-<!-- =====================================================
-     رأس الموقع
-===================================================== -->
-
+<!-- الهيدر -->
 <header>
-
-    <div class="logo">
-        الريان
-    </div>
-
-    <div class="subtitle">
-        المنصة الطلابية | كلية العلوم الإدارية
-    </div>
-
-    <div class="badge">
-        دفعة 023
-    </div>
-
+    <div class="logo">الريان</div>
+    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
+    <div class="badge">دفعة 023</div>
 </header>
 
-
-
-<!-- =====================================================
-     القائمة
-===================================================== -->
-
+<!-- شريط التنقل (مربوط بالصفحات والملفات الخاصة بك بدقة لمنع خطأ 404) -->
 <nav>
-
     <div class="nav-container">
-
-        <a href="#home">
-            الرئيسية
-        </a>
-
-        <a href="#subjects">
-            المواد
-        </a>
-
-        <a href="#about">
-            عن الكلية
-        </a>
-
-        <a href="#results">
-            النتيجة
-        </a>
-
-        <a href="#exams-section">
-            الاختبارات
-        </a>
-
-        <a href="#tools">
-            الوسائل
-        </a>
-
-        <a href="#announcements">
-            الإعلانات
-        </a>
-
-        <a href="#schedule">
-            الجدول
-        </a>
-
-        <a href="#library">
-            مكتبة الملفات
-        </a>
-
-        <a href="#community">
-            مجتمع الدفعة
-        </a>
-
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="subjects.html">المواد</a>
+        <a href="about.html">عن الكلية</a>
+        <a href="results.html">النتيجة</a>
+        <a href="exams.html">الاختبارات</a>
+        <a href="study-tools.html">الوسائل التعليمية</a>
+        <a href="#schedule">الجدول</a>
+        <a href="#community">التواصل</a>
     </div>
-
 </nav>
-
-
-
-<!-- =====================================================
-     المحتوى
-===================================================== -->
 
 <main class="container">
 
-
 <!-- الرئيسية -->
-
 <section id="home">
-
     <div class="hero">
-
-        <h2>
-            مرحباً بكم في منصة الريان 🎓
-        </h2>
-
-        <p>
-            منصة طلابية تجمع المواد الدراسية
-            والملفات والملخصات والإعلانات
-            والجداول والامتحانات والتواصل
-            في مكان واحد.
-        </p>
-
-
+        <h2>مرحباً بكم في منصة الريان 🎓</h2>
+        <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
+        
         <div class="quick-actions">
-
-            <a class="quick-action" href="#library">
-                <span>📁</span>
-                مكتبة الملفات
+            <a class="quick-action" href="subjects.html">
+                <span>📚</span>
+                المواد الدراسية
             </a>
-
-            <a class="quick-action" href="#schedule">
-                <span>📅</span>
-                جدول المحاضرات
-            </a>
-
-            <a class="quick-action" href="#exams-section">
+            <a class="quick-action" href="exams.html">
                 <span>📝</span>
-                الامتحانات السابقة
+                الاختبارات وبنك الأسئلة
             </a>
-
+            <a class="quick-action" href="results.html">
+                <span>📊</span>
+                النتيجة الأكاديمية
+            </a>
         </div>
-
     </div>
-
 
     <div class="stats">
-
-        <div class="stat">
-            <strong>9</strong>
-            <span>مواد دراسية</span>
-        </div>
-
-        <div class="stat">
-            <strong>397</strong>
-            <span>طالب وطالبة</span>
-        </div>
-
-        <div class="stat">
-            <strong>023</strong>
-            <span>رقم الدفعة</span>
-        </div>
-
+        <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
+        <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
+        <div class="stat"><strong>023</strong><span>رقم الدفعة</span></div>
     </div>
-
 </section>
 
-
-
-<!-- المواد -->
-
-<section id="subjects">
-
+<!-- الأقسام الرئيسية كبطاقات مرتبطة بملفاتك -->
+<section>
     <div class="section-title">
-
-        <h2>
-            📚 المواد الدراسية
-        </h2>
-
-        <p>
-            جميع مواد الدفعة في مكان واحد
-        </p>
-
-    </div>
-
-
-    <div class="subjects-grid">
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                01
-            </div>
-
-            <h3>
-                دراسات جامعية
-            </h3>
-
-            <p>
-                محاضرات وملخصات وملفات المادة.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح ملفات المادة
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                02
-            </div>
-
-            <h3>
-                المادة الثانية
-            </h3>
-
-            <p>
-                محاضرات وملخصات وأسئلة.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                03
-            </div>
-
-            <h3>
-                المادة الثالثة
-            </h3>
-
-            <p>
-                المحاضرات والمراجعات.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                04
-            </div>
-
-            <h3>
-                المادة الرابعة
-            </h3>
-
-            <p>
-                مذكرات وأسئلة السنوات السابقة.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                05
-            </div>
-
-            <h3>
-                المادة الخامسة
-            </h3>
-
-            <p>
-                ملفات المادة والمراجعات.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                06
-            </div>
-
-            <h3>
-                المادة السادسة
-            </h3>
-
-            <p>
-                المحاضرات والملخصات.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                07
-            </div>
-
-            <h3>
-                المادة السابعة
-            </h3>
-
-            <p>
-                مذكرات وأسئلة ومراجعات.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                08
-            </div>
-
-            <h3>
-                المادة الثامنة
-            </h3>
-
-            <p>
-                ملفات ومراجع المادة.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-        <div class="subject-card">
-
-            <div class="subject-number">
-                09
-            </div>
-
-            <h3>
-                المادة التاسعة
-            </h3>
-
-            <p>
-                محاضرات وملخصات ومراجعات.
-            </p>
-
-            <a class="btn" href="#library">
-                فتح الملفات
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- نبذة عن الكلية -->
-
-<section id="about">
-
-    <div class="section-title">
-
-        <h2>
-            🏛️ نبذة عن الكلية
-        </h2>
-
-        <p>
-            كلية العلوم الإدارية
-        </p>
-
+        <h2>⚡ أقسام المنصة السريعة</h2>
+        <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
     </div>
 
     <div class="cards">
-        <div class="card" style="grid-column: span 3; text-align: center;">
-            <div class="icon">🎓</div>
-            <h3>كلية العلوم الإدارية</h3>
-            <p>تعتبر كلية العلوم الإدارية صرحاً أكاديمياً متميزاً يهدف إلى إعداد كوادر مؤهلة وقادرة على قيادة قطاعات الأعمال بحرية واحترافية عالية وفق أحدث المعايير العلمية.</p>
+        <div class="card">
+            <div class="icon">🏛️</div>
+            <h3>عن الكلية</h3>
+            <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
+            <a class="btn" href="about.html">استعراض النبذة</a>
         </div>
-    </div>
 
-</section>
-
-
-
-<!-- النتيجة -->
-
-<section id="results">
-
-    <div class="section-title">
-
-        <h2>
-            📊 النتيجة الأكاديمية
-        </h2>
-
-        <p>
-            نتائج الامتحانات الفصلية والنهائية
-        </p>
-
-    </div>
-
-    <div class="cards">
-        <div class="card" style="grid-column: span 3; text-align: center;">
+        <div class="card">
             <div class="icon">📈</div>
-            <h3>نتائج الطلاب</h3>
-            <p>سيتم إرفاق روابط وروائز النتائج الرسمية فور اعتمادها وإعلانها رسمياً من إدارة الكلية.</p>
+            <h3>النتيجة الأكاديمية</h3>
+            <p>متابعة درجات الامتحانات الفصلية والنهائية فور إعلانها رسمياً.</p>
+            <a class="btn" href="results.html">عرض النتائج</a>
         </div>
-    </div>
 
-</section>
-
-
-
-<!-- الاختبارات -->
-
-<section id="exams-section">
-
-    <div class="section-title">
-
-        <h2>
-            📝 الاختبارات والامتحانات
-        </h2>
-
-        <p>
-            بنك الأسئلة والامتحانات السابقة
-        </p>
-
-    </div>
-
-    <div class="cards">
-        <div class="card" style="grid-column: span 3; text-align: center;">
-            <div class="icon">📝</div>
-            <h3>امتحانات السنوات السابقة</h3>
-            <p>توفير كافة النماذج والاختبارات السابقة لمساعدة الطلاب في الاستعداد الأمثل للامتحانات.</p>
-        </div>
-    </div>
-
-</section>
-
-
-
-<!-- الوسائل التعليمية -->
-
-<section id="tools">
-
-    <div class="section-title">
-
-        <h2>
-            💡 الوسائل التعليمية
-        </h2>
-
-        <p>
-            أدوات ومصادر التعاون الدراسي
-        </p>
-
-    </div>
-
-    <div class="cards">
-        <div class="card" style="grid-column: span 3; text-align: center;">
+        <div class="card">
             <div class="icon">🛠️</div>
-            <h3>مصادر التعلم المساعدة</h3>
-            <p>روابط ومراجع وبرامج تعليمية تسهم في تسهيل فهم المقرر وتحسين التحصيل الأكاديمي.</p>
+            <h3>الوسائل التعليمية</h3>
+            <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
+            <a class="btn" href="study-tools.html">فتح الوسائل</a>
         </div>
     </div>
-
 </section>
 
-
-
-<!-- الإعلانات -->
-
-<section id="announcements">
-
-    <div class="section-title">
-
-        <h2>
-            📢 أحدث إعلانات الدفعة
-        </h2>
-
-        <p>
-            آخر المستجدات والتنبيهات
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="icon">
-                📢
-            </div>
-
-            <h3>
-                إعلانات الدفعة
-            </h3>
-
-            <p>
-                سيتم نشر الإعلانات المهمة
-                الخاصة بالدفعة هنا.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                📚
-            </div>
-
-            <h3>
-                تحديث المواد
-            </h3>
-
-            <p>
-                سيتم إضافة المحاضرات
-                والملخصات والملفات الجديدة.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                🔔
-            </div>
-
-            <h3>
-                تنبيهات مهمة
-            </h3>
-
-            <p>
-                تابع المنصة لمعرفة آخر
-                التحديثات والمواعيد.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- الجدول -->
-
+<!-- جدول المحاضرات -->
 <section id="schedule">
-
     <div class="section-title">
-
-        <h2>
-            📅 جدول المحاضرات
-        </h2>
-
-        <p>
-            من السبت إلى الخميس
-        </p>
-
+        <h2>📅 جدول المحاضرات الأسبوعي</h2>
+        <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
     </div>
-
 
     <div class="table-box">
-
         <table>
-
             <thead>
-
                 <tr>
-
                     <th>اليوم</th>
-
                     <th>المحاضرة الأولى</th>
-
                     <th>المحاضرة الثانية</th>
-
                     <th>المحاضرة الثالثة</th>
-
                 </tr>
-
             </thead>
-
             <tbody>
-
-                <tr>
-                    <td>السبت</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
-                <tr>
-                    <td>الأحد</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
-                <tr>
-                    <td>الاثنين</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
-                <tr>
-                    <td>الثلاثاء</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
-                <tr>
-                    <td>الأربعاء</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
-                <tr>
-                    <td>الخميس</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                </tr>
-
+                <tr><td>السبت</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأحد</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الاثنين</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الثلاثاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأربعاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الخميس</td><td>—</td><td>—</td><td>—</td></tr>
             </tbody>
-
         </table>
-
     </div>
-
 </section>
-
-
 
 <!-- مكتبة الملفات -->
-
 <section id="library">
-
     <div class="library">
-
-        <h2>
-            📁 مكتبة الملفات والمراجع
-        </h2>
-
-        <p>
-            الملفات والمحاضرات والتلخيصات الخاصة بجميع المواد ستتوفر هنا قريباً.
-        </p>
-
-        <a class="library-btn" href="#">
-            تصفح الملفات
-        </a>
-
+        <h2>📁 مكتبة الملفات والمراجع</h2>
+        <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
+        <a class="library-btn" href="subjects.html">تصفح ملفات المواد</a>
     </div>
-
 </section>
 
-
-
-<!-- الروابط -->
-
+<!-- الروابط والتواصل -->
 <section id="community">
+    <div class="section-title">
+        <h2>🔗 روابط التواصل والاتصال</h2>
+        <p>قنوات التواصل الرسمية الخاصة بالدفعة</p>
+    </div>
 
-    <div clas
+    <div class="links-grid">
+        <div class="link-card whatsapp">
+            <div class="big-icon">💬</div>
+            <h3>مجموعة الواتساب</h3>
+            <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
+            <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">📞</div>
+            <h3>أرقام القيادة</h3>
+            <p>مسجل الدفعة: 249111744435<br>ليدر الدفعة: 249116314682</p>
+            <a class="btn" href="https://wa.me/249116314682" target="_blank">تواصل مع الليدر</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">💡</div>
+            <h3>الاقتراحات والملاحظات</h3>
+            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
+            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- الفوتر -->
+<footer>
+    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
+</footer>
+
+</body>
+</html>
