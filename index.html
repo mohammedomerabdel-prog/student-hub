@@ -491,7 +491,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. زر تبديل الوضع الليلي والصباحي الحقيقي
+    // 1. زر تبديل الوضع الليلي والصباحي
     const themeBtn = document.getElementById('themeToggleBtn');
     if (themeBtn) {
         const currentTheme = localStorage.getItem('theme');
@@ -513,4 +513,94 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // 2. إدارة النافذة المنبثقة لزر "من نحن"
-    
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModal = document.getElementById('closeModalBtn');
+
+    if (aboutBtn && aboutModal && closeModal) {
+        aboutBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', function() {
+            aboutModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.style.display = 'none';
+            }
+        });
+    }
+
+    // 3. زر مشاركة المنصة
+    const shareBtn = document.getElementById('shareSiteBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            const shareData = {
+                title: 'منصة الريان الطلابية',
+                text: 'منصة الريان التعليمية لطلاب دفعة 023 - كلية العلوم الإدارية',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('تم نسخ رابط المنصة بنجاح!');
+                }).catch(() => {
+                    alert('الرابط: ' + window.location.href);
+                });
+            }
+        });
+    }
+
+    // 4. العداد التنازلي لبداية الامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = examDate - now;
+
+        if (distance < 0) {
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // زر العودة للأعلى
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+</script>
+
+</body>
+</html>
