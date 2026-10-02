@@ -55,6 +55,25 @@ section{margin-bottom:35px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
 
+/* تنسيق العداد التنازلي الجديد */
+.countdown-box{
+    background:linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;
+    border-radius: 18px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(9,38,63,0.15);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.countdown-box h3{font-size: 20px;color: var(--gold);margin-bottom: 12px;}
+.countdown-timers{display: flex;justify-content: center;gap: 12px;flex-wrap: wrap;}
+.time-card{background: rgba(255, 255, 255, 0.1);border: 1px solid rgba(255, 255, 255, 0.2);padding: 10px 15px;border-radius: 10px;min-width: 70px;}
+.time-card span{display: block;font-size: 22px;font-weight: bold;color: var(--gold);}
+.time-card label{font-size: 12px;color: #dce8f1;}
+
 .hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
 .hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
 .hero p{color:var(--muted);max-width:750px;margin:auto;}
@@ -132,6 +151,19 @@ footer strong{color:var(--gold);}
 </nav>
 
 <main class="container">
+
+<!-- العداد التنازلي الحقيقي للامتحانات (9 يناير 2027) -->
+<section>
+    <div class="countdown-box">
+        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
+        <div class="countdown-timers">
+            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
+            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
+            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
+            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
+        </div>
+    </div>
+</section>
 
 <section id="home">
     <div class="hero">
@@ -241,7 +273,7 @@ footer strong{color:var(--gold);}
 
         <div class="link-card facebook">
             <div class="big-icon">📢</div>
-            ### أخبار الجامعة
+            <h3>أخبار الجامعة</h3>
             <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
@@ -271,7 +303,8 @@ footer strong{color:var(--gold);}
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // زر إخفاء تنبيه قيد الإنشاء (حسناً الدخول للموقع)
+    
+    // 1. زر إخفاء تنبيه قيد الإنشاء (حسناً الدخول للموقع)
     const closeBtn = document.getElementById('closeBannerBtn');
     const banner = document.getElementById('constructionBanner');
     if(closeBtn && banner) {
@@ -279,6 +312,40 @@ document.addEventListener("DOMContentLoaded", function() {
             banner.style.display = 'none';
         });
     }
+
+    // 2. العداد التنازلي الحقيقي للامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if(daysEl && hoursEl && minutesEl && secondsEl) {
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                const boxTitle = document.querySelector(".countdown-box h3");
+                if(boxTitle) boxTitle.innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
+                const timersRow = document.querySelector(".countdown-timers");
+                if(timersRow) timersRow.style.display = "none";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days < 10 ? "0" + days : days;
+            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    }
+
 });
 </script>
 
