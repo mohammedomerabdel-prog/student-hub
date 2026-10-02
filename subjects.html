@@ -8,90 +8,101 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
-:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
+body{font-family:Arial,Tahoma,sans-serif;background:#f0f4f8;color:#2c3e50;line-height:1.8;}
+:root{--primary:#0a2540;--primary2:#1e3d59;--accent:#38bdf8;--gold:#f59e0b;--bg-card:#ffffff;--muted:#64748b;--border:#e2e8f0;}
 
-header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
-.logo{font-size:36px;font-weight:900;}
-.subtitle{color:#dce8f1;margin-top:4px;font-size:15px;}
+header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:30px 20px;text-align:center;box-shadow:0 4px 20px rgba(10,37,64,0.15);}
+.logo{font-size:38px;font-weight:900;letter-spacing:1px;}
+.subtitle{color:#cbd5e1;margin-top:6px;font-size:15px;}
 
-nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
-.nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
-.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
-.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
+nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.05);}
+.nav-container{max-width:1200px;margin:auto;display:flex;gap:10px;padding:12px;overflow-x:auto;}
+.nav-container a{text-decoration:none;color:var(--primary);padding:8px 18px;border-radius:12px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.25s;}
+.nav-container a:hover, .nav-container a.active{background:#f1f5f9;color:#0284c7;}
 
-.container{max-width:1200px;margin:auto;padding:25px 15px;}
-.section-title{text-align:center;margin-bottom:25px;}
-.section-title h2{color:var(--primary);font-size:26px;}
-.section-title p{color:var(--muted);font-size:14px;margin-top:5px;}
+.container{max-width:1200px;margin:auto;padding:30px 15px;}
 
-/* شريط البحث عن المواد */
+/* الهيدر الترحيبي المحفز داخل الصفحة */
+.welcome-banner{
+    background:linear-gradient(135deg, #1e3d59, #0a2540);
+    color:#fff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(10,37,64,0.1);
+}
+.welcome-banner h2{color:var(--gold);font-size:26px;margin-bottom:8px;}
+.welcome-banner p{color:#e2e8f0;font-size:14.5px;max-width:700px;margin:0 auto;}
+
+/* شريط البحث الهادئ */
 .search-box {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+    max-width: 550px;
+    margin: 0 auto 35px auto;
 }
 .search-input {
     width: 100%;
-    padding: 14px 20px;
-    border-radius: 30px;
+    padding: 14px 22px;
+    border-radius: 35px;
     border: 2px solid var(--border);
     font-size: 15px;
     outline: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     background: #fff;
     transition: 0.3s;
 }
 .search-input:focus {
-    border-color: var(--primary2);
+    border-color: #0284c7;
+    box-shadow: 0 4px 20px rgba(2,132,199,0.15);
 }
 
-/* شبكة المواد المحدثة لتكون روابط قابلة للنقر مباشرة */
+/* شبكة المواد بتصميم بطاقات راقية ومنسقة */
 .subjects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 22px;
 }
 
 .subject-card {
-    background: #fff;
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 22px;
+    border-radius: 20px;
+    padding: 24px;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.04);
-    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    overflow: hidden;
 }
 
 .subject-card:hover {
     transform: translateY(-5px);
-    border-color: var(--primary2);
-    box-shadow: 0 8px 25px rgba(21,83,119,0.12);
+    border-color: #0284c7;
+    box-shadow: 0 12px 30px rgba(2,132,199,0.12);
 }
 
 .subject-header {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 15px;
 }
 
 .subject-icon {
-    font-size: 32px;
-    background: #f1f5f9;
-    padding: 10px;
-    border-radius: 12px;
+    font-size: 34px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
 }
 
 .subject-info h3 {
     color: var(--primary);
-    font-size: 18px;
-    margin-bottom: 3px;
+    font-size: 19px;
+    margin-bottom: 4px;
 }
 
 .subject-info p {
@@ -99,34 +110,45 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba
     font-size: 13.5px;
 }
 
+/* التنسيق الجديد المرتب للأزرار داخل البطاقة */
 .subject-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
-    padding-top: 12px;
-    border-top: 1px solid #f1f5f9;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border);
 }
 
 .tag {
-    background: #fff3cd;
-    color: #856404;
-    padding: 4px 12px;
-    border-radius: 20px;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 5px 14px;
+    border-radius: 30px;
     font-size: 12px;
     font-weight: bold;
 }
 
-.telegram-link-text {
-    color: #0088cc;
+/* زر التليجرام المنظم والهادئ */
+.telegram-btn-stylish {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 8px 16px;
+    border-radius: 12px;
     font-weight: bold;
     font-size: 13px;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    transition: 0.2s;
 }
 
-/* زر ومربع مساعد الذكاء الاصطناعي (Gemini) */
+.subject-card:hover .telegram-btn-stylish {
+    background: #0284c7;
+    color: #fff;
+}
+
+/* نافذة مساعد الذكاء الاصطناعي (Gemini) */
 .gemini-btn {
     position: fixed;
     bottom: 25px;
@@ -196,8 +218,8 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba
 .gemini-footer input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 10px; outline: none; }
 .gemini-footer button { background: #4F46E5; color: white; border: none; padding: 0 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
 
-footer{background:var(--primary);color:white;text-align:center;padding:25px 15px;margin-top:40px;}
-footer p{color:#d2dee7;font-size:14px;}
+footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:50px;}
+footer p{color:#cbd5e1;font-size:14px;}
 footer strong{color:var(--gold);}
 
 @media(max-width:768px){
@@ -227,17 +249,18 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
-    <div class="section-title">
-        <h2>📚 المواد الدراسية وقنوات التليجرام</h2>
-        <p>انقر على أي مادة للانتقال المباشر إلى قناتها على التليجرام للمحاضرات والشيتات</p>
+    <!-- قسم ترحيبي محفز -->
+    <div class="welcome-banner">
+        <h2>✨ طريقك نحو التميز الأكاديمي يبدأ من هنا</h2>
+        <p>اختر أي مادة دراسية للوصول المباشر إلى المحاضرات، الشيتات، والمصادر عبر قنوات التليجرام المخصصة.</p>
     </div>
 
-    <!-- شريط البحث داخل المواد -->
+    <!-- شريط البحث السريع -->
     <div class="search-box">
         <input type="text" id="subjectSearch" class="search-input" placeholder="🔍 ابحث عن اسم المادة..." onkeyup="filterSubjects()">
     </div>
 
-    <!-- شبكة المواد (تم تحويلها لروابط تليجرام حقيقية) -->
+    <!-- شبكة المواد بالتنسيق الهادئ والراقي والأزرار المرتبة -->
     <div class="subjects-grid" id="subjectsGrid">
 
         <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="مبادئ المحاسبة">
@@ -250,7 +273,7 @@ footer strong{color:var(--gold);}
             </div>
             <div class="subject-footer">
                 <span class="tag">شرح مبسط</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -263,8 +286,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#d4edda; color:#155724;">محاضرات + شيتات</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#d1fae5; color:#065f46;">محاضرات + شيتات</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -277,8 +300,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#cce5ff; color:#004085;">ملخصات شاملة</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#e0f2fe; color:#0369a1;">ملخصات شاملة</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -291,8 +314,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#e2e3e5; color:#383d41;">محدث اليوم</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#f1f5f9; color:#475569;">محدث اليوم</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -306,7 +329,7 @@ footer strong{color:var(--gold);}
             </div>
             <div class="subject-footer">
                 <span class="tag">شرح ملخص</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -319,8 +342,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#d4edda; color:#155724;">شيتات محلولة</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#d1fae5; color:#065f46;">شيتات محلولة</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -333,8 +356,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#cce5ff; color:#004085;">عملي + نظري</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#e0f2fe; color:#0369a1;">عملي + نظري</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -347,8 +370,8 @@ footer strong{color:var(--gold);}
                 </div>
             </div>
             <div class="subject-footer">
-                <span class="tag" style="background:#f8d7da; color:#721c24;">مكثف</span>
-                <span class="telegram-link-text">💬 افتح قناة التليجرام</span>
+                <span class="tag" style="background:#fee2e2; color:#991b1b;">مكثف</span>
+                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
             </div>
         </a>
 
@@ -364,7 +387,7 @@ footer strong{color:var(--gold);}
         <span style="cursor:pointer;" onclick="toggleGeminiChat()">✖</span>
     </div>
     <div class="gemini-body" id="geminiBody">
-        <div class="gemini-msg bot">مرحباً! أنا جاهز للإجابة على استفساراتك حول المواد الدراسية.</div>
+        <div class="gemini-msg bot">مرحباً بك! أنا جاهز لمساعدتك في أي استفسار دراسي.</div>
     </div>
     <div class="gemini-footer">
         <input type="text" id="geminiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendGeminiMessage()">
@@ -374,6 +397,7 @@ footer strong{color:var(--gold);}
 
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
 <script>
@@ -397,10 +421,9 @@ function sendGeminiMessage() {
     let body = document.getElementById('geminiBody');
     if(input.value.trim() === "") return;
     body.innerHTML += `<div class="gemini-msg user">${input.value}</div>`;
-    let q = input.value;
     input.value = "";
     setTimeout(() => {
-        body.innerHTML += `<div class="gemini-msg bot">أهلاً بك! انقر مباشرة على أي مادة في الصفحة لتتوجه لقناتها على التليجرام.</div>`;
+        body.innerHTML += `<div class="gemini-msg bot">أهلاً بك! انقر على زر "فتح التليجرام" في أي بطاقة مادة للانتقال المباشر لقناتها الرسمية. بالتوفيق! 🚀</div>`;
         body.scrollTop = body.scrollHeight;
     }, 500);
 }
