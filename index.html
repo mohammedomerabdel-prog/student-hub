@@ -27,7 +27,7 @@ header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:w
 .subtitle{color:#dce8f1;margin-top:4px;}
 .badge{display:inline-block;margin-top:10px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
 
-/* شريط التنبيه قيد الإنشاء مع زر الإخفاء */
+/* شريط التنبيه قيد الإنشاء مع زر الإخفاء الفعال */
 .construction-banner{
     background:linear-gradient(135deg, #d9a62e, #b8860b);
     color:#172b3a;
@@ -70,97 +70,9 @@ section{margin-bottom:35px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
 
-/* شريط البحث الذكي الشامل */
-.global-search-container {
-    max-width: 650px;
-    margin: 20px auto 35px auto;
-    position: relative;
-}
-.global-search-input {
-    width: 100%;
-    padding: 15px 20px;
-    border-radius: 30px;
-    border: 2px solid var(--border);
-    font-size: 15px;
-    outline: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    background: #fff;
-}
-.global-search-input:focus {
-    border-color: var(--primary2);
-    box-shadow: 0 6px 20px rgba(21, 83, 119, 0.15);
-}
-.search-results-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    margin-top: 8px;
-    max-height: 280px;
-    overflow-y: auto;
-    display: none;
-    z-index: 1000;
-    border: 1px solid var(--border);
-}
-.search-result-item {
-    padding: 12px 18px;
-    border-bottom: 1px solid #f1f5f9;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-    text-align: right;
-}
-.search-result-item:hover {
-    background: #f8fafc;
-    color: var(--primary2);
-    font-weight: bold;
-}
-
 .hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
 .hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
 .hero p{color:var(--muted);max-width:750px;margin:auto;}
-
-/* صندوق العداد التنازلي */
-.countdown-box{
-    background:linear-gradient(135deg, var(--primary), var(--primary2));
-    color: white;
-    border-radius: 18px;
-    padding: 25px;
-    text-align: center;
-    margin-bottom: 35px;
-    box-shadow: 0 8px 25px rgba(9,38,63,0.15);
-}
-.countdown-box h3{
-    font-size: 22px;
-    color: var(--gold);
-    margin-bottom: 15px;
-}
-.countdown-timers{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-.time-card{
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 12px 18px;
-    border-radius: 12px;
-    min-width: 80px;
-}
-.time-card span{
-    display: block;
-    font-size: 26px;
-    font-weight: bold;
-    color: var(--gold);
-}
-.time-card label{
-    font-size: 13px;
-    color: #dce8f1;
-}
 
 .quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px;}
 .quick-action{display:block;text-decoration:none;background:var(--primary);color:white;padding:18px 10px;border-radius:15px;font-weight:bold;transition:.2s;}
@@ -327,7 +239,7 @@ footer strong{color:var(--gold);}
     <div class="badge">دفعة 023</div>
 </header>
 
-<!-- تنبيه قيد الإنشاء مع زر الإخفاء -->
+<!-- تنبيه قيد الإنشاء مع زر الإخفاء الفعال -->
 <div id="constructionBanner" class="construction-banner">
     <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
     <button class="banner-btn" onclick="closeBanner()">حسناً، الدخول للموقع</button>
@@ -349,27 +261,8 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
-<!-- شريط البحث الذكي الشامل -->
-<div class="global-search-container">
-    <input type="text" id="globalSearchInput" class="global-search-input" placeholder="🔍 ابحث بأي حرف أو كلمة عن المواد، الأقسام، الروابط، أو الخدمات..." onkeyup="performGlobalSearch()">
-    <div id="searchResultsDropdown" class="search-results-dropdown"></div>
-</div>
-
-<!-- العداد التنازلي للامتحانات -->
-<section style="margin-top: 15px;">
-    <div class="countdown-box">
-        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
-        <div class="countdown-timers">
-            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
-            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
-            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
-            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
-        </div>
-    </div>
-</section>
-
 <!-- الرئيسية -->
-<section id="home">
+<section id="home" style="margin-top: 25px;">
     <div class="hero">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
         <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
@@ -504,7 +397,7 @@ footer strong{color:var(--gold);}
 
         <div class="link-card">
             <div class="big-icon">💡</div>
-            ### الاقتراحات والملاحظات
+            <h3>الاقتراحات والملاحظات</h3>
             <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
             <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
         </div>
@@ -554,39 +447,47 @@ fetch('https://api.countapi.xyz/hit/alrayyan-college-023/visits')
         document.getElementById('visitorCount').innerText = "1,482";
     });
 
-// إخفاء إشعار قيد الإنشاء
+// إخفاء إشعار قيد الإنشاء (زر حسناً الدخول للموقع)
 function closeBanner() {
     var banner = document.getElementById('constructionBanner');
-    banner.style.display = 'none';
+    if (banner) {
+        banner.style.display = 'none';
+    }
 }
 
-// 2. العداد التنازلي للامتحانات (9 يناير 2027)
-const examDate = new Date("January 9, 2027 00:00:00").getTime();
-const timerInterval = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = examDate - now;
+// 2. نظام شات مساعد جيمناي الذكي (Gemini AI)
+function toggleGeminiChat() {
+    const win = document.getElementById('geminiWindow');
+    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+}
 
-    if (distance < 0) {
-        clearInterval(timerInterval);
-        document.querySelector(".countdown-box h3").innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
-        document.querySelector(".countdown-timers").style.display = "none";
-        return;
-    }
+function sendGeminiMessage() {
+    const input = document.getElementById('geminiInput');
+    const body = document.getElementById('geminiBody');
+    const text = input.value.trim();
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (!text) return;
 
-    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-}, 1000);
+    body.innerHTML += `<div class="gemini-msg user">${text}</div>`;
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
 
-// 3. البحث الذكي الشامل (Live Global Search)
-const searchDatabase = [
-    { title: "المواد الدراسية (محاضرات وشيتات)", url: "subjects.html" },
-    { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
-    { title: "النتيجة الأكاديمية", url: "results.html" },
-   
+    setTimeout(() => {
+        let reply = "أهلاً بك يا زميلي! يمكنك متابعة تفاصيل المواد، الجداول، ومواعيد الامتحانات عبر أقسام المنصة الرئيسية.";
+        
+        if (text.includes('امتحان') || text.includes('موعد') || text.includes('متى')) {
+            reply = "📅 امتحانات دفعة 023 ستبدأ بإذن الله يوم 9 يناير 2027.";
+        } else if (text.includes('ليدر') || text.includes('مسجل')) {
+            reply = "📞 أرقام التواصل: مسجل الدفعة (249111744435) | ليدر الدفعة (249116314682).";
+        } else if (text.includes('أخبار') || text.includes('جامعة')) {
+            reply = "📢 يمكنك متابعة أخبار الجامعة الرسمية عبر رابط 'أخبار الجامعة' الموجود في قسم روابط التواصل أسفل المنصة.";
+        }
+
+        body.innerHTML += `<div class="gemini-msg bot">${reply}</div>`;
+        body.scrollTop = body.scrollHeight;
+    }, 600);
+}
+</script>
+
+</body>
+</html>
