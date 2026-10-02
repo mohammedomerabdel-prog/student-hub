@@ -55,7 +55,7 @@ section{margin-bottom:35px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
 
-/* تنسيق العداد التنازلي الجديد */
+/* تنسيق العداد التنازلي */
 .countdown-box{
     background:linear-gradient(135deg, var(--primary), var(--primary2));
     color: white;
@@ -152,7 +152,7 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
-<!-- العداد التنازلي الحقيقي للامتحانات (9 يناير 2027) -->
+<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
@@ -199,10 +199,10 @@ footer strong{color:var(--gold);}
         </div>
 
         <div class="card">
-            <div class="icon">📈</div>
-            <h3>النتيجة الأكاديمية</h3>
-            <p>متابعة درجات الامتحانات الفصلية والنهائية فور إعلانها رسمياً.</p>
-            <a class="btn" href="results.html">عرض النتائج</a>
+            <div class="icon">🧠</div>
+            <h3>اختبارات معرفة القدرات</h3>
+            <p>اختبر معلوماتك وقدراتك الذهنية عبر تمرينات واختبارات تفاعلية مشوقة.</p>
+            <a class="btn" href="fun.html">ابدأ الاختبار</a>
         </div>
 
         <div class="card">
@@ -304,7 +304,7 @@ footer strong{color:var(--gold);}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. زر إخفاء تنبيه قيد الإنشاء (حسناً الدخول للموقع)
+    // 1. زر إخفاء تنبيه قيد الإنشاء
     const closeBtn = document.getElementById('closeBannerBtn');
     const banner = document.getElementById('constructionBanner');
     if(closeBtn && banner) {
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. العداد التنازلي الحقيقي للامتحانات (9 يناير 2027)
+    // 2. العداد التنازلي للامتحانات (9 يناير 2027)
     const examDate = new Date("January 9, 2027 00:00:00").getTime();
     const daysEl = document.getElementById("days");
     const hoursEl = document.getElementById("hours");
