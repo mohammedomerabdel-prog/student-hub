@@ -196,7 +196,6 @@ section{margin-bottom:45px;}
 }
 .btn:hover{background:var(--primary);transform:translateY(-1px);}
 
-/* زر مميز للاتصال بليدر أو المسجل */
 .btn-highlight{
     background: linear-gradient(135deg, #10b981, #059669) !important;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
@@ -219,7 +218,6 @@ th{background:var(--primary);color:#fff;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* أزرار الفوتر */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
@@ -231,7 +229,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 .share-btn:hover{background:#2563eb;}
 
-/* زر العودة لأعلى الصفحة (Back to Top) */
 #backToTop {
     position: fixed;
     bottom: 25px;
@@ -253,7 +250,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 #backToTop:hover { background: var(--primary); transform: translateY(-3px); }
 
-/* النافذة المنبثقة (Modal) لـ "من نحن" */
 .modal{
     display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.7);backdrop-filter:blur(5px);
     justify-content:center;align-items:center;padding:20px;
@@ -285,7 +281,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
-    <!-- زر تبديل الوضع الليلي والصباحي الحقيقي -->
     <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
     
     <div class="logo">الريان</div>
@@ -293,7 +288,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="badge">دفعة 023</div>
 </header>
 
-<!-- شريط الإعلانات العاجلة المتحرك -->
 <div class="ticker-container">
     <span class="ticker-title">عاجل 📢</span>
     <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
@@ -314,7 +308,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
-<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
@@ -440,7 +433,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
-        <!-- بطاقة أرقام القيادة -->
         <div class="link-card" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
@@ -463,19 +455,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <footer>
     <div class="footer-buttons">
-        <!-- زر "من نحن" الفعّال -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <!-- زر مشاركة المنصة الفعّال -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
-<!-- زر العودة للأعلى -->
 <button id="backToTop" title="العودة للأعلى">⬆</button>
 
-<!-- نافذة منبثقة (Modal) لـ "من نحن" -->
 <div class="modal" id="aboutModal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
@@ -491,7 +479,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. زر تبديل الوضع الليلي والصباحي الحقيقي
+    // 1. زر تبديل الوضع الليلي والصباحي
     const themeBtn = document.getElementById('themeToggleBtn');
     if (themeBtn) {
         const currentTheme = localStorage.getItem('theme');
@@ -512,5 +500,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. إدارة النافذة المنبثقة لزر "من نحن"
-    
+    // 2. العداد التنازلي للامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = examDate - now;
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (daysEl && hoursEl && minutesEl && 
