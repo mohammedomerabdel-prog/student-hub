@@ -25,7 +25,7 @@ body{
     --shadow:0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
 }
 
-/* تنسيقات الوضع الليلي الحقيقي */
+/* تنسيقات الوضع الليلي */
 body.dark-mode {
     background: #0b0f19;
     color: #f1f5f9;
@@ -76,7 +76,7 @@ header{
     font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
 
-/* زر الوضع الليلي في الهيدر */
+/* زر الوضع الليلي */
 .theme-toggle-btn {
     position: absolute;
     top: 20px;
@@ -95,7 +95,7 @@ header{
 }
 .theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-/* شريط الإعلانات العاجلة */
+/* شريط الإعلانات */
 .ticker-container {
     background: #1e293b;
     color: #f8fafc;
@@ -147,7 +147,7 @@ section{margin-bottom:45px;}
 .section-title h2{color:var(--primary);font-size:28px;font-weight:800;margin-bottom:5px;}
 .section-title p{color:var(--muted);font-size:15px;}
 
-/* صندوق العداد التنازلي */
+/* العداد التنازلي */
 .countdown-box{
     background:linear-gradient(135deg, var(--primary), var(--primary2));
     color: white;border-radius: 24px;padding: 30px;text-align: center;margin-bottom: 25px;
@@ -162,7 +162,7 @@ section{margin-bottom:45px;}
 .time-card span{display: block;font-size: 26px;font-weight: 800;color: var(--gold);}
 .time-card label{font-size: 13px;color: #cbd5e1;}
 
-/* صندوق عمر المنصة */
+/* عمر المنصة */
 .platform-age-box {
     background: var(--white);
     border: 1px solid var(--border);
@@ -247,7 +247,6 @@ body.dark-mode .age-card {
 }
 .btn:hover{background:var(--primary);transform:translateY(-1px);}
 
-/* زر مميز للاتصال بليدر أو المسجل */
 .btn-highlight{
     background: linear-gradient(135deg, #10b981, #059669) !important;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
@@ -270,7 +269,6 @@ th{background:var(--primary);color:#fff;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* أزرار الفوتر */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
@@ -282,7 +280,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 .share-btn:hover{background:#2563eb;}
 
-/* زر العودة لأعلى الصفحة (Back to Top) */
 #backToTop {
     position: fixed;
     bottom: 25px;
@@ -304,7 +301,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 #backToTop:hover { background: var(--primary); transform: translateY(-3px); }
 
-/* النافذة المنبثقة (Modal) لـ "من نحن" */
 .modal{
     display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.7);backdrop-filter:blur(5px);
     justify-content:center;align-items:center;padding:20px;
@@ -363,7 +359,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <main class="container">
 
 <section>
-    <!-- العداد التنازلي لبداية الامتحانات -->
+    <!-- العداد التنازلي للشيء المرتقب (الامتحانات) -->
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
@@ -374,7 +370,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
         </div>
     </div>
 
-    <!-- عداد عمر المنصة المستقل منذ 1 أكتوبر 2026 -->
+    <!-- عداد عمر المنصة منذ الانطلاق 1 أكتوبر 2026 -->
     <div class="platform-age-box">
         <h4>🌐 عمر المنصة منذ الانطلاق</h4>
         <p>موعد الإطلاق الرسمي: 1 أكتوبر 2026</p>
@@ -414,7 +410,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
     <div class="cards">
         <div class="card">
-            <div class="icon">🏛️️</div>
+            <div class="icon">🏛️</div>
             <h3>عن الكلية</h3>
             <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
             <a class="btn" href="about.html">استعراض النبذة</a>
@@ -533,4 +529,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <button id="backToTop" title="العودة للأعلى">⬆</button>
 
 <div class="modal" id="aboutModal">
-    <div class="mod
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h3>من نحن 🎓</h3>
+        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى ت
