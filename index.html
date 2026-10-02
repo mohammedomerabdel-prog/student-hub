@@ -120,22 +120,16 @@ section{margin-bottom:45px;}
 .card p{color:var(--muted);font-size:14px;margin-bottom:20px;flex-grow:1;}
 
 .btn{
-    display:inline-block;background:var(--primary2);color:#fff;text-decoration:none;padding:11px 22px;border-radius:12px;font-size:14px;font-weight:bold;transition:0.2s;
+    display:inline-block;background:var(--primary2);color:#fff;text-decoration:none;padding:10px 18px;border-radius:12px;font-size:14px;font-weight:bold;transition:0.2s;margin-top:8px;
 }
 .btn:hover{background:var(--primary);transform:translateY(-1px);}
 
-/* زر مميز للاتصال السريع */
+/* زر مميز للاتصال بليدر أو المسجل */
 .btn-highlight{
     background: linear-gradient(135deg, #10b981, #059669) !important;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-    animation: pulseGlow 2s infinite;
 }
 .btn-highlight:hover{background: linear-gradient(135deg, #059669, #047857) !important;}
-@keyframes pulseGlow {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
 
 .table-box{overflow-x:auto;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);}
 table{width:100%;min-width:700px;border-collapse:collapse;}
@@ -151,7 +145,7 @@ th{background:var(--primary);color:#fff;}
 .link-card{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);}
 .link-card .big-icon{font-size:45px;margin-bottom:12px;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
-.link-card p{color:var(--muted);font-size:14px;margin:8px 0 20px;}
+.link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
 /* تصميم قسم من نحن في الفوتر */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);}
@@ -343,12 +337,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
+        <!-- بطاقة أرقام القيادة بزرين منفصلين ومبرزين -->
         <div class="link-card" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
-            <p>مسجل الدفعة: 249111744435<br>ليدر الدفعة: 249116314682</p>
-            <!-- تم إبراز وتفعيل زر الاتصال لليدر -->
-            <a class="btn btn-highlight" href="https://wa.me/249116314682" target="_blank">📞 اتصل بليدر الدفعة</a>
+            <p><strong>ليدر الدفعة:</strong><br>249116314682</p>
+            <a class="btn btn-highlight" href="https://wa.me/249116314682" target="_blank">💬 مراسلة ليدر الدفعة</a>
+            
+            <p style="margin-top: 15px;"><strong>مسجل الدفعة:</strong><br>249111744435</p>
+            <a class="btn btn-highlight" href="https://wa.me/249111744435" target="_blank">💬 مراسلة مسجل الدفعة</a>
         </div>
 
         <div class="link-card">
