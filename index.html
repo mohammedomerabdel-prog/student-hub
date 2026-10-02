@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الريان | المنصة الطلابية - دفعة 023</title>
+<title>الريان | جامعة بحري - المنصة الطلابية</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -49,9 +49,6 @@ body.dark-mode .nav-container a:hover, body.dark-mode .nav-container a.active {
 body.dark-mode .stat strong {
     color: #38bdf8;
 }
-body.dark-mode .card .icon {
-    background: #1e293b;
-}
 body.dark-mode table th {
     background: #1e293b;
 }
@@ -68,7 +65,8 @@ header{
     overflow:hidden;
 }
 .logo{font-size:46px;font-weight:900;letter-spacing:1px;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
-.subtitle{color:#93c5fd;margin-top:6px;font-size:16px;font-weight:500;}
+.university-title{color:#fde047;font-size:20px;font-weight:700;margin-top:2px;}
+.subtitle{color:#93c5fd;margin-top:4px;font-size:16px;font-weight:500;}
 .badge{
     display:inline-block;margin-top:14px;
     background:linear-gradient(135deg, var(--gold), #d97706);
@@ -187,7 +185,19 @@ section{margin-bottom:45px;}
     display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;
 }
 .card:hover{transform:translateY(-5px);}
-.card .icon{font-size:42px;margin-bottom:15px;background:#eff6ff;width:80px;height:80px;line-height:80px;border-radius:50%;margin-left:auto;margin-right:auto;}
+
+/* ألوان زاهية وأنيقة مع أشكال دائرية متدرجة للأيقونات */
+.card .icon{
+    font-size:40px;margin-bottom:15px;
+    width:80px;height:80px;line-height:80px;
+    border-radius:50%;margin-left:auto;margin-right:auto;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.card .icon.icon-amber { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.card .icon.icon-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.card .icon.icon-teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+
 .card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .card p{color:var(--muted);font-size:14px;margin-bottom:20px;flex-grow:1;}
 
@@ -196,7 +206,6 @@ section{margin-bottom:45px;}
 }
 .btn:hover{background:var(--primary);transform:translateY(-1px);}
 
-/* زر مميز للاتصال بليدر أو المسجل */
 .btn-highlight{
     background: linear-gradient(135deg, #10b981, #059669) !important;
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
@@ -219,7 +228,6 @@ th{background:var(--primary);color:#fff;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* أزرار الفوتر */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
@@ -231,7 +239,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 .share-btn:hover{background:#2563eb;}
 
-/* زر العودة لأعلى الصفحة (Back to Top) */
 #backToTop {
     position: fixed;
     bottom: 25px;
@@ -253,9 +260,9 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 #backToTop:hover { background: var(--primary); transform: translateY(-3px); }
 
-/* النافذة المنبثقة (Modal) لـ "من نحن" */
+/* النافذة المنبثقة (Modal) */
 .modal{
-    display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.7);backdrop-filter:blur(5px);
+    display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.75);backdrop-filter:blur(6px);
     justify-content:center;align-items:center;padding:20px;
 }
 .modal-content{
@@ -273,6 +280,26 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 .creators-box{background:#f8fafc;border:1px solid var(--border);padding:15px;border-radius:14px;margin-top:15px;text-align:right;}
 .creators-box p{margin:6px 0;color:var(--primary);font-weight:600;}
 
+/* زر الموافقة في نافذة التنبيه */
+.btn-alert-confirm {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    margin-top: 15px;
+    width: 100%;
+    transition: 0.2s;
+}
+.btn-alert-confirm:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
 @media(max-width:850px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:repeat(2,1fr);}
 }
@@ -284,19 +311,28 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <body>
 
+<!-- نافذة التنبيه المنبثقة: الموقع تحت الإنشاء -->
+<div class="modal" id="noticeModal" style="display: flex;">
+    <div class="modal-content">
+        <div style="font-size: 45px; margin-bottom: 10px;">⚠️</div>
+        <h3>تنويه هام</h3>
+        <p>مرحباً بكم! نود إحاطتكم بأنه جارٍ العمل على تطوير وتحديث منصة الريان باستمرار لخدمتكم بشكل أفضل.</p>
+        <button class="btn-alert-confirm" id="confirmNoticeBtn" type="button">حسناً، الدخول للموقع 👍</button>
+    </div>
+</div>
+
 <header>
-    <!-- زر تبديل الوضع الليلي والصباحي الحقيقي -->
     <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
     
     <div class="logo">الريان</div>
+    <div class="university-title">جامعة بحري</div>
     <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
-    <div class="badge">دفعة 023</div>
+    <div class="badge">دفعة 023 / 024</div>
 </header>
 
-<!-- شريط الإعلانات العاجلة المتحرك -->
 <div class="ticker-container">
     <span class="ticker-title">عاجل 📢</span>
-    <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
+    <div class="ticker-text">مرحباً بكم في منصة الريان - جامعة بحري لدفعة 023 / 024 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول!</div>
 </div>
 
 <nav>
@@ -314,7 +350,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
-<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
@@ -330,7 +365,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <section id="home">
     <div class="hero">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
-        <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
+        <p>منصة طلابية متكاملة بـ <strong>جامعة بحري</strong> تجمع المواد الدراسية، الملفات، الملخصات، والنتائج الخاصة بدفعة 023 / 024 في مكان واحد.</p>
         
         <div class="quick-actions">
             <a class="quick-action" href="subjects.html"><span>📚</span> المواد الدراسية</a>
@@ -342,7 +377,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="stats">
         <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
         <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
-        <div class="stat"><strong>023</strong><span>رقم الدفعة</span></div>
+        <div class="stat"><strong>023 / 024</strong><span>الدفعة الدراسية</span></div>
     </div>
 </section>
 
@@ -354,21 +389,21 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
     <div class="cards">
         <div class="card">
-            <div class="icon">🏛️</div>
+            <div class="icon icon-amber">🏛️</div>
             <h3>عن الكلية</h3>
             <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
             <a class="btn" href="about.html">استعراض النبذة</a>
         </div>
 
         <div class="card">
-            <div class="icon">🧠</div>
+            <div class="icon icon-purple">🧠</div>
             <h3>اختبارات معرفة القدرات</h3>
             <p>اختبر معلوماتك وقدراتك الذهنية عبر تمرينات واختبارات تفاعلية مشوقة.</p>
             <a class="btn" href="fun.html">ابدأ الاختبار</a>
         </div>
 
         <div class="card">
-            <div class="icon">🛠️</div>
+            <div class="icon icon-teal">🛠️</div>
             <h3>الوسائل التعليمية</h3>
             <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
             <a class="btn" href="study-tools.html">فتح الوسائل</a>
@@ -440,7 +475,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
-        <!-- بطاقة أرقام القيادة -->
         <div class="link-card" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
@@ -463,24 +497,20 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <footer>
     <div class="footer-buttons">
-        <!-- زر "من نحن" الفعّال -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <!-- زر مشاركة المنصة الفعّال -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
-    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - جامعة بحري - كلية العلوم الإدارية (دفعة 023 / 024)</strong></p>
     <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
-<!-- زر العودة للأعلى -->
 <button id="backToTop" title="العودة للأعلى">⬆</button>
 
-<!-- نافذة منبثقة (Modal) لـ "من نحن" -->
 <div class="modal" id="aboutModal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
         <h3>من نحن 🎓</h3>
-        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 بكلية العلوم الإدارية.</p>
+        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 / 024 بكلية العلوم الإدارية بجامعة بحري.</p>
         <div class="creators-box">
             <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
             <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
@@ -491,7 +521,17 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. زر تبديل الوضع الليلي والصباحي
+    // إغلاق نافذة التنبيه عند الضغط على زر الدخول
+    const noticeModal = document.getElementById('noticeModal');
+    const confirmNoticeBtn = document.getElementById('confirmNoticeBtn');
+
+    if (confirmNoticeBtn && noticeModal) {
+        confirmNoticeBtn.addEventListener('click', function() {
+            noticeModal.style.display = 'none';
+        });
+    }
+
+    // الوضع الليلي والصباحي
     const themeBtn = document.getElementById('themeToggleBtn');
     if (themeBtn) {
         const currentTheme = localStorage.getItem('theme');
@@ -512,7 +552,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. إدارة النافذة المنبثقة لزر "من نحن"
+    // إدارة نافذة "من نحن"
     const aboutBtn = document.getElementById('aboutUsBtn');
     const aboutModal = document.getElementById('aboutModal');
     const closeModal = document.getElementById('closeModalBtn');
@@ -533,13 +573,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 3. زر مشاركة المنصة
+    // زر مشاركة المنصة
     const shareBtn = document.getElementById('shareSiteBtn');
     if (shareBtn) {
         shareBtn.addEventListener('click', function() {
             const shareData = {
-                title: 'منصة الريان الطلابية',
-                text: 'منصة الريان التعليمية لطلاب دفعة 023 - كلية العلوم الإدارية',
+                title: 'منصة الريان الطلابية - جامعة بحري',
+                text: 'منصة الريان التعليمية لطلاب دفعة 023 / 024 - كلية العلوم الإدارية بجامعة بحري',
                 url: window.location.href
             };
 
@@ -555,7 +595,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. العداد التنازلي لبداية الامتحانات (9 يناير 2027)
+    // العداد التنازلي لبداية الامتحانات
     const examDate = new Date("January 9, 2027 00:00:00").getTime();
 
     function updateCountdown() {
