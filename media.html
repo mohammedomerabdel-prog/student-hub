@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>السبق الإعلامي | منصة الريان</title>
+
+<meta name="description" content="السبق الإعلامي - آخر أخبار وإعلانات دفعة 023 / 024 بجامعة بحري">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:#f0f4f8;
+    color:#1e293b;
+    line-height:1.8;
+}
+
+/* =========================
+   الألوان
+========================= */
+
+:root{
+    --primary:#0f172a;
+    --primary2:#1e3a8a;
+    --accent:#3b82f6;
+    --gold:#f59e0b;
+    --white:#ffffff;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --danger:#ef4444;
+    --success:#10b981;
+    --shadow:
+        0 10px 25px -5px rgba(15,23,42,.08),
+        0 8px 10px -6px rgba(15,23,42,.08);
+}
+
+/* =========================
+   الوضع الليلي
+========================= */
+
+body.dark-mode{
+    background:#0b0f19;
+    color:#f1f5f9;
+
+    --primary:#f8fafc;
+    --primary2:#38bdf8;
+    --white:#111827;
+    --muted:#94a3b8;
+    --border:#1f2937;
+    --shadow:
+        0 10px 25px -5px rgba(0,0,0,.5),
+        0 8px 10px -6px rgba(0,0,0,.5);
+}
+
+/* =========================
+   الهيدر
+========================= */
+
+header{
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #1e3a8a 60%,
+            #2563eb 100%
+        );
+
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    top:-100px;
+    right:-70px;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:rgba(245,158,11,.08);
+    bottom:-100px;
+    left:-50px;
+}
+
+.logo{
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-shadow:0 3px 12px rgba(0,0,0,.3);
+    position:relative;
+    z-index:2;
+}
+
+.university-title{
+    color:#fde047;
+    font-size:20px;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+.subtitle{
+    color:#bfdbfe;
+    font-size:15px;
+    margin-top:3px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:14px;
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#fff;
+    padding:6px 22px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:14px;
+    box-shadow:0 5px 15px rgba(245,158,11,.3);
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   زر الوضع الليلي
+========================= */
+
+.theme-toggle-btn{
+    position:absolute;
+    top:18px;
+    left:18px;
+
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.3);
+
+    color:#fff;
+    padding:9px 14px;
+    border-radius:12px;
+
+    cursor:pointer;
+    font-size:13px;
+    font-weight:bold;
+
+    backdrop-filter:blur(5px);
+    transition:.3s;
+
+    z-index:10;
+}
+
+.theme-toggle-btn:hover{
+    background:rgba(255,255,255,.25);
+    transform:translateY(-2px);
+}
+
+/* =========================
+   شريط الأخبار العاجلة
+========================= */
+
+.ticker-container{
+    background:#1e293b;
+    color:#f8fafc;
+
+    padding:10px 20px;
+
+    font-size:14px;
+
+    overflow:hidden;
+    white-space:nowrap;
+
+    border-bottom:2px solid var(--gold);
+
+    display:flex;
+    align-items:center;
+}
+
+.ticker-title{
+    background:var(--gold);
+    color:#78350f;
+
+    padding:2px 10px;
+    border-radius:6px;
+
+    font-weight:bold;
+    margin-left:15px;
+
+    font-size:13px;
+    flex-shrink:0;
+}
+
+.ticker-text{
+    display:inline-block;
+    animation:tickerAnim 25s linear infinite;
+}
+
+@keyframes tickerAnim{
+
+    0%{
+        transform:translateX(100%);
+    }
+
+    100%{
+        transform:translateX(-100%);
+    }
+
+}
+
+/* =========================
+   شريط التنقل
+========================= */
+
+nav{
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(10px);
+
+    position:sticky;
+    top:0;
+
+    z-index:100;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.05);
+
+    border-bottom:1px solid var(--border);
+}
+
+body.dark-mode nav{
+    background:rgba(17,24,39,.96);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    gap:10px;
+
+    padding:12px 15px;
+
+    overflow-x:auto;
+}
+
+.nav-container::-webkit-scrollbar{
+    height:4px;
+}
+
+.nav-container a{
+    text-decoration:none;
+
+    color:var(--primary);
+
+    padding:8px 16px;
+
+    border-radius:12px;
+
+    white-space:nowrap;
+
+    font-weight:600;
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.nav-container a:hover,
+.nav-container a.active{
+    background:var(--primary2);
+    color:#fff;
+}
+
+/* =========================
+   الحاوية
+========================= */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:35px 20px;
+}
+
+/* =========================
+   عنوان الصفحة
+========================= */
+
+.page-heading{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:30px;
+}
+
+.page-heading .news-icon{
+    width:90px;
+    height:90px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #d97706
+        );
+
+    box-shadow:
+        0 10px 25px rgba(245,158,11,.3);
+}
+
+.page-heading h1{
+    color:var(--primary);
+
+    font-size:32px;
+
+    margin-bottom:7px;
+
+    font-weight:900;
+}
+
+.page-heading p{
+    color:var(--muted);
+
+    font-size:15px;
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+/* =========================
+   شريط الإحصائيات
+========================= */
+
+.news-stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:35px;
+}
+
+.news-stat{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.news-stat strong{
+    display:block;
+
+    font-size:27px;
+
+    color:var(--primary2);
+
+    font-weight:900;
+}
+
+.news-stat span{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   عنوان قسم الأخبار
+========================= */
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    color:var(--primary);
+
+    font-size:27px;
+
+    font-weight:900;
+
+    margin-bottom:5px;
+}
+
+.section-title p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+/* =========================
+   الأخبار
+========================= */
+
+.news-list{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+}
+
+/* كرت الخبر */
+
+.news-card{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+    position:relative;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 18px 35px rgba(15,23,42,.12);
+}
+
+/* الشريط العلوي */
+
+.news-card-top{
+    height:7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary2),
+            var(--accent)
+        );
+}
+
+.news-card.urgent .news-card-top{
+    background:
+        linear-gradient(
+            90deg,
+            #ef4444,
+            #dc2626
+        );
+}
+
+.news-card.important .news-card-top{
+    background:
+        linear-gradient(
+            90deg,
+            #f59e0b,
+            #d97706
+        );
+}
+
+.news-content{
+    padding:25px;
+}
+
+/* نوع الخبر */
+
+.news-type{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    background:#eff6ff;
+
+    color:#1d4ed8;
+
+    padding:5px 11px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+body.dark-mode .news-type{
+    background:#172554;
+    color:#93c5fd;
+}
+
+.news-card.urgent .news-type{
+    background:#fef2f2;
+    color:#dc2626;
+}
+
+body.dark-mode .news-card.urgent .news-type{
+    background:#450a0a;
+    color:#fca5a5;
+}
+
+.news-card.important .news-type{
+    background:#fffbeb;
+    color:#b45309;
+}
+
+body.dark-mode .news-card.important .news-type{
+    background:#451a03;
+    color:#fcd34d;
+}
+
+/* عنوان الخبر */
+
+.news-content h3{
+    color:var(--primary);
+
+    font-size:20px;
+
+    line-height:1.6;
+
+    margin-bottom:8px;
+
+    font-weight:800;
+}
+
+/* التاريخ */
+
+.news-date{
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-bottom:13px;
+
+    display:block;
+}
+
+/* نص الخبر */
+
+.news-content p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+}
+
+/* زر التفاصيل */
+
+.news-btn{
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:var(--primary2);
+
+    color:#fff;
+
+    padding:9px 17px;
+
+    border-radius:11px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.news-btn:hover{
+    background:var(--accent);
+
+    transform:translateY(-1px);
+}
+
+/* =========================
+   الخبر العاجل الكبير
+========================= */
+
+.breaking-news{
+    background:
+        linear-gradient(
+            135deg,
+            #7f1d1d,
+            #dc2626
+        );
+
+    color:#fff;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    margin-bottom:40px;
+
+    box-shadow:
+        0 15px 35px rgba(220,38,38,.2);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.breaking-news::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    left:-50px;
+    bottom:-80px;
+}
+
+.breaking-label{
+    display:inline-block;
+
+    background:#fff;
+
+    color:#b91c1c;
+
+    padding:5px 13px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+.breaking-news h2{
+    font-size:25px;
+
+    margin-bottom:8px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.breaking-news p{
+    color:#fee2e2;
+
+    font-size:14px;
+
+    max-width:850px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.breaking-date{
+    display:block;
+
+    margin-top:12px;
+
+    font-size:12px;
+
+    color:#fecaca;
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* =========================
+   تعليمات الإدارة
+========================= */
+
+.admin-note{
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
+
+    color:#fff;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-top:40px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.admin-note h3{
+    color:#fde047;
+
+    margin-bottom:8px;
+
+    font-size:21px;
+}
+
+.admin-note p{
+    color:#dbeafe;
+
+    font-size:14px;
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+.code-hint{
+    margin-top:15px;
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.1);
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    color:#e0f2fe;
+}
+
+/* =========================
+   زر العودة
+========================= */
+
+.back-home{
+    text-align:center;
+
+    margin-top:35px;
+}
+
+.back-home a{
+    display:inline-block;
+
+    background:var(--gold);
+
+    color:#78350f;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:13px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 5px 15px rgba(245,158,11,.25);
+
+    transition:.2s;
+}
+
+.back-home a:hover{
+    transform:translateY(-2px);
+
+    background:#fbbf24;
+}
+
+/* =========================
+   الفوتر
+========================= */
+
+footer{
+    background:var(--primary);
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    margin-top:50px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer h3{
+    color:#fde047;
+
+    margin-bottom:5px;
+}
+
+footer p{
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    margin:4px 0;
+}
+
+/* =========================
+   زر أعلى الصفحة
+========================= */
+
+#backToTop{
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    background:var(--primary2);
+
+    color:#fff;
+
+    border:none;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+
+    z-index:999;
+
+    transition:.3s;
+}
+
+#backToTop:hover{
+    background:var(--accent);
+
+    transform:translateY(-3px);
+}
+
+/* =========================
+   الهاتف
+========================= */
+
+@media(max-width:850px){
+
+    .news-list{
+        grid-template-columns:1fr;
+    }
+
+    .news-stats{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .logo{
+        font-size:36px;
+    }
+
+    .page-heading{
+        padding:30px 18px;
+    }
+
+    .page-heading h1{
+        font-size:27px;
+    }
+
+    .news-stats{
+        grid-template-columns:1fr;
+    }
+
+    .news-content{
+        padding:21px;
+    }
+
+    .breaking-news{
+        padding:24px 20px;
+    }
+
+    .breaking-news h2{
+        font-size:21px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     الهيدر
+========================= -->
+
+<header>
+
+    <button
+        class="theme-toggle-btn"
+        id="themeToggleBtn"
+        type="button">
+        🌙 الوضع الليلي
+    </button>
+
+    <div class="logo">الريان</div>
+
+    <div class="university-title">
+        جامعة بحري
+    </div>
+
+    <div class="subtitle">
+        المنصة الطلابية | كلية العلوم الإدارية
+    </div>
+
+    <div class="badge">
+        دفعة 023 / 024
+    </div>
+
+</header>
+
+
+<!-- =========================
+     شريط الأخبار
+========================= -->
+
+<div class="ticker-container">
+
+    <span class="ticker-title">
+        📰 السبق الإعلامي
+    </span>
+
+    <div class="ticker-text">
+
+        تابع آخر أخبار وإعلانات دفعة 023 / 024
+        عبر منصة الريان أولاً بأول
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     القائمة
+========================= -->
+
+<nav>
+
+    <div class="nav-container">
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="subjects.html">
+            المواد
+        </a>
+
+        <a href="about.html">
+            عن الكلية
+        </a>
+
+        <a href="results.html">
+            النتيجة
+        </a>
+
+        <a href="exams.html">
+            الاختبارات
+        </a>
+
+        <a href="study-tools.html">
+            الوسائل التعليمية
+        </a>
+
+        <a href="index.html#schedule">
+            الجدول
+        </a>
+
+        <a href="index.html#community">
+            التواصل
+        </a>
+
+        <a href="media.html" class="active">
+            السبق الإعلامي
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     المحتوى
+========================= -->
+
+<main class="container">
+
+
+    <!-- عنوان الصفحة -->
+
+    <section class="page-heading">
+
+        <div class="news-icon">
+            📰
+        </div>
+
+        <h1>
+            السبق الإعلامي
+        </h1>
+
+        <p>
+            آخر أخبار وإعلانات ومستجدات دفعة
+            023 / 024 بجامعة بحري،
+            يتم تحديثها أولاً بأول.
+        </p>
+
+    </section>
+
+
+    <!-- الإحصائيات -->
+
+    <section class="news-stats">
+
+        <div class="news-stat">
+
+            <strong id="newsCount">
+                3
+            </strong>
+
+            <span>
+                أخبار منشورة
+            </span>
+
+        </div>
+
+
+        <div class="news-stat">
+
+            <strong>
+                023 / 024
+            </strong>
+
+            <span>
+                الدفعة
+            </span>
+
+        </div>
+
+
+        <div class="news-stat">
+
+            <strong>
+                🟢
+            </strong>
+
+            <span>
+                تحديث مستمر
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الخبر العاجل
+    ========================= -->
+
+    <section class="breaking-news">
+
+        <span class="breaking-label">
+            🔴 خبر مهم
+        </span>
+
+        <h2>
+            مرحباً بكم في قسم السبق الإعلامي
+        </h2>
+
+        <p>
+            هنا يتم نشر أهم الأخبار والإعلانات
+            والمستجدات الخاصة بالدفعة.
+            يمكنك تعديل هذا الخبر واستبداله
+            بأي خبر جديد في أي وقت.
+        </p>
+
+        <span class="breaking-date">
+            آخر تحديث: 03 أكتوبر 2026
+        </span>
+
+    </section>
+
+
+    <!-- =========================
+         الأخبار
+    ========================= -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                🗞️ آخر الأخبار
+            </h2>
+
+            <p>
+                أحدث المستجدات والأخبار الخاصة بالدفعة
+            </p>
+
+        </div>
+
+
+        <div class="news-list">
+
+
+            <!-- ==================================================
+                 الخبر الأول
+                 لتعديل الخبر:
+                 غير العنوان والتاريخ والنص
+            ================================================== -->
+
+            <article class="news-card urgent">
+
+                <div class="news-card-top"></div>
+
+                <div class="news-content">
+
+                    <span class="news-type">
+                        🔴 عاجل
+                    </span>
+
+                    <h3>
+                        إعلان مهم لطلاب الدفعة
+                    </h3>
+
+                    <span class="news-date">
+                        📅 03 أكتوبر 2026
+                    </span>
+
+                    <p>
+                        هنا يمكنك كتابة تفاصيل الخبر أو الإعلان
+                        الخاص بالدفعة. قم باستبدال هذا النص
+                        بالمعلومة التي تريد نشرها للطلاب.
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                 الخبر الثاني
+            ================================================== -->
+
+            <article class="news-card important">
+
+                <div class="news-card-top"></div>
+
+                <div class="news-content">
+
+                    <span class="news-type">
+                        🟡 مهم
+                    </span>
+
+                    <h3>
+                        تحديث جديد يخص المحاضرات
+                    </h3>
+
+                    <span class="news-date">
+                        📅 02 أكتوبر 2026
+                    </span>
+
+                    <p>
+                        يمكن استخدام هذا القسم لنشر أي تحديث
+                        يتعلق بالمحاضرات أو الجداول الدراسية
+                        أو التغييرات الأكاديمية الخاصة بالدفعة.
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                 الخبر الثالث
+            ================================================== -->
+
+            <article class="news-card">
+
+                <div class="news-card-top"></div>
+
+                <div class="news-content">
+
+                    <span class="news-type">
+                        📰 خبر الدفعة
+                    </span>
+
+                    <h3>
+                        منصة الريان تستقبل آخر مستجدات الدفعة
+                    </h3>
+
+                    <span class="news-date">
+                        📅 01 أكتوبر 2026
+                    </span>
+
+                    <p>
+                        سيتم استخدام السبق الإعلامي لنشر الأخبار
+                        والمعلومات المهمة التي يحتاجها طلاب
+                        وطالبات الدفعة في مكان واحد.
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                 الخبر الرابع - جاهز للتعديل
+            ================================================== -->
+
+            <article class="news-card">
+
+                <div class="news-card-top"></div>
+
+                <div class="news-content">
+
+                    <span class="news-type">
+                        📢 إعلان
+                    </span>
+
+                    <h3>
+                        أضف عنوان الخبر الجديد هنا
+                    </h3>
+
+                    <span class="news-date">
+                        📅 اكتب التاريخ هنا
+                    </span>
+
+                    <p>
+                        اكتب تفاصيل الخبر الجديد هنا.
+                        يمكنك إضافة أي إعلان أو معلومة
+                        تهم طلاب الدفعة.
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ملاحظة الإدارة
+    ========================= -->
+
+    <section class="admin-note">
+
+        <h3>
+            ✏️ إضافة الأخبار وتعديلها
+        </h3>
+
+        <p>
+            لإضافة خبر جديد، يمكنك نسخ أحد كروت الأخبار
+            الموجودة أعلاه، ثم تغيير العنوان والتاريخ
+            ومحتوى الخبر وتصنيفه.
+        </p>
+
+        <div class="code-hint">
+            العنوان ← التاريخ ← تفاصيل الخبر ← التصنيف
+        </div>
+
+    </section>
+
+
+    <!-- العودة للرئيسية -->
+
+    <div class="back-home">
+
+        <a href="index.html">
+            🏠 العودة إلى الصفحة الرئيسية
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================
+     الفوتر
+========================= -->
+
+<footer>
+
+    <h3>
+        منصة الريان
+    </h3>
+
+    <p>
+        جامعة بحري | كلية العلوم الإدارية
+    </p>
+
+    <p>
+        السبق الإعلامي | دفعة 023 / 024
+    </p>
+
+    <p style="margin-top:12px;">
+        © 2026 منصة الريان - جميع الحقوق محفوظة
+    </p>
+
+</footer>
+
+
+<!-- زر أعلى الصفحة -->
+
+<button
+    id="backToTop"
+    title="العودة إلى الأعلى"
+    type="button">
+    ↑
+</button>
+
+
+<script>
+
+/* =========================
+   الوضع الليلي
+========================= */
+
+const themeToggleBtn =
+    document.getElementById("themeToggleBtn");
+
+const savedTheme =
+    localStorage.getItem("rayyanTheme");
+
+if(savedTheme === "dark"){
+
+    document.body.classList.add("dark-mode");
+
+    themeToggleBtn.textContent =
+        "☀️ الوضع النهاري";
+
+}
+
+themeToggleBtn.addEventListener(
+    "click",
+    function(){
+
+        document.body.classList.toggle(
+            "dark-mode"
+        );
+
+        if(
+            document.body.classList.contains(
+                "dark-mode"
+            )
+        ){
+
+            localStorage.setItem(
+                "rayyanTheme",
+                "dark"
+            );
+
+            themeToggleBtn.textContent =
+                "☀️ الوضع النهاري";
+
+        }else{
+
+            localStorage.setItem(
+                "rayyanTheme",
+                "light"
+            );
+
+            themeToggleBtn.textContent =
+                "🌙 الوضع الليلي";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   زر العودة للأعلى
+========================= */
+
+const backToTop =
+    document.getElementById("backToTop");
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(window.scrollY > 350){
+
+            backToTop.style.display =
+                "flex";
+
+        }else{
+
+            backToTop.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+backToTop.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+
+/* =========================
+   حساب عدد الأخبار
+========================= */
+
+const newsCards =
+    document.querySelectorAll(".news-card");
+
+const newsCount =
+    document.getElementById("newsCount");
+
+newsCount.textContent =
+    newsCards.length;
+
+
+/* =========================
+   منع الروابط الفارغة
+========================= */
+
+document.querySelectorAll(
+    '.news-btn[href="#"]'
+).forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+            alert(
+                "📰 تفاصيل الخبر ستتم إضافتها هنا."
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+</html>
