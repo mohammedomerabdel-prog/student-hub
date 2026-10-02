@@ -256,7 +256,7 @@ section{margin-bottom:45px; transition: opacity 0.3s ease;}
 .stat strong{display:block;font-size:32px;color:var(--primary2);font-weight:900;}
 .stat span{color:var(--muted);font-size:14px;}
 
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .card{
     background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);
     display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;
@@ -278,16 +278,15 @@ section{margin-bottom:45px; transition: opacity 0.3s ease;}
 .card p{color:var(--muted);font-size:14px;margin-bottom:20px;flex-grow:1;}
 
 .btn{
-    display:inline-block;background:var(--primary2);color:#fff;text-decoration:none;padding:10px 18px;border-radius:12px;font-size:14px;font-weight:bold;transition:0.2s;margin-top:8px;border:none;cursor:pointer;
+    display:inline-block;background:var(--primary2);color:#fff;text-decoration:none;padding:10px 18px;border-radius:12px;font-size:14px;font-weight:bold;transition:0.2s;margin-top:8px;
 }
 .btn:hover{background:var(--primary);transform:translateY(-1px);}
 
 .btn-highlight{
-    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
-.btn-highlight:hover{background: linear-gradient(135deg, #dc2626, #b91c1c) !important;}
+.btn-highlight:hover{background: linear-gradient(135deg, #059669, #047857) !important;}
 
 .table-box{overflow-x:auto;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);transition: background 0.3s ease;}
 table{width:100%;min-width:700px;border-collapse:collapse;}
@@ -342,7 +341,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     justify-content:center;align-items:center;padding:20px;
 }
 .modal-content{
-    background:white;color:var(--primary);padding:35px 30px;border-radius:24px;max-width:500px;width:100%;text-align:center;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
+    background:white;color:var(--primary);padding:35px 30px;border-radius:24px;max-width:480px;width:100%;text-align:center;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
     animation: modalPop 0.3s ease;
 }
 @keyframes modalPop {
@@ -353,6 +352,8 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 .close-modal:hover{color:var(--primary);}
 .modal-content h3{color:var(--primary2);font-size:24px;margin-bottom:15px;}
 .modal-content p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:15px;}
+.creators-box{background:#f8fafc;border:1px solid var(--border);padding:15px;border-radius:14px;margin-top:15px;text-align:right;}
+.creators-box p{margin:6px 0;color:var(--primary);font-weight:600;}
 
 .btn-alert-confirm {
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
@@ -373,11 +374,8 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     background: linear-gradient(135deg, #1d4ed8, #1e40af);
 }
 
-@media(max-width:992px){
-    .cards{grid-template-columns:repeat(2,1fr);}
-}
 @media(max-width:850px){
-    .links-grid,.stats,.quick-actions{grid-template-columns:repeat(2,1fr);}
+    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:600px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
@@ -387,28 +385,12 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <body>
 
-<!-- نافذة التنويه المنبثقة -->
 <div class="modal" id="noticeModal" style="display: flex;">
     <div class="modal-content">
-        <div style="font-size: 45px; margin-bottom: 10px;">⚠</div>
+        <div style="font-size: 45px; margin-bottom: 10px;">⚠️️</div>
         <h3>تنويه هام</h3>
         <p>مرحباً بكم! نود إحاطتكم بأنه جارٍ العمل على تطوير وتحديث منصة الريان باستمرار لخدمتكم بشكل أفضل.</p>
         <button class="btn-alert-confirm" id="confirmNoticeBtn" type="button">حسناً، الدخول للموقع 👍</button>
-    </div>
-</div>
-
-<!-- نافذة الأخبار المنبثقة -->
-<div class="modal" id="newsModal">
-    <div class="modal-content" style="max-width: 600px; text-align: right;">
-        <span class="close-modal" onclick="closeNewsModal()">&times;</span>
-        <h3 style="text-align: center; color: #ef4444;">🔴 السبق الإعلامي وآخر الأخبار</h3>
-        <hr style="margin: 15px 0; border: 0; border-top: 1px solid var(--border);">
-        
-        <div id="modalNewsContainer" style="max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px;">
-            <p style="text-align:center; color: var(--muted);">جاري تحميل الأخبار...</p>
-        </div>
-
-        <button class="btn-alert-confirm" onclick="closeNewsModal()" type="button" style="margin-top: 20px;">إغلاق</button>
     </div>
 </div>
 
@@ -453,7 +435,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <div id="noResultsMsg" class="no-results-msg">
     <div style="font-size: 40px; margin-bottom: 10px;">🔍❌</div>
     <h4>عفواً، لم نجد أي نتائج تطابق بحثك!</h4>
-    <p>جرب البحث بكلمات أخرى مثل: "مواد"، "نتيجة"، "جدول"، "واتساب"، "أخبار".</p>
+    <p>جرب البحث بكلمات أخرى مثل: "مواد"، "نتيجة"، "جدول"، "واتساب"، "ليدر".</p>
 </div>
 
 <section class="searchable-section">
@@ -514,14 +496,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
             <a class="btn" href="study-tools.html">فتح الوسائل</a>
         </div>
-
-        <!-- كارت السبق الإعلامي الجديد -->
-        <div class="card searchable-item">
-            <div class="icon" style="background: linear-gradient(135deg, #ef4444, #b91c1c);">🔴</div>
-            <h3>السبق الإعلامي</h3>
-            <p>متابعة أحدث الأخبار العاجلة والمستجدات فور حدوثها.</p>
-            <button class="btn btn-highlight" onclick="openNewsModal()" type="button">عرض الأخبار</button>
-        </div>
     </div>
 </section>
 
@@ -572,19 +546,38 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <div class="big-icon">💬</div>
             <h3>مجموعة الواتساب</h3>
             <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
-            <a class="btn" href="#" target="_blank">الانضمام للجروب</a>
+            <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
         </div>
+
+        <div class="link-card searchable-item">
+            <div class="big-icon">👥</div>
+            <h3>صفحة الفيسبوك</h3>
+            <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
+            <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
+        </div>
+
         <div class="link-card searchable-item">
             <div class="big-icon">📢</div>
-            <h3>قناة التلجرام</h3>
-            <p>المصدر الرئيسي لنشر الملفات والمستندات والقرارات.</p>
-            <a class="btn" href="#" target="_blank">متابعة القناة</a>
+            <h3>أخبار الجامعة</h3>
+            <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
+            <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
+
+        <div class="link-card searchable-item" style="border: 2px solid #3b82f6;">
+            <div class="big-icon">📞</div>
+            <h3>أرقام القيادة</h3>
+            <p><strong>ليدر الدفعة:</strong><br>249116314682</p>
+            <a class="btn btn-highlight" href="https://wa.me/249116314682" target="_blank">💬 مراسلة ليدر الدفعة</a>
+            
+            <p style="margin-top: 15px;"><strong>مسجل الدفعة:</strong><br>249111744435</p>
+            <a class="btn btn-highlight" href="https://wa.me/249111744435" target="_blank">💬 مراسلة مسجل الدفعة</a>
+        </div>
+
         <div class="link-card searchable-item">
-            <div class="big-icon">👤</div>
-            <h3>ليدر الدفعة</h3>
-            <p>التواصل المباشر مع ممثل الدفعة للحالات الخاصة والتنظيم.</p>
-            <a class="btn" href="#" target="_blank">التواصل المباشر</a>
+            <div class="big-icon">💡</div>
+            <h3>الآراء والاقتراحات</h3>
+            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
+            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
         </div>
     </div>
 </section>
@@ -593,157 +586,204 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <footer>
     <div class="footer-buttons">
-        <button class="footer-btn share-btn" onclick="shareWebsite()">🔗 مشاركة المنصة</button>
+        <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
+        <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
-    <p>© جميع الحقوق محفوظة لـ منصة الريان - جامعة بحري</p>
+    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - جامعة بحري - كلية العلوم الإدارية (دفعة 023 / 024)</strong></p>
+    <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
-<button id="backToTop" title="العودة للأعلى">↑</button>
+<button id="backToTop" title="العودة للأعلى">⬆</button>
+
+<div class="modal" id="aboutModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h3>من نحن 🎓</h3>
+        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 / 024 بكلية العلوم الإدارية بجامعة بحري.</p>
+        <div class="creators-box">
+            <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
+            <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 1. إغلاق النافذة المنبثقة التنويهية
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // إغلاق نافذة التنبيه
     const noticeModal = document.getElementById('noticeModal');
     const confirmNoticeBtn = document.getElementById('confirmNoticeBtn');
-    if (confirmNoticeBtn) {
-        confirmNoticeBtn.addEventListener('click', () => {
+
+    if (confirmNoticeBtn && noticeModal) {
+        confirmNoticeBtn.addEventListener('click', function() {
             noticeModal.style.display = 'none';
         });
     }
 
-    // 2. نافذة الأخبار (Modal)
-    function openNewsModal() {
-        document.getElementById('newsModal').style.display = 'flex';
-        fetchModalNews();
-    }
-
-    function closeNewsModal() {
-        document.getElementById('newsModal').style.display = 'none';
-    }
-
-    function fetchModalNews() {
-        fetch('latest_news.json')
-            .then(response => {
-                if (!response.ok) throw new Error("تعذر جلب ملف الأخبار");
-                return response.json();
-            })
-            .then(data => {
-                const container = document.getElementById('modalNewsContainer');
-                container.innerHTML = '';
-
-                if (data.articles && data.articles.length > 0) {
-                    data.articles.forEach(article => {
-                        const item = document.createElement('div');
-                        item.style.cssText = "padding-bottom: 10px; border-bottom: 1px dashed var(--border);";
-                        item.innerHTML = `
-                            <a href="${article.link}" target="_blank" style="font-weight: bold; color: var(--primary2); text-decoration: none; display: block; margin-bottom: 4px;">🔹 ${article.title}</a>
-                            <small style="color: var(--muted);">🗓️ ${article.published_at}</small>
-                        `;
-                        container.appendChild(item);
-                    });
-                } else {
-                    container.innerHTML = '<p style="text-align:center; color: var(--muted);">لا توجد أخبار متاحة حالياً.</p>';
-                }
-            })
-            .catch(() => {
-                document.getElementById('modalNewsContainer').innerHTML = `
-                    <p style="text-align:center; color: var(--muted);">
-                        لم يتم العثور على <code>latest_news.json</code>. تأكد من تشغيل ملف <code>news_feed.py</code> أولاً.
-                    </p>
-                `;
-            });
-    }
-
-    // 3. الوضع الليلي
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
-            themeToggleBtn.innerText = '☀️ الوضع النهاري';
-        } else {
-            themeToggleBtn.innerText = '🌙 الوضع الليلي';
+    // الوضع الليلي والصباحي
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeBtn.innerText = '☀️ الوضع الصباحي';
         }
-    });
 
-    // 4. العداد التنازلي
-    const examDate = new Date("Jan 9, 2027 00:00:00").getTime();
+        themeBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerText = '☀️ الوضع الصباحي';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerText = '🌙 الوضع الليلي';
+            }
+        });
+    }
+
+    // محرك البحث الدقيق والفعال
+    const searchInput = document.getElementById('siteSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const noResults = document.getElementById('noResultsMsg');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+
+            if (query.length > 0) {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+
+            let totalMatches = 0;
+            const sections = document.querySelectorAll('.searchable-section');
+
+            sections.forEach(section => {
+                const items = section.querySelectorAll('.searchable-item');
+                let visibleItemsInSection = 0;
+
+                items.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (query === '' || text.includes(query)) {
+                        item.style.display = '';
+                        visibleItemsInSection++;
+                        totalMatches++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // إظهار أو إخفاء العنوان مع القسم بناءً على وجود نتائج فيه
+                if (query === '' || visibleItemsInSection > 0) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            if (totalMatches === 0 && query !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
+            searchInput.focus();
+        });
+    }
+
+    // نافذة من نحن
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModal = document.getElementById('closeModalBtn');
+
+    if (aboutBtn && aboutModal && closeModal) {
+        aboutBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', function() {
+            aboutModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.style.display = 'none';
+            }
+        });
+    }
+
+    // زر مشاركة المنصة
+    const shareBtn = document.getElementById('shareSiteBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            const shareData = {
+                title: 'منصة الريان الطلابية - جامعة بحري',
+                text: 'منصة الريان التعليمية لطلاب دفعة 023 / 024 - كلية العلوم الإدارية بجامعة بحري',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('تم نسخ رابط المنصة بنجاح!');
+                }).catch(() => {
+                    alert('الرابط: ' + window.location.href);
+                });
+            }
+        });
+    }
+
+    // العداد التنازلي
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = examDate - now;
 
-        if (distance > 0) {
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        if (distance < 0) {
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+            return;
         }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
     }
-    setInterval(updateCountdown, 1000);
+
     updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    // 5. زر العودة للأعلى
-    const backToTopBtn = document.getElementById("backToTop");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopBtn.style.display = "flex";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    };
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // 6. البحث المباشر في الصفحة
-    const searchInput = document.getElementById('siteSearchInput');
-    const clearSearchBtn = document.getElementById('clearSearchBtn');
-    const searchableItems = document.querySelectorAll('.searchable-item');
-    const noResultsMsg = document.getElementById('noResultsMsg');
-
-    searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        let matchCount = 0;
-
-        if (query.length > 0) {
-            clearSearchBtn.style.display = 'block';
-        } else {
-            clearSearchBtn.style.display = 'none';
-        }
-
-        searchableItems.forEach(item => {
-            const text = item.innerText.toLowerCase();
-            if (text.includes(query)) {
-                item.style.display = '';
-                matchCount++;
+    // زر العودة للأعلى
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
             } else {
-                item.style.display = 'none';
+                backToTopBtn.style.display = 'none';
             }
         });
 
-        if (matchCount === 0 && query.length > 0) {
-            noResultsMsg.style.display = 'block';
-        } else {
-            noResultsMsg.style.display = 'none';
-        }
-    });
-
-    clearSearchBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        searchInput.dispatchEvent(new Event('input'));
-        searchInput.focus();
-    });
-
-    // 7. مشاركة الموقع
-    function shareWebsite() {
-        if (navigator.share) {
-            navigator.share({
-                title: 'الريان | جامعة بحري',
-                url: window.location.href
-            }).catch(console.error);
-        } else {
-            navigator.clipboard.writeText(window.location.href);
-            alert('تم نسخ رابط المنصة بنجاح!');
-        }
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
+});
 </script>
 
 </body>
