@@ -4,127 +4,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الرئيسية | منصة الريان - كلية العلوم الإدارية</title>
+<title>الريان | المنصة الطلابية - دفعة 023</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:Arial,Tahoma,sans-serif;background:#f0f4f8;color:#2c3e50;line-height:1.8;}
-:root{--primary:#0a2540;--primary2:#1e3d59;--gold:#f59e0b;--bg-card:#ffffff;--muted:#64748b;--border:#e2e8f0;}
+body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
+:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
-header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:30px 20px;text-align:center;box-shadow:0 4px 20px rgba(10,37,64,0.15);}
-.logo{font-size:38px;font-weight:900;letter-spacing:1px;}
-.subtitle{color:#cbd5e1;margin-top:6px;font-size:15px;}
-
-nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.05);}
-.nav-container{max-width:1200px;margin:auto;display:flex;gap:10px;padding:12px;overflow-x:auto;}
-.nav-container a{text-decoration:none;color:var(--primary);padding:8px 18px;border-radius:12px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.25s;}
-.nav-container a:hover, .nav-container a.active{background:#f1f5f9;color:#0284c7;}
-
-.container{max-width:1200px;margin:auto;padding:30px 15px;}
-
-/* قسم الترحيب */
-.welcome-banner{
-    background:linear-gradient(135deg, #1e3d59, #0a2540);
-    color:#fff;
-    border-radius:20px;
-    padding:35px 20px;
-    text-align:center;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(10,37,64,0.1);
+/* شريط عداد الزوار العلوي */
+.visitor-bar {
+    background: #051624;
+    color: var(--gold);
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(217, 166, 46, 0.2);
 }
-.welcome-banner h2{color:var(--gold);font-size:28px;margin-bottom:10px;}
-.welcome-banner p{color:#e2e8f0;font-size:15px;max-width:700px;margin:0 auto;}
 
-/* تصميم العداد التنازلي الاحترافي والهادئ */
-.countdown-container{
-    background:#ffffff;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:25px;
+header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
+.logo{font-size:42px;font-weight:900;}
+.subtitle{color:#dce8f1;margin-top:4px;}
+.badge{display:inline-block;margin-top:10px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
+
+/* شريط التنبيه قيد الإنشاء مع زر الإخفاء */
+.construction-banner{
+    background:linear-gradient(135deg, #d9a62e, #b8860b);
+    color:#172b3a;
     text-align:center;
-    margin-bottom:35px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.03);
-}
-.countdown-title{
-    font-size:18px;
-    color:var(--primary);
+    padding:14px 20px;
     font-weight:bold;
-    margin-bottom:20px;
+    font-size:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
-}
-.countdown-boxes{
-    display:flex;
-    justify-content:center;
-    gap:15px;
     flex-wrap:wrap;
-}
-.time-box{
-    background:#f8fafc;
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:12px 18px;
-    min-width:85px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.02);
-}
-.time-box span{
-    display:block;
-    font-size:24px;
-    font-weight:900;
-    color:#0284c7;
-}
-.time-box label{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:4px;
+    gap:12px;
 }
 
-/* بطاقات الأقسام الرئيسية */
-.sections-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-}
-.section-card{
-    background:var(--bg-card);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:24px;
-    text-decoration:none;
-    color:inherit;
-    box-shadow:0 4px 15px rgba(0,0,0,0.03);
-    transition:0.3s;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-}
-.section-card:hover{
-    transform:translateY(-5px);
-    border-color:#0284c7;
-    box-shadow:0 10px 25px rgba(2,132,199,0.1);
-}
-.section-icon{
-    font-size:38px;
-    margin-bottom:12px;
-    background:#f8fafc;
-    padding:15px;
-    border-radius:50%;
-    border:1px solid var(--border);
-}
-.section-card h3{
-    color:var(--primary);
-    font-size:18px;
-    margin-bottom:6px;
-}
-.section-card p{
-    color:var(--muted);
-    font-size:13.5px;
+.banner-btn{
+    background:#09263f;
+    color:#fff;
+    border:none;
+    padding:6px 15px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
 }
 
-/* نافذة مساعد الذكاء الاصطناعي (Gemini) */
+.banner-btn:hover{
+    background:#155377;
+}
+
+nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
+.nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
+.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
+.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
+
+.container{max-width:1200px;margin:auto;padding:25px 15px;}
+section{margin-bottom:35px;}
+.section-title{text-align:center;margin-bottom:20px;}
+.section-title h2{color:var(--primary);font-size:25px;}
+.section-title p{color:var(--muted);}
+
+/* شريط البحث الذكي الشامل */
+.global-search-container {
+    max-width: 650px;
+    margin: 20px auto 35px auto;
+    position: relative;
+}
+.global-search-input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--border);
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    background: #fff;
+}
+.global-search-input:focus {
+    border-color: var(--primary2);
+    box-shadow: 0 6px 20px rgba(21, 83, 119, 0.15);
+}
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    border: 1px solid var(--border);
+}
+.search-result-item {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.search-result-item:hover {
+    background: #f8fafc;
+    color: var(--primary2);
+    font-weight: bold;
+}
+
+.hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
+.hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
+.hero p{color:var(--muted);max-width:750px;margin:auto;}
+
+/* صندوق العداد التنازلي */
+.countdown-box{
+    background:linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(9,38,63,0.15);
+}
+.countdown-box h3{
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+.countdown-timers{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.time-card{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 18px;
+    border-radius: 12px;
+    min-width: 80px;
+}
+.time-card span{
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--gold);
+}
+.time-card label{
+    font-size: 13px;
+    color: #dce8f1;
+}
+
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px;}
+.quick-action{display:block;text-decoration:none;background:var(--primary);color:white;padding:18px 10px;border-radius:15px;font-weight:bold;transition:.2s;}
+.quick-action:hover{transform:translateY(-3px);background:var(--primary2);}
+.quick-action span{display:block;font-size:28px;}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px;}
+.stat{background:#fff;border:1px solid var(--border);border-radius:17px;padding:20px;text-align:center;}
+.stat strong{display:block;font-size:28px;color:var(--primary);}
+.stat span{color:var(--muted);}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.2s;}
+.card:hover{transform:translateY(-4px);}
+.card .icon{font-size:35px;margin-bottom:10px;}
+.card h3{color:var(--primary);margin-bottom:8px;}
+.card p{color:var(--muted);font-size:14px;margin-bottom:15px;}
+
+.btn{display:inline-block;background:var(--primary);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:bold;transition:.2s;}
+.btn:hover{background:var(--primary2);}
+
+.table-box{overflow-x:auto;background:#fff;border-radius:18px;border:1px solid var(--border);}
+table{width:100%;min-width:700px;border-collapse:collapse;}
+th,td{padding:15px;text-align:center;border-bottom:1px solid var(--border);}
+th{background:var(--primary);color:#fff;}
+
+.library{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;border-radius:22px;padding:35px 25px;text-align:center;}
+.library p{color:#d9e7ef;margin:10px auto 20px;max-width:700px;}
+.library-btn{display:inline-block;text-decoration:none;background:var(--gold);color:#172b3a;padding:12px 25px;border-radius:12px;font-weight:bold;}
+
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.link-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;text-align:center;}
+.link-card .big-icon{font-size:38px;margin-bottom:10px;}
+.link-card h3{color:var(--primary);margin-bottom:8px;}
+.link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
+.whatsapp{background:#f1f8f3;}
+.facebook{background:#f0f4f9;}
+
+/* تنسيق شات الذكاء الاصطناعي (Gemini) المستقل */
 .gemini-btn {
     position: fixed;
     bottom: 25px;
@@ -142,7 +216,10 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: 0.3s;
 }
+.gemini-btn:hover { transform: scale(1.05); }
+
 .gemini-window {
     position: fixed;
     bottom: 95px;
@@ -181,9 +258,20 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba
     border-radius: 14px;
     max-width: 85%;
     font-size: 13.5px;
+    line-height: 1.5;
 }
-.gemini-msg.bot { background: #e0e7ff; color: #312e81; align-self: flex-start; }
-.gemini-msg.user { background: #3b82f6; color: white; align-self: flex-end; }
+.gemini-msg.bot {
+    background: #e0e7ff;
+    color: #312e81;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+.gemini-msg.user {
+    background: #3b82f6;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
 .gemini-footer {
     padding: 10px;
     background: #fff;
@@ -191,15 +279,34 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba
     display: flex;
     gap: 8px;
 }
-.gemini-footer input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 10px; outline: none; }
-.gemini-footer button { background: #4F46E5; color: white; border: none; padding: 0 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+.gemini-footer input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font-size: 13px;
+}
+.gemini-footer button {
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:50px;}
-footer p{color:#cbd5e1;font-size:14px;}
+footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
+footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
 
-@media(max-width:768px){
-    .sections-grid{grid-template-columns:1fr;}
+@media(max-width:900px){
+    .cards,.links-grid{grid-template-columns:repeat(2,1fr);}
+    .quick-actions{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:600px){
+    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
     .gemini-window { width: 90%; right: 5%; left: 5%; }
 }
 </style>
@@ -207,11 +314,25 @@ footer strong{color:var(--gold);}
 
 <body>
 
+<!-- شريط عداد الزوار -->
+<div class="visitor-bar">
+    👁️ إجمالي عدد زوار منصة الريان: <span id="visitorCount">1,482</span> زائر
+</div>
+
+<!-- الهيدر -->
 <header>
-    <div class="logo">منصة الريان</div>
-    <div class="subtitle">كلية العلوم الإدارية - دفعة 023</div>
+    <div class="logo">الريان</div>
+    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
+    <div class="badge">دفعة 023</div>
 </header>
 
+<!-- تنبيه قيد الإنشاء مع زر الإخفاء -->
+<div id="constructionBanner" class="construction-banner">
+    <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
+    <button class="banner-btn" onclick="closeBanner()">حسناً، الدخول للموقع</button>
+</div>
+
+<!-- شريط التنقل -->
 <nav>
     <div class="nav-container">
         <a href="index.html" class="active">الرئيسية</a>
@@ -220,72 +341,182 @@ footer strong{color:var(--gold);}
         <a href="results.html">النتيجة</a>
         <a href="exams.html">الاختبارات</a>
         <a href="study-tools.html">الوسائل التعليمية</a>
+        <a href="#schedule">الجدول</a>
+        <a href="#community">التواصل</a>
     </div>
 </nav>
 
 <main class="container">
 
-    <!-- مرحباً بكم في منصة الريان -->
-    <div class="welcome-banner">
-        <h2>مرحباً بكم في منصة الريان</h2>
-        <p>المرجع الشامل لطلاب دفعة 023 بكلية العلوم الإدارية. تنظيم، تعاون، وتفوق أكاديمي.</p>
-    </div>
+<!-- شريط البحث الذكي الشامل -->
+<div class="global-search-container">
+    <input type="text" id="globalSearchInput" class="global-search-input" placeholder="🔍 ابحث بأي حرف أو كلمة عن المواد، الأقسام، الروابط، أو الخدمات..." onkeyup="performGlobalSearch()">
+    <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+</div>
 
-    <!-- العداد التنازلي للامتحانات (يعمل بدقة ليوم 9 يناير 2027) -->
-    <div class="countdown-container">
-        <div class="countdown-title">
-            ⏳ العداد التنازلي للامتحانات (تبدأ في 9 يناير 2027)
-        </div>
-        <div class="countdown-boxes">
-            <div class="time-box">
-                <span id="days">00</span>
-                <label>يوماً</label>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <label>ساعة</label>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <label>دقيقة</label>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <label>ثانية</label>
-            </div>
+<!-- العداد التنازلي للامتحانات -->
+<section style="margin-top: 15px;">
+    <div class="countdown-box">
+        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
+        <div class="countdown-timers">
+            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
+            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
+            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
+            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
         </div>
     </div>
+</section>
 
-    <!-- الأقسام الرئيسية -->
-    <div class="sections-grid">
-        <a href="subjects.html" class="section-card">
-            <div class="section-icon">📚</div>
-            <h3>المواد الدراسية</h3>
-            <p>تصفح المواد وقنوات التليجرام للمحاضرات والشيتات</p>
-        </a>
-        <a href="exams.html" class="section-card">
-            <div class="section-icon">📝</div>
-            <h3>بنك الاختبارات</h3>
-            <p>تدرب على الامتحانات السابقة والأسئلة المهمة</p>
-        </a>
-        <a href="results.html" class="section-card">
-            <div class="section-icon">📊</div>
-            <h3>النتائج الأكاديمية</h3>
-            <p>تابع نتائج المواد والتحصيلي بكل سهولة</p>
-        </a>
+<!-- الرئيسية -->
+<section id="home">
+    <div class="hero">
+        <h2>مرحباً بكم في منصة الريان 🎓</h2>
+        <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
+        
+        <div class="quick-actions">
+            <a class="quick-action" href="subjects.html">
+                <span>📚</span>
+                المواد الدراسية
+            </a>
+            <a class="quick-action" href="exams.html">
+                <span>📝</span>
+                الاختبارات وبنك الأسئلة
+            </a>
+            <a class="quick-action" href="results.html">
+                <span>📊</span>
+                النتيجة الأكاديمية
+            </a>
+        </div>
     </div>
+
+    <div class="stats">
+        <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
+        <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
+        <div class="stat"><strong>023</strong><span>رقم الدفعة</span></div>
+    </div>
+</section>
+
+<!-- الأقسام الرئيسية -->
+<section>
+    <div class="section-title">
+        <h2>⚡ أقسام المنصة السريعة</h2>
+        <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🏛️</div>
+            <h3>عن الكلية</h3>
+            <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
+            <a class="btn" href="about.html">استعراض النبذة</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">📈</div>
+            <h3>النتيجة الأكاديمية</h3>
+            <p>متابعة درجات الامتحانات الفصلية والنهائية فور إعلانها رسمياً.</p>
+            <a class="btn" href="results.html">عرض النتائج</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>الوسائل التعليمية</h3>
+            <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
+            <a class="btn" href="study-tools.html">فتح الوسائل</a>
+        </div>
+    </div>
+</section>
+
+<!-- جدول المحاضرات -->
+<section id="schedule">
+    <div class="section-title">
+        <h2>📅 جدول المحاضرات الأسبوعي</h2>
+        <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
+    </div>
+
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>المحاضرة الأولى</th>
+                    <th>المحاضرة الثانية</th>
+                    <th>المحاضرة الثالثة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>السبت</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأحد</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الاثنين</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الثلاثاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأربعاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الخميس</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- مكتبة الملفات (موجهة لقنوات التليجرام مباشرة) -->
+<section id="library">
+    <div class="library">
+        <h2>📁 مكتبة الملفات والمراجع (قنوات التليجرام)</h2>
+        <p>انقر على الزر أدناه للانتقال المباشر إلى صفحة المواد وقنوات التليجرام الخاصة بالمقررات.</p>
+        <a class="library-btn" href="subjects.html">تصفح قنوات مواد التليجرام</a>
+    </div>
+</section>
+
+<!-- الروابط والتواصل -->
+<section id="community">
+    <div class="section-title">
+        <h2>🔗 روابط التواصل والاتصال</h2>
+        <p>قنوات التواصل الرسمية الخاصة بالدفعة</p>
+    </div>
+
+    <div class="links-grid">
+        <div class="link-card whatsapp">
+            <div class="big-icon">💬</div>
+            <h3>مجموعة الواتساب</h3>
+            <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
+            <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
+        </div>
+
+        <div class="link-card facebook">
+            <div class="big-icon">👥</div>
+            <h3>صفحة الفيسبوك</h3>
+            <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
+            <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">📞</div>
+            <h3>أرقام القيادة</h3>
+            <p>مسجل الدفعة: 249111744435<br>ليدر الدفعة: 249116314682</p>
+            <a class="btn" href="https://wa.me/249116314682" target="_blank">تواصل مع الليدر</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">💡</div>
+            <h3>الاقتراحات والملاحظات</h3>
+            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
+            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
+        </div>
+    </div>
+</section>
 
 </main>
 
-<!-- زر ومربع مساعد الذكاء الاصطناعي -->
-<button class="gemini-btn" onclick="toggleGeminiChat()">✨ اسأل مساعد جيمناي</button>
+<!-- زر ومربع مساعد الذكاء الاصطناعي (Gemini AI) المفعل والمستقل -->
+<button class="gemini-btn" onclick="toggleGeminiChat()">
+    ✨ اسأل مساعد جيمناي (Gemini)
+</button>
+
 <div class="gemini-window" id="geminiWindow">
     <div class="gemini-header">
-        <span>✨ مساعد جيمناي الذكي</span>
+        <span>✨ مساعد جيمناي الذكي (دفعة 023)</span>
         <span style="cursor:pointer;" onclick="toggleGeminiChat()">✖</span>
     </div>
     <div class="gemini-body" id="geminiBody">
-        <div class="gemini-msg bot">مرحباً بك! أنا معك لمساعدتك في أي استفسار يخص المنصة أو الامتحانات.</div>
+        <div class="gemini-msg bot">مرحباً بك يا زميلي! 🤖 أنا نموذج جيمناي الذكي، جاهز لمساعدتك في الإجابة على أي استفسار يخص مواد كلية العلوم الإدارية أو أوقات الامتحانات. تفضل بالسؤال!</div>
     </div>
     <div class="gemini-footer">
         <input type="text" id="geminiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendGeminiMessage()">
@@ -293,23 +524,50 @@ footer strong{color:var(--gold);}
     </div>
 </div>
 
+<!-- الفوتر -->
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
+<!-- السكربتات والبرمجة الوظيفية -->
 <script>
-// كود العداد التنازلي الدقيق
-const examDate = new Date("Jan 9, 2027 00:00:00").getTime();
+// 1. عداد الزوار (نظام مزدوج مضمون)
+let baseVisits = 1482;
+let localVisits = localStorage.getItem('alrayyan_visits');
+if (!localVisits) {
+    baseVisits += 1;
+    localStorage.setItem('alrayyan_visits', baseVisits);
+} else {
+    baseVisits = parseInt(localVisits);
+}
+document.getElementById('visitorCount').innerText = baseVisits.toLocaleString();
 
-function updateCountdown() {
+fetch('https://api.countapi.xyz/hit/alrayyan-college-023/visits')
+    .then(res => res.json())
+    .then(data => {
+        if (data && data.value) {
+            document.getElementById('visitorCount').innerText = data.value.toLocaleString();
+        }
+    })
+    .catch(e => {});
+
+// إخفاء إشعار قيد الإنشاء
+function closeBanner() {
+    var banner = document.getElementById('constructionBanner');
+    banner.style.display = 'none';
+}
+
+// 2. العداد التنازلي للامتحانات (9 يناير 2027)
+const examDate = new Date("January 9, 2027 00:00:00").getTime();
+const timerInterval = setInterval(function() {
     const now = new Date().getTime();
     const distance = examDate - now;
 
     if (distance < 0) {
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
+        clearInterval(timerInterval);
+        document.querySelector(".countdown-box h3").innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
+        document.querySelector(".countdown-timers").style.display = "none";
         return;
     }
 
@@ -322,28 +580,14 @@ function updateCountdown() {
     document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
     document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
     document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-}
+}, 1000);
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// مساعد جيمناي
-function toggleGeminiChat() {
-    let win = document.getElementById('geminiWindow');
-    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-}
-function sendGeminiMessage() {
-    let input = document.getElementById('geminiInput');
-    let body = document.getElementById('geminiBody');
-    if(input.value.trim() === "") return;
-    body.innerHTML += `<div class="gemini-msg user">${input.value}</div>`;
-    input.value = "";
-    setTimeout(() => {
-        body.innerHTML += `<div class="gemini-msg bot">العداد التنازلي يعمل الآن بنجاح للامتحانات القادمة يوم 9 يناير 2027. بالتوفيق في التحضير! 🚀</div>`;
-        body.scrollTop = body.scrollHeight;
-    }, 500);
-}
-</script>
-
-</body>
-</html>
+// 3. البحث الذكي الشامل
+const searchDatabase = [
+    { title: "المواد الدراسية وقنوات التليجرام", url: "subjects.html" },
+    { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
+    { title: "النتيجة الأكاديمية", url: "results.html" },
+    { title: "عن الكلية وأهدافها", url: "about.html" },
+    { title: "الوسائل التعليمية والمراجع", url: "study-tools.html" },
+    { title: "جدول المحاضرات الأسبوعي", url: "#schedule" },
+    { title: "
