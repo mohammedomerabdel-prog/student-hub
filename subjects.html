@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
-:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;--telegram:#24a1ee;}
+:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
 header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
 .logo{font-size:38px;font-weight:900;}
@@ -25,7 +25,6 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba
 .section-title h2{color:var(--primary);font-size:28px;margin-bottom:8px;}
 .section-title p{color:var(--muted);font-size:15px;}
 
-/* شبكة المواد الدراسية */
 .subjects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .subject-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.3s;}
 .subject-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(9,38,63,0.1);}
@@ -33,7 +32,6 @@ nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba
 .subject-card h3{color:var(--primary);font-size:19px;margin-bottom:8px;}
 .subject-card p{color:var(--muted);font-size:13px;margin-bottom:20px;}
 
-/* زر الدخول لصفحة المحاضرات للمادة */
 .sub-btn{
     display:block;
     width:100%;
@@ -84,81 +82,73 @@ footer strong{color:var(--gold);}
 
     <div class="section-title">
         <h2>مقررات الفصل الدراسي</h2>
-        <p>اضغط على أي مادة لعرض المحاضرات (1 - 8) والمرتبطة بقناة التليجرام</p>
+        <p>اضغط على أي مادة لعرض المحاضرات (1 - 9) والمرتبطة بقناة التليجرام</p>
     </div>
 
     <div class="subjects-grid">
         
-        <!-- مادة 1 -->
+        <!-- 1. إحصاء 1 -->
+        <div class="subject-card">
+            <div class="subject-icon">📊</div>
+            <h3>إحصاء 1</h3>
+            <p>عرض البيانات، مقاييس النزعة المركزية والاحتمالات.</p>
+            <a href="statistics1.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 2. محاسبة مالية 1 -->
         <div class="subject-card">
             <div class="subject-icon">💰</div>
-            <h3>مبادئ المحاسبة</h3>
+            <h3>محاسبة مالية 1</h3>
             <p>الدفاتر والقوائم المالية الأساسية.</p>
-            <a href="accounting.html" class="sub-btn">عرض المحاضرات والملفات 📂</a>
+            <a href="accounting1.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
         </div>
 
-        <!-- مادة 2 -->
-        <div class="subject-card">
-            <div class="subject-icon">📊</div>
-            <h3>مبادئ الإدارة</h3>
-            <p>أساسيات العمليات الإدارية والتخطيط.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 3 -->
-        <div class="subject-card">
-            <div class="subject-icon">📈</div>
-            <h3>الاقتصاد الجزئي</h3>
-            <p>سلوك المستهلك والمنتج والعرض والطلب.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 4 -->
-        <div class="subject-card">
-            <div class="subject-icon">🌐</div>
-            <h3>الاقتصاد الكلي</h3>
-            <p>الناتج المحلي والتضخم والسياسات.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 5 -->
-        <div class="subject-card">
-            <div class="subject-icon">📐</div>
-            <h3>الرياضيات لعلوم الإدارة</h3>
-            <p>التفاضل والتكامل والمصفوفات.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 6 -->
-        <div class="subject-card">
-            <div class="subject-icon">📊</div>
-            <h3>الإحصاء للإدارة</h3>
-            <p>عرض البيانات ومقاييس النزعة المركزية.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 7 -->
-        <div class="subject-card">
-            <div class="subject-icon">💻</div>
-            <h3>التقنية في إدارة الأعمال</h3>
-            <p>أنظمة المعلومات وقواعد البيانات.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 8 -->
-        <div class="subject-card">
-            <div class="subject-icon">⚖️</div>
-            <h3>القانون التجاري</h3>
-            <p>الأعمال التجارية والشركات والعقود.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
-        </div>
-
-        <!-- مادة 9 -->
+        <!-- 3. إنجليزي -->
         <div class="subject-card">
             <div class="subject-icon">🗣️️</div>
-            <h3>اللغة الإنجليزية الإدارية</h3>
-            <p>المصطلحات والمراسلات التجارية.</p>
-            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
+            <h3>إنجليزي</h3>
+            <p>المصطلحات والمراسلات الإدارية باللغة الإنجليزية.</p>
+            <a href="english.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 4. حاسوب -->
+        <div class="subject-card">
+            <div class="subject-icon">💻</div>
+            <h3>حاسوب</h3>
+            <p>أساسيات تقنية المعلومات وأنظمة العمل.</p>
+            <a href="computer.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 5. مصارف -->
+        <div class="subject-card">
+            <div class="subject-icon">🏦</div>
+            <h3>مصارف</h3>
+            <p>أعمال البنوك والعمليات المصرفية المختلفة.</p>
+            <a href="banks.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 6. قانون تجاري -->
+        <div class="subject-card">
+            <div class="subject-icon">⚖️</div>
+            <h3>قانون تجاري</h3>
+            <p>الأعمال التجارية والشركات والعقود.</p>
+            <a href="law.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 7. اقتصاد جزئي -->
+        <div class="subject-card">
+            <div class="subject-icon">📈</div>
+            <h3>اقتصاد جزئي</h3>
+            <p>سلوك المستهلك والمنتج والعرض والطلب.</p>
+            <a href="microeconomics.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
+        </div>
+
+        <!-- 8. سلوك تنظيمي -->
+        <div class="subject-card">
+            <div class="subject-icon">👥</div>
+            <h3>سلوك تنظيمي</h3>
+            <p>سلوك الأفراد والجماعات داخل المنظمات الإدارية.</p>
+            <a href="org-behavior.html" class="sub-btn">عرض المحاضرات (9) 📂</a>
         </div>
 
     </div>
