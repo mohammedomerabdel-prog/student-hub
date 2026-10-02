@@ -11,7 +11,6 @@ html{scroll-behavior:smooth;}
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background:#f0f4f8;color:#1e293b;line-height:1.8;
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
 :root{
@@ -23,40 +22,6 @@ body{
     --muted:#64748b;
     --border:#e2e8f0;
     --shadow:0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
-}
-
-/* تنسيقات الوضع الليلي الحقيقي */
-body.dark-mode {
-    background: #0b0f19;
-    color: #f1f5f9;
-    --primary: #f8fafc;
-    --primary2: #38bdf8;
-    --white: #111827;
-    --muted: #94a3b8;
-    --border: #1f2937;
-    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-}
-body.dark-mode nav {
-    background: rgba(17, 24, 39, 0.95);
-}
-body.dark-mode .nav-container a {
-    color: #e2e8f0;
-}
-body.dark-mode .nav-container a:hover, body.dark-mode .nav-container a.active {
-    background: #0284c7;
-    color: #ffffff;
-}
-body.dark-mode .stat strong {
-    color: #38bdf8;
-}
-body.dark-mode .card .icon {
-    background: #1e293b;
-}
-body.dark-mode table th {
-    background: #1e293b;
-}
-body.dark-mode .creators-box {
-    background: #111827;
 }
 
 header{
@@ -75,25 +40,6 @@ header{
     color:#fff;padding:6px 22px;border-radius:30px;
     font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
-
-/* زر الوضع الليلي الحقيقي في الهيدر */
-.theme-toggle-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    backdrop-filter: blur(5px);
-    transition: 0.2s;
-    z-index: 10;
-}
-.theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
 /* شريط الإعلانات العاجلة */
 .ticker-container {
@@ -126,32 +72,12 @@ header{
     100% { transform: translateX(-100%); }
 }
 
-.construction-banner{
-    background:linear-gradient(135deg, #fef3c7, #fde68a);
-    color:#92400e;
-    text-align:center;
-    padding:14px 20px;
-    font-weight:600;
-    font-size:14px;
-    border-bottom:1px solid #fcd34d;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-}
-.banner-btn{
-    background:#92400e;color:#fff;border:none;padding:6px 16px;border-radius:8px;font-size:13px;font-weight:bold;cursor:pointer;transition:0.2s;
-}
-.banner-btn:hover{background:#78350f;}
-
 nav{
     background:rgba(255, 255, 255, 0.95);
     backdrop-filter:blur(10px);
     position:sticky; top:0; z-index:100;
     box-shadow:0 4px 20px rgba(0,0,0,0.05);
     border-bottom:1px solid var(--border);
-    transition: background 0.3s ease;
 }
 .nav-container{max-width:1200px;margin:auto;display:flex;gap:10px;padding:12px 15px;overflow-x:auto;}
 .nav-container::-webkit-scrollbar{height:4px;}
@@ -182,7 +108,6 @@ section{margin-bottom:45px;}
 
 .hero{
     background:var(--white);border-radius:24px;padding:45px 30px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);
-    transition: background 0.3s ease;
 }
 .hero h2{color:var(--primary);font-size:32px;margin-bottom:12px;font-weight:800;}
 .hero p{color:var(--muted);max-width:750px;margin:0 auto 30px;font-size:16px;}
@@ -196,7 +121,7 @@ section{margin-bottom:45px;}
 .quick-action span{font-size:32px;margin-bottom:8px;}
 
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:25px;}
-.stat{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:25px;text-align:center;box-shadow:var(--shadow);transition: background 0.3s ease;}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:25px;text-align:center;box-shadow:var(--shadow);}
 .stat strong{display:block;font-size:32px;color:var(--primary2);font-weight:900;}
 .stat span{color:var(--muted);font-size:14px;}
 
@@ -222,7 +147,7 @@ section{margin-bottom:45px;}
 }
 .btn-highlight:hover{background: linear-gradient(135deg, #059669, #047857) !important;}
 
-.table-box{overflow-x:auto;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);transition: background 0.3s ease;}
+.table-box{overflow-x:auto;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);}
 table{width:100%;min-width:700px;border-collapse:collapse;}
 th,td{padding:18px 15px;text-align:center;border-bottom:1px solid var(--border);font-size:15px;}
 th{background:var(--primary);color:#fff;}
@@ -233,13 +158,13 @@ th{background:var(--primary);color:#fff;}
 }
 
 .links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.link-card{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);transition: background 0.3s ease;}
+.link-card{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);}
 .link-card .big-icon{font-size:45px;margin-bottom:12px;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
 /* أزرار الفوتر */
-footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
+footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
     background:var(--gold);color:#78350f;border:none;padding:10px 24px;border-radius:12px;font-weight:bold;font-size:15px;cursor:pointer;transition:0.2s;box-shadow:0 4px 15px rgba(245,158,11,0.3);
@@ -304,9 +229,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
-    <!-- زر الوضع الليلي -->
-    <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
-    
     <div class="logo">الريان</div>
     <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
     <div class="badge">دفعة 023</div>
@@ -316,12 +238,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <div class="ticker-container">
     <span class="ticker-title">عاجل 📢</span>
     <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
-</div>
-
-<!-- شريط تنبيه قيد الإنشاء مع زر حسناً الفعّال -->
-<div id="constructionBanner" class="construction-banner">
-    <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
-    <button class="banner-btn" id="closeBannerBtn" type="button">حسناً، الدخول للموقع</button>
 </div>
 
 <nav>
@@ -478,7 +394,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
         <div class="link-card">
             <div class="big-icon">💡</div>
-            <h3>الاقتراحات والملاحظات</h3>
+            ### الاقتراحات والملاحظات
             <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
             <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
         </div>
@@ -489,9 +405,9 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <footer>
     <div class="footer-buttons">
-        <!-- زر "من نحن" -->
+        <!-- زر "من نحن" الفعّال -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <!-- زر مشاركة المنصة -->
+        <!-- زر مشاركة المنصة الفعّال -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
@@ -515,4 +431,94 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", func
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. إدارة النافذة المنبثقة لزر "من نحن"
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if (aboutBtn && aboutModal && closeModalBtn) {
+        aboutBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'flex';
+        });
+        closeModalBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'none';
+        });
+        window.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.style.display = 'none';
+            }
+        });
+    }
+
+    // 2. زر مشاركة المنصة الفعّال
+    const shareBtn = document.getElementById('shareSiteBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'منصة الريان - دفعة 023',
+                    text: 'تصفح منصة الريان الطلابية لكلية العلوم الإدارية دفعة 023',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('تم نسخ رابط المنصة بنجاح! 📋');
+            }
+        });
+    }
+
+    // 3. زر العودة للأعلى (Back to Top)
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 4. العداد التنازلي للامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (daysEl && hoursEl && minutesEl && secondsEl) {
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                const boxTitle = document.querySelector(".countdown-box h3");
+                if(boxTitle) boxTitle.innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
+                const timersRow = document.querySelector(".countdown-timers");
+                if(timersRow) timersRow.style.display = "none";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days < 10 ? "0" + days : days;
+            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    }
+
+});
+</script>
+
+</body>
+</html>
