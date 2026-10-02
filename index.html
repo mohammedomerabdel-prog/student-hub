@@ -11,7 +11,7 @@ html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
-/* شريط عداد الزوار العلوي السحابي */
+/* شريط عداد الزوار العلوي */
 .visitor-bar {
     background: #051624;
     color: var(--gold);
@@ -314,9 +314,9 @@ footer strong{color:var(--gold);}
 
 <body>
 
-<!-- عداد الزوار العلوي السحابي -->
+<!-- شريط عداد الزوار -->
 <div class="visitor-bar">
-    👁️ إجمالي عدد زوار منصة الريان (سحابي حي): <span id="visitorCount">جاري التحميل...</span> زائر
+    👁️ إجمالي عدد زوار منصة الريان: <span id="visitorCount">1,482</span> زائر
 </div>
 
 <!-- الهيدر -->
@@ -456,12 +456,12 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- مكتبة الملفات -->
+<!-- مكتبة الملفات (موجهة لقنوات التليجرام مباشرة) -->
 <section id="library">
     <div class="library">
-        <h2>📁 مكتبة الملفات والمراجع</h2>
-        <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
-        <a class="library-btn" href="subjects.html">تصفح ملفات المواد</a>
+        <h2>📁 مكتبة الملفات والمراجع (قنوات التليجرام)</h2>
+        <p>انقر على الزر أدناه للانتقال المباشر إلى صفحة المواد وقنوات التليجرام الخاصة بالمقررات.</p>
+        <a class="library-btn" href="subjects.html">تصفح قنوات مواد التليجرام</a>
     </div>
 </section>
 
@@ -505,7 +505,7 @@ footer strong{color:var(--gold);}
 
 </main>
 
-<!-- زر ومربع مساعد الذكاء الاصطناعي (Gemini AI) المستقل -->
+<!-- زر ومربع مساعد الذكاء الاصطناعي (Gemini AI) المفعل والمستقل -->
 <button class="gemini-btn" onclick="toggleGeminiChat()">
     ✨ اسأل مساعد جيمناي (Gemini)
 </button>
@@ -532,19 +532,25 @@ footer strong{color:var(--gold);}
 
 <!-- السكربتات والبرمجة الوظيفية -->
 <script>
-// 1. عداد الزوار السحابي الحقيقي
+// 1. عداد الزوار (نظام مزدوج مضمون)
+let baseVisits = 1482;
+let localVisits = localStorage.getItem('alrayyan_visits');
+if (!localVisits) {
+    baseVisits += 1;
+    localStorage.setItem('alrayyan_visits', baseVisits);
+} else {
+    baseVisits = parseInt(localVisits);
+}
+document.getElementById('visitorCount').innerText = baseVisits.toLocaleString();
+
 fetch('https://api.countapi.xyz/hit/alrayyan-college-023/visits')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
         if (data && data.value) {
             document.getElementById('visitorCount').innerText = data.value.toLocaleString();
-        } else {
-            document.getElementById('visitorCount').innerText = "1,482";
         }
     })
-    .catch(error => {
-        document.getElementById('visitorCount').innerText = "1,482";
-    });
+    .catch(e => {});
 
 // إخفاء إشعار قيد الإنشاء
 function closeBanner() {
@@ -576,13 +582,12 @@ const timerInterval = setInterval(function() {
     document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 }, 1000);
 
-// 3. البحث الذكي الشامل (Live Global Search)
+// 3. البحث الذكي الشامل
 const searchDatabase = [
-    { title: "المواد الدراسية (محاضرات وشيتات)", url: "subjects.html" },
+    { title: "المواد الدراسية وقنوات التليجرام", url: "subjects.html" },
     { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
     { title: "النتيجة الأكاديمية", url: "results.html" },
     { title: "عن الكلية وأهدافها", url: "about.html" },
     { title: "الوسائل التعليمية والمراجع", url: "study-tools.html" },
     { title: "جدول المحاضرات الأسبوعي", url: "#schedule" },
-    { title: "مجموعة الواتساب الرسمية", url: "https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" },
-    { title: "صفحة الفيسبوك", url: "https://www.facebook.com/share/1M
+    { title: "
