@@ -55,6 +55,14 @@ body.dark-mode table th {
 body.dark-mode .creators-box {
     background: #111827;
 }
+body.dark-mode .search-box-wrapper {
+    background: #111827;
+}
+body.dark-mode .search-input {
+    background: #1f2937;
+    color: #f8fafc;
+    border-color: #374151;
+}
 
 header{
     background:linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
@@ -124,6 +132,77 @@ header{
     100% { transform: translateX(-100%); }
 }
 
+/* تنسيق شريط البحث */
+.search-box-wrapper {
+    background: var(--white);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: background 0.3s ease;
+}
+.search-box-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    width: 100%;
+    padding: 12px 45px 12px 40px;
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+    color: var(--primary);
+}
+.search-input:focus {
+    border-color: var(--accent);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+.search-icon-inside {
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+    pointer-events: none;
+    color: var(--muted);
+}
+.clear-search-btn {
+    position: absolute;
+    left: 12px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--muted);
+    cursor: pointer;
+    display: none;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+.clear-search-btn:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+.no-results-msg {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px dashed var(--border);
+    margin: 20px 0;
+    color: var(--muted);
+}
+.no-results-msg h4 {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
 nav{
     background:rgba(255, 255, 255, 0.95);
     backdrop-filter:blur(10px);
@@ -140,7 +219,7 @@ nav{
 .nav-container a:hover, .nav-container a.active{background:var(--primary2);color:white;}
 
 .container{max-width:1200px;margin:auto;padding:35px 20px;}
-section{margin-bottom:45px;}
+section{margin-bottom:45px; transition: opacity 0.3s ease;}
 .section-title{text-align:center;margin-bottom:25px;}
 .section-title h2{color:var(--primary);font-size:28px;font-weight:800;margin-bottom:5px;}
 .section-title p{color:var(--muted);font-size:15px;}
@@ -186,7 +265,6 @@ section{margin-bottom:45px;}
 }
 .card:hover{transform:translateY(-5px);}
 
-/* ألوان زاهية وأنيقة مع أشكال دائرية متدرجة للأيقونات */
 .card .icon{
     font-size:40px;margin-bottom:15px;
     width:80px;height:80px;line-height:80px;
@@ -335,6 +413,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="ticker-text">مرحباً بكم في منصة الريان - جامعة بحري لدفعة 023 / 024 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول!</div>
 </div>
 
+<!-- شريط البحث المباشر -->
+<div class="search-box-wrapper">
+    <div class="search-box-container">
+        <span class="search-icon-inside">🔍</span>
+        <input type="text" id="siteSearchInput" class="search-input" placeholder="ابحث في المنصة (عن المواد، الاختبارات، المراجع، الجدول...)" autocomplete="off">
+        <button id="clearSearchBtn" class="clear-search-btn" title="مسح البحث">✕</button>
+    </div>
+</div>
+
 <nav>
     <div class="nav-container">
         <a href="index.html" class="active">الرئيسية</a>
@@ -350,8 +437,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
-<section>
-    <div class="countdown-box">
+<!-- رسالة تنبيه عند عدم وجود نتائج للبحث -->
+<div id="noResultsMsg" class="no-results-msg">
+    <div style="font-size: 40px; margin-bottom: 10px;">🔍❌</div>
+    <h4>عفواً، لم نجد أي نتائج تطابق بحثك!</h4>
+    <p>تأكد من كتابة الكلمة بشكل صحيح أو جرب البحث عن كلمة أخرى مثل: "مواد"، "نتيجة"، "جدول"، "واتساب".</p>
+</div>
+
+<section class="searchable-section">
+    <div class="countdown-box searchable-item">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
             <div class="time-card"><span id="days">00</span><label>يوم</label></div>
@@ -362,47 +456,47 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="home">
-    <div class="hero">
+<section id="home" class="searchable-section">
+    <div class="hero searchable-item">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
         <p>منصة طلابية متكاملة بـ <strong>جامعة بحري</strong> تجمع المواد الدراسية، الملفات، الملخصات، والنتائج الخاصة بدفعة 023 / 024 في مكان واحد.</p>
         
         <div class="quick-actions">
-            <a class="quick-action" href="subjects.html"><span>📚</span> المواد الدراسية</a>
-            <a class="quick-action" href="exams.html"><span>📝</span> الاختبارات وبنك الأسئلة</a>
-            <a class="quick-action" href="results.html"><span>📊</span> النتيجة الأكاديمية</a>
+            <a class="quick-action searchable-item" href="subjects.html"><span>📚</span> المواد الدراسية</a>
+            <a class="quick-action searchable-item" href="exams.html"><span>📝</span> الاختبارات وبنك الأسئلة</a>
+            <a class="quick-action searchable-item" href="results.html"><span>📊</span> النتيجة الأكاديمية</a>
         </div>
     </div>
 
-    <div class="stats">
+    <div class="stats searchable-item">
         <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
         <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
         <div class="stat"><strong>023 / 024</strong><span>الدفعة الدراسية</span></div>
     </div>
 </section>
 
-<section>
+<section class="searchable-section">
     <div class="section-title">
         <h2>⚡ أقسام المنصة السريعة</h2>
         <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
     </div>
 
     <div class="cards">
-        <div class="card">
+        <div class="card searchable-item">
             <div class="icon icon-amber">🏛️</div>
             <h3>عن الكلية</h3>
             <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
             <a class="btn" href="about.html">استعراض النبذة</a>
         </div>
 
-        <div class="card">
+        <div class="card searchable-item">
             <div class="icon icon-purple">🧠</div>
             <h3>اختبارات معرفة القدرات</h3>
             <p>اختبر معلوماتك وقدراتك الذهنية عبر تمرينات واختبارات تفاعلية مشوقة.</p>
             <a class="btn" href="fun.html">ابدأ الاختبار</a>
         </div>
 
-        <div class="card">
+        <div class="card searchable-item">
             <div class="icon icon-teal">🛠️</div>
             <h3>الوسائل التعليمية</h3>
             <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
@@ -411,13 +505,13 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="schedule">
+<section id="schedule" class="searchable-section">
     <div class="section-title">
         <h2>📅 جدول المحاضرات الأسبوعي</h2>
         <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
     </div>
 
-    <div class="table-box">
+    <div class="table-box searchable-item">
         <table>
             <thead>
                 <tr>
@@ -439,43 +533,43 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="library">
-    <div class="library">
+<section id="library" class="searchable-section">
+    <div class="library searchable-item">
         <h2>📁 مكتبة الملفات والمراجع</h2>
         <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
         <a class="library-btn" href="subjects.html">تصفح ملفات المواد</a>
     </div>
 </section>
 
-<section id="community">
+<section id="community" class="searchable-section">
     <div class="section-title">
         <h2>🔗 روابط التواصل والاتصال</h2>
         <p>قنوات التواصل الرسمية الخاصة بالدفعة والكلية</p>
     </div>
 
     <div class="links-grid">
-        <div class="link-card">
+        <div class="link-card searchable-item">
             <div class="big-icon">💬</div>
             <h3>مجموعة الواتساب</h3>
             <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
             <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
         </div>
 
-        <div class="link-card">
+        <div class="link-card searchable-item">
             <div class="big-icon">👥</div>
             <h3>صفحة الفيسبوك</h3>
             <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
             <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
         </div>
 
-        <div class="link-card">
+        <div class="link-card searchable-item">
             <div class="big-icon">📢</div>
             <h3>أخبار الجامعة</h3>
             <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
-        <div class="link-card" style="border: 2px solid #3b82f6;">
+        <div class="link-card searchable-item" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
             <p><strong>ليدر الدفعة:</strong><br>249116314682</p>
@@ -485,8 +579,9 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn btn-highlight" href="https://wa.me/249111744435" target="_blank">💬 مراسلة مسجل الدفعة</a>
         </div>
 
-        <div class="link-card">
+        <div class="link-card searchable-item">
             <div class="big-icon">💡</div>
+            <h3>الآراء والاقتراحات</h3>
             <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
             <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
         </div>
@@ -549,6 +644,64 @@ document.addEventListener("DOMContentLoaded", function() {
                 localStorage.setItem('theme', 'light');
                 themeBtn.innerText = '🌙 الوضع الليلي';
             }
+        });
+    }
+
+    // كود محرك البحث الحي المباشر
+    const searchInput = document.getElementById('siteSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const noResults = document.getElementById('noResultsMsg');
+    const sections = document.querySelectorAll('.searchable-section');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+
+            // إظهار أو إخفاء زر المسح
+            if (query.length > 0) {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+
+            let totalVisibleItems = 0;
+
+            sections.forEach(section => {
+                const items = section.querySelectorAll('.searchable-item');
+                let sectionHasVisibleItems = false;
+
+                items.forEach(item => {
+                    const text = item.innerText.toLowerCase();
+                    if (text.includes(query)) {
+                        item.style.display = '';
+                        sectionHasVisibleItems = true;
+                        totalVisibleItems++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // إخفاء الأقسام الفارغة التي لا توجد بها نتائج
+                if (sectionHasVisibleItems) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            // عرض رسالة عدم وجود نتائج إن لم يطابق أي عنصر
+            if (totalVisibleItems === 0 && query !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+
+        // زر تفريغ البحث
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
+            searchInput.focus();
         });
     }
 
