@@ -4,227 +4,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المواد الدراسية وقنوات التليجرام | منصة الريان</title>
+<title>المواد الدراسية | منصة الريان - دفعة 023</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:Arial,Tahoma,sans-serif;background:#f0f4f8;color:#2c3e50;line-height:1.8;}
-:root{--primary:#0a2540;--primary2:#1e3d59;--accent:#38bdf8;--gold:#f59e0b;--bg-card:#ffffff;--muted:#64748b;--border:#e2e8f0;}
+body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
+:root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;--telegram:#24a1ee;}
 
-header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:30px 20px;text-align:center;box-shadow:0 4px 20px rgba(10,37,64,0.15);}
-.logo{font-size:38px;font-weight:900;letter-spacing:1px;}
-.subtitle{color:#cbd5e1;margin-top:6px;font-size:15px;}
+header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
+.logo{font-size:38px;font-weight:900;}
+.subtitle{color:#dce8f1;margin-top:4px;font-size:15px;}
 
-nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.05);}
-.nav-container{max-width:1200px;margin:auto;display:flex;gap:10px;padding:12px;overflow-x:auto;}
-.nav-container a{text-decoration:none;color:var(--primary);padding:8px 18px;border-radius:12px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.25s;}
-.nav-container a:hover, .nav-container a.active{background:#f1f5f9;color:#0284c7;}
+nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
+.nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
+.nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
+.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
 
 .container{max-width:1200px;margin:auto;padding:30px 15px;}
+.section-title{text-align:center;margin-bottom:25px;}
+.section-title h2{color:var(--primary);font-size:28px;margin-bottom:8px;}
+.section-title p{color:var(--muted);font-size:15px;}
 
-/* الهيدر الترحيبي المحفز داخل الصفحة */
-.welcome-banner{
-    background:linear-gradient(135deg, #1e3d59, #0a2540);
-    color:#fff;
-    border-radius:20px;
-    padding:30px;
+/* بانر قناة التليجرام العلوي */
+.telegram-banner{
+    background:linear-gradient(135deg, #1d9bf0, #0b79c1);
+    color:white;
+    border-radius:16px;
+    padding:20px;
     text-align:center;
     margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(10,37,64,0.1);
+    box-shadow:0 5px 20px rgba(36,161,238,0.2);
 }
-.welcome-banner h2{color:var(--gold);font-size:26px;margin-bottom:8px;}
-.welcome-banner p{color:#e2e8f0;font-size:14.5px;max-width:700px;margin:0 auto;}
+.telegram-banner h3{font-size:22px;margin-bottom:8px;color:#fff;}
+.telegram-banner p{font-size:14px;margin-bottom:15px;color:#f0f8ff;}
+.tg-btn{
+    display:inline-block;
+    background:#fff;
+    color:#0b79c1;
+    text-decoration:none;
+    padding:10px 22px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:14px;
+    transition:.2s;
+}
+.tg-btn:hover{background:#f4f4f4;transform:translateY(-2px);}
 
-/* شريط البحث الهادئ */
-.search-box {
-    max-width: 550px;
-    margin: 0 auto 35px auto;
-}
-.search-input {
-    width: 100%;
-    padding: 14px 22px;
-    border-radius: 35px;
-    border: 2px solid var(--border);
-    font-size: 15px;
-    outline: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    background: #fff;
-    transition: 0.3s;
-}
-.search-input:focus {
-    border-color: #0284c7;
-    box-shadow: 0 4px 20px rgba(2,132,199,0.15);
-}
+/* شبكة المواد الدراسية */
+.subjects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.subject-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.3s;}
+.subject-card:hover{box-shadow:0 10px 25px rgba(9,38,63,0.1);}
+.subject-icon{font-size:35px;margin-bottom:10px;}
+.subject-card h3{color:var(--primary);font-size:18px;margin-bottom:6px;}
+.subject-card p{color:var(--muted);font-size:13px;margin-bottom:15px;}
 
-/* شبكة المواد بتصميم بطاقات راقية ومنسقة */
-.subjects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
+/* قائمة المحاضرات */
+.lectures-box{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:12px;margin-top:10px;text-align:right;}
+.lectures-box h4{font-size:13px;color:var(--primary);margin-bottom:8px;text-align:center;}
+.lectures-list{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;}
+.lec-btn{
+    background:#fff;
+    color:var(--telegram);
+    border:1px solid #b3e0fc;
+    text-decoration:none;
+    padding:6px 8px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:bold;
+    text-align:center;
+    transition:.2s;
+    display:block;
 }
+.lec-btn:hover{background:var(--telegram);color:#fff;}
+.lec-btn.disabled{color:#b0bec5;border-color:#e0e0e0;background:#f5f5f5;pointer-events:none;}
 
-.subject-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 24px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-}
-
-.subject-card:hover {
-    transform: translateY(-5px);
-    border-color: #0284c7;
-    box-shadow: 0 12px 30px rgba(2,132,199,0.12);
-}
-
-.subject-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 15px;
-}
-
-.subject-icon {
-    font-size: 34px;
-    background: #f8fafc;
-    padding: 12px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-}
-
-.subject-info h3 {
-    color: var(--primary);
-    font-size: 19px;
-    margin-bottom: 4px;
-}
-
-.subject-info p {
-    color: var(--muted);
-    font-size: 13.5px;
-}
-
-/* التنسيق الجديد المرتب للأزرار داخل البطاقة */
-.subject-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px dashed var(--border);
-}
-
-.tag {
-    background: #fef3c7;
-    color: #92400e;
-    padding: 5px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* زر التليجرام المنظم والهادئ */
-.telegram-btn-stylish {
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 8px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.2s;
-}
-
-.subject-card:hover .telegram-btn-stylish {
-    background: #0284c7;
-    color: #fff;
-}
-
-/* نافذة مساعد الذكاء الاصطناعي (Gemini) */
-.gemini-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, #4F46E5, #3B82F6);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 22px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.gemini-window {
-    position: fixed;
-    bottom: 95px;
-    right: 25px;
-    width: 350px;
-    height: 480px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border: 1px solid var(--border);
-    display: none;
-    flex-direction: column;
-    z-index: 1001;
-    overflow: hidden;
-}
-.gemini-header {
-    background: linear-gradient(135deg, #4F46E5, #3B82F6);
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.gemini-body {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: #f8fafc;
-}
-.gemini-msg {
-    padding: 10px 14px;
-    border-radius: 14px;
-    max-width: 85%;
-    font-size: 13.5px;
-}
-.gemini-msg.bot { background: #e0e7ff; color: #312e81; align-self: flex-start; }
-.gemini-msg.user { background: #3b82f6; color: white; align-self: flex-end; }
-.gemini-footer {
-    padding: 10px;
-    background: #fff;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 8px;
-}
-.gemini-footer input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 10px; outline: none; }
-.gemini-footer button { background: #4F46E5; color: white; border: none; padding: 0 15px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-
-footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:50px;}
-footer p{color:#cbd5e1;font-size:14px;}
+footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
+footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
 
-@media(max-width:768px){
+@media(max-width:850px){
+    .subjects-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:550px){
     .subjects-grid{grid-template-columns:1fr;}
-    .gemini-window { width: 90%; right: 5%; left: 5%; }
 }
 </style>
 </head>
@@ -232,8 +94,8 @@ footer strong{color:var(--gold);}
 <body>
 
 <header>
-    <div class="logo">منصة الريان</div>
-    <div class="subtitle">المواد الدراسية وقنوات التليجرام الرسمية - دفعة 023</div>
+    <div class="logo">المواد الدراسية 📚</div>
+    <div class="subtitle">منصة الريان الطلابية | كلية العلوم الإدارية - دفعة 023</div>
 </header>
 
 <nav>
@@ -249,185 +111,208 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
-    <!-- قسم ترحيبي محفز -->
-    <div class="welcome-banner">
-        <h2>✨ طريقك نحو التميز الأكاديمي يبدأ من هنا</h2>
-        <p>اختر أي مادة دراسية للوصول المباشر إلى المحاضرات، الشيتات، والمصادر عبر قنوات التليجرام المخصصة.</p>
+    <!-- بانر قناة التليجرام -->
+    <div class="telegram-banner">
+        <h3>📢 قناة التليجرام الرسمية للدفعة</h3>
+        <p>انضم الآن لقناتنا على التليجرام لتصلك المحاضرات والملخصات وتنبيهات رفع المحاضرات الجديدة أولاً بأول.</p>
+        <a class="tg-btn" href="https://t.me/your_channel_link" target="_blank">✈️ انضم لقناة التليجرام الآن</a>
     </div>
 
-    <!-- شريط البحث السريع -->
-    <div class="search-box">
-        <input type="text" id="subjectSearch" class="search-input" placeholder="🔍 ابحث عن اسم المادة..." onkeyup="filterSubjects()">
+    <div class="section-title">
+        <h2>مقررات الفصل الدراسي ومحاضراتها</h2>
+        <p>اضغط على رقم المحاضرة للانتقال المباشر إليها عبر قناة التليجرام</p>
     </div>
 
-    <!-- شبكة المواد بالتنسيق الهادئ والراقي والأزرار المرتبة -->
-    <div class="subjects-grid" id="subjectsGrid">
-
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="مبادئ المحاسبة">
-            <div class="subject-header">
-                <div class="subject-icon">📊</div>
-                <div class="subject-info">
-                    <h3>مبادئ المحاسبة (1)</h3>
-                    <p>القيود والدورة المحاسبية</p>
+    <div class="subjects-grid">
+        
+        <!-- مادة 1 -->
+        <div class="subject-card">
+            <div class="subject-icon">📊</div>
+            <h3>مبادئ الإدارة</h3>
+            <p>أساسيات العمليات الإدارية والتخطيط.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="رابط_محاضرة_1_في_التليجرام" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn" href="رابط_محاضرة_2_في_التليجرام" target="_blank">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag">شرح مبسط</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="مبادئ الإدارة">
-            <div class="subject-header">
-                <div class="subject-icon">📈</div>
-                <div class="subject-info">
-                    <h3>مبادئ الإدارة</h3>
-                    <p>التخطيط، التنظيم، والرقابة</p>
+        <!-- مادة 2 -->
+        <div class="subject-card">
+            <div class="subject-icon">💰</div>
+            <h3>مبادئ المحاسبة</h3>
+            <p>الدفاتر والقوائم المالية الأساسية.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="رابط_محاضرة_1" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#d1fae5; color:#065f46;">محاضرات + شيتات</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="مبادئ التسويق">
-            <div class="subject-header">
-                <div class="subject-icon">🎯</div>
-                <div class="subject-info">
-                    <h3>مبادئ التسويق</h3>
-                    <p>المزيج التسويقي وسلوك المستهلك</p>
+        <!-- مادة 3 -->
+        <div class="subject-card">
+            <div class="subject-icon">📈</div>
+            ### الاقتصاد الجزئي
+            <p>سلوك المستهلك والمنتج والعرض والطلب.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#e0f2fe; color:#0369a1;">ملخصات شاملة</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="الاقتصاد الجزئي">
-            <div class="subject-header">
-                <div class="subject-icon">📉</div>
-                <div class="subject-info">
-                    <h3>الاقتصاد الجزئي</h3>
-                    <p>العرض والطلب وسلوك المستهلك</p>
+        <!-- مادة 4 -->
+        <div class="subject-card">
+            <div class="subject-icon">🌐</div>
+            <h3>الاقتصاد الكلي</h3>
+            <p>الناتج المحلي والتضخم والسياسات.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#f1f5f9; color:#475569;">محدث اليوم</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="القانون التجاري">
-            <div class="subject-header">
-                <div class="subject-icon">⚖️</div>
-                <div class="subject-info">
-                    <h3>القانون التجاري</h3>
-                    <p>التشريعات والعقود التجارية</p>
+        <!-- مادة 5 -->
+        <div class="subject-card">
+            <div class="subject-icon">📐</div>
+            <h3>الرياضيات لعلوم الإدارة</h3>
+            <p>التفاضل والتكامل والمصفوفات.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag">شرح ملخص</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="الإحصاء الإداري">
-            <div class="subject-header">
-                <div class="subject-icon">📐</div>
-                <div class="subject-info">
-                    <h3>الإحصاء الإداري</h3>
-                    <p>الاحتمالات والتحليل الإحصائي</p>
+        <!-- مادة 6 -->
+        <div class="subject-card">
+            <div class="subject-icon">📊</div>
+            <h3>الإحصاء للإدارة</h3>
+            <p>عرض البيانات ومقاييس النزعة المركزية.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#d1fae5; color:#065f46;">شيتات محلولة</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="تطبيقات الحاسوب">
-            <div class="subject-header">
-                <div class="subject-icon">💻</div>
-                <div class="subject-info">
-                    <h3>تطبيقات الحاسوب</h3>
-                    <p>إكسل والنظم الإدارية</p>
+        <!-- مادة 7 -->
+        <div class="subject-card">
+            <div class="subject-icon">💻</div>
+            <h3>التقنية في إدارة الأعمال</h3>
+            <p>أنظمة المعلومات وقواعد البيانات.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#e0f2fe; color:#0369a1;">عملي + نظري</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
-            </div>
-        </a>
+        </div>
 
-        <a href="https://t.me/your_telegram_channel_link" target="_blank" class="subject-card" data-name="السلوك التنظيمي">
-            <div class="subject-header">
-                <div class="subject-icon">👥</div>
-                <div class="subject-info">
-                    <h3>السلوك التنظيمي</h3>
-                    <p>الدوافع والقيادة بالمنظمات</p>
+        <!-- مادة 8 -->
+        <div class="subject-card">
+            <div class="subject-icon">⚖️</div>
+            <h3>القانون التجاري</h3>
+            <p>الأعمال التجارية والشركات والعقود.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
                 </div>
             </div>
-            <div class="subject-footer">
-                <span class="tag" style="background:#fee2e2; color:#991b1b;">مكثف</span>
-                <span class="telegram-btn-stylish">💬 فتح التليجرام</span>
+        </div>
+
+        <!-- مادة 9 -->
+        <div class="subject-card">
+            <div class="subject-icon">🗣️</div>
+            <h3>اللغة الإنجليزية الإدارية</h3>
+            <p>المصطلحات والمراسلات التجارية.</p>
+            <div class="lectures-box">
+                <h4>محاضرات المادة (1 - 8)</h4>
+                <div class="lectures-list">
+                    <a class="lec-btn" href="#" target="_blank">المحاضرة 1</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 2</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 3</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 4</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 5</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 6</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 7</a>
+                    <a class="lec-btn disabled" href="#">المحاضرة 8</a>
+                </div>
             </div>
-        </a>
+        </div>
 
     </div>
 
 </main>
 
-<!-- زر ومربع مساعد الذكاء الاصطناعي -->
-<button class="gemini-btn" onclick="toggleGeminiChat()">✨ اسأل مساعد جيمناي</button>
-<div class="gemini-window" id="geminiWindow">
-    <div class="gemini-header">
-        <span>✨ مساعد جيمناي الذكي</span>
-        <span style="cursor:pointer;" onclick="toggleGeminiChat()">✖</span>
-    </div>
-    <div class="gemini-body" id="geminiBody">
-        <div class="gemini-msg bot">مرحباً بك! أنا جاهز لمساعدتك في أي استفسار دراسي.</div>
-    </div>
-    <div class="gemini-footer">
-        <input type="text" id="geminiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendGeminiMessage()">
-        <button onclick="sendGeminiMessage()">إرسال</button>
-    </div>
-</div>
-
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
-
-<script>
-// تصفية المواد بالبحث
-function filterSubjects() {
-    let query = document.getElementById('subjectSearch').value.toLowerCase();
-    let cards = document.querySelectorAll('.subject-card');
-    cards.forEach(card => {
-        let name = card.getAttribute('data-name').toLowerCase();
-        card.style.display = name.includes(query) ? "flex" : "none";
-    });
-}
-
-// مساعد جيمناي
-function toggleGeminiChat() {
-    let win = document.getElementById('geminiWindow');
-    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-}
-function sendGeminiMessage() {
-    let input = document.getElementById('geminiInput');
-    let body = document.getElementById('geminiBody');
-    if(input.value.trim() === "") return;
-    body.innerHTML += `<div class="gemini-msg user">${input.value}</div>`;
-    input.value = "";
-    setTimeout(() => {
-        body.innerHTML += `<div class="gemini-msg bot">أهلاً بك! انقر على زر "فتح التليجرام" في أي بطاقة مادة للانتقال المباشر لقناتها الرسمية. بالتوفيق! 🚀</div>`;
-        body.scrollTop = body.scrollHeight;
-    }, 500);
-}
-</script>
 
 </body>
 </html>
