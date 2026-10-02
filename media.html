@@ -595,65 +595,302 @@ body.dark-mode .news-card.important .news-type{
     line-height:1.9;
 
     margin-bottom:18px;
+}
 
-    white-space: pre-line;
+/* زر التفاصيل */
+
+.news-btn{
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:var(--primary2);
+
+    color:#fff;
+
+    padding:9px 17px;
+
+    border-radius:11px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.news-btn:hover{
+    background:var(--accent);
+
+    transform:translateY(-1px);
 }
 
 /* =========================
-   قسم إضافة خبر جديد
+   الخبر العاجل الكبير
 ========================= */
 
-.add-news-box {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 30px;
-    margin-top: 40px;
-    box-shadow: var(--shadow);
+.breaking-news{
+    background:
+        linear-gradient(
+            135deg,
+            #7f1d1d,
+            #dc2626
+        );
+
+    color:#fff;
+
+    border-radius:24px;
+
+    padding:30px;
+
+    margin-bottom:40px;
+
+    box-shadow:
+        0 15px 35px rgba(220,38,38,.2);
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.add-news-box h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 22px;
+.breaking-news::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    left:-50px;
+    bottom:-80px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.breaking-label{
+    display:inline-block;
+
+    background:#fff;
+
+    color:#b91c1c;
+
+    padding:5px 13px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
+.breaking-news h2{
+    font-size:25px;
+
+    margin-bottom:8px;
+
+    position:relative;
+
+    z-index:2;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-family: inherit;
-    background: transparent;
-    color: inherit;
+.breaking-news p{
+    color:#fee2e2;
+
+    font-size:14px;
+
+    max-width:850px;
+
+    position:relative;
+
+    z-index:2;
 }
 
-.submit-btn {
-    background: var(--primary2);
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+.breaking-date{
+    display:block;
+
+    margin-top:12px;
+
+    font-size:12px;
+
+    color:#fecaca;
+
+    position:relative;
+
+    z-index:2;
 }
 
-.submit-btn:hover {
-    background: var(--accent);
+/* =========================
+   تعليمات الإدارة
+========================= */
+
+.admin-note{
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary2)
+    );
+
+    color:#fff;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-top:40px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+.admin-note h3{
+    color:#fde047;
+
+    margin-bottom:8px;
+
+    font-size:21px;
+}
+
+.admin-note p{
+    color:#dbeafe;
+
+    font-size:14px;
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+.code-hint{
+    margin-top:15px;
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.1);
+
+    padding:8px 14px;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    color:#e0f2fe;
+}
+
+/* =========================
+   زر العودة
+========================= */
+
+.back-home{
+    text-align:center;
+
+    margin-top:35px;
+}
+
+.back-home a{
+    display:inline-block;
+
+    background:var(--gold);
+
+    color:#78350f;
+
+    text-decoration:none;
+
+    padding:12px 25px;
+
+    border-radius:13px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 5px 15px rgba(245,158,11,.25);
+
+    transition:.2s;
+}
+
+.back-home a:hover{
+    transform:translateY(-2px);
+
+    background:#fbbf24;
+}
+
+/* =========================
+   الفوتر
+========================= */
+
+footer{
+    background:var(--primary);
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    margin-top:50px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer h3{
+    color:#fde047;
+
+    margin-bottom:5px;
+}
+
+footer p{
+    color:#cbd5e1;
+
+    font-size:13px;
+
+    margin:4px 0;
+}
+
+/* =========================
+   زر أعلى الصفحة
+========================= */
+
+#backToTop{
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    background:var(--primary2);
+
+    color:#fff;
+
+    border:none;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
+
+    z-index:999;
+
+    transition:.3s;
+}
+
+#backToTop:hover{
+    background:var(--accent);
+
+    transform:translateY(-3px);
 }
 
 /* =========================
@@ -681,6 +918,7 @@ body.dark-mode .news-card.important .news-type{
 
     .page-heading{
         padding:30px 18px;
+
     }
 
     .page-heading h1{
@@ -693,6 +931,14 @@ body.dark-mode .news-card.important .news-type{
 
     .news-content{
         padding:21px;
+    }
+
+    .breaking-news{
+        padding:24px 20px;
+    }
+
+    .breaking-news h2{
+        font-size:21px;
     }
 
 }
@@ -709,17 +955,26 @@ body.dark-mode .news-card.important .news-type{
 
 <header>
 
-    <button class="theme-toggle-btn" id="themeToggleBtn" type="button">
+    <button
+        class="theme-toggle-btn"
+        id="themeToggleBtn"
+        type="button">
         🌙 الوضع الليلي
     </button>
 
     <div class="logo">الريان</div>
 
-    <div class="university-title">جامعة بحري</div>
+    <div class="university-title">
+        جامعة بحري
+    </div>
 
-    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
+    <div class="subtitle">
+        المنصة الطلابية | كلية العلوم الإدارية
+    </div>
 
-    <div class="badge">دفعة 023 / 024</div>
+    <div class="badge">
+        دفعة 023 / 024
+    </div>
 
 </header>
 
@@ -729,10 +984,17 @@ body.dark-mode .news-card.important .news-type{
 ========================= -->
 
 <div class="ticker-container">
-    <span class="ticker-title">📰 السبق الإعلامي</span>
+
+    <span class="ticker-title">
+        📰 السبق الإعلامي
+    </span>
+
     <div class="ticker-text">
+
         تابع آخر أخبار وإعلانات القبول والتسجيل بـ كلية العلوم الإدارية عبر منصة الريان أولاً بأول
+
     </div>
+
 </div>
 
 
@@ -741,17 +1003,47 @@ body.dark-mode .news-card.important .news-type{
 ========================= -->
 
 <nav>
+
     <div class="nav-container">
-        <a href="index.html">الرئيسية</a>
-        <a href="subjects.html">المواد</a>
-        <a href="about.html">عن الكلية</a>
-        <a href="results.html">النتيجة</a>
-        <a href="exams.html">الاختبارات</a>
-        <a href="study-tools.html">الوسائل التعليمية</a>
-        <a href="index.html#schedule">الجدول</a>
-        <a href="index.html#community">التواصل</a>
-        <a href="media.html" class="active">السبق الإعلامي</a>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="subjects.html">
+            المواد
+        </a>
+
+        <a href="about.html">
+            عن الكلية
+        </a>
+
+        <a href="results.html">
+            النتيجة
+        </a>
+
+        <a href="exams.html">
+            الاختبارات
+        </a>
+
+        <a href="study-tools.html">
+            الوسائل التعليمية
+        </a>
+
+        <a href="index.html#schedule">
+            الجدول
+        </a>
+
+        <a href="index.html#community">
+            التواصل
+        </a>
+
+        <a href="media.html" class="active">
+            السبق الإعلامي
+        </a>
+
     </div>
+
 </nav>
 
 
@@ -761,199 +1053,205 @@ body.dark-mode .news-card.important .news-type{
 
 <main class="container">
 
+
     <!-- عنوان الصفحة -->
+
     <section class="page-heading">
-        <div class="news-icon">📰</div>
-        <h1>السبق الإعلامي</h1>
-        <p>آخر أخبار وإعلانات ومستجدات جامعة بحري، يتم تحديثها أولاً بأول.</p>
+
+        <div class="news-icon">
+            📰
+        </div>
+
+        <h1>
+            السبق الإعلامي
+        </h1>
+
+        <p>
+            آخر أخبار وإعلانات ومستجدات جامعة بحري، يتم تحديثها أولاً بأول.
+        </p>
+
     </section>
 
 
     <!-- الإحصائيات -->
+
     <section class="news-stats">
-        <div class="news-stat">
-            <strong id="newsCount">0</strong>
-            <span>أخبار منشورة</span>
-        </div>
 
         <div class="news-stat">
-            <strong>023 / 024</strong>
-            <span>الدفعة</span>
+
+            <strong id="newsCount">
+                2
+            </strong>
+
+            <span>
+                أخبار منشورة
+            </span>
+
         </div>
 
+
         <div class="news-stat">
-            <strong>🟢</strong>
-            <span>تحديث مستمر</span>
+
+            <strong>
+                023 / 024
+            </strong>
+
+            <span>
+                الدفعة
+            </span>
+
         </div>
+
+
+        <div class="news-stat">
+
+            <strong>
+                🟢
+            </strong>
+
+            <span>
+                تحديث مستمر
+            </span>
+
+        </div>
+
     </section>
 
 
     <!-- =========================
-         قسم الأخبار المنشورة
+         الخبر العاجل
+    ========================= -->
+
+    <section class="breaking-news">
+
+        <span class="breaking-label">
+            🔴 خبر عاجل
+        </span>
+
+        <h2>
+            زيادة في رسوم تسجيل القبول العام والخاص
+        </h2>
+
+        <p>
+            أُعلن رسمياً عن تعديل رسوم التسجيل للقبول العام والخاص. حيث أصبحت رسوم التسجيل للقبول العام 400 ألف جنيه (بزيادة قدرها 100 ألف جنيه)، ورسوم التسجيل للقبول الخاص 600 ألف جنيه (بزيادة قدرها 200 ألف جنيه).
+        </p>
+
+        <span class="breaking-date">
+            آخر تحديث: 03 أكتوبر 2026
+        </span>
+
+    </section>
+
+
+    <!-- =========================
+         الأخبار
     ========================= -->
 
     <section>
+
         <div class="section-title">
-            <h2>🗞️ آخر الأخبار</h2>
-            <p>أحدث المستجدات والأخبار الخاصة بالدفعة والكلية</p>
+
+            <h2>
+                🗞️ آخر الأخبار
+            </h2>
+
+            <p>
+                أحدث المستجدات والأخبار الخاصة بالدفعة والكلية
+            </p>
+
         </div>
 
-        <!-- القائمة التي تتجمع فيها الأخبار (القديمة والجديدة) -->
-        <div class="news-list" id="newsContainer"></div>
-    </section>
+
+        <div class="news-list">
 
 
-    <!-- =========================
-         نموذج إضافة خبر جديد
-    ========================= -->
+            <!-- ==================================================
+                 الخبر الأول: التسجيل الصوتي
+            ================================================== -->
 
-    <section class="add-news-box">
-        <h3>➕ نشر خبر جديد</h3>
-        <form id="addNewsForm">
-            <div class="form-group">
-                <label>نوع الخبر:</label>
-                <select id="newsType">
-                    <option value="urgent">🔴 عاجل / هام جداً</option>
-                    <option value="important">🟡 مهم</option>
-                    <option value="normal">📰 خبر عادي</option>
-                </select>
-            </div>
+            <article class="news-card urgent">
 
-            <div class="form-group">
-                <label>عنوان الخبر:</label>
-                <input type="text" id="newsTitle" placeholder="أدخل عنوان الخبر..." required>
-            </div>
+                <div class="news-card-top"></div>
 
-            <div class="form-group">
-                <label>تفاصيل الخبر:</label>
-                <textarea id="newsBody" rows="4" placeholder="أدخل التفاصيل..." required></textarea>
-            </div>
+                <div class="news-content">
 
-            <button type="submit" class="submit-btn">نشر الخبر الآن</button>
-        </form>
+                    <span class="news-type">
+                        🔴 هام جداً
+                    </span>
+
+                    <h3>
+                        تنبيهات مهمة لطلاب كلية العلوم الإدارية بخصوص بداية الدراسة والرسوم
+                    </h3>
+
+                    <span class="news-date">
+                        📅 03 أكتوبر 2026
+                    </span>
+
+                    <p>
+                        تعلن كلية العلوم الإدارية لطلاب الدفعات (20، 21، 22، 23، 24) للعام الدراسي 2026/2027 ما يلي:<br>
+                        • تبدأ الدراسة اعتباراً من يوم الثلاثاء وتستمر (الثلاثاء، الأربعاء، الخميس) فقط.<br>
+                        • يجب سداد كافة المتأخرات المالية أولاً وسداد الرسوم الدراسية فصلياً (Semester by Semester).<br>
+                        • ضرورة استخراج البطاقة الجامعية، حيث سيكون هناك تدقيق مشدد عند الدخول.<br>
+                        • سيتم نشر جدول المحاضرات فور الإنتهاء من معالجته.
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                 الخبر الثاني: زيادة الرسوم
+            ================================================== -->
+
+            <article class="news-card important">
+
+                <div class="news-card-top"></div>
+
+                <div class="news-content">
+
+                    <span class="news-type">
+                        🟡 مهم
+                    </span>
+
+                    <h3>
+                        تفاصيل زيادة رسوم القبول العام والخاص
+                    </h3>
+
+                    <span class="news-date">
+                        📅 03 أكتوبر 2026
+                    </span>
+
+                    <p>
+                        توضيح بخصوص رسوم التسجيل الجديدة:<br>
+                        • القبول العام: 400,000 جنيه (زيادة 100,000 جنيه).<br>
+                        • القبول الخاص: 600,000 جنيه (زيادة 200,000 جنيه).
+                    </p>
+
+                    <a href="#" class="news-btn">
+                        تفاصيل الخبر
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
     </section>
 
 </main>
-
 
 <footer>
     <h3>منصة الريان الطلابية</h3>
     <p>جامعة بحري - كلية العلوم الإدارية</p>
     <p>&copy; 2026 جميع الحقوق محفوظة</p>
 </footer>
-
-
-<!-- =========================
-     سكربت إدارة الأخبار والحفظ
-========================= -->
-<script>
-// الأخبار الأولية المسبقة
-const initialNews = [
-    {
-        type: 'urgent',
-        badgeText: '🔴 هام جداً',
-        title: 'تنبيهات مهمة لطلاب كلية العلوم الإدارية بخصوص بداية الدراسة والرسوم',
-        date: '📅 03 أكتوبر 2026',
-        content: `تعلن كلية العلوم الإدارية لطلاب الدفعات (20، 21، 22، 23، 24) للعام الدراسي 2026/2027 ما يلي:
-• تبدأ الدراسة اعتباراً من يوم الثلاثاء وتستمر (الثلاثاء، الأربعاء، الخميس) فقط.
-• يجب سداد كافة المتأخرات المالية أولاً وسداد الرسوم الدراسية فصلياً (Semester by Semester).
-• ضرورة استخراج البطاقة الجامعية، حيث سيكون هناك تدقيق مشدد عند الدخول.
-• سيتم نشر جدول المحاضرات فور الإنتهاء من معالجته.`
-    },
-    {
-        type: 'important',
-        badgeText: '🟡 مهم',
-        title: 'تفاصيل زيادة رسوم القبول العام والخاص',
-        date: '📅 03 أكتوبر 2026',
-        content: `توضيح بخصوص رسوم التسجيل الجديدة:
-• القبول العام: 400,000 جنيه (زيادة 100,000 جنيه).
-• القبول الخاص: 600,000 جنيه (زيادة 200,000 جنيه).`
-    }
-];
-
-// تحميل الأخبار من ذاكرة المتصفح أو اعتماد الأخبار الأولية
-function getNews() {
-    const storedNews = localStorage.getItem('rayan_news_list');
-    if (storedNews) {
-        return JSON.parse(storedNews);
-    } else {
-        localStorage.setItem('rayan_news_list', JSON.stringify(initialNews));
-        return initialNews;
-    }
-}
-
-// عرض الكروت في الصفحة وتحديث العداد
-function renderNews() {
-    const newsList = getNews();
-    const container = document.getElementById('newsContainer');
-    const counter = document.getElementById('newsCount');
-
-    container.innerHTML = '';
-
-    newsList.forEach(news => {
-        const card = document.createElement('article');
-        card.className = `news-card ${news.type}`;
-
-        card.innerHTML = `
-            <div class="news-card-top"></div>
-            <div class="news-content">
-                <span class="news-type">${news.badgeText}</span>
-                <h3>${news.title}</h3>
-                <span class="news-date">${news.date}</span>
-                <p>${news.content}</p>
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
-
-    // تحديث عدد الأخبار المنشورة حقيقياً
-    counter.textContent = newsList.length;
-}
-
-// إضافة خبر جديد عند ملء النموذج
-document.getElementById('addNewsForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const type = document.getElementById('newsType').value;
-    const title = document.getElementById('newsTitle').value;
-    const content = document.getElementById('newsBody').value;
-
-    let badgeText = '📰 خبر الدفعة';
-    if (type === 'urgent') badgeText = '🔴 عاجل / هام جداً';
-    if (type === 'important') badgeText = '🟡 مهم';
-
-    const today = new Date().toLocaleDateString('ar-EG', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    });
-
-    const newArticle = {
-        type: type,
-        badgeText: badgeText,
-        title: title,
-        date: `📅 ${today}`,
-        content: content
-    };
-
-    const currentNews = getNews();
-    currentNews.unshift(newArticle); // إضافة الخبر الجديد في بداية القائمة
-
-    localStorage.setItem('rayan_news_list', JSON.stringify(currentNews));
-
-    renderNews(); // إعادة العرض وتحديث العداد
-    this.reset(); // تفريغ حقول النموذج
-});
-
-// تشغيل العرض عند فتح الصفحة
-renderNews();
-
-// زر الوضع الليلي
-document.getElementById('themeToggleBtn').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-});
-</script>
 
 </body>
 </html>
