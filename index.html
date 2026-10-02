@@ -11,16 +11,6 @@ html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
-.visitor-bar {
-    background: #051624;
-    color: var(--gold);
-    text-align: center;
-    padding: 8px 15px;
-    font-size: 13px;
-    font-weight: bold;
-    border-bottom: 1px solid rgba(217, 166, 46, 0.2);
-}
-
 header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
 .logo{font-size:42px;font-weight:900;}
 .subtitle{color:#dce8f1;margin-top:4px;}
@@ -65,65 +55,6 @@ section{margin-bottom:35px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
 
-.global-search-container {
-    max-width: 700px;
-    margin: 25px auto 15px auto;
-    position: relative;
-}
-.global-search-input {
-    width: 100%;
-    padding: 14px 22px;
-    border-radius: 30px;
-    border: 2px solid var(--border);
-    font-size: 15px;
-    outline: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    background: #fff;
-    text-align: right;
-}
-.global-search-input:focus { border-color: var(--primary2); }
-.search-results-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    margin-top: 8px;
-    max-height: 280px;
-    overflow-y: auto;
-    display: none;
-    z-index: 1000;
-    border: 1px solid var(--border);
-}
-.search-result-item {
-    padding: 12px 18px;
-    border-bottom: 1px solid #f1f5f9;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: right;
-    color: var(--primary);
-}
-.search-result-item:hover { background: #f8fafc; color: var(--primary2); font-weight: bold; }
-
-.countdown-box{
-    background:linear-gradient(135deg, var(--primary), var(--primary2));
-    color: white;
-    border-radius: 18px;
-    padding: 22px;
-    text-align: center;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 25px rgba(9,38,63,0.15);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.countdown-box h3{font-size: 20px;color: var(--gold);margin-bottom: 12px;}
-.countdown-timers{display: flex;justify-content: center;gap: 12px;flex-wrap: wrap;}
-.time-card{background: rgba(255, 255, 255, 0.1);border: 1px solid rgba(255, 255, 255, 0.2);padding: 10px 15px;border-radius: 10px;min-width: 70px;}
-.time-card span{display: block;font-size: 22px;font-weight: bold;color: var(--gold);}
-.time-card label{font-size: 12px;color: #dce8f1;}
-
 .hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
 .hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
 .hero p{color:var(--muted);max-width:750px;margin:auto;}
@@ -164,107 +95,17 @@ th{background:var(--primary);color:#fff;}
 .whatsapp{background:#f1f8f3;}
 .facebook{background:#f0f4f9;}
 
-.gemini-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, #4F46E5, #3B82F6);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 22px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.gemini-window {
-    position: fixed;
-    bottom: 95px;
-    right: 25px;
-    width: 350px;
-    height: 480px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border: 1px solid var(--border);
-    display: none;
-    flex-direction: column;
-    z-index: 1001;
-    overflow: hidden;
-}
-.gemini-header {
-    background: linear-gradient(135deg, #4F46E5, #3B82F6);
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.gemini-body {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: #f8fafc;
-}
-.gemini-msg {
-    padding: 10px 14px;
-    border-radius: 14px;
-    max-width: 85%;
-    font-size: 13.5px;
-    line-height: 1.5;
-}
-.gemini-msg.bot { background: #e0e7ff; color: #312e81; align-self: flex-start; }
-.gemini-msg.user { background: #3b82f6; color: white; align-self: flex-end; }
-.gemini-footer {
-    padding: 10px;
-    background: #fff;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 8px;
-}
-.gemini-footer input {
-    flex: 1;
-    padding: 10px 14px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    outline: none;
-    font-size: 13px;
-}
-.gemini-footer button {
-    background: #4F46E5;
-    color: white;
-    border: none;
-    padding: 0 16px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
 
 @media(max-width:600px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
-    .gemini-window { width: 90%; right: 5%; left: 5%; }
 }
 </style>
 </head>
 
 <body>
-
-<div class="visitor-bar">
-    👁️ إجمالي عدد زوار منصة الريان الحقيقي: <span id="visitorCount">1,482</span> زائر
-</div>
 
 <header>
     <div class="logo">الريان</div>
@@ -291,23 +132,6 @@ footer strong{color:var(--gold);}
 </nav>
 
 <main class="container">
-
-<div class="global-search-container">
-    <input type="text" id="globalSearchInput" class="global-search-input" placeholder="🔍 ابحث بأي حرف أو كلمة عن الأقسام، المواد، الروابط، أو الخدمات...">
-    <div id="searchResultsDropdown" class="search-results-dropdown"></div>
-</div>
-
-<section>
-    <div class="countdown-box">
-        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
-        <div class="countdown-timers">
-            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
-            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
-            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
-            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
-        </div>
-    </div>
-</section>
 
 <section id="home">
     <div class="hero">
@@ -417,7 +241,7 @@ footer strong{color:var(--gold);}
 
         <div class="link-card facebook">
             <div class="big-icon">📢</div>
-            <h3>أخبار الجامعة</h3>
+            ### أخبار الجامعة
             <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
@@ -440,24 +264,6 @@ footer strong{color:var(--gold);}
 
 </main>
 
-<button class="gemini-btn" id="geminiToggleBtn" type="button">
-    ✨ اسأل مساعد جيمناي (Gemini)
-</button>
-
-<div class="gemini-window" id="geminiWindow">
-    <div class="gemini-header">
-        <span>✨ مساعد جيمناي الذكي (دفعة 023)</span>
-        <span style="cursor:pointer;" id="geminiCloseBtn">✖</span>
-    </div>
-    <div class="gemini-body" id="geminiBody">
-        <div class="gemini-msg bot">مرحباً بك يا زميلي! 🤖 أنا نموذج جيمناي الذكي، جاهز لمساعدتك في الإجابة على أي استفسار يخص مواد كلية العلوم الإدارية أو أوقات الامتحانات. تفضل بالسؤال!</div>
-    </div>
-    <div class="gemini-footer">
-        <input type="text" id="geminiInput" placeholder="اكتب سؤالك هنا...">
-        <button id="geminiSendBtn" type="button">إرسال</button>
-    </div>
-</div>
-
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
@@ -465,19 +271,7 @@ footer strong{color:var(--gold);}
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
-    // 1. عداد الزوار الحقيقي بالذاكرة المحلية
-    let visits = localStorage.getItem('alrayyan_visits');
-    if (!visits) {
-        visits = 1482;
-    } else {
-        visits = parseInt(visits) + 1;
-    }
-    localStorage.setItem('alrayyan_visits', visits);
-    const visitorEl = document.getElementById('visitorCount');
-    if(visitorEl) visitorEl.innerText = visits.toLocaleString();
-
-    // 2. زر إخفاء تنبيه قيد الإنشاء (حسناً الدخول للموقع)
+    // زر إخفاء تنبيه قيد الإنشاء (حسناً الدخول للموقع)
     const closeBtn = document.getElementById('closeBannerBtn');
     const banner = document.getElementById('constructionBanner');
     if(closeBtn && banner) {
@@ -485,53 +279,8 @@ document.addEventListener("DOMContentLoaded", function() {
             banner.style.display = 'none';
         });
     }
+});
+</script>
 
-    // 3. العداد التنازلي الحقيقي للامتحانات (9 يناير 2027)
-    const examDate = new Date("January 9, 2027 00:00:00").getTime();
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-
-    if(daysEl && hoursEl && minutesEl && secondsEl) {
-        const timerInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = examDate - now;
-
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                const boxTitle = document.querySelector(".countdown-box h3");
-                if(boxTitle) boxTitle.innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
-                const timersRow = document.querySelector(".countdown-timers");
-                if(timersRow) timersRow.style.display = "none";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            daysEl.innerText = days < 10 ? "0" + days : days;
-            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
-            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
-            secondsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
-        }, 1000);
-    }
-
-    // 4. شريط البحث الفوري الشامل
-    const searchInput = document.getElementById('globalSearchInput');
-    const searchDropdown = document.getElementById('searchResultsDropdown');
-
-    const searchDatabase = [
-        { title: "الرئيسية - ترحيب بمنصة الريان", url: "#home" },
-        { title: "المواد الدراسية (محاضرات وشيتات)", url: "subjects.html" },
-        { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
-        { title: "النتيجة الأكاديمية", url: "results.html" },
-        { title: "عن الكلية وأهدافها", url: "about.html" },
-        { title: "الوسائل التعليمية والمراجع", url: "study-tools.html" },
-        { title: "جدول المحاضرات الأسبوعي", url: "#schedule" },
-        { title: "مجموعة الواتساب الرسمية", url: "https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" },
-        { title: "صفحة الفيسبوك الرسمية", url: "https://www.facebook.com/share/1M81DYnAxV/" },
-        { title: "أخبار الجامعة", url: "https://www.facebook.com/share/19i7UZ4Cne/" },
-        { title: "أرقام القيادة (الليدر 
+</body>
+</html>
