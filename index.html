@@ -25,16 +25,16 @@ body{
     --shadow:0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
 }
 
-/* سمات الوضع الليلي */
+/* تنسيقات الوضع الليلي الحقيقي */
 body.dark-mode {
     background: #0b0f19;
+    color: #f1f5f9;
     --primary: #f8fafc;
     --primary2: #38bdf8;
     --white: #111827;
     --muted: #94a3b8;
     --border: #1f2937;
     --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-    color: #f1f5f9;
 }
 body.dark-mode nav {
     background: rgba(17, 24, 39, 0.95);
@@ -76,7 +76,7 @@ header{
     font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
 
-/* زر الوضع الليلي في الهيدر */
+/* زر الوضع الليلي الحقيقي في الهيدر */
 .theme-toggle-btn {
     position: absolute;
     top: 20px;
@@ -237,7 +237,7 @@ th{background:var(--primary);color:#fff;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* زر مشاركة الموقع وزر من نحن في الفوتر */
+/* أزرار الفوتر (من نحن ومشاركة المنصة) */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
@@ -303,7 +303,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
-    <!-- زر تبديل الوضع الليلي والنهاري -->
+    <!-- زر الوضع الليلي الحقيقي -->
     <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
     
     <div class="logo">الريان</div>
@@ -489,7 +489,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="footer-buttons">
         <!-- زر "من نحن" -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <!-- زر مشاركة الموقع -->
+        <!-- زر مشاركة المنصة الحقيقي -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
@@ -513,6 +513,4 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. ال
+document.addEventListener("DOMContentLoaded", function() 
