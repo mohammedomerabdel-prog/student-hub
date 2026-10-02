@@ -119,7 +119,7 @@ header{
 }
 .ticker-text {
     display: inline-block;
-    animation: tickerAnim 35s linear infinite;
+    animation: tickerAnim 25s linear infinite;
 }
 @keyframes tickerAnim {
     0% { transform: translateX(100%); }
@@ -293,10 +293,10 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="badge">دفعة 023</div>
 </header>
 
-<!-- شريط الإعلانات العاجلة المتحرك المحدث -->
+<!-- شريط الإعلانات العاجلة المتحرك -->
 <div class="ticker-container">
     <span class="ticker-title">عاجل 📢</span>
-    <div class="ticker-text">تنبيهات هامة لدفعة 023: 1. الدراسة الفعلية أيام (الثلاثاء، الأربعاء، الخميس) فقط من كل أسبوع. 2. ضرورة سرعة إكمال المتأخرات تماماً. 3. التأكيد على سداد الرسوم الدراسية (سيميستر بسيميستر) واستخراج البطاقة الجامعية فوراً نظراً للضبط الشديد.</div>
+    <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
 </div>
 
 <nav>
@@ -507,4 +507,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 themeBtn.innerText = '☀️ الوضع الصباحي';
             } else {
                 localStorage.setItem('theme', 'light');
-                the
+                themeBtn.innerText = '🌙 الوضع الليلي';
+            }
+        });
+    }
+
+    // 2. إدارة النافذة المنبثقة لزر "من نحن"
+    
