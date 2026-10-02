@@ -285,12 +285,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
+    <!-- زر تبديل الوضع الليلي والصباحي الحقيقي -->
     <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
+    
     <div class="logo">الريان</div>
     <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
     <div class="badge">دفعة 023</div>
 </header>
 
+<!-- شريط الإعلانات العاجلة المتحرك -->
 <div class="ticker-container">
     <span class="ticker-title">عاجل 📢</span>
     <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
@@ -311,6 +314,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
+<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
@@ -436,6 +440,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
+        <!-- بطاقة أرقام القيادة -->
         <div class="link-card" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
@@ -448,7 +453,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
         <div class="link-card">
             <div class="big-icon">💡</div>
-            <h3>مقترحات التطوير</h3>
             <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
             <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
         </div>
@@ -459,15 +463,19 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <footer>
     <div class="footer-buttons">
+        <!-- زر "من نحن" الفعّال -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
+        <!-- زر مشاركة المنصة الفعّال -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
+<!-- زر العودة للأعلى -->
 <button id="backToTop" title="العودة للأعلى">⬆</button>
 
+<!-- نافذة منبثقة (Modal) لـ "من نحن" -->
 <div class="modal" id="aboutModal">
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
@@ -483,10 +491,11 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. الوضع الليلي والصباحي
+    // 1. زر تبديل الوضع الليلي والصباحي الحقيقي
     const themeBtn = document.getElementById('themeToggleBtn');
     if (themeBtn) {
-        if (localStorage.getItem('theme') === 'dark') {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
             document.body.classList.add('dark-mode');
             themeBtn.innerText = '☀️ الوضع الصباحي';
         }
@@ -503,16 +512,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. نافذة "من نحن"
-    const aboutBtn = document.getElementById('aboutUsBtn');
-    const aboutModal = document.getElementById('aboutModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-
-    if (aboutBtn && aboutModal) {
-        aboutBtn.addEventListener('click', function() {
-            aboutModal.style.display = 'flex';
-        });
-    }
-
-    if (closeBtn && aboutModal) {
+    // 2. إدارة النافذة المنبثقة لزر "من نحن"
     
