@@ -55,6 +55,11 @@ body.dark-mode table th {
 body.dark-mode .creators-box {
     background: #111827;
 }
+body.dark-mode .search-input {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
 
 header{
     background:linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
@@ -145,6 +150,56 @@ section{margin-bottom:45px;}
 .section-title h2{color:var(--primary);font-size:28px;font-weight:800;margin-bottom:5px;}
 .section-title p{color:var(--muted);font-size:15px;}
 
+/* تنسيقات شريط البحث */
+.search-section {
+    margin-bottom: 30px;
+}
+.search-container {
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    width: 100%;
+    padding: 16px 48px 16px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    background: var(--white);
+    color: var(--primary);
+    box-shadow: var(--shadow);
+    outline: none;
+    transition: all 0.3s ease;
+}
+.search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+.search-icon {
+    position: absolute;
+    right: 18px;
+    font-size: 20px;
+    pointer-events: none;
+    color: var(--muted);
+}
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px dashed var(--border);
+    margin-top: 20px;
+}
+.no-results p {
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .countdown-box{
     background:linear-gradient(135deg, var(--primary), var(--primary2));
     color: white;border-radius: 24px;padding: 30px;text-align: center;margin-bottom: 35px;
@@ -186,7 +241,6 @@ section{margin-bottom:45px;}
 }
 .card:hover{transform:translateY(-5px);}
 
-/* ألوان زاهية وأنيقة مع أشكال دائرية متدرجة للأيقونات */
 .card .icon{
     font-size:40px;margin-bottom:15px;
     width:80px;height:80px;line-height:80px;
@@ -350,8 +404,21 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
-<section>
-    <div class="countdown-box">
+<!-- قسم شريط البحث الذكي -->
+<section class="search-section">
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن المواد، المحاضرات، الاختبارات، المراجع، أو أي قسم..." autocomplete="off">
+    </div>
+</section>
+
+<!-- التنبيه عند عدم وجود نتائج للبحث -->
+<div class="no-results" id="noResults">
+    <p>🔍 لم نجد أي نتائج تطابق بحثك... جرب البحث بكلمات أخرى.</p>
+</div>
+
+<section id="countdownSection">
+    <div class="countdown-box searchable">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
             <div class="time-card"><span id="days">00</span><label>يوم</label></div>
@@ -362,15 +429,15 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="home">
+<section id="home" class="searchable">
     <div class="hero">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
         <p>منصة طلابية متكاملة بـ <strong>جامعة بحري</strong> تجمع المواد الدراسية، الملفات، الملخصات، والنتائج الخاصة بدفعة 023 / 024 في مكان واحد.</p>
         
         <div class="quick-actions">
-            <a class="quick-action" href="subjects.html"><span>📚</span> المواد الدراسية</a>
-            <a class="quick-action" href="exams.html"><span>📝</span> الاختبارات وبنك الأسئلة</a>
-            <a class="quick-action" href="results.html"><span>📊</span> النتيجة الأكاديمية</a>
+            <a class="quick-action searchable" href="subjects.html"><span>📚</span> المواد الدراسية</a>
+            <a class="quick-action searchable" href="exams.html"><span>📝</span> الاختبارات وبنك الأسئلة</a>
+            <a class="quick-action searchable" href="results.html"><span>📊</span> النتيجة الأكاديمية</a>
         </div>
     </div>
 
@@ -381,28 +448,28 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section>
+<section class="searchable">
     <div class="section-title">
         <h2>⚡ أقسام المنصة السريعة</h2>
         <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
     </div>
 
     <div class="cards">
-        <div class="card">
+        <div class="card searchable">
             <div class="icon icon-amber">🏛️</div>
             <h3>عن الكلية</h3>
             <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
             <a class="btn" href="about.html">استعراض النبذة</a>
         </div>
 
-        <div class="card">
+        <div class="card searchable">
             <div class="icon icon-purple">🧠</div>
             <h3>اختبارات معرفة القدرات</h3>
             <p>اختبر معلوماتك وقدراتك الذهنية عبر تمرينات واختبارات تفاعلية مشوقة.</p>
             <a class="btn" href="fun.html">ابدأ الاختبار</a>
         </div>
 
-        <div class="card">
+        <div class="card searchable">
             <div class="icon icon-teal">🛠️</div>
             <h3>الوسائل التعليمية</h3>
             <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
@@ -411,7 +478,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="schedule">
+<section id="schedule" class="searchable">
     <div class="section-title">
         <h2>📅 جدول المحاضرات الأسبوعي</h2>
         <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
@@ -439,7 +506,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="library">
+<section id="library" class="searchable">
     <div class="library">
         <h2>📁 مكتبة الملفات والمراجع</h2>
         <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
@@ -447,200 +514,30 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     </div>
 </section>
 
-<section id="community">
+<section id="community" class="searchable">
     <div class="section-title">
         <h2>🔗 روابط التواصل والاتصال</h2>
         <p>قنوات التواصل الرسمية الخاصة بالدفعة والكلية</p>
     </div>
 
     <div class="links-grid">
-        <div class="link-card">
+        <div class="link-card searchable">
             <div class="big-icon">💬</div>
             <h3>مجموعة الواتساب</h3>
             <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
             <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
         </div>
 
-        <div class="link-card">
+        <div class="link-card searchable">
             <div class="big-icon">👥</div>
             <h3>صفحة الفيسبوك</h3>
             <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
             <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
         </div>
 
-        <div class="link-card">
+        <div class="link-card searchable">
             <div class="big-icon">📢</div>
             <h3>أخبار الجامعة</h3>
             <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
-        </div>
-
-        <div class="link-card" style="border: 2px solid #3b82f6;">
-            <div class="big-icon">📞</div>
-            <h3>أرقام القيادة</h3>
-            <p><strong>ليدر الدفعة:</strong><br>249116314682</p>
-            <a class="btn btn-highlight" href="https://wa.me/249116314682" target="_blank">💬 مراسلة ليدر الدفعة</a>
-            
-            <p style="margin-top: 15px;"><strong>مسجل الدفعة:</strong><br>249111744435</p>
-            <a class="btn btn-highlight" href="https://wa.me/249111744435" target="_blank">💬 مراسلة مسجل الدفعة</a>
-        </div>
-
-        <div class="link-card">
-            <div class="big-icon">💡</div>
-            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
-            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
-        </div>
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <div class="footer-buttons">
-        <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
-    </div>
-    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - جامعة بحري - كلية العلوم الإدارية (دفعة 023 / 024)</strong></p>
-    <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
-</footer>
-
-<button id="backToTop" title="العودة للأعلى">⬆</button>
-
-<div class="modal" id="aboutModal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h3>من نحن 🎓</h3>
-        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 / 024 بكلية العلوم الإدارية بجامعة بحري.</p>
-        <div class="creators-box">
-            <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
-            <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
-        </div>
-    </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
     
-    // إغلاق نافذة التنبيه عند الضغط على زر الدخول
-    const noticeModal = document.getElementById('noticeModal');
-    const confirmNoticeBtn = document.getElementById('confirmNoticeBtn');
-
-    if (confirmNoticeBtn && noticeModal) {
-        confirmNoticeBtn.addEventListener('click', function() {
-            noticeModal.style.display = 'none';
-        });
-    }
-
-    // الوضع الليلي والصباحي
-    const themeBtn = document.getElementById('themeToggleBtn');
-    if (themeBtn) {
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeBtn.innerText = '☀️ الوضع الصباحي';
-        }
-
-        themeBtn.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeBtn.innerText = '☀️ الوضع الصباحي';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeBtn.innerText = '🌙 الوضع الليلي';
-            }
-        });
-    }
-
-    // إدارة نافذة "من نحن"
-    const aboutBtn = document.getElementById('aboutUsBtn');
-    const aboutModal = document.getElementById('aboutModal');
-    const closeModal = document.getElementById('closeModalBtn');
-
-    if (aboutBtn && aboutModal && closeModal) {
-        aboutBtn.addEventListener('click', function() {
-            aboutModal.style.display = 'flex';
-        });
-
-        closeModal.addEventListener('click', function() {
-            aboutModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', function(e) {
-            if (e.target === aboutModal) {
-                aboutModal.style.display = 'none';
-            }
-        });
-    }
-
-    // زر مشاركة المنصة
-    const shareBtn = document.getElementById('shareSiteBtn');
-    if (shareBtn) {
-        shareBtn.addEventListener('click', function() {
-            const shareData = {
-                title: 'منصة الريان الطلابية - جامعة بحري',
-                text: 'منصة الريان التعليمية لطلاب دفعة 023 / 024 - كلية العلوم الإدارية بجامعة بحري',
-                url: window.location.href
-            };
-
-            if (navigator.share) {
-                navigator.share(shareData).catch(() => {});
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('تم نسخ رابط المنصة بنجاح!');
-                }).catch(() => {
-                    alert('الرابط: ' + window.location.href);
-                });
-            }
-        });
-    }
-
-    // العداد التنازلي لبداية الامتحانات
-    const examDate = new Date("January 9, 2027 00:00:00").getTime();
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = examDate - now;
-
-        if (distance < 0) {
-            document.getElementById("days").innerText = "00";
-            document.getElementById("hours").innerText = "00";
-            document.getElementById("minutes").innerText = "00";
-            document.getElementById("seconds").innerText = "00";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // زر العودة للأعلى
-    const backToTopBtn = document.getElementById('backToTop');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
-
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-});
-</script>
-
-</body>
-</html>
