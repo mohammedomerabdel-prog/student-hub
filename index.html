@@ -62,75 +62,36 @@ body.dark-mode .creators-box {
 header{
     background:linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
     color:white;
-    padding:30px 20px;
+    padding:35px 20px;
+    text-align:center;
     position:relative;
     overflow:hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
-
-/* تصميم الهيدر الجديد المطور (العودة للجامعة) */
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    position: relative;
-    z-index: 2;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.university-logo {
-    width: 75px;
-    height: 75px;
-    object-fit: contain;
-    background: white;
-    padding: 5px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border: 2px solid var(--gold);
-}
-
-.header-center {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.logo{font-size:40px;font-weight:900;letter-spacing:1px;text-shadow:0 2px 10px rgba(0,0,0,0.3); margin-bottom: 2px;}
-.subtitle{color:#93c5fd;font-size:15px;font-weight:500;}
-
-.header-left {
-    display: flex;
-    align-items: center;
-}
-
+.logo{font-size:46px;font-weight:900;letter-spacing:1px;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+.subtitle{color:#93c5fd;margin-top:6px;font-size:16px;font-weight:500;}
 .badge{
-    display:inline-block;
+    display:inline-block;margin-top:14px;
     background:linear-gradient(135deg, var(--gold), #d97706);
-    color:#fff;padding:6px 20px;border-radius:30px;
-    font-weight:bold;font-size:13px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
-    margin-top: 5px;
+    color:#fff;padding:6px 22px;border-radius:30px;
+    font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
 
-/* زر الوضع الليلي المطور */
+/* زر الوضع الليلي في الهيدر */
 .theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
     padding: 8px 14px;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     backdrop-filter: blur(5px);
     transition: 0.2s;
+    z-index: 10;
 }
 .theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
@@ -314,8 +275,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 @media(max-width:850px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:repeat(2,1fr);}
-    .header-container { flex-direction: column; text-align: center; }
-    .header-right { justify-content: center; }
 }
 @media(max-width:600px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
@@ -326,24 +285,12 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
-    <div class="header-container">
-        <!-- الجانب الأيمن: شعار الجامعة الجديد -->
-        <div class="header-right">
-            <img src="1000002660.jpg" alt="شعار جامعة بحري" class="university-logo">
-        </div>
-
-        <!-- منتصف الهيدر: العنوان والترحيب -->
-        <div class="header-center">
-            <div class="logo">الريان</div>
-            <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
-            <div class="badge">دفعة 023</div>
-        </div>
-
-        <!-- الجانب الأيسر: زر الوضع الليلي -->
-        <div class="header-left">
-            <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
-        </div>
-    </div>
+    <!-- زر تبديل الوضع الليلي والصباحي الحقيقي -->
+    <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
+    
+    <div class="logo">الريان</div>
+    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
+    <div class="badge">دفعة 023</div>
 </header>
 
 <!-- شريط الإعلانات العاجلة المتحرك -->
@@ -533,4 +480,124 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="modal-content">
         <span class="close-modal" id="closeModalBtn">&times;</span>
         <h3>من نحن 🎓</h3>
-        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلا
+        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 بكلية العلوم الإدارية.</p>
+        <div class="creators-box">
+            <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
+            <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. زر تبديل الوضع الليلي والصباحي الحقيقي
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeBtn.innerText = '☀️ الوضع الصباحي';
+        }
+
+        themeBtn.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeBtn.innerText = '☀️ الوضع الصباحي';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeBtn.innerText = '🌙 الوضع الليلي';
+            }
+        });
+    }
+
+    // 2. إدارة النافذة المنبثقة لزر "من نحن"
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    if (aboutBtn && aboutModal && closeModalBtn) {
+        aboutBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'flex';
+        });
+        closeModalBtn.addEventListener('click', function() {
+            aboutModal.style.display = 'none';
+        });
+        window.addEventListener('click', function(e) {
+            if (e.target === aboutModal) {
+                aboutModal.style.display = 'none';
+            }
+        });
+    }
+
+    // 3. زر مشاركة المنصة الفعّال
+    const shareBtn = document.getElementById('shareSiteBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'منصة الريان - دفعة 023',
+                    text: 'تصفح منصة الريان الطلابية لكلية العلوم الإدارية دفعة 023',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('تم نسخ رابط المنصة بنجاح! 📋');
+            }
+        });
+    }
+
+    // 4. زر العودة للأعلى (Back to Top)
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 5. العداد التنازلي للامتحانات (9 يناير 2027)
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (daysEl && hoursEl && minutesEl && secondsEl) {
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                const boxTitle = document.querySelector(".countdown-box h3");
+                if(boxTitle) boxTitle.innerHTML = "🚀 لقد انطلقت الامتحانات اليوم بالتوفيق لجميع الطلاب!";
+                const timersRow = document.querySelector(".countdown-timers");
+                if(timersRow) timersRow.style.display = "none";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days < 10 ? "0" + days : days;
+            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+            secondsEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+    }
+
+});
+</script>
+
+</body>
+</html>
