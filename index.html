@@ -11,7 +11,6 @@ html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
-/* عداد الزوار */
 .visitor-bar {
     background: #051624;
     color: var(--gold);
@@ -27,7 +26,6 @@ header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:w
 .subtitle{color:#dce8f1;margin-top:4px;}
 .badge{display:inline-block;margin-top:10px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
 
-/* تنبيه قيد الإنشاء */
 .construction-banner{
     background:linear-gradient(135deg, #d9a62e, #b8860b);
     color:#172b3a;
@@ -67,7 +65,6 @@ section{margin-bottom:35px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
 
-/* شريط البحث */
 .global-search-container {
     max-width: 700px;
     margin: 25px auto 15px auto;
@@ -109,7 +106,6 @@ section{margin-bottom:35px;}
 }
 .search-result-item:hover { background: #f8fafc; color: var(--primary2); font-weight: bold; }
 
-/* العداد التنازلي */
 .countdown-box{
     background:linear-gradient(135deg, var(--primary), var(--primary2));
     color: white;
@@ -168,7 +164,6 @@ th{background:var(--primary);color:#fff;}
 .whatsapp{background:#f1f8f3;}
 .facebook{background:#f0f4f9;}
 
-/* زر ومربع الذكاء الاصطناعي (Gemini) */
 .gemini-btn {
     position: fixed;
     bottom: 25px;
@@ -267,25 +262,21 @@ footer strong{color:var(--gold);}
 
 <body>
 
-<!-- عداد الزوار -->
 <div class="visitor-bar">
     👁️ إجمالي عدد زوار منصة الريان الحقيقي: <span id="visitorCount">1,482</span> زائر
 </div>
 
-<!-- الهيدر -->
 <header>
     <div class="logo">الريان</div>
     <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
     <div class="badge">دفعة 023</div>
 </header>
 
-<!-- تنبيه قيد الإنشاء وزر الإخفاء الفعّال -->
 <div id="constructionBanner" class="construction-banner">
     <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
     <button class="banner-btn" id="closeBannerBtn" type="button">حسناً، الدخول للموقع</button>
 </div>
 
-<!-- شريط التنقل -->
 <nav>
     <div class="nav-container">
         <a href="index.html" class="active">الرئيسية</a>
@@ -301,13 +292,11 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
-<!-- شريط البحث الفوري -->
 <div class="global-search-container">
     <input type="text" id="globalSearchInput" class="global-search-input" placeholder="🔍 ابحث بأي حرف أو كلمة عن الأقسام، المواد، الروابط، أو الخدمات...">
     <div id="searchResultsDropdown" class="search-results-dropdown"></div>
 </div>
 
-<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
@@ -320,7 +309,6 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- الرئيسية -->
 <section id="home">
     <div class="hero">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
@@ -340,7 +328,6 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- الأقسام الرئيسية -->
 <section>
     <div class="section-title">
         <h2>⚡ أقسام المنصة السريعة</h2>
@@ -371,7 +358,6 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- جدول المحاضرات -->
 <section id="schedule">
     <div class="section-title">
         <h2>📅 جدول المحاضرات الأسبوعي</h2>
@@ -400,7 +386,6 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- مكتبة الملفات -->
 <section id="library">
     <div class="library">
         <h2>📁 مكتبة الملفات والمراجع</h2>
@@ -409,7 +394,6 @@ footer strong{color:var(--gold);}
     </div>
 </section>
 
-<!-- الروابط والتواصل -->
 <section id="community">
     <div class="section-title">
         <h2>🔗 روابط التواصل والاتصال</h2>
@@ -456,7 +440,6 @@ footer strong{color:var(--gold);}
 
 </main>
 
-<!-- زر ومربع مساعد الذكاء الاصطناعي -->
 <button class="gemini-btn" id="geminiToggleBtn" type="button">
     ✨ اسأل مساعد جيمناي (Gemini)
 </button>
@@ -475,13 +458,11 @@ footer strong{color:var(--gold);}
     </div>
 </div>
 
-<!-- الفوتر -->
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
-<!-- البرمجة والسكربتات المضمونة والجاهزة للتنفيذ الفوري -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -546,4 +527,11 @@ document.addEventListener("DOMContentLoaded", function() {
         { title: "الرئيسية - ترحيب بمنصة الريان", url: "#home" },
         { title: "المواد الدراسية (محاضرات وشيتات)", url: "subjects.html" },
         { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
-        { title: "النتيجة الأكاديمية", url: "
+        { title: "النتيجة الأكاديمية", url: "results.html" },
+        { title: "عن الكلية وأهدافها", url: "about.html" },
+        { title: "الوسائل التعليمية والمراجع", url: "study-tools.html" },
+        { title: "جدول المحاضرات الأسبوعي", url: "#schedule" },
+        { title: "مجموعة الواتساب الرسمية", url: "https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" },
+        { title: "صفحة الفيسبوك الرسمية", url: "https://www.facebook.com/share/1M81DYnAxV/" },
+        { title: "أخبار الجامعة", url: "https://www.facebook.com/share/19i7UZ4Cne/" },
+        { title: "أرقام القيادة (الليدر 
