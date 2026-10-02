@@ -4,27 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>الريان | المنصة الطلابية - دفعة 023</title>
-
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    background:#f0f4f8;
-    color:#1e293b;
-    line-height:1.8;
-    transition:background 0.3s ease,color 0.3s ease;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f0f4f8;color:#1e293b;line-height:1.8;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 :root{
@@ -35,1303 +22,497 @@ body{
     --white:#ffffff;
     --muted:#64748b;
     --border:#e2e8f0;
-    --shadow:0 10px 25px -5px rgba(15,23,42,0.08),
-             0 8px 10px -6px rgba(15,23,42,0.08);
+    --shadow:0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
 }
 
-
-/* ================================
-   الوضع الليلي
-================================ */
-
-body.dark-mode{
-    background:#0b0f19;
-    color:#f1f5f9;
-
-    --primary:#f8fafc;
-    --primary2:#38bdf8;
-    --white:#111827;
-    --muted:#94a3b8;
-    --border:#1f2937;
-
-    --shadow:0 10px 25px -5px rgba(0,0,0,0.5);
+/* تنسيقات الوضع الليلي الحقيقي */
+body.dark-mode {
+    background: #0b0f19;
+    color: #f1f5f9;
+    --primary: #f8fafc;
+    --primary2: #38bdf8;
+    --white: #111827;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 }
-
-body.dark-mode nav{
-    background:rgba(17,24,39,0.95);
+body.dark-mode nav {
+    background: rgba(17, 24, 39, 0.95);
 }
-
-body.dark-mode .nav-container a{
-    color:#e2e8f0;
+body.dark-mode .nav-container a {
+    color: #e2e8f0;
 }
-
-body.dark-mode .nav-container a:hover,
-body.dark-mode .nav-container a.active{
-    background:#0284c7;
-    color:#ffffff;
+body.dark-mode .nav-container a:hover, body.dark-mode .nav-container a.active {
+    background: #0284c7;
+    color: #ffffff;
 }
-
-body.dark-mode .stat strong{
-    color:#38bdf8;
+body.dark-mode .stat strong {
+    color: #38bdf8;
 }
-
-body.dark-mode .card .icon{
-    background:#1e293b;
+body.dark-mode .card .icon {
+    background: #1e293b;
 }
-
-body.dark-mode table th{
-    background:#1e293b;
+body.dark-mode table th {
+    background: #1e293b;
 }
-
-body.dark-mode .creators-box{
-    background:#111827;
+body.dark-mode .creators-box {
+    background: #111827;
 }
-
-body.dark-mode .modal-content{
-    background:#111827;
-    color:#f8fafc;
-}
-
-body.dark-mode .modal-content h3{
-    color:#38bdf8;
-}
-
-
-/* ================================
-   الهيدر
-================================ */
 
 header{
-    background:linear-gradient(
-        135deg,
-        var(--primary) 0%,
-        var(--primary2) 100%
-    );
-
+    background:linear-gradient(135deg, var(--primary) 0%, var(--primary2) 100%);
     color:white;
     padding:35px 20px;
     text-align:center;
     position:relative;
     overflow:hidden;
 }
-
-.logo{
-    font-size:46px;
-    font-weight:900;
-    letter-spacing:1px;
-    text-shadow:0 2px 10px rgba(0,0,0,0.3);
-}
-
-.subtitle{
-    color:#93c5fd;
-    margin-top:6px;
-    font-size:16px;
-    font-weight:500;
-}
-
+.logo{font-size:46px;font-weight:900;letter-spacing:1px;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+.subtitle{color:#93c5fd;margin-top:6px;font-size:16px;font-weight:500;}
 .badge{
-    display:inline-block;
-    margin-top:14px;
-    background:linear-gradient(135deg,#f59e0b,#d97706);
-    color:#fff;
-    padding:6px 22px;
-    border-radius:30px;
-    font-weight:bold;
-    font-size:14px;
-    box-shadow:0 4px 12px rgba(245,158,11,0.3);
+    display:inline-block;margin-top:14px;
+    background:linear-gradient(135deg, var(--gold), #d97706);
+    color:#fff;padding:6px 22px;border-radius:30px;
+    font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
 
-
-/* ================================
-   زر الوضع الليلي
-================================ */
-
-.theme-toggle-btn{
-    position:absolute;
-    top:20px;
-    left:20px;
-
-    background:rgba(255,255,255,0.15);
-    border:1px solid rgba(255,255,255,0.3);
-
-    color:#fff;
-    padding:8px 14px;
-    border-radius:12px;
-
-    cursor:pointer;
-    font-size:14px;
-    font-weight:bold;
-
-    backdrop-filter:blur(5px);
-    transition:0.2s;
-    z-index:10;
+/* زر الوضع الليلي الحقيقي في الهيدر */
+.theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    transition: 0.2s;
+    z-index: 10;
 }
+.theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-.theme-toggle-btn:hover{
-    background:rgba(255,255,255,0.25);
+/* شريط الإعلانات العاجلة */
+.ticker-container {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 10px 20px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
 }
-
-
-/* ================================
-   شريط الأخبار
-================================ */
-
-.ticker-container{
-    background:#1e293b;
-    color:#f8fafc;
-    padding:10px 20px;
-    font-size:14px;
-
-    overflow:hidden;
-    white-space:nowrap;
-
-    border-bottom:2px solid var(--gold);
-
-    display:flex;
-    align-items:center;
+.ticker-title {
+    background: var(--gold);
+    color: #78350f;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-size: 13px;
+    flex-shrink: 0;
 }
-
-.ticker-title{
-    background:var(--gold);
-    color:#78350f;
-
-    padding:2px 10px;
-    border-radius:6px;
-
-    font-weight:bold;
-    margin-left:15px;
-    font-size:13px;
-
-    flex-shrink:0;
+.ticker-text {
+    display: inline-block;
+    animation: tickerAnim 25s linear infinite;
 }
-
-.ticker-text{
-    display:inline-block;
-    animation:tickerAnim 25s linear infinite;
+@keyframes tickerAnim {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
-
-@keyframes tickerAnim{
-
-    0%{
-        transform:translateX(100%);
-    }
-
-    100%{
-        transform:translateX(-100%);
-    }
-
-}
-
-
-/* ================================
-   تنبيه قيد الإنشاء
-================================ */
 
 .construction-banner{
-    background:linear-gradient(135deg,#fef3c7,#fde68a);
+    background:linear-gradient(135deg, #fef3c7, #fde68a);
     color:#92400e;
-
     text-align:center;
     padding:14px 20px;
-
     font-weight:600;
     font-size:14px;
-
     border-bottom:1px solid #fcd34d;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     flex-wrap:wrap;
     gap:15px;
 }
-
 .banner-btn{
-    background:#92400e;
-    color:#fff;
-
-    border:none;
-    padding:6px 16px;
-
-    border-radius:8px;
-    font-size:13px;
-    font-weight:bold;
-
-    cursor:pointer;
-    transition:0.2s;
+    background:#92400e;color:#fff;border:none;padding:6px 16px;border-radius:8px;font-size:13px;font-weight:bold;cursor:pointer;transition:0.2s;
 }
-
-.banner-btn:hover{
-    background:#78350f;
-}
-
-
-/* ================================
-   القائمة
-================================ */
+.banner-btn:hover{background:#78350f;}
 
 nav{
-    background:rgba(255,255,255,0.95);
+    background:rgba(255, 255, 255, 0.95);
     backdrop-filter:blur(10px);
-
-    position:sticky;
-    top:0;
-    z-index:100;
-
+    position:sticky; top:0; z-index:100;
     box-shadow:0 4px 20px rgba(0,0,0,0.05);
-
     border-bottom:1px solid var(--border);
-
-    transition:background 0.3s ease;
+    transition: background 0.3s ease;
 }
-
-.nav-container{
-    max-width:1200px;
-    margin:auto;
-
-    display:flex;
-    gap:10px;
-
-    padding:12px 15px;
-    overflow-x:auto;
-}
-
-.nav-container::-webkit-scrollbar{
-    height:4px;
-}
-
+.nav-container{max-width:1200px;margin:auto;display:flex;gap:10px;padding:12px 15px;overflow-x:auto;}
+.nav-container::-webkit-scrollbar{height:4px;}
 .nav-container a{
-    text-decoration:none;
-    color:var(--primary);
-
-    padding:8px 16px;
-    border-radius:12px;
-
-    white-space:nowrap;
-
-    font-weight:600;
-    font-size:14px;
-
-    transition:all 0.3s ease;
+    text-decoration:none;color:var(--primary);padding:8px 16px;border-radius:12px;white-space:nowrap;font-weight:600;font-size:14px;transition:all 0.3s ease;
 }
+.nav-container a:hover, .nav-container a.active{background:var(--primary2);color:white;}
 
-.nav-container a:hover,
-.nav-container a.active{
-    background:var(--primary2);
-    color:white;
-}
-
-
-/* ================================
-   الحاوية
-================================ */
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:35px 20px;
-}
-
-section{
-    margin-bottom:45px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.section-title h2{
-    color:var(--primary);
-    font-size:28px;
-    font-weight:800;
-    margin-bottom:5px;
-}
-
-.section-title p{
-    color:var(--muted);
-    font-size:15px;
-}
-
-
-/* ================================
-   العداد
-================================ */
+.container{max-width:1200px;margin:auto;padding:35px 20px;}
+section{margin-bottom:45px;}
+.section-title{text-align:center;margin-bottom:25px;}
+.section-title h2{color:var(--primary);font-size:28px;font-weight:800;margin-bottom:5px;}
+.section-title p{color:var(--muted);font-size:15px;}
 
 .countdown-box{
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
-
-    color:white;
-
-    border-radius:24px;
-    padding:30px;
-
-    text-align:center;
-
-    margin-bottom:35px;
-
-    max-width:750px;
-
-    margin-left:auto;
-    margin-right:auto;
-
-    box-shadow:0 15px 35px rgba(15,23,42,0.15);
+    background:linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white;border-radius: 24px;padding: 30px;text-align: center;margin-bottom: 35px;
+    max-width: 750px;margin-left: auto;margin-right: auto;box-shadow: 0 15px 35px rgba(15,23,42,0.15);
 }
-
-.countdown-box h3{
-    font-size:22px;
-    color:var(--gold);
-    margin-bottom:20px;
-    font-weight:700;
-}
-
-.countdown-timers{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
+.countdown-box h3{font-size: 22px;color: var(--gold);margin-bottom: 20px;font-weight: 700;}
+.countdown-timers{display: flex;justify-content: center;gap: 15px;flex-wrap: wrap;}
 .time-card{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
-
-    padding:12px 18px;
-    border-radius:14px;
-
-    min-width:80px;
+    background: rgba(255, 255, 255, 0.08);border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 18px;border-radius: 14px;min-width: 80px;
 }
-
-.time-card span{
-    display:block;
-    font-size:26px;
-    font-weight:800;
-    color:var(--gold);
-}
-
-.time-card label{
-    font-size:13px;
-    color:#cbd5e1;
-}
-
-
-/* ================================
-   Hero
-================================ */
+.time-card span{display: block;font-size: 26px;font-weight: 800;color: var(--gold);}
+.time-card label{font-size: 13px;color: #cbd5e1;}
 
 .hero{
-    background:var(--white);
-
-    border-radius:24px;
-    padding:45px 30px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-    border:1px solid var(--border);
-
-    transition:background 0.3s ease;
+    background:var(--white);border-radius:24px;padding:45px 30px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);
+    transition: background 0.3s ease;
 }
+.hero h2{color:var(--primary);font-size:32px;margin-bottom:12px;font-weight:800;}
+.hero p{color:var(--muted);max-width:750px;margin:0 auto 30px;font-size:16px;}
 
-.hero h2{
-    color:var(--primary);
-    font-size:32px;
-    margin-bottom:12px;
-    font-weight:800;
-}
-
-.hero p{
-    color:var(--muted);
-    max-width:750px;
-    margin:0 auto 30px;
-    font-size:16px;
-}
-
-
-/* ================================
-   الأزرار السريعة
-================================ */
-
-.quick-actions{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:25px;
-}
-
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:25px;}
 .quick-action{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-decoration:none;
-
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
-
-    color:white;
-
-    padding:22px 15px;
-
-    border-radius:18px;
-
-    font-weight:bold;
-    transition:0.3s;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;
+    background:linear-gradient(135deg, var(--primary), var(--primary2));color:white;padding:22px 15px;border-radius:18px;font-weight:bold;transition:0.3s;
 }
+.quick-action:hover{transform:translateY(-5px);background:linear-gradient(135deg, var(--primary2), var(--accent));}
+.quick-action span{font-size:32px;margin-bottom:8px;}
 
-.quick-action:hover{
-    transform:translateY(-5px);
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:25px;}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:25px;text-align:center;box-shadow:var(--shadow);transition: background 0.3s ease;}
+.stat strong{display:block;font-size:32px;color:var(--primary2);font-weight:900;}
+.stat span{color:var(--muted);font-size:14px;}
 
-    background:linear-gradient(
-        135deg,
-        var(--primary2),
-        var(--accent)
-    );
-}
-
-.quick-action span{
-    font-size:32px;
-    margin-bottom:8px;
-}
-
-
-/* ================================
-   الإحصائيات
-================================ */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:25px;
-}
-
-.stat{
-    background:var(--white);
-
-    border:1px solid var(--border);
-    border-radius:20px;
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-    transition:background 0.3s ease;
-}
-
-.stat strong{
-    display:block;
-    font-size:32px;
-    color:var(--primary2);
-    font-weight:900;
-}
-
-.stat span{
-    color:var(--muted);
-    font-size:14px;
-}
-
-
-/* ================================
-   البطاقات
-================================ */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .card{
-    background:var(--white);
-
-    border:1px solid var(--border);
-    border-radius:22px;
-
-    padding:30px 25px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    transition:0.3s;
+    background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;justify-content:space-between;transition:0.3s;
 }
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card .icon{
-    font-size:42px;
-    margin-bottom:15px;
-
-    background:#eff6ff;
-
-    width:80px;
-    height:80px;
-
-    line-height:80px;
-
-    border-radius:50%;
-
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.card h3{
-    color:var(--primary);
-    margin-bottom:10px;
-    font-size:20px;
-}
-
-.card p{
-    color:var(--muted);
-    font-size:14px;
-    margin-bottom:20px;
-    flex-grow:1;
-}
-
-
-/* ================================
-   الأزرار
-================================ */
+.card:hover{transform:translateY(-5px);}
+.card .icon{font-size:42px;margin-bottom:15px;background:#eff6ff;width:80px;height:80px;line-height:80px;border-radius:50%;margin-left:auto;margin-right:auto;}
+.card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
+.card p{color:var(--muted);font-size:14px;margin-bottom:20px;flex-grow:1;}
 
 .btn{
-    display:inline-block;
-
-    background:var(--primary2);
-    color:#fff;
-
-    text-decoration:none;
-
-    padding:10px 18px;
-
-    border-radius:12px;
-
-    font-size:14px;
-    font-weight:bold;
-
-    transition:0.2s;
-    margin-top:8px;
+    display:inline-block;background:var(--primary2);color:#fff;text-decoration:none;padding:10px 18px;border-radius:12px;font-size:14px;font-weight:bold;transition:0.2s;margin-top:8px;
 }
+.btn:hover{background:var(--primary);transform:translateY(-1px);}
 
-.btn:hover{
-    background:var(--primary);
-    transform:translateY(-1px);
-}
-
+/* زر مميز للاتصال بليدر أو المسجل */
 .btn-highlight{
-    background:linear-gradient(
-        135deg,
-        #10b981,
-        #059669
-    ) !important;
-
-    box-shadow:0 4px 15px rgba(16,185,129,0.4);
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
+.btn-highlight:hover{background: linear-gradient(135deg, #059669, #047857) !important;}
 
-.btn-highlight:hover{
-    background:linear-gradient(
-        135deg,
-        #059669,
-        #047857
-    ) !important;
-}
+.table-box{overflow-x:auto;background:var(--white);border-radius:22px;border:1px solid var(--border);box-shadow:var(--shadow);transition: background 0.3s ease;}
+table{width:100%;min-width:700px;border-collapse:collapse;}
+th,td{padding:18px 15px;text-align:center;border-bottom:1px solid var(--border);font-size:15px;}
+th{background:var(--primary);color:#fff;}
 
-
-/* ================================
-   الجدول
-================================ */
-
-.table-box{
-    overflow-x:auto;
-
-    background:var(--white);
-
-    border-radius:22px;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    transition:background 0.3s ease;
-}
-
-table{
-    width:100%;
-    min-width:700px;
-    border-collapse:collapse;
-}
-
-th,td{
-    padding:18px 15px;
-    text-align:center;
-
-    border-bottom:1px solid var(--border);
-
-    font-size:15px;
-}
-
-th{
-    background:var(--primary);
-    color:#fff;
-}
-
-
-/* ================================
-   المكتبة
-================================ */
-
-.library{
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary2)
-    );
-
-    color:white;
-
-    border-radius:24px;
-
-    padding:45px 30px;
-
-    text-align:center;
-}
-
+.library{background:linear-gradient(135deg, var(--primary), var(--primary2));color:white;border-radius:24px;padding:45px 30px;text-align:center;}
 .library-btn{
-    display:inline-block;
-
-    text-decoration:none;
-
-    background:var(--gold);
-    color:#78350f;
-
-    padding:14px 30px;
-
-    border-radius:14px;
-
-    font-weight:800;
-
-    margin-top:15px;
-
-    box-shadow:0 6px 20px rgba(245,158,11,0.4);
+    display:inline-block;text-decoration:none;background:var(--gold);color:#78350f;padding:14px 30px;border-radius:14px;font-weight:800;margin-top:15px;box-shadow:0 6px 20px rgba(245,158,11,0.4);
 }
 
+.links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.link-card{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:30px 25px;text-align:center;box-shadow:var(--shadow);transition: background 0.3s ease;}
+.link-card .big-icon{font-size:45px;margin-bottom:12px;}
+.link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
+.link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* ================================
-   روابط التواصل
-================================ */
-
-.links-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.link-card{
-    background:var(--white);
-
-    border:1px solid var(--border);
-
-    border-radius:22px;
-
-    padding:30px 25px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-    transition:background 0.3s ease;
-}
-
-.link-card .big-icon{
-    font-size:45px;
-    margin-bottom:12px;
-}
-
-.link-card h3{
-    color:var(--primary);
-    margin-bottom:10px;
-    font-size:20px;
-}
-
-.link-card p{
-    color:var(--muted);
-    font-size:14px;
-    margin:8px 0 15px;
-}
-
-
-/* ================================
-   الفوتر
-================================ */
-
-footer{
-    background:var(--primary);
-
-    color:white;
-
-    text-align:center;
-
-    padding:45px 20px;
-
-    margin-top:50px;
-
-    border-top:1px solid rgba(255,255,255,0.1);
-
-    transition:background 0.3s ease;
-}
-
-.footer-buttons{
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:20px;
-}
-
+/* أزرار الفوتر */
+footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
+.footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
-    background:var(--gold);
-
-    color:#78350f;
-
-    border:none;
-
-    padding:10px 24px;
-
-    border-radius:12px;
-
-    font-weight:bold;
-    font-size:15px;
-
-    cursor:pointer;
-
-    transition:0.2s;
-
-    box-shadow:0 4px 15px rgba(245,158,11,0.3);
+    background:var(--gold);color:#78350f;border:none;padding:10px 24px;border-radius:12px;font-weight:bold;font-size:15px;cursor:pointer;transition:0.2s;box-shadow:0 4px 15px rgba(245,158,11,0.3);
 }
-
-.footer-btn:hover{
-    background:#fbbf24;
-    transform:translateY(-2px);
-}
-
+.footer-btn:hover{background:#fbbf24;transform:translateY(-2px);}
 .share-btn{
-    background:var(--accent);
-    color:#ffffff;
+    background:var(--accent);color:#ffffff;
 }
+.share-btn:hover{background:#2563eb;}
 
-.share-btn:hover{
-    background:#2563eb;
+/* زر العودة لأعلى الصفحة (Back to Top) */
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: var(--primary2);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    transition: 0.3s;
 }
+#backToTop:hover { background: var(--primary); transform: translateY(-3px); }
 
-
-/* ================================
-   العودة للأعلى
-================================ */
-
-#backToTop{
-    position:fixed;
-
-    bottom:25px;
-    right:25px;
-
-    background:var(--primary2);
-    color:white;
-
-    border:none;
-
-    width:45px;
-    height:45px;
-
-    border-radius:50%;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:0 4px 15px rgba(0,0,0,0.3);
-
-    z-index:999;
-
-    transition:0.3s;
-}
-
-#backToTop:hover{
-    background:var(--primary);
-    transform:translateY(-3px);
-}
-
-
-/* ================================
-   نافذة من نحن
-================================ */
-
+/* النافذة المنبثقة (Modal) لـ "من نحن" */
 .modal{
-    display:none;
-
-    position:fixed;
-
-    z-index:1000;
-
-    left:0;
-    top:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(15,23,42,0.7);
-
-    backdrop-filter:blur(5px);
-
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
+    display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.7);backdrop-filter:blur(5px);
+    justify-content:center;align-items:center;padding:20px;
 }
-
 .modal-content{
-    background:white;
-
-    color:var(--primary);
-
-    padding:35px 30px;
-
-    border-radius:24px;
-
-    max-width:480px;
-
-    width:100%;
-
-    text-align:center;
-
-    position:relative;
-
-    box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
-
-    animation:modalPop 0.3s ease;
+    background:white;color:var(--primary);padding:35px 30px;border-radius:24px;max-width:480px;width:100%;text-align:center;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
+    animation: modalPop 0.3s ease;
 }
-
-@keyframes modalPop{
-
-    0%{
-        transform:scale(0.9);
-        opacity:0;
-    }
-
-    100%{
-        transform:scale(1);
-        opacity:1;
-    }
-
+@keyframes modalPop {
+    0% {transform:scale(0.9); opacity:0;}
+    100% {transform:scale(1); opacity:1;}
 }
-
-.close-modal{
-    position:absolute;
-
-    top:15px;
-    left:20px;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    color:var(--muted);
-
-    font-weight:bold;
-}
-
-.close-modal:hover{
-    color:var(--primary);
-}
-
-.modal-content h3{
-    color:var(--primary2);
-
-    font-size:24px;
-
-    margin-bottom:15px;
-}
-
-.modal-content p{
-    color:var(--muted);
-
-    font-size:15px;
-
-    line-height:1.7;
-
-    margin-bottom:15px;
-}
-
-.creators-box{
-    background:#f8fafc;
-
-    border:1px solid var(--border);
-
-    padding:15px;
-
-    border-radius:14px;
-
-    margin-top:15px;
-
-    text-align:right;
-}
-
-.creators-box p{
-    margin:6px 0;
-
-    color:var(--primary);
-
-    font-weight:600;
-}
-
-
-/* ================================
-   الجوال
-================================ */
+.close-modal{position:absolute;top:15px;left:20px;font-size:24px;cursor:pointer;color:var(--muted);font-weight:bold;}
+.close-modal:hover{color:var(--primary);}
+.modal-content h3{color:var(--primary2);font-size:24px;margin-bottom:15px;}
+.modal-content p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:15px;}
+.creators-box{background:#f8fafc;border:1px solid var(--border);padding:15px;border-radius:14px;margin-top:15px;text-align:right;}
+.creators-box p{margin:6px 0;color:var(--primary);font-weight:600;}
 
 @media(max-width:850px){
-
-    .cards,
-    .links-grid,
-    .stats,
-    .quick-actions{
-        grid-template-columns:repeat(2,1fr);
-    }
-
+    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:repeat(2,1fr);}
 }
-
 @media(max-width:600px){
-
-    .cards,
-    .links-grid,
-    .stats,
-    .quick-actions{
-        grid-template-columns:1fr;
-    }
-
-    .logo{
-        font-size:38px;
-    }
-
-    .theme-toggle-btn{
-        top:15px;
-        left:15px;
-        font-size:12px;
-        padding:7px 10px;
-    }
-
+    .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================================
-     الهيدر
-================================ -->
-
 <header>
-
-    <button
-        class="theme-toggle-btn"
-        id="themeToggleBtn"
-        type="button">
-        🌙 الوضع الليلي
-    </button>
-
+    <!-- زر الوضع الليلي -->
+    <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
+    
     <div class="logo">الريان</div>
-
-    <div class="subtitle">
-        المنصة الطلابية | كلية العلوم الإدارية
-    </div>
-
-    <div class="badge">
-        دفعة 023
-    </div>
-
+    <div class="subtitle">المنصة الطلابية | كلية العلوم الإدارية</div>
+    <div class="badge">دفعة 023</div>
 </header>
 
-
-<!-- ================================
-     شريط الأخبار
-================================ -->
-
+<!-- شريط الإعلانات العاجلة المتحرك -->
 <div class="ticker-container">
-
-    <span class="ticker-title">
-        عاجل 📢
-    </span>
-
-    <div class="ticker-text">
-        مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!
-    </div>
-
+    <span class="ticker-title">عاجل 📢</span>
+    <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
 </div>
 
-
-<!-- ================================
-     التنبيه
-================================ -->
-
-<div
-    id="constructionBanner"
-    class="construction-banner">
-
-    <span>
-        ⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!
-    </span>
-
-    <button
-        class="banner-btn"
-        id="closeBannerBtn"
-        type="button">
-
-        حسناً، الدخول للموقع
-
-    </button>
-
+<!-- شريط تنبيه قيد الإنشاء مع زر حسناً الفعّال -->
+<div id="constructionBanner" class="construction-banner">
+    <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
+    <button class="banner-btn" id="closeBannerBtn" type="button">حسناً، الدخول للموقع</button>
 </div>
-
-
-<!-- ================================
-     القائمة
-================================ -->
 
 <nav>
-
     <div class="nav-container">
-
-        <a href="index.html" class="active">
-            الرئيسية
-        </a>
-
-        <a href="subjects.html">
-            المواد
-        </a>
-
-        <a href="about.html">
-            عن الكلية
-        </a>
-
-        <a href="results.html">
-            النتيجة
-        </a>
-
-        <a href="exams.html">
-            الاختبارات
-        </a>
-
-        <a href="study-tools.html">
-            الوسائل التعليمية
-        </a>
-
-        <a href="#schedule">
-            الجدول
-        </a>
-
-        <a href="#community">
-            التواصل
-        </a>
-
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="subjects.html">المواد</a>
+        <a href="about.html">عن الكلية</a>
+        <a href="results.html">النتيجة</a>
+        <a href="exams.html">الاختبارات</a>
+        <a href="study-tools.html">الوسائل التعليمية</a>
+        <a href="#schedule">الجدول</a>
+        <a href="#community">التواصل</a>
     </div>
-
 </nav>
-
-
-<!-- ================================
-     المحتوى
-================================ -->
 
 <main class="container">
 
-
-<!-- العداد -->
-
+<!-- العداد التنازلي للامتحانات (9 يناير 2027) -->
 <section>
-
     <div class="countdown-box">
-
-        <h3>
-            ⏳ العداد التنازلي لبداية الامتحانات
-            (9 يناير 2027)
-        </h3>
-
+        <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
-
-            <div class="time-card">
-                <span id="days">00</span>
-                <label>يوم</label>
-            </div>
-
-            <div class="time-card">
-                <span id="hours">00</span>
-                <label>ساعة</label>
-            </div>
-
-            <div class="time-card">
-                <span id="minutes">00</span>
-                <label>دقيقة</label>
-            </div>
-
-            <div class="time-card">
-                <span id="seconds">00</span>
-                <label>ثانية</label>
-            </div>
-
+            <div class="time-card"><span id="days">00</span><label>يوم</label></div>
+            <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
+            <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
+            <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
         </div>
-
     </div>
-
 </section>
-
-
-<!-- الرئيسية -->
 
 <section id="home">
-
     <div class="hero">
-
-        <h2>
-            مرحباً بكم في منصة الريان 🎓
-        </h2>
-
-        <p>
-            منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.
-        </p>
-
-
+        <h2>مرحباً بكم في منصة الريان 🎓</h2>
+        <p>منصة طلابية متكاملة تجمع المواد الدراسية، الملفات، الملخصات، النتائج، والاختبارات الخاصة بالدفعة في مكان واحد وبشكل منظم.</p>
+        
         <div class="quick-actions">
-
-            <a
-                class="quick-action"
-                href="subjects.html">
-
-                <span>📚</span>
-                المواد الدراسية
-
-            </a>
-
-
-            <a
-                class="quick-action"
-                href="exams.html">
-
-                <span>📝</span>
-                الاختبارات وبنك الأسئلة
-
-            </a>
-
-
-            <a
-                class="quick-action"
-                href="results.html">
-
-                <span>📊</span>
-                النتيجة الأكاديمية
-
-            </a>
-
+            <a class="quick-action" href="subjects.html"><span>📚</span> المواد الدراسية</a>
+            <a class="quick-action" href="exams.html"><span>📝</span> الاختبارات وبنك الأسئلة</a>
+            <a class="quick-action" href="results.html"><span>📊</span> النتيجة الأكاديمية</a>
         </div>
-
     </div>
-
 
     <div class="stats">
-
-        <div class="stat">
-
-            <strong>9</strong>
-
-            <span>
-                مواد دراسية
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>397</strong>
-
-            <span>
-                طالب وطالبة
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>023</strong>
-
-            <span>
-                رقم الدفعة
-            </span>
-
-        </div>
-
+        <div class="stat"><strong>9</strong><span>مواد دراسية</span></div>
+        <div class="stat"><strong>397</strong><span>طالب وطالبة</span></div>
+        <div class="stat"><strong>023</strong><span>رقم الدفعة</span></div>
     </div>
-
 </section>
 
-
-<!-- الأقسام -->
-
 <section>
-
     <div class="section-title">
-
-        <h2>
-            ⚡ أقسام المنصة السريعة
-        </h2>
-
-        <p>
-            تصفح كافة خدمات المنصة بضغطة زر واحدة
-        </p>
-
+        <h2>⚡ أقسام المنصة السريعة</h2>
+        <p>تصفح كافة خدمات المنصة بضغطة زر واحدة</p>
     </div>
 
-
     <div class="cards">
-
+        <div class="card">
+            <div class="icon">🏛️</div>
+            <h3>عن الكلية</h3>
+            <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
+            <a class="btn" href="about.html">استعراض النبذة</a>
+        </div>
 
         <div class="card">
+            <div class="icon">🧠</div>
+            <h3>اختبارات معرفة القدرات</h3>
+            <p>اختبر معلوماتك وقدراتك الذهنية عبر تمرينات واختبارات تفاعلية مشوقة.</p>
+            <a class="btn" href="fun.html">ابدأ الاختبار</a>
+        </div>
 
-            <div class="icon">
-                🏛️
-            </div>
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>الوسائل التعليمية</h3>
+            <p>أدوات ومصادر ومراجع تعليمية مساعدة لتحسين التحصيل الدراسي.</p>
+            <a class="btn" href="study-tools.html">فتح الوسائل</a>
+        </div>
+    </div>
+</section>
 
-            <h3>
-                عن الكلية
-            </h3>
+<section id="schedule">
+    <div class="section-title">
+        <h2>📅 جدول المحاضرات الأسبوعي</h2>
+        <p>المواعيد الرسمية للمحاضرات من السبت إلى الخميس</p>
+    </div>
 
-            <p>
-                تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأك
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>اليوم</th>
+                    <th>المحاضرة الأولى</th>
+                    <th>المحاضرة الثانية</th>
+                    <th>المحاضرة الثالثة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>السبت</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأحد</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الاثنين</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الثلاثاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الأربعاء</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>الخميس</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="library">
+    <div class="library">
+        <h2>📁 مكتبة الملفات والمراجع</h2>
+        <p>جميع الملفات والمحاضرات والملخصات الخاصة بمواد الدفعة متوفرة للتحميل المباشر.</p>
+        <a class="library-btn" href="subjects.html">تصفح ملفات المواد</a>
+    </div>
+</section>
+
+<section id="community">
+    <div class="section-title">
+        <h2>🔗 روابط التواصل والاتصال</h2>
+        <p>قنوات التواصل الرسمية الخاصة بالدفعة والكلية</p>
+    </div>
+
+    <div class="links-grid">
+        <div class="link-card">
+            <div class="big-icon">💬</div>
+            <h3>مجموعة الواتساب</h3>
+            <p>مجموعة الدفعة الرسمية للاستفسارات والأخبار السريعة.</p>
+            <a class="btn" href="https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" target="_blank">انضم للمجموعة</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">👥</div>
+            <h3>صفحة الفيسبوك</h3>
+            <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
+            <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">📢</div>
+            <h3>أخبار الجامعة</h3>
+            <p>تابع آخر الأخبار والتعاميم الرسمية الصادرة من إدارة الجامعة.</p>
+            <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
+        </div>
+
+        <!-- بطاقة أرقام القيادة -->
+        <div class="link-card" style="border: 2px solid #3b82f6;">
+            <div class="big-icon">📞</div>
+            <h3>أرقام القيادة</h3>
+            <p><strong>ليدر الدفعة:</strong><br>249116314682</p>
+            <a class="btn btn-highlight" href="https://wa.me/249116314682" target="_blank">💬 مراسلة ليدر الدفعة</a>
+            
+            <p style="margin-top: 15px;"><strong>مسجل الدفعة:</strong><br>249111744435</p>
+            <a class="btn btn-highlight" href="https://wa.me/249111744435" target="_blank">💬 مراسلة مسجل الدفعة</a>
+        </div>
+
+        <div class="link-card">
+            <div class="big-icon">💡</div>
+            <h3>الاقتراحات والملاحظات</h3>
+            <p>شاركنا برأيك لتطوير المنصة وتحسينها مباشرة عبر رقمي الخاص.</p>
+            <a class="btn" href="https://wa.me/249995040725?text=مرحباً، لدي اقتراح بخصوص منصة الريان:" target="_blank">أرسل اقتراحك</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-buttons">
+        <!-- زر "من نحن" -->
+        <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
+        <!-- زر مشاركة المنصة -->
+        <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
+    </div>
+    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p style="margin-top: 6px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
+</footer>
+
+<!-- زر العودة للأعلى -->
+<button id="backToTop" title="العودة للأعلى">⬆</button>
+
+<!-- نافذة منبثقة (Modal) لـ "من نحن" -->
+<div class="modal" id="aboutModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h3>من نحن 🎓</h3>
+        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 بكلية العلوم الإدارية.</p>
+        <div class="creators-box">
+            <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
+            <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", func
