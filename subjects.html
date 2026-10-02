@@ -4,158 +4,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مبادئ المحاسبة | منصة الريان - دفعة 023</title>
+<title>المواد الدراسية | منصة الريان - دفعة 023</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;--telegram:#24a1ee;}
 
 header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
-.logo{font-size:32px;font-weight:900;}
-.subtitle{color:#dce8f1;margin-top:4px;font-size:14px;}
+.logo{font-size:38px;font-weight:900;}
+.subtitle{color:#dce8f1;margin-top:4px;font-size:15px;}
 
 nav{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,.08);}
 .nav-container{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px;overflow-x:auto;}
 .nav-container a{text-decoration:none;color:var(--primary);padding:9px 15px;border-radius:10px;white-space:nowrap;font-weight:bold;font-size:14px;transition:.2s;}
-.nav-container a:hover{background:#edf3f7;color:var(--primary2);}
+.nav-container a:hover, .nav-container a.active{background:#edf3f7;color:var(--primary2);}
 
-.container{max-width:900px;margin:auto;padding:30px 15px;}
-.back-link{display:inline-block;margin-bottom:20px;color:var(--primary2);text-decoration:none;font-weight:bold;font-size:14px;}
-.back-link:hover{text-decoration:underline;}
+.container{max-width:1200px;margin:auto;padding:30px 15px;}
+.section-title{text-align:center;margin-bottom:30px;}
+.section-title h2{color:var(--primary);font-size:28px;margin-bottom:8px;}
+.section-title p{color:var(--muted);font-size:15px;}
 
-.subject-header{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;margin-bottom:25px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,.03);}
-.subject-header h2{color:var(--primary);font-size:24px;margin-bottom:8px;}
-.subject-header p{color:var(--muted);font-size:14px;}
+/* شبكة المواد الدراسية */
+.subjects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.subject-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.04);transition:.3s;}
+.subject-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(9,38,63,0.1);}
+.subject-icon{font-size:40px;margin-bottom:12px;}
+.subject-card h3{color:var(--primary);font-size:19px;margin-bottom:8px;}
+.subject-card p{color:var(--muted);font-size:13px;margin-bottom:20px;}
 
-/* قائمة المحاضرات داخل المادة */
-.lectures-container{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;box-shadow:0 5px 18px rgba(0,0,0,.04);}
-.lectures-container h3{color:var(--primary);font-size:18px;margin-bottom:15px;border-bottom:2px solid #f0f4f8;padding-bottom:10px;}
-
-.lecture-item{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid var(--border);transition:.2s;}
-.lecture-item:last-child{border-bottom:none;}
-.lecture-item:hover{background:#f8fafc;}
-
-.lec-info h4{font-size:15px;color:var(--primary);margin-bottom:2px;}
-.lec-info span{font-size:12px;color:var(--muted);}
-
-.lec-action-btn{
-    background:var(--telegram);
+/* زر الدخول لصفحة المحاضرات للمادة */
+.sub-btn{
+    display:block;
+    width:100%;
+    background:var(--primary);
     color:#fff;
     text-decoration:none;
-    padding:8px 16px;
-    border-radius:8px;
-    font-size:13px;
+    padding:10px;
+    border-radius:10px;
+    font-size:14px;
     font-weight:bold;
     transition:.2s;
+    text-align:center;
 }
-.lec-action-btn:hover{background:#1a8cd8;}
-.lec-action-btn.disabled{background:#e0e0e0;color:#9e9e9e;pointer-events:none;}
+.sub-btn:hover{background:var(--primary2);}
 
 footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
+
+@media(max-width:850px){
+    .subjects-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:550px){
+    .subjects-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">💰 مبادئ المحاسبة</div>
-    <div class="subtitle">منصة الريان الطلابية | كلية العلوم الإدارية - دفعة 023</div>
+    <div class="logo">المواد الدراسية 📚</div>
+    <div class="subtitle">منصة الريان الطلابية | كلية العلوم الإدارية - دفعة 023[span_0](start_span)[span_0](end_span)</div>
 </header>
 
 <nav>
     <div class="nav-container">
         <a href="index.html">الرئيسية</a>
-        <a href="subjects.html">المواد الدراسية</a>
-        <a href="exams.html">الاختبارات</a>
+        <a href="subjects.html" class="active">المواد</a>
+        <a href="about.html">عن الكلية</a>
         <a href="results.html">النتيجة</a>
+        <a href="exams.html">الاختبارات</a>
+        <a href="study-tools.html">الوسائل التعليمية</a>
     </div>
 </nav>
 
 <main class="container">
 
-    <a href="subjects.html" class="back-link">← العودة إلى قائمة المواد</a>
-
-    <div class="subject-header">
-        <h2>صفحة المحاضرات والملفات الخاصة بالمادة</h2>
-        <p>هنا ستجد كافة محاضرات مادة مبادئ المحاسبة مرتبة من الأولى وحتى الثامنة. اضغط على المحاضرة للانتقال المباشر لها في التليجرام.</p>
+    <div class="section-title">
+        <h2>مقررات الفصل الدراسي</h2>
+        <p>اضغط على أي مادة لعرض المحاضرات (1 - 8) والمرتبطة بقناة التليجرام</p>
     </div>
 
-    <div class="lectures-container">
-        <h3>قائمة المحاضرات</h3>
-
-        <!-- المحاضرة الأولى -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الأولى</h4>
-                <span>مقدمة في علم المحاسبة والمعادلة المحاسبية</span>
-            </div>
-            <!-- استبدل الرابط أدناه برابط المحاضرة 1 في التليجرام حين تنزل -->
-            <a href="رابط_المحاضرة_الأولى_في_التليجرام" class="lec-action-btn" target="_blank">الانتقال للمحاضرة ✈️</a>
+    <div class="subjects-grid">
+        
+        <!-- مادة 1 -->
+        <div class="subject-card">
+            <div class="subject-icon">💰</div>
+            <h3>مبادئ المحاسبة</h3>
+            <p>الدفاتر والقوائم المالية الأساسية.</p>
+            <a href="accounting.html" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة الثانية -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الثانية</h4>
-                <span>الدفاتر المحاسبية (دفتر اليومية والأستاذ)</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 2 -->
+        <div class="subject-card">
+            <div class="subject-icon">📊</div>
+            <h3>مبادئ الإدارة</h3>
+            <p>أساسيات العمليات الإدارية والتخطيط.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة الثالثة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الثالثة</h4>
-                <span>التسجيل في دفتر اليومية العامة</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 3 -->
+        <div class="subject-card">
+            <div class="subject-icon">📈</div>
+            <h3>الاقتصاد الجزئي</h3>
+            <p>سلوك المستهلك والمنتج والعرض والطلب.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة الرابعة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الرابعة</h4>
-                <span>ترحيل القيود إلى دفتر الأستاذ</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 4 -->
+        <div class="subject-card">
+            <div class="subject-icon">🌐</div>
+            <h3>الاقتصاد الكلي</h3>
+            <p>الناتج المحلي والتضخم والسياسات.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة الخامسة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الخامسة</h4>
-                <span>إعداد ميزان المراجعة بالأرصدة والمجاميع</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 5 -->
+        <div class="subject-card">
+            <div class="subject-icon">📐</div>
+            <h3>الرياضيات لعلوم الإدارة</h3>
+            <p>التفاضل والتكامل والمصفوفات.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة السادسة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة السادسـة</h4>
-                <span>التسويات الجردية والمستحقات</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 6 -->
+        <div class="subject-card">
+            <div class="subject-icon">📊</div>
+            <h3>الإحصاء للإدارة</h3>
+            <p>عرض البيانات ومقاييس النزعة المركزية.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة السابعة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة السابعة</h4>
-                <span>إعداد القوائم المالية (قائمة الدخل)</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 7 -->
+        <div class="subject-card">
+            <div class="subject-icon">💻</div>
+            <h3>التقنية في إدارة الأعمال</h3>
+            <p>أنظمة المعلومات وقواعد البيانات.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
-        <!-- المحاضرة الثامنة -->
-        <div class="lecture-item">
-            <div class="lec-info">
-                <h4>المحاضرة الثامنة</h4>
-                <span>قائمة المركز المالي والمراجعة العامة</span>
-            </div>
-            <a href="#" class="lec-action-btn disabled">قريباً ⏳</a>
+        <!-- مادة 8 -->
+        <div class="subject-card">
+            <div class="subject-icon">⚖️</div>
+            <h3>القانون التجاري</h3>
+            <p>الأعمال التجارية والشركات والعقود.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
+        </div>
+
+        <!-- مادة 9 -->
+        <div class="subject-card">
+            <div class="subject-icon">🗣️️</div>
+            <h3>اللغة الإنجليزية الإدارية</h3>
+            <p>المصطلحات والمراسلات التجارية.</p>
+            <a href="#" class="sub-btn">عرض المحاضرات والملفات 📂</a>
         </div>
 
     </div>
@@ -163,7 +166,7 @@ footer strong{color:var(--gold);}
 </main>
 
 <footer>
-    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
+    <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong>[span_1](start_span)[span_1](end_span)</p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
