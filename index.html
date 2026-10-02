@@ -91,6 +91,7 @@ header{
     font-weight: bold;
     backdrop-filter: blur(5px);
     transition: 0.2s;
+    z-index: 10;
 }
 .theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
@@ -237,7 +238,7 @@ th{background:var(--primary);color:#fff;}
 .link-card h3{color:var(--primary);margin-bottom:10px;font-size:20px;}
 .link-card p{color:var(--muted);font-size:14px;margin:8px 0 15px;}
 
-/* أزرار الفوتر (من نحن ومشاركة المنصة) */
+/* أزرار الفوتر */
 footer{background:var(--primary);color:white;text-align:center;padding:45px 20px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.1);transition: background 0.3s ease;}
 .footer-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:20px;}
 .footer-btn{
@@ -303,7 +304,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <body>
 
 <header>
-    <!-- زر الوضع الليلي الحقيقي -->
+    <!-- زر الوضع الليلي -->
     <button class="theme-toggle-btn" id="themeToggleBtn" type="button">🌙 الوضع الليلي</button>
     
     <div class="logo">الريان</div>
@@ -317,6 +318,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="ticker-text">مرحباً بكم في منصة الريان لدفعة 023 - تابعوا جدول المحاضرات والملفات الدراسية أولاً بأول، وبالتوفيق للجميع في الامتحانات القادمة!</div>
 </div>
 
+<!-- شريط تنبيه قيد الإنشاء مع زر حسناً الفعّال -->
 <div id="constructionBanner" class="construction-banner">
     <span>⚠️ تنبيه هام: المنصة لا تزال قيد الإنشاء والتطوير المستمر لإضافة كافة الخدمات والمحتوى قريباً!</span>
     <button class="banner-btn" id="closeBannerBtn" type="button">حسناً، الدخول للموقع</button>
@@ -463,7 +465,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <a class="btn" href="https://www.facebook.com/share/19i7UZ4Cne/" target="_blank">صفحة الأخبار</a>
         </div>
 
-        <!-- بطاقة أرقام القيادة بزرين منفصلين ومبرزين -->
+        <!-- بطاقة أرقام القيادة -->
         <div class="link-card" style="border: 2px solid #3b82f6;">
             <div class="big-icon">📞</div>
             <h3>أرقام القيادة</h3>
@@ -489,7 +491,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
     <div class="footer-buttons">
         <!-- زر "من نحن" -->
         <button class="footer-btn" id="aboutUsBtn" type="button">من نحن 👥</button>
-        <!-- زر مشاركة المنصة الحقيقي -->
+        <!-- زر مشاركة المنصة -->
         <button class="footer-btn share-btn" id="shareSiteBtn" type="button">🔗 مشاركة المنصة</button>
     </div>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
@@ -513,4 +515,4 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() 
+document.addEventListener("DOMContentLoaded", func
