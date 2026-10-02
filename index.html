@@ -25,7 +25,7 @@ body{
     --shadow:0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
 }
 
-/* تنسيقات الوضع الليلي الحقيقي */
+/* تنسيقات الوضع الليلي */
 body.dark-mode {
     background: #0b0f19;
     color: #f1f5f9;
@@ -82,7 +82,6 @@ header{
     font-weight:bold;font-size:14px;box-shadow:0 4px 12px rgba(245,158,11,0.3);
 }
 
-/* زر الوضع الليلي في الهيدر */
 .theme-toggle-btn {
     position: absolute;
     top: 20px;
@@ -101,7 +100,6 @@ header{
 }
 .theme-toggle-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-/* شريط الإعلانات العاجلة */
 .ticker-container {
     background: #1e293b;
     color: #f8fafc;
@@ -135,7 +133,7 @@ header{
 /* تنسيق شريط البحث */
 .search-box-wrapper {
     background: var(--white);
-    padding: 12px 20px;
+    padding: 15px 20px;
     border-bottom: 1px solid var(--border);
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     transition: background 0.3s ease;
@@ -338,7 +336,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 }
 #backToTop:hover { background: var(--primary); transform: translateY(-3px); }
 
-/* النافذة المنبثقة (Modal) */
 .modal{
     display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(15,23,42,0.75);backdrop-filter:blur(6px);
     justify-content:center;align-items:center;padding:20px;
@@ -358,7 +355,6 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 .creators-box{background:#f8fafc;border:1px solid var(--border);padding:15px;border-radius:14px;margin-top:15px;text-align:right;}
 .creators-box p{margin:6px 0;color:var(--primary);font-weight:600;}
 
-/* زر الموافقة في نافذة التنبيه */
 .btn-alert-confirm {
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: #ffffff;
@@ -389,10 +385,9 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <body>
 
-<!-- نافذة التنبيه المنبثقة: الموقع تحت الإنشاء -->
 <div class="modal" id="noticeModal" style="display: flex;">
     <div class="modal-content">
-        <div style="font-size: 45px; margin-bottom: 10px;">⚠️</div>
+        <div style="font-size: 45px; margin-bottom: 10px;">⚠️️</div>
         <h3>تنويه هام</h3>
         <p>مرحباً بكم! نود إحاطتكم بأنه جارٍ العمل على تطوير وتحديث منصة الريان باستمرار لخدمتكم بشكل أفضل.</p>
         <button class="btn-alert-confirm" id="confirmNoticeBtn" type="button">حسناً، الدخول للموقع 👍</button>
@@ -417,7 +412,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <div class="search-box-wrapper">
     <div class="search-box-container">
         <span class="search-icon-inside">🔍</span>
-        <input type="text" id="siteSearchInput" class="search-input" placeholder="ابحث في المنصة (عن المواد، الاختبارات، المراجع، الجدول...)" autocomplete="off">
+        <input type="text" id="siteSearchInput" class="search-input" placeholder="ابحث عن مواد، اختبارات، نتيجة، جدول، أو روابط تواصل..." autocomplete="off">
         <button id="clearSearchBtn" class="clear-search-btn" title="مسح البحث">✕</button>
     </div>
 </div>
@@ -437,11 +432,10 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
 <main class="container">
 
-<!-- رسالة تنبيه عند عدم وجود نتائج للبحث -->
 <div id="noResultsMsg" class="no-results-msg">
     <div style="font-size: 40px; margin-bottom: 10px;">🔍❌</div>
     <h4>عفواً، لم نجد أي نتائج تطابق بحثك!</h4>
-    <p>تأكد من كتابة الكلمة بشكل صحيح أو جرب البحث عن كلمة أخرى مثل: "مواد"، "نتيجة"، "جدول"، "واتساب".</p>
+    <p>جرب البحث بكلمات أخرى مثل: "مواد"، "نتيجة"، "جدول"، "واتساب"، "ليدر".</p>
 </div>
 
 <section class="searchable-section">
@@ -457,7 +451,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 </section>
 
 <section id="home" class="searchable-section">
-    <div class="hero searchable-item">
+    <div class="hero">
         <h2>مرحباً بكم في منصة الريان 🎓</h2>
         <p>منصة طلابية متكاملة بـ <strong>جامعة بحري</strong> تجمع المواد الدراسية، الملفات، الملخصات، والنتائج الخاصة بدفعة 023 / 024 في مكان واحد.</p>
         
@@ -616,7 +610,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     
-    // إغلاق نافذة التنبيه عند الضغط على زر الدخول
+    // إغلاق نافذة التنبيه
     const noticeModal = document.getElementById('noticeModal');
     const confirmNoticeBtn = document.getElementById('confirmNoticeBtn');
 
@@ -647,57 +641,54 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // كود محرك البحث الحي المباشر
+    // محرك البحث الدقيق والفعال
     const searchInput = document.getElementById('siteSearchInput');
     const clearBtn = document.getElementById('clearSearchBtn');
     const noResults = document.getElementById('noResultsMsg');
-    const sections = document.querySelectorAll('.searchable-section');
 
     if (searchInput) {
         searchInput.addEventListener('input', function() {
             const query = this.value.trim().toLowerCase();
 
-            // إظهار أو إخفاء زر المسح
             if (query.length > 0) {
                 clearBtn.style.display = 'block';
             } else {
                 clearBtn.style.display = 'none';
             }
 
-            let totalVisibleItems = 0;
+            let totalMatches = 0;
+            const sections = document.querySelectorAll('.searchable-section');
 
             sections.forEach(section => {
                 const items = section.querySelectorAll('.searchable-item');
-                let sectionHasVisibleItems = false;
+                let visibleItemsInSection = 0;
 
                 items.forEach(item => {
-                    const text = item.innerText.toLowerCase();
-                    if (text.includes(query)) {
+                    const text = item.textContent.toLowerCase();
+                    if (query === '' || text.includes(query)) {
                         item.style.display = '';
-                        sectionHasVisibleItems = true;
-                        totalVisibleItems++;
+                        visibleItemsInSection++;
+                        totalMatches++;
                     } else {
                         item.style.display = 'none';
                     }
                 });
 
-                // إخفاء الأقسام الفارغة التي لا توجد بها نتائج
-                if (sectionHasVisibleItems) {
+                // إظهار أو إخفاء العنوان مع القسم بناءً على وجود نتائج فيه
+                if (query === '' || visibleItemsInSection > 0) {
                     section.style.display = '';
                 } else {
                     section.style.display = 'none';
                 }
             });
 
-            // عرض رسالة عدم وجود نتائج إن لم يطابق أي عنصر
-            if (totalVisibleItems === 0 && query !== '') {
+            if (totalMatches === 0 && query !== '') {
                 noResults.style.display = 'block';
             } else {
                 noResults.style.display = 'none';
             }
         });
 
-        // زر تفريغ البحث
         clearBtn.addEventListener('click', function() {
             searchInput.value = '';
             searchInput.dispatchEvent(new Event('input'));
@@ -705,7 +696,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // إدارة نافذة "من نحن"
+    // نافذة من نحن
     const aboutBtn = document.getElementById('aboutUsBtn');
     const aboutModal = document.getElementById('aboutModal');
     const closeModal = document.getElementById('closeModalBtn');
@@ -748,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // العداد التنازلي لبداية الامتحانات
+    // العداد التنازلي
     const examDate = new Date("January 9, 2027 00:00:00").getTime();
 
     function updateCountdown() {
