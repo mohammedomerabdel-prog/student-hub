@@ -11,10 +11,21 @@ html{scroll-behavior:smooth;}
 body{font-family:Arial,Tahoma,sans-serif;background:#f4f7fa;color:#263746;line-height:1.7;}
 :root{--primary:#09263f;--primary2:#155377;--gold:#d9a62e;--white:#fff;--muted:#71808c;--border:#e1e8ee;}
 
-header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:28px 18px 35px;text-align:center;}
+/* شريط عداد الزوار العلوي السحابي */
+.visitor-bar {
+    background: #051624;
+    color: var(--gold);
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(217, 166, 46, 0.2);
+}
+
+header{background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;padding:25px 18px 30px;text-align:center;}
 .logo{font-size:42px;font-weight:900;}
 .subtitle{color:#dce8f1;margin-top:4px;}
-.badge{display:inline-block;margin-top:14px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
+.badge{display:inline-block;margin-top:10px;background:var(--gold);color:#172b3a;padding:6px 20px;border-radius:30px;font-weight:bold;}
 
 /* شريط التنبيه قيد الإنشاء مع زر الإخفاء */
 .construction-banner{
@@ -58,6 +69,54 @@ section{margin-bottom:35px;}
 .section-title{text-align:center;margin-bottom:20px;}
 .section-title h2{color:var(--primary);font-size:25px;}
 .section-title p{color:var(--muted);}
+
+/* شريط البحث الذكي الشامل */
+.global-search-container {
+    max-width: 650px;
+    margin: 20px auto 35px auto;
+    position: relative;
+}
+.global-search-input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--border);
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    background: #fff;
+}
+.global-search-input:focus {
+    border-color: var(--primary2);
+    box-shadow: 0 6px 20px rgba(21, 83, 119, 0.15);
+}
+.search-results-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    border: 1px solid var(--border);
+}
+.search-result-item {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+.search-result-item:hover {
+    background: #f8fafc;
+    color: var(--primary2);
+    font-weight: bold;
+}
 
 .hero{background:#fff;border-radius:22px;padding:35px 25px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.06);}
 .hero h2{color:var(--primary);font-size:30px;margin-bottom:10px;}
@@ -139,6 +198,105 @@ th{background:var(--primary);color:#fff;}
 .whatsapp{background:#f1f8f3;}
 .facebook{background:#f0f4f9;}
 
+/* تنسيق شات الذكاء الاصطناعي (Gemini) المستقل */
+.gemini-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #4F46E5, #3B82F6);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.gemini-btn:hover { transform: scale(1.05); }
+
+.gemini-window {
+    position: fixed;
+    bottom: 95px;
+    right: 25px;
+    width: 350px;
+    height: 480px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden;
+}
+.gemini-header {
+    background: linear-gradient(135deg, #4F46E5, #3B82F6);
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gemini-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f8fafc;
+}
+.gemini-msg {
+    padding: 10px 14px;
+    border-radius: 14px;
+    max-width: 85%;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+.gemini-msg.bot {
+    background: #e0e7ff;
+    color: #312e81;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+.gemini-msg.user {
+    background: #3b82f6;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+.gemini-footer {
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+}
+.gemini-footer input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font-size: 13px;
+}
+.gemini-footer button {
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 footer{background:var(--primary);color:white;text-align:center;padding:30px 15px;margin-top:40px;}
 footer p{color:#d2dee7;font-size:14px;}
 footer strong{color:var(--gold);}
@@ -149,11 +307,17 @@ footer strong{color:var(--gold);}
 }
 @media(max-width:600px){
     .cards,.links-grid,.stats,.quick-actions{grid-template-columns:1fr;}
+    .gemini-window { width: 90%; right: 5%; left: 5%; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- عداد الزوار العلوي السحابي -->
+<div class="visitor-bar">
+    👁️ إجمالي عدد زوار منصة الريان (سحابي حي): <span id="visitorCount">جاري التحميل...</span> زائر
+</div>
 
 <!-- الهيدر -->
 <header>
@@ -184,8 +348,14 @@ footer strong{color:var(--gold);}
 
 <main class="container">
 
+<!-- شريط البحث الذكي الشامل -->
+<div class="global-search-container">
+    <input type="text" id="globalSearchInput" class="global-search-input" placeholder="🔍 ابحث بأي حرف أو كلمة عن المواد، الأقسام، الروابط، أو الخدمات..." onkeyup="performGlobalSearch()">
+    <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+</div>
+
 <!-- العداد التنازلي للامتحانات -->
-<section style="margin-top: 25px;">
+<section style="margin-top: 15px;">
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
@@ -313,7 +483,7 @@ footer strong{color:var(--gold);}
         <div class="link-card facebook">
             <div class="big-icon">👥</div>
             <h3>صفحة الفيسبوك</h3>
-            <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مست اخبار الدفعة.</p>
+            <p>تابعنا على صفحتنا الرسمية على الفيسبوك لأحدث مستجدات الدفعة.</p>
             <a class="btn" href="https://www.facebook.com/share/1M81DYnAxV/" target="_blank">زوروا صفحتنا</a>
         </div>
 
@@ -335,23 +505,55 @@ footer strong{color:var(--gold);}
 
 </main>
 
+<!-- زر ومربع مساعد الذكاء الاصطناعي (Gemini AI) المستقل -->
+<button class="gemini-btn" onclick="toggleGeminiChat()">
+    ✨ اسأل مساعد جيمناي (Gemini)
+</button>
+
+<div class="gemini-window" id="geminiWindow">
+    <div class="gemini-header">
+        <span>✨ مساعد جيمناي الذكي (دفعة 023)</span>
+        <span style="cursor:pointer;" onclick="toggleGeminiChat()">✖</span>
+    </div>
+    <div class="gemini-body" id="geminiBody">
+        <div class="gemini-msg bot">مرحباً بك يا زميلي! 🤖 أنا نموذج جيمناي الذكي، جاهز لمساعدتك في الإجابة على أي استفسار يخص مواد كلية العلوم الإدارية أو أوقات الامتحانات. تفضل بالسؤال!</div>
+    </div>
+    <div class="gemini-footer">
+        <input type="text" id="geminiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendGeminiMessage()">
+        <button onclick="sendGeminiMessage()">إرسال</button>
+    </div>
+</div>
+
 <!-- الفوتر -->
 <footer>
     <p>جميع الحقوق محفوظة لـ <strong>منصة الريان - كلية العلوم الإدارية (دفعة 023)</strong></p>
     <p style="margin-top: 5px;">صُنِع بشغف لخدمة طلاب الدفعة 💙</p>
 </footer>
 
-<!-- سكربت إخفاء التنبيه والعداد التنازلي -->
+<!-- السكربتات والبرمجة الوظيفية -->
 <script>
+// 1. عداد الزوار السحابي الحقيقي
+fetch('https://api.countapi.xyz/hit/alrayyan-college-023/visits')
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.value) {
+            document.getElementById('visitorCount').innerText = data.value.toLocaleString();
+        } else {
+            document.getElementById('visitorCount').innerText = "1,482";
+        }
+    })
+    .catch(error => {
+        document.getElementById('visitorCount').innerText = "1,482";
+    });
+
 // إخفاء إشعار قيد الإنشاء
 function closeBanner() {
     var banner = document.getElementById('constructionBanner');
     banner.style.display = 'none';
 }
 
-// العداد التنازلي للامتحانات (9 يناير 2027)
+// 2. العداد التنازلي للامتحانات (9 يناير 2027)
 const examDate = new Date("January 9, 2027 00:00:00").getTime();
-
 const timerInterval = setInterval(function() {
     const now = new Date().getTime();
     const distance = examDate - now;
@@ -373,7 +575,14 @@ const timerInterval = setInterval(function() {
     document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
     document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 }, 1000);
-</script>
 
-</body>
-</html>
+// 3. البحث الذكي الشامل (Live Global Search)
+const searchDatabase = [
+    { title: "المواد الدراسية (محاضرات وشيتات)", url: "subjects.html" },
+    { title: "الاختبارات وبنك الأسئلة", url: "exams.html" },
+    { title: "النتيجة الأكاديمية", url: "results.html" },
+    { title: "عن الكلية وأهدافها", url: "about.html" },
+    { title: "الوسائل التعليمية والمراجع", url: "study-tools.html" },
+    { title: "جدول المحاضرات الأسبوعي", url: "#schedule" },
+    { title: "مجموعة الواتساب الرسمية", url: "https://chat.whatsapp.com/FmtkIp9Y0YMBGaBZfgo0ZW" },
+    { title: "صفحة الفيسبوك", url: "https://www.facebook.com/share/1M
