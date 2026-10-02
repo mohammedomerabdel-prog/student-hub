@@ -287,9 +287,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: var(--primary-dark);
+            background: #229ED9; /* لون التليجرام */
             color: white;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-radius: 10px;
             font-weight: 700;
             font-size: 13px;
@@ -297,7 +297,7 @@
         }
 
         .resource-btn:hover {
-            background: var(--accent-gold);
+            background: #1b85b8;
         }
 
         /* AI CHATBOT BUTTON & WINDOW */
@@ -435,7 +435,7 @@
                 <a href="./index.html">الرئيسية</a>
                 <a href="./subjects.html" class="active">المواد</a>
                 <a href="./exams.html">الامتحانات</a>
-                <a href="https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97" target="_blank">المكتبة</a>
+                <a href="https://t.me/+R0yZYZkZA6lkNWJk" target="_blank">قناة الدفعة</a>
                 <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الليلي</button>
             </nav>
         </div>
@@ -443,8 +443,8 @@
 
     <main class="container">
         <div class="page-title">
-            <h1>📚 المواد الدراسية المقررة</h1>
-            <p>اختر أياً من المواد الـ 9 لعرض الشرح المبسط وتحميل الملخصات والشيتات</p>
+            <h1>📚 المواد الدراسية وقنوات التليجرام</h1>
+            <p>اختر أياً من المواد الـ 9 للوصول المباشر للمحاضرات والشيتات عبر تليجرام</p>
         </div>
 
         <div class="search-box">
@@ -454,17 +454,17 @@
         <div class="subjects-grid" id="subjectsGrid">
 
             <!-- مادة 1 -->
-            <div class="subject-card" onclick="openSubjectModal('مبادئ الإدارة', 'تتناول هذه المادة أساسيات العمليات الإدارية: التخطيط، التنظيم، التوجيه، والرقابة، وكيفية إدارة المؤسسات بنجاح.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مبادئ الإدارة', 'تتناول هذه المادة أساسيات العمليات الإدارية: التخطيط، التنظيم، التوجيه، والرقابة.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>مبادئ الإدارة</h3>
                     <p>التخطيط، التنظيم، والرقابة</p>
-                    <span class="badge">ملخص + شيتات</span>
+                    <span class="badge">محاضرات + شيتات</span>
                 </div>
                 <div class="subject-icon">📊</div>
             </div>
 
             <!-- مادة 2 -->
-            <div class="subject-card" onclick="openSubjectModal('مبادئ المحاسبة (1)', 'شرح القوائم المالية، القيود المحاسبية، وميزان المراجعة وتطبيق الدورة المحاسبية الكاملة.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مبادئ المحاسبة (1)', 'شرح القوائم المالية، القيود المحاسبية، وميزان المراجعة.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>مبادئ المحاسبة (1)</h3>
                     <p>القيود والدورة المحاسبية</p>
@@ -474,7 +474,7 @@
             </div>
 
             <!-- مادة 3 -->
-            <div class="subject-card" onclick="openSubjectModal('مبادئ الاقتصاد الجزئي', 'دراسة سلوك المستهلك، العرض والطلب، وتوازن السوق وآليات تحديد الأسعار.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مبادئ الاقتصاد الجزئي', 'دراسة سلوك المستهلك، العرض والطلب، وتوازن السوق.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>الاقتصاد الجزئي</h3>
                     <p>العرض والطلب وسلوك المستهلك</p>
@@ -484,7 +484,7 @@
             </div>
 
             <!-- مادة 4 -->
-            <div class="subject-card" onclick="openSubjectModal('مبادئ التسويق', 'مفهوم المزيج التسويقي (المنتج، السعر، الترويج، التوزيع) وكيفية دراسة السوق والعملاء.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مبادئ التسويق', 'مفهوم المزيج التسويقي وكيفية دراسة السوق والعملاء.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>مبادئ التسويق</h3>
                     <p>المزيج التسويقي وسلوك المستهلك</p>
@@ -494,7 +494,7 @@
             </div>
 
             <!-- مادة 5 -->
-            <div class="subject-card" onclick="openSubjectModal('مبادئ الإحصاء الإداري', 'طرق جمع البيانات، العرض البياني، المقاييس الإحصائية والتنبؤ في القرارات الإدارية.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مبادئ الإحصاء الإداري', 'طرق جمع البيانات، العرض البياني، والمقاييس الإحصائية.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>الإحصاء الإداري</h3>
                     <p>الاحتمالات والتحليل الإحصائي</p>
@@ -504,7 +504,7 @@
             </div>
 
             <!-- مادة 6 -->
-            <div class="subject-card" onclick="openSubjectModal('مقدمة في القانون التجاري', 'دراسة القوانين المنظمة للأعمال التجارية، العقود، والأوراق التجارية والشركات.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('مقدمة في القانون التجاري', 'دراسة القوانين المنظمة للأعمال التجارية والعقود.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>القانون التجاري</h3>
                     <p>التشريعات والعقود التجارية</p>
@@ -514,7 +514,7 @@
             </div>
 
             <!-- مادة 7 -->
-            <div class="subject-card" onclick="openSubjectModal('السلوك التنظيمي', 'دراسة سلوك الأفراد والجماعات داخل منظمة العمل وأثر القيادة والتحفيز.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('السلوك التنظيمي', 'دراسة سلوك الأفراد والجماعات داخل منظمة العمل.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>السلوك التنظيمي</h3>
                     <p>الدوافع والقيادة بالمنظمات</p>
@@ -524,7 +524,7 @@
             </div>
 
             <!-- مادة 8 -->
-            <div class="subject-card" onclick="openSubjectModal('تطبيقات الحاسوب في الإدارة', 'استخدام البرامج المكتبية وتحليل البيانات عبر Excel في اتخاذ القرارات الإدارية.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('تطبيقات الحاسوب في الإدارة', 'استخدام البرامج المكتبية وتحليل البيانات عبر Excel.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>تطبيقات الحاسوب</h3>
                     <p>إكسل والنظم الإدارية</p>
@@ -534,7 +534,7 @@
             </div>
 
             <!-- مادة 9 -->
-            <div class="subject-card" onclick="openSubjectModal('اللغة الإنجليزية الإدارية', 'المصطلحات الإدارية باللغة الإنجليزية وقراءة النصوص والمصطلحات التخصصية.', 'https://drive.google.com/drive/folders/1Mu4BRu5iLaPvIiA6XfWM5YFkRIrK0t97')">
+            <div class="subject-card" onclick="openSubjectModal('اللغة الإنجليزية الإدارية', 'المصطلحات الإدارية باللغة الإنجليزية وقراءة النصوص.', 'https://t.me/+R0yZYZkZA6lkNWJk', 'https://t.me/+R0yZYZkZA6lkNWJk')">
                 <div class="subject-info">
                     <h3>مصطلحات إنجليزية</h3>
                     <p>Business English Terms</p>
@@ -558,13 +558,13 @@
                 شرح مبسط عن المادة وفكرتها العامة...
             </div>
             <div class="resources-list">
-                <a href="#" id="mDriveLink" target="_blank" class="resource-btn">
-                    <span>📄 تحميل ملخص المحاضرات</span>
-                    <span>تحميل 📥</span>
+                <a href="#" id="mTelegramLink1" target="_blank" class="resource-btn">
+                    <span>📢 المحاضرات والشرح (تليجرام)</span>
+                    <span>انتقال 🚀</span>
                 </a>
-                <a href="#" id="mDriveLink2" target="_blank" class="resource-btn" style="background:var(--accent-gold);">
-                    <span>📝 تحميل شيت المراجعة والأسئلة</span>
-                    <span>تحميل 📥</span>
+                <a href="#" id="mTelegramLink2" target="_blank" class="resource-btn" style="background:var(--accent-gold);">
+                    <span>📝 الشيتات والمراجعات (تليجرام)</span>
+                    <span>انتقال 🚀</span>
                 </a>
             </div>
         </div>
@@ -582,7 +582,7 @@
             <span style="cursor:pointer;" onclick="toggleAiChat()">✖</span>
         </div>
         <div class="ai-messages" id="aiMessages">
-            <div class="msg-bot">أهلاً بك! 👋 اسألني عن أي مادة من المواد الـ 9 وسأوجهك لملخصاتها وشرحها فوراً!</div>
+            <div class="msg-bot">أهلاً بك! 👋 اسألني عن أي مادة وسأرشدك لروابطها على التليجرام فوراً!</div>
         </div>
         <div class="ai-input-area">
             <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter') sendAiMessage()">
@@ -605,6 +605,11 @@
             btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ الوضع المضيء' : '🌙 الوضع الليلي';
         }
 
-        // تفاصيل المادة في Popup
-        function openSubjectModal(title, desc, link) {
-            document
+        // فتح نافذة تفاصيل المادة
+        function openSubjectModal(title, desc, link1, link2) {
+            document.getElementById('mTitle').innerText = title;
+            document.getElementById('mDesc').innerText = desc;
+            document.getElementById('mTelegramLink1').href = link1;
+            document.getElementById('mTelegramLink2').href = link2;
+            document.getElementById('subjectModal').style.display = 'flex';
+    
