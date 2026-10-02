@@ -147,9 +147,10 @@ section{margin-bottom:45px;}
 .section-title h2{color:var(--primary);font-size:28px;font-weight:800;margin-bottom:5px;}
 .section-title p{color:var(--muted);font-size:15px;}
 
+/* صندوق العداد التنازلي */
 .countdown-box{
     background:linear-gradient(135deg, var(--primary), var(--primary2));
-    color: white;border-radius: 24px;padding: 30px;text-align: center;margin-bottom: 35px;
+    color: white;border-radius: 24px;padding: 30px;text-align: center;margin-bottom: 25px;
     max-width: 750px;margin-left: auto;margin-right: auto;box-shadow: 0 15px 35px rgba(15,23,42,0.15);
 }
 .countdown-box h3{font-size: 22px;color: var(--gold);margin-bottom: 20px;font-weight: 700;}
@@ -160,6 +161,56 @@ section{margin-bottom:45px;}
 }
 .time-card span{display: block;font-size: 26px;font-weight: 800;color: var(--gold);}
 .time-card label{font-size: 13px;color: #cbd5e1;}
+
+/* صندوق عمر المنصة */
+.platform-age-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    max-width: 750px;
+    margin: 0 auto 35px;
+    transition: background 0.3s ease;
+}
+.platform-age-box h4 {
+    color: var(--primary2);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.platform-age-box p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.platform-age-timers {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.age-card {
+    background: #f1f5f9;
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 12px;
+    min-width: 70px;
+}
+body.dark-mode .age-card {
+    background: #1e293b;
+}
+.age-card span {
+    display: block;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+}
+.age-card label {
+    font-size: 12px;
+    color: var(--muted);
+}
 
 .hero{
     background:var(--white);border-radius:24px;padding:45px 30px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);
@@ -312,6 +363,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <main class="container">
 
 <section>
+    <!-- العداد التنازلي لبداية الامتحانات -->
     <div class="countdown-box">
         <h3>⏳ العداد التنازلي لبداية الامتحانات (9 يناير 2027)</h3>
         <div class="countdown-timers">
@@ -319,6 +371,18 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
             <div class="time-card"><span id="hours">00</span><label>ساعة</label></div>
             <div class="time-card"><span id="minutes">00</span><label>دقيقة</label></div>
             <div class="time-card"><span id="seconds">00</span><label>ثانية</label></div>
+        </div>
+    </div>
+
+    <!-- عداد عمر المنصة المستقل منذ 1 أكتوبر 2026 -->
+    <div class="platform-age-box">
+        <h4>🌐 عمر المنصة منذ الانطلاق</h4>
+        <p>موعد الإطلاق الرسمي: 1 أكتوبر 2026</p>
+        <div class="platform-age-timers">
+            <div class="age-card"><span id="age-days">00</span><label>يوم</label></div>
+            <div class="age-card"><span id="age-hours">00</span><label>ساعة</label></div>
+            <div class="age-card"><span id="age-minutes">00</span><label>دقيقة</label></div>
+            <div class="age-card"><span id="age-seconds">00</span><label>ثانية</label></div>
         </div>
     </div>
 </section>
@@ -350,7 +414,7 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 
     <div class="cards">
         <div class="card">
-            <div class="icon">🏛️</div>
+            <div class="icon">🏛️️</div>
             <h3>عن الكلية</h3>
             <p>تعرف على نبذة تفصيلية عن كلية العلوم الإدارية وأهدافها الأكاديمية.</p>
             <a class="btn" href="about.html">استعراض النبذة</a>
@@ -469,121 +533,4 @@ footer{background:var(--primary);color:white;text-align:center;padding:45px 20px
 <button id="backToTop" title="العودة للأعلى">⬆</button>
 
 <div class="modal" id="aboutModal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h3>من نحن 🎓</h3>
-        <p>منصة الريان هي منصة طلابية تعليمية متكاملة تهدف إلى تسهيل الوصول للملفات والمراجع وخدمة طلاب دفعة 023 بكلية العلوم الإدارية.</p>
-        <div class="creators-box">
-            <p>✨ <strong>المؤسس:</strong> عمر عبد المنعم محمد احمد</p>
-            <p>✨ <strong>الزميلة المشاركة:</strong> ريان عبد المطلب البشير</p>
-        </div>
-    </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. الوضع الليلي والصباحي
-    const themeBtn = document.getElementById('themeToggleBtn');
-    if (themeBtn) {
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeBtn.innerText = '☀️ الوضع الصباحي';
-        }
-
-        themeBtn.addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeBtn.innerText = '☀️ الوضع الصباحي';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeBtn.innerText = '🌙 الوضع الليلي';
-            }
-        });
-    }
-
-    // 2. نافذة "من نحن"
-    const aboutBtn = document.getElementById('aboutUsBtn');
-    const aboutModal = document.getElementById('aboutModal');
-    const closeBtn = document.getElementById('closeModalBtn');
-
-    if (aboutBtn && aboutModal) {
-        aboutBtn.addEventListener('click', function() {
-            aboutModal.style.display = 'flex';
-        });
-    }
-
-    if (closeBtn && aboutModal) {
-        closeBtn.addEventListener('click', function() {
-            aboutModal.style.display = 'none';
-        });
-    }
-
-    window.addEventListener('click', function(event) {
-        if (event.target === aboutModal) {
-            aboutModal.style.display = 'none';
-        }
-    });
-
-    // 3. مشاركة المنصة
-    const shareBtn = document.getElementById('shareSiteBtn');
-    if (shareBtn) {
-        shareBtn.addEventListener('click', function() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'منصة الريان - دفعة 023',
-                    text: 'تفضل بزيارة منصة الريان الطلابية لكلية العلوم الإدارية دفعة 023',
-                    url: window.location.href,
-                }).catch(() => {});
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('تم نسخ رابط المنصة بنجاح! 🔗');
-                }).catch(() => {
-                    prompt('رابط المنصة:', window.location.href);
-                });
-            }
-        });
-    }
-
-    // 4. زر العودة للأعلى
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', function() {
-        if (backToTopBtn) {
-            if (window.scrollY > 200) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        }
-    });
-
-    if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // 5. العداد التنازلي للامتحانات (9 يناير 2027)
-    const examDate = new Date("January 9, 2027 00:00:00").getTime();
-    setInterval(function() {
-        const now = new Date().getTime();
-        const distance = examDate - now;
-
-        if (distance > 0) {
-            const d = document.getElementById("days");
-            const h = document.getElementById("hours");
-            const m = document.getElementById("minutes");
-            const s = document.getElementById("seconds");
-            if(d) d.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            if(h) h.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            if(m) m.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            if(s) s.innerText = Math.floor((distance % (1000 * 60)) / 1000);
-        }
-    }, 1000);
-
-});
-</script>
-
-</body>
-</html>
+    <div class="mod
