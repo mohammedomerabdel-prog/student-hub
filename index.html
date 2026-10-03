@@ -495,7 +495,6 @@ section{
     background:linear-gradient(135deg,#14b8a6,#0d9488);
 }
 
-/* كرت السبق الصحفي */
 .card .icon.icon-news{
     background:linear-gradient(135deg,#ef4444,#b91c1c);
 }
@@ -930,9 +929,10 @@ footer{
             <span>طالب وطالبة</span>
         </div>
 
+        <!-- خانة عداد الزيارات المضافة حديثاً -->
         <div class="stat">
-            <strong>023 / 024</strong>
-            <span>الدفعة الدراسية</span>
+            <strong id="visitorCount">1250</strong>
+            <span>إجمالي زيارات المنصة</span>
         </div>
 
         <div class="stat">
@@ -998,7 +998,6 @@ footer{
         </div>
 
 
-        <!-- كرت السبق الصحفي -->
         <div class="card searchable-item">
 
             <div class="icon icon-news">📰</div>
@@ -1294,7 +1293,7 @@ footer{
 
             <p>
                 ✨ <strong>المؤسس:</strong>
-                عمر عبد المنعم محمد احمد
+                Omer Abd El Moniem Mohammed
             </p>
 
             <p>
@@ -1312,6 +1311,24 @@ footer{
 <script>
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    /* عداد زوار الموقع */
+    function initVisitorCounter() {
+        let visits = localStorage.getItem("platform_visits");
+        if (!visits) {
+            visits = 1250; // الرقم الابتدائي للزيارات
+        }
+        if (!sessionStorage.getItem("visited_session")) {
+            visits = parseInt(visits) + 1;
+            localStorage.setItem("platform_visits", visits);
+            sessionStorage.setItem("visited_session", "true");
+        }
+        const visitorEl = document.getElementById("visitorCount");
+        if (visitorEl) {
+            visitorEl.innerText = visits;
+        }
+    }
+    initVisitorCounter();
 
     /* حساب عمر المنصة منذ 1 أكتوبر 2026 */
     function updatePlatformAge() {
@@ -1336,368 +1353,187 @@ document.addEventListener("DOMContentLoaded", function(){
     updatePlatformAge();
 
     /* إغلاق نافذة التنبيه */
-
-    const noticeModal =
-        document.getElementById('noticeModal');
-
-    const confirmNoticeBtn =
-        document.getElementById('confirmNoticeBtn');
+    const noticeModal = document.getElementById('noticeModal');
+    const confirmNoticeBtn = document.getElementById('confirmNoticeBtn');
 
     if(confirmNoticeBtn && noticeModal){
-
         confirmNoticeBtn.addEventListener('click',function(){
-
             noticeModal.style.display='none';
-
         });
-
     }
 
-
     /* الوضع الليلي والصباحي */
-
-    const themeBtn =
-        document.getElementById('themeToggleBtn');
+    const themeBtn = document.getElementById('themeToggleBtn');
 
     if(themeBtn){
-
-        const currentTheme =
-            localStorage.getItem('theme');
+        const currentTheme = localStorage.getItem('theme');
 
         if(currentTheme === 'dark'){
-
             document.body.classList.add('dark-mode');
-
-            themeBtn.innerText =
-                '☀️ الوضع الصباحي';
-
+            themeBtn.innerText = '☀️ الوضع الصباحي';
         }
 
         themeBtn.addEventListener('click',function(){
-
             document.body.classList.toggle('dark-mode');
 
             if(document.body.classList.contains('dark-mode')){
-
                 localStorage.setItem('theme','dark');
-
-                themeBtn.innerText =
-                    '☀️ الوضع الصباحي';
-
+                themeBtn.innerText = '☀️ الوضع الصباحي';
             }else{
-
                 localStorage.setItem('theme','light');
-
-                themeBtn.innerText =
-                    '🌙 الوضع الليلي';
-
+                themeBtn.innerText = '🌙 الوضع الليلي';
             }
-
         });
-
     }
 
-
     /* محرك البحث */
-
-    const searchInput =
-        document.getElementById('siteSearchInput');
-
-    const clearBtn =
-        document.getElementById('clearSearchBtn');
-
-    const noResults =
-        document.getElementById('noResultsMsg');
+    const searchInput = document.getElementById('siteSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const noResults = document.getElementById('noResultsMsg');
 
     if(searchInput){
-
         searchInput.addEventListener('input',function(){
-
-            const query =
-                this.value.trim().toLowerCase();
+            const query = this.value.trim().toLowerCase();
 
             if(query.length > 0){
-
                 clearBtn.style.display='block';
-
             }else{
-
                 clearBtn.style.display='none';
-
             }
 
             let totalMatches=0;
-
-            const sections =
-                document.querySelectorAll('.searchable-section');
+            const sections = document.querySelectorAll('.searchable-section');
 
             sections.forEach(function(section){
-
-                const items =
-                    section.querySelectorAll('.searchable-item');
-
+                const items = section.querySelectorAll('.searchable-item');
                 let visibleItemsInSection=0;
 
                 items.forEach(function(item){
-
-                    const text =
-                        item.textContent.toLowerCase();
+                    const text = item.textContent.toLowerCase();
 
                     if(query === '' || text.includes(query)){
-
                         item.style.display='';
-
                         visibleItemsInSection++;
-
                         totalMatches++;
-
                     }else{
-
                         item.style.display='none';
-
                     }
-
                 });
 
                 if(query === '' || visibleItemsInSection > 0){
-
                     section.style.display='';
-
                 }else{
-
                     section.style.display='none';
-
                 }
-
             });
 
             if(totalMatches === 0 && query !== ''){
-
                 noResults.style.display='block';
-
             }else{
-
                 noResults.style.display='none';
-
             }
-
         });
-
 
         clearBtn.addEventListener('click',function(){
-
             searchInput.value='';
-
-            searchInput.dispatchEvent(
-                new Event('input')
-            );
-
+            searchInput.dispatchEvent(new Event('input'));
             searchInput.focus();
-
         });
-
     }
 
-
     /* نافذة من نحن */
-
-    const aboutBtn =
-        document.getElementById('aboutUsBtn');
-
-    const aboutModal =
-        document.getElementById('aboutModal');
-
-    const closeModal =
-        document.getElementById('closeModalBtn');
+    const aboutBtn = document.getElementById('aboutUsBtn');
+    const aboutModal = document.getElementById('aboutModal');
+    const closeModal = document.getElementById('closeModalBtn');
 
     if(aboutBtn && aboutModal && closeModal){
-
         aboutBtn.addEventListener('click',function(){
-
             aboutModal.style.display='flex';
-
         });
 
         closeModal.addEventListener('click',function(){
-
             aboutModal.style.display='none';
-
         });
 
         window.addEventListener('click',function(e){
-
             if(e.target === aboutModal){
-
                 aboutModal.style.display='none';
-
             }
-
         });
-
     }
 
-
     /* مشاركة المنصة */
-
-    const shareBtn =
-        document.getElementById('shareSiteBtn');
+    const shareBtn = document.getElementById('shareSiteBtn');
 
     if(shareBtn){
-
         shareBtn.addEventListener('click',function(){
-
             const shareData = {
-
-                title:
-                    'منصة الريان الطلابية - جامعة بحري',
-
-                text:
-                    'منصة الريان التعليمية لطلاب دفعة 023 / 024 - كلية العلوم الإدارية بجامعة بحري',
-
-                url:
-                    window.location.href
-
+                title: 'منصة الريان الطلابية - جامعة بحري',
+                text: 'منصة الريان التعليمية لطلاب دفعة 023 / 024 - كلية العلوم الإدارية بجامعة بحري',
+                url: window.location.href
             };
 
             if(navigator.share){
-
                 navigator.share(shareData).catch(function(){});
-
             }else{
-
-                navigator.clipboard
-                .writeText(window.location.href)
+                navigator.clipboard.writeText(window.location.href)
                 .then(function(){
-
-                    alert(
-                        'تم نسخ رابط المنصة بنجاح!'
-                    );
-
+                    alert('تم نسخ رابط المنصة بنجاح!');
                 })
                 .catch(function(){
-
-                    alert(
-                        'الرابط: ' + window.location.href
-                    );
-
+                    alert('الرابط: ' + window.location.href);
                 });
-
             }
-
         });
-
     }
 
-
     /* العداد التنازلي */
-
-    const examDate =
-        new Date(
-            "January 9, 2027 00:00:00"
-        ).getTime();
-
+    const examDate = new Date("January 9, 2027 00:00:00").getTime();
 
     function updateCountdown(){
-
-        const now =
-            new Date().getTime();
-
-        const distance =
-            examDate - now;
+        const now = new Date().getTime();
+        const distance = examDate - now;
 
         if(distance < 0){
-
             document.getElementById("days").innerText="00";
             document.getElementById("hours").innerText="00";
             document.getElementById("minutes").innerText="00";
             document.getElementById("seconds").innerText="00";
-
             return;
-
         }
 
-        const days =
-            Math.floor(
-                distance /
-                (1000 * 60 * 60 * 24)
-            );
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const hours =
-            Math.floor(
-                (distance %
-                (1000 * 60 * 60 * 24)) /
-                (1000 * 60 * 60)
-            );
-
-        const minutes =
-            Math.floor(
-                (distance %
-                (1000 * 60 * 60)) /
-                (1000 * 60)
-            );
-
-        const seconds =
-            Math.floor(
-                (distance %
-                (1000 * 60)) /
-                1000
-            );
-
-
-        document.getElementById("days").innerText =
-            days < 10 ? "0" + days : days;
-
-        document.getElementById("hours").innerText =
-            hours < 10 ? "0" + hours : hours;
-
-        document.getElementById("minutes").innerText =
-            minutes < 10 ? "0" + minutes : minutes;
-
-        document.getElementById("seconds").innerText =
-            seconds < 10 ? "0" + seconds : seconds;
-
+        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
     }
 
-
     updateCountdown();
-
-    setInterval(
-        updateCountdown,
-        1000
-    );
-
+    setInterval(updateCountdown, 1000);
 
     /* زر العودة للأعلى */
-
-    const backToTopBtn =
-        document.getElementById('backToTop');
+    const backToTopBtn = document.getElementById('backToTop');
 
     if(backToTopBtn){
-
         window.addEventListener('scroll',function(){
-
             if(window.scrollY > 300){
-
                 backToTopBtn.style.display='flex';
-
             }else{
-
                 backToTopBtn.style.display='none';
-
             }
-
         });
 
-
         backToTopBtn.addEventListener('click',function(){
-
             window.scrollTo({
                 top:0,
                 behavior:'smooth'
             });
-
         });
-
     }
 
 });
