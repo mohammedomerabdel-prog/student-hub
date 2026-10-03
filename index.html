@@ -420,8 +420,8 @@ section{
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
     margin-top:25px;
 }
 
@@ -429,7 +429,7 @@ section{
     background:var(--white);
     border:1px solid var(--border);
     border-radius:20px;
-    padding:25px;
+    padding:20px 15px;
     text-align:center;
     box-shadow:var(--shadow);
     transition:background 0.3s ease;
@@ -437,14 +437,14 @@ section{
 
 .stat strong{
     display:block;
-    font-size:32px;
+    font-size:26px;
     color:var(--primary2);
     font-weight:900;
 }
 
 .stat span{
     color:var(--muted);
-    font-size:14px;
+    font-size:13px;
 }
 
 .cards{
@@ -803,7 +803,7 @@ footer{
 
 <div class="modal" id="noticeModal" style="display:flex;">
     <div class="modal-content">
-        <div style="font-size:45px;margin-bottom:10px;">⚠️️</div>
+        <div style="font-size:45px;margin-bottom:10px;">⚠</div>
         <h3>تنويه هام</h3>
         <p>مرحباً بكم! نود إحاطتكم بأنه جارٍ العمل على تطوير وتحديث منصة الريان باستمرار لخدمتكم بشكل أفضل.</p>
         <button class="btn-alert-confirm" id="confirmNoticeBtn" type="button">حسناً، الدخول للموقع 👍</button>
@@ -921,7 +921,7 @@ footer{
     <div class="stats searchable-item">
 
         <div class="stat">
-            <strong>9</strong>
+            <strong>8</strong>
             <span>مواد دراسية</span>
         </div>
 
@@ -933,6 +933,11 @@ footer{
         <div class="stat">
             <strong>023 / 024</strong>
             <span>الدفعة الدراسية</span>
+        </div>
+
+        <div class="stat">
+            <strong id="platformAge">0 يوم</strong>
+            <span>عمر المنصة</span>
         </div>
 
     </div>
@@ -1307,6 +1312,28 @@ footer{
 <script>
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    /* حساب عمر المنصة منذ 1 أكتوبر 2026 */
+    function updatePlatformAge() {
+        const launchDate = new Date("October 1, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
+        const diff = now - launchDate;
+
+        const ageEl = document.getElementById("platformAge");
+        if(ageEl) {
+            if(diff < 0) {
+                ageEl.innerText = "قريباً";
+            } else {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                if(days === 0) {
+                    ageEl.innerText = "اليوم الأول";
+                } else {
+                    ageEl.innerText = days + " يوم";
+                }
+            }
+        }
+    }
+    updatePlatformAge();
 
     /* إغلاق نافذة التنبيه */
 
